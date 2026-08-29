@@ -20,10 +20,6 @@
       min-height:100vh;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
     .topbar{
       min-height:82px;
       background:#0b4b3e;
@@ -69,7 +65,6 @@
 
     .admin-name{
       font-size:14px;
-      text-align:left;
     }
 
     .logout-btn{
@@ -86,10 +81,6 @@
       background:#c9a548;
       color:#073f34;
     }
-
-    /* =========================
-       MAIN
-    ========================= */
 
     .container{
       width:min(1250px,95%);
@@ -167,10 +158,6 @@
       padding:20px;
     }
 
-    /* =========================
-       FORM
-    ========================= */
-
     .form-group{
       margin-bottom:14px;
     }
@@ -219,10 +206,6 @@
       margin-top:5px;
     }
 
-    .save-btn:hover{
-      filter:brightness(.96);
-    }
-
     .save-btn:disabled{
       opacity:.6;
       cursor:not-allowed;
@@ -250,10 +233,6 @@
       background:#fdeaea;
     }
 
-    /* =========================
-       TABLE
-    ========================= */
-
     .table-tools{
       display:flex;
       align-items:center;
@@ -273,7 +252,7 @@
     table{
       width:100%;
       border-collapse:collapse;
-      min-width:850px;
+      min-width:900px;
     }
 
     th{
@@ -334,15 +313,16 @@
       color:white;
     }
 
+    .delete-btn{
+      background:#b93232;
+      color:white;
+    }
+
     .empty{
       padding:35px;
       color:#777;
       text-align:center;
     }
-
-    /* =========================
-       MODAL
-    ========================= */
 
     .modal{
       position:fixed;
@@ -402,10 +382,6 @@
       color:#555;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
     footer{
       padding:28px 10px;
       text-align:center;
@@ -419,7 +395,6 @@
     }
 
     @media(max-width:900px){
-
       .layout{
         grid-template-columns:1fr;
       }
@@ -445,7 +420,6 @@
         height:50px;
       }
     }
-
   </style>
 </head>
 
@@ -454,18 +428,14 @@
 <header class="topbar">
 
   <div class="brand">
-
     <img src="logo.jpeg" alt="شعار مدارس الفلاح">
-
     <div>
       <h1>مدارس الفلاح الأهلية</h1>
       <p>نظام الخطة الأسبوعية</p>
     </div>
-
   </div>
 
   <div class="admin-info">
-
     <div class="admin-name" id="adminName">
       لوحة الإدارة
     </div>
@@ -473,24 +443,16 @@
     <button class="logout-btn" id="logoutBtn">
       تسجيل الخروج
     </button>
-
   </div>
 
 </header>
 
-
 <main class="container">
 
   <div class="welcome">
-
     <h2>لوحة إدارة النظام</h2>
-
-    <p>
-      إدارة حسابات رواد الفصول وربط كل رائد بالفصل الخاص به.
-    </p>
-
+    <p>إدارة حسابات رواد الفصول وربط كل رائد بالفصل الخاص به.</p>
   </div>
-
 
   <div class="stats">
 
@@ -511,12 +473,7 @@
 
   </div>
 
-
   <div class="layout">
-
-    <!-- ======================
-         ADD LEADER
-    ======================= -->
 
     <section class="card">
 
@@ -529,23 +486,17 @@
         <form id="leaderForm">
 
           <div class="form-group">
-
             <label>اسم رائد الفصل</label>
-
             <input
               id="name"
               type="text"
               placeholder="مثال: أحمد محمد علي"
               required
             >
-
           </div>
 
-
           <div class="form-group">
-
             <label>اسم المستخدم</label>
-
             <input
               id="username"
               type="text"
@@ -553,14 +504,10 @@
               placeholder="مثال: ahmed6a"
               required
             >
-
           </div>
 
-
           <div class="form-group">
-
             <label>كلمة المرور</label>
-
             <input
               id="password"
               type="text"
@@ -573,71 +520,38 @@
             <div class="password-note">
               أعطِ اسم المستخدم وكلمة المرور لرائد الفصل.
             </div>
-
           </div>
 
-
           <div class="form-group">
-
             <label>المرحلة</label>
 
             <select id="stage" required>
-
-              <option value="">
-                اختر المرحلة
-              </option>
-
-              <option value="الابتدائية">
-                الابتدائية
-              </option>
-
-              <option value="المتوسطة">
-                المتوسطة
-              </option>
-
-              <option value="الثانوية">
-                الثانوية
-              </option>
-
+              <option value="">اختر المرحلة</option>
+              <option value="الابتدائية">الابتدائية</option>
+              <option value="المتوسطة">المتوسطة</option>
+              <option value="الثانوية">الثانوية</option>
             </select>
-
           </div>
 
-
           <div class="form-group">
-
             <label>الصف</label>
 
             <select id="grade" required>
-
-              <option value="">
-                اختر الصف
-              </option>
-
+              <option value="">اختر الصف</option>
             </select>
-
           </div>
 
-
           <div class="form-group">
-
             <label>الشعبة</label>
 
             <select id="section" required>
-
-              <option value="">
-                اختر الشعبة
-              </option>
-
+              <option value="">اختر الشعبة</option>
               <option value="أ">أ</option>
               <option value="ب">ب</option>
               <option value="ج">ج</option>
               <option value="د">د</option>
-
             </select>
-
           </div>
-
 
           <button
             type="submit"
@@ -647,22 +561,13 @@
             إنشاء حساب رائد الفصل
           </button>
 
-
-          <div
-            id="message"
-            class="message"
-          ></div>
+          <div id="message" class="message"></div>
 
         </form>
 
       </div>
 
     </section>
-
-
-    <!-- ======================
-         LEADERS
-    ======================= -->
 
     <section class="card">
 
@@ -673,14 +578,12 @@
       <div class="card-body">
 
         <div class="table-tools">
-
           <input
             class="search-box"
             id="searchInput"
             type="text"
             placeholder="بحث بالاسم أو اسم المستخدم..."
           >
-
         </div>
 
         <div class="table-wrap">
@@ -688,7 +591,6 @@
           <table>
 
             <thead>
-
               <tr>
                 <th>م</th>
                 <th>رائد الفصل</th>
@@ -699,17 +601,14 @@
                 <th>الحالة</th>
                 <th>إجراء</th>
               </tr>
-
             </thead>
 
             <tbody id="leadersTable">
-
               <tr>
                 <td colspan="8" class="empty">
                   جاري تحميل البيانات...
                 </td>
               </tr>
-
             </tbody>
 
           </table>
@@ -724,11 +623,6 @@
 
 </main>
 
-
-<!-- =========================
-     EDIT MODAL
-========================= -->
-
 <div class="modal" id="editModal">
 
   <div class="modal-box">
@@ -741,63 +635,36 @@
 
       <input type="hidden" id="editId">
 
-
       <div class="form-group">
-
         <label>الاسم</label>
-
         <input id="editName">
-
       </div>
 
-
       <div class="form-group">
-
         <label>المرحلة</label>
 
         <select id="editStage">
-
-          <option value="الابتدائية">
-            الابتدائية
-          </option>
-
-          <option value="المتوسطة">
-            المتوسطة
-          </option>
-
-          <option value="الثانوية">
-            الثانوية
-          </option>
-
+          <option value="الابتدائية">الابتدائية</option>
+          <option value="المتوسطة">المتوسطة</option>
+          <option value="الثانوية">الثانوية</option>
         </select>
-
       </div>
 
-
       <div class="form-group">
-
         <label>الصف</label>
-
         <select id="editGrade"></select>
-
       </div>
 
-
       <div class="form-group">
-
         <label>الشعبة</label>
 
         <select id="editSection">
-
           <option value="أ">أ</option>
           <option value="ب">ب</option>
           <option value="ج">ج</option>
           <option value="د">د</option>
-
         </select>
-
       </div>
-
 
       <div class="modal-actions">
 
@@ -823,41 +690,26 @@
 
 </div>
 
-
 <footer>
-
   مدارس الفلاح الأهلية
-
   <br>
-
   <strong>
     إعداد وتصميم محمد عامر أحمد
   </strong>
-
 </footer>
-
-
 
 <script type="module">
 
-/* ==================================================
-   FIREBASE
-================================================== */
-
 import {
   initializeApp
-} from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
   getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signOut
-} from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 import {
   getFirestore,
@@ -868,67 +720,28 @@ import {
   setDoc,
   updateDoc,
   serverTimestamp
-} from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
 const firebaseConfig = {
-
-  apiKey:
-  "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
-
-  authDomain:
-  "weekly-plan-3a743.firebaseapp.com",
-
-  projectId:
-  "weekly-plan-3a743",
-
-  storageBucket:
-  "weekly-plan-3a743.firebasestorage.app",
-
-  messagingSenderId:
-  "575884603803",
-
-  appId:
-  "1:575884603803:web:e8c4d82c69fd545bed313e"
-
+  apiKey: "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
+  authDomain: "weekly-plan-3a743.firebaseapp.com",
+  projectId: "weekly-plan-3a743",
+  storageBucket: "weekly-plan-3a743.firebasestorage.app",
+  messagingSenderId: "575884603803",
+  appId: "1:575884603803:web:e8c4d82c69fd545bed313e"
 };
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-/*
-  التطبيق الرئيسي = حساب الأدمن
-*/
-
-const app =
-initializeApp(firebaseConfig);
-
-const auth =
-getAuth(app);
-
-const db =
-getFirestore(app);
-
-
-/*
-  تطبيق Firebase ثانوي.
-
-  نستخدمه لإنشاء حساب رائد الفصل
-  حتى لا يتم تسجيل خروج الأدمن.
-*/
-
-const secondaryApp =
-initializeApp(
+const secondaryApp = initializeApp(
   firebaseConfig,
   "SecondaryApp"
 );
 
-const secondaryAuth =
-getAuth(secondaryApp);
-
-
-/* ==================================================
-   ELEMENTS
-================================================== */
+const secondaryAuth = getAuth(secondaryApp);
 
 const leaderForm =
 document.getElementById("leaderForm");
@@ -969,13 +782,8 @@ document.getElementById("logoutBtn");
 const searchInput =
 document.getElementById("searchInput");
 
-
 let leaders = [];
 
-
-/* ==================================================
-   GRADES
-================================================== */
 
 const gradesByStage = {
 
@@ -1008,9 +816,7 @@ function fillGrades(stageValue,target){
   target.innerHTML =
   `<option value="">اختر الصف</option>`;
 
-
   if(!stageValue) return;
-
 
   gradesByStage[stageValue]
   .forEach(item => {
@@ -1041,10 +847,6 @@ stage.addEventListener(
 );
 
 
-/* ==================================================
-   AUTH PROTECTION
-================================================== */
-
 onAuthStateChanged(
   auth,
   async(user) => {
@@ -1058,7 +860,6 @@ onAuthStateChanged(
 
     }
 
-
     try{
 
       const userSnap =
@@ -1069,7 +870,6 @@ onAuthStateChanged(
           user.uid
         )
       );
-
 
       if(!userSnap.exists()){
 
@@ -1082,10 +882,8 @@ onAuthStateChanged(
 
       }
 
-
       const data =
       userSnap.data();
-
 
       if(
         data.role !== "admin" ||
@@ -1101,13 +899,10 @@ onAuthStateChanged(
 
       }
 
-
       adminName.textContent =
       data.name || "مدير النظام";
 
-
       await loadLeaders();
-
 
     }
     catch(error){
@@ -1124,10 +919,6 @@ onAuthStateChanged(
 );
 
 
-/* ==================================================
-   LOGOUT
-================================================== */
-
 logoutBtn.addEventListener(
   "click",
   async() => {
@@ -1141,10 +932,6 @@ logoutBtn.addEventListener(
 );
 
 
-/* ==================================================
-   MESSAGE
-================================================== */
-
 function showMessage(text,type){
 
   message.textContent = text;
@@ -1152,20 +939,12 @@ function showMessage(text,type){
   message.className =
   "message " + type;
 
-
   setTimeout(() => {
-
-    message.className =
-    "message";
-
+    message.className = "message";
   },5000);
 
 }
 
-
-/* ==================================================
-   ADD LEADER
-================================================== */
 
 leaderForm.addEventListener(
   "submit",
@@ -1173,13 +952,11 @@ leaderForm.addEventListener(
 
     event.preventDefault();
 
-
     const name =
     document
     .getElementById("name")
     .value
     .trim();
-
 
     const username =
     document
@@ -1189,12 +966,10 @@ leaderForm.addEventListener(
     .toLowerCase()
     .replace(/\s+/g,"");
 
-
     const password =
     document
     .getElementById("password")
     .value;
-
 
     const stageValue =
     stage.value;
@@ -1204,7 +979,6 @@ leaderForm.addEventListener(
 
     const sectionValue =
     section.value;
-
 
     if(
       !name ||
@@ -1224,7 +998,6 @@ leaderForm.addEventListener(
 
     }
 
-
     if(password.length < 6){
 
       showMessage(
@@ -1235,12 +1008,6 @@ leaderForm.addEventListener(
       return;
 
     }
-
-
-    /*
-       نمنع المسافات والرموز الغريبة
-       في اسم المستخدم
-    */
 
     if(
       !/^[a-zA-Z0-9._-]+$/.test(username)
@@ -1255,7 +1022,6 @@ leaderForm.addEventListener(
 
     }
 
-
     try{
 
       saveBtn.disabled = true;
@@ -1263,54 +1029,40 @@ leaderForm.addEventListener(
       saveBtn.textContent =
       "جاري إنشاء الحساب...";
 
-
-      /*
-        التأكد من عدم تكرار
-        اسم المستخدم أو الفصل
-      */
-
       const existingUsers =
       await getDocs(
         collection(db,"users")
       );
 
-
       let usernameExists = false;
-
       let classExists = false;
-
 
       existingUsers.forEach(item => {
 
         const data =
         item.data();
 
-
         if(
           data.username &&
           data.username.toLowerCase()
-          === username
+          === username &&
+          data.deleted !== true
         ){
-
           usernameExists = true;
-
         }
-
 
         if(
           data.role === "classLeader" &&
+          data.deleted !== true &&
           data.active !== false &&
           data.stage === stageValue &&
           data.grade === gradeValue &&
           data.section === sectionValue
         ){
-
           classExists = true;
-
         }
 
       });
-
 
       if(usernameExists){
 
@@ -1323,7 +1075,6 @@ leaderForm.addEventListener(
 
       }
 
-
       if(classExists){
 
         showMessage(
@@ -1335,21 +1086,9 @@ leaderForm.addEventListener(
 
       }
 
-
-      /*
-        المستخدم لا يرى هذا الإيميل.
-        هو يدخل فقط باسم المستخدم.
-      */
-
       const internalEmail =
       username +
       "@weeklyplan.local";
-
-
-      /*
-        إنشاء الحساب في Authentication
-        باستخدام التطبيق الثانوي
-      */
 
       const credential =
       await createUserWithEmailAndPassword(
@@ -1358,111 +1097,67 @@ leaderForm.addEventListener(
         password
       );
 
-
       const uid =
       credential.user.uid;
 
+      await setDoc(
+        doc(
+          db,
+          "users",
+          uid
+        ),
+        {
 
-      /*
-        حفظ بيانات رائد الفصل
-        في Firestore
-      */
+          name:name,
 
-      try{
+          username:username,
 
-        await setDoc(
-          doc(
-            db,
-            "users",
-            uid
-          ),
-          {
+          role:"classLeader",
 
-            name:name,
+          stage:stageValue,
 
-            username:username,
+          grade:gradeValue,
 
-            role:"classLeader",
+          section:sectionValue,
 
-            stage:stageValue,
+          active:true,
 
-            grade:gradeValue,
+          deleted:false,
 
-            section:sectionValue,
+          email:internalEmail,
 
-            active:true,
+          createdAt:
+          serverTimestamp(),
 
-            email:internalEmail,
+          createdBy:
+          auth.currentUser.uid
 
-            createdAt:
-            serverTimestamp(),
-
-            createdBy:
-            auth.currentUser.uid
-
-          }
-        );
-
-      }
-      catch(firestoreError){
-
-        console.error(
-          "Firestore:",
-          firestoreError
-        );
-
-
-        /*
-          لا نخفي المشكلة:
-          الحساب أصبح موجودا في Auth
-          ولكن لم تُحفظ بياناته.
-        */
-
-        showMessage(
-          "تم إنشاء حساب الدخول، لكن حدث خطأ أثناء حفظ بياناته في Firestore.",
-          "error"
-        );
-
-        return;
-
-      }
-
-
-      /*
-        تسجيل خروج التطبيق الثانوي فقط.
-        الأدمن يظل مسجلا.
-      */
+        }
+      );
 
       await signOut(
         secondaryAuth
       );
-
 
       showMessage(
         "تم إنشاء حساب رائد الفصل بنجاح ✅",
         "success"
       );
 
-
       leaderForm.reset();
-
 
       grade.innerHTML =
       `<option value="">اختر الصف</option>`;
 
-
       await loadLeaders();
-
 
     }
     catch(error){
 
       console.error(error);
 
-
       let text =
       "حدث خطأ أثناء إنشاء الحساب.";
-
 
       if(
         error.code ===
@@ -1470,10 +1165,9 @@ leaderForm.addEventListener(
       ){
 
         text =
-        "اسم المستخدم مستخدم بالفعل.";
+        "اسم المستخدم مستخدم بالفعل في Authentication.";
 
       }
-
 
       else if(
         error.code ===
@@ -1485,7 +1179,6 @@ leaderForm.addEventListener(
 
       }
 
-
       else if(
         error.code ===
         "auth/invalid-email"
@@ -1496,7 +1189,6 @@ leaderForm.addEventListener(
 
       }
 
-
       else if(
         error.code ===
         "auth/network-request-failed"
@@ -1506,7 +1198,6 @@ leaderForm.addEventListener(
         "تعذر الاتصال بالإنترنت.";
 
       }
-
 
       showMessage(
         text,
@@ -1527,10 +1218,6 @@ leaderForm.addEventListener(
 );
 
 
-/* ==================================================
-   LOAD LEADERS
-================================================== */
-
 async function loadLeaders(){
 
   try{
@@ -1544,36 +1231,31 @@ async function loadLeaders(){
       </tr>
     `;
 
-
     const snapshot =
     await getDocs(
       collection(db,"users")
     );
 
-
     leaders = [];
-
 
     snapshot.forEach(item => {
 
       const data =
       item.data();
 
-
-      if(data.role === "classLeader"){
+      if(
+        data.role === "classLeader" &&
+        data.deleted !== true
+      ){
 
         leaders.push({
-
           id:item.id,
-
           ...data
-
         });
 
       }
 
     });
-
 
     leaders.sort(
       (a,b) =>
@@ -1584,17 +1266,14 @@ async function loadLeaders(){
       )
     );
 
-
     updateStats();
 
     renderLeaders(leaders);
-
 
   }
   catch(error){
 
     console.error(error);
-
 
     leadersTable.innerHTML =
     `
@@ -1610,15 +1289,10 @@ async function loadLeaders(){
 }
 
 
-/* ==================================================
-   STATS
-================================================== */
-
 function updateStats(){
 
   totalCount.textContent =
   leaders.length;
-
 
   const active =
   leaders.filter(
@@ -1626,20 +1300,14 @@ function updateStats(){
     item.active !== false
   ).length;
 
-
   activeCount.textContent =
   active;
-
 
   inactiveCount.textContent =
   leaders.length - active;
 
 }
 
-
-/* ==================================================
-   RENDER TABLE
-================================================== */
 
 function renderLeaders(items){
 
@@ -1658,9 +1326,7 @@ function renderLeaders(items){
 
   }
 
-
   leadersTable.innerHTML = "";
-
 
   items.forEach(
     (item,index) => {
@@ -1668,10 +1334,8 @@ function renderLeaders(items){
       const tr =
       document.createElement("tr");
 
-
       const isActive =
       item.active !== false;
-
 
       tr.innerHTML =
       `
@@ -1701,21 +1365,17 @@ function renderLeaders(items){
         </td>
 
         <td>
-
           <span class="badge ${
             isActive
             ? "active"
             : "inactive"
           }">
-
             ${
               isActive
               ? "مفعل"
               : "موقوف"
             }
-
           </span>
-
         </td>
 
         <td>
@@ -1731,34 +1391,33 @@ function renderLeaders(items){
             class="action-btn toggle-btn"
             data-toggle="${item.id}"
           >
-
             ${
               isActive
               ? "إيقاف"
               : "تفعيل"
             }
+          </button>
 
+          <button
+            class="action-btn delete-btn"
+            data-delete="${item.id}"
+          >
+            حذف
           </button>
 
         </td>
 
       `;
 
-
       leadersTable.appendChild(tr);
 
     }
   );
 
-
   bindTableButtons();
 
 }
 
-
-/* ==================================================
-   SECURITY FOR DISPLAY
-================================================== */
 
 function escapeHTML(value){
 
@@ -1772,10 +1431,6 @@ function escapeHTML(value){
 }
 
 
-/* ==================================================
-   SEARCH
-================================================== */
-
 searchInput.addEventListener(
   "input",
   () => {
@@ -1784,7 +1439,6 @@ searchInput.addEventListener(
     searchInput.value
     .trim()
     .toLowerCase();
-
 
     const filtered =
     leaders.filter(item => {
@@ -1810,16 +1464,11 @@ searchInput.addEventListener(
 
     });
 
-
     renderLeaders(filtered);
 
   }
 );
 
-
-/* ==================================================
-   TABLE ACTIONS
-================================================== */
 
 function bindTableButtons(){
 
@@ -1834,29 +1483,23 @@ function bindTableButtons(){
         const id =
         button.dataset.toggle;
 
-
         const leader =
         leaders.find(
           item =>
           item.id === id
         );
 
-
         if(!leader) return;
-
 
         const newStatus =
         leader.active === false;
-
 
         const text =
         newStatus
         ? "هل تريد تفعيل هذا الحساب؟"
         : "هل تريد إيقاف هذا الحساب؟";
 
-
         if(!confirm(text)) return;
-
 
         try{
 
@@ -1871,9 +1514,7 @@ function bindTableButtons(){
             }
           );
 
-
           await loadLeaders();
-
 
         }
         catch(error){
@@ -1909,12 +1550,80 @@ function bindTableButtons(){
 
   });
 
+
+  document
+  .querySelectorAll("[data-delete]")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      async() => {
+
+        const id =
+        button.dataset.delete;
+
+        const leader =
+        leaders.find(
+          item =>
+          item.id === id
+        );
+
+        if(!leader) return;
+
+        const confirmDelete =
+        confirm(
+          `هل تريد حذف رائد الفصل "${leader.name}" من النظام؟`
+        );
+
+        if(!confirmDelete) return;
+
+        const confirmAgain =
+        confirm(
+          "سيتم إخفاء الحساب ومنعه من الدخول. هل أنت متأكد؟"
+        );
+
+        if(!confirmAgain) return;
+
+        try{
+
+          await updateDoc(
+            doc(
+              db,
+              "users",
+              id
+            ),
+            {
+              active:false,
+              deleted:true,
+              deletedAt:
+              serverTimestamp()
+            }
+          );
+
+          await loadLeaders();
+
+          alert(
+            "تم حذف رائد الفصل من النظام."
+          );
+
+        }
+        catch(error){
+
+          console.error(error);
+
+          alert(
+            "حدث خطأ أثناء الحذف."
+          );
+
+        }
+
+      }
+    );
+
+  });
+
 }
 
-
-/* ==================================================
-   EDIT
-================================================== */
 
 const editModal =
 document.getElementById("editModal");
@@ -1943,35 +1652,27 @@ function openEditModal(id){
     item.id === id
   );
 
-
   if(!leader) return;
-
 
   editId.value =
   leader.id;
 
-
   editName.value =
   leader.name || "";
 
-
   editStage.value =
   leader.stage || "";
-
 
   fillGrades(
     editStage.value,
     editGrade
   );
 
-
   editGrade.value =
   leader.grade || "";
 
-
   editSection.value =
   leader.section || "";
-
 
   editModal.classList.add(
     "show"
@@ -2016,7 +1717,6 @@ document
     const id =
     editId.value;
 
-
     if(
       !id ||
       !editName.value.trim() ||
@@ -2032,11 +1732,6 @@ document
       return;
 
     }
-
-
-    /*
-      منع فصلين بنفس رائدين نشطين
-    */
 
     const duplicateClass =
     leaders.some(item => {
@@ -2060,7 +1755,6 @@ document
 
     });
 
-
     if(duplicateClass){
 
       alert(
@@ -2070,7 +1764,6 @@ document
       return;
 
     }
-
 
     try{
 
@@ -2100,14 +1793,11 @@ document
         }
       );
 
-
       editModal.classList.remove(
         "show"
       );
 
-
       await loadLeaders();
-
 
     }
     catch(error){
