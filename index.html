@@ -3,244 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>نظام الخطة الأسبوعية | مدارس الفلاح الأهلية</title>
 
   <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-      font-family:Tahoma, Arial, sans-serif;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Tahoma, Arial, sans-serif;
     }
 
-    body{
-      min-height:100vh;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(7,63,52,.97),
-          rgba(11,75,62,.94)
-        );
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:25px;
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #073f34, #0b4b3e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
     }
 
-    .login-container{
-      width:min(1050px,100%);
-      min-height:570px;
-      background:white;
-      border-radius:22px;
-      overflow:hidden;
-      box-shadow:0 20px 60px rgba(0,0,0,.25);
-      display:grid;
-      grid-template-columns:1fr 1fr;
+    .wrapper {
+      width: min(1050px, 100%);
+      min-height: 570px;
+      background: white;
+      border-radius: 22px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
     }
 
-    .brand-side{
-      background:
-        linear-gradient(
-          rgba(6,60,49,.93),
-          rgba(6,60,49,.93)
-        );
-      color:white;
-      padding:50px 40px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      border-left:5px solid #caa74e;
+    .brand {
+      background: #0b4b3e;
+      color: white;
+      padding: 48px 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-left: 5px solid #c9a548;
     }
 
-    .brand-box img{
-      width:145px;
-      max-height:160px;
-      object-fit:contain;
-      background:white;
-      padding:8px;
-      border-radius:18px;
-      margin-bottom:20px;
+    .brand img {
+      width: 145px;
+      max-height: 160px;
+      object-fit: contain;
+      background: white;
+      padding: 8px;
+      border-radius: 18px;
+      margin-bottom: 20px;
     }
 
-    .brand-box h1{
-      font-size:28px;
-      margin-bottom:7px;
+    .brand h1 {
+      font-size: 28px;
+      margin-bottom: 7px;
     }
 
-    .brand-box .english{
-      color:#d8bd72;
-      font-weight:bold;
-      letter-spacing:1px;
-      margin-bottom:30px;
+    .brand .en {
+      color: #d9bd70;
+      font-weight: bold;
+      margin-bottom: 28px;
+      letter-spacing: 1px;
     }
 
-    .brand-box .system-title{
-      font-size:24px;
-      font-weight:bold;
-      margin-bottom:15px;
+    .brand .system-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 14px;
     }
 
-    .brand-box .description{
-      line-height:1.9;
-      color:#ebebeb;
-      font-size:14px;
-      max-width:390px;
-      margin:auto;
+    .brand .desc {
+      font-size: 14px;
+      line-height: 1.9;
+      color: #ededed;
+      max-width: 390px;
+      margin: auto;
     }
 
-    .form-side{
-      padding:50px 45px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      background:#fff;
+    .login-side {
+      padding: 48px 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .form-side h2{
-      color:#0b4b3e;
-      font-size:28px;
-      margin-bottom:8px;
+    .login-side h2 {
+      color: #0b4b3e;
+      font-size: 28px;
+      margin-bottom: 8px;
     }
 
-    .subtitle{
-      color:#777;
-      margin-bottom:30px;
-      font-size:14px;
+    .subtitle {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 30px;
     }
 
-    .form-group{
-      margin-bottom:18px;
+    .form-group {
+      margin-bottom: 18px;
     }
 
-    label{
-      display:block;
-      margin-bottom:8px;
-      color:#0b4b3e;
-      font-weight:bold;
+    label {
+      display: block;
+      color: #0b4b3e;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    input{
-      width:100%;
-      padding:14px;
-      border:1px solid #d2d2d2;
-      border-radius:10px;
-      font-size:15px;
-      outline:none;
-      transition:.2s;
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d4d4d4;
+      border-radius: 10px;
+      outline: none;
+      font-size: 15px;
     }
 
-    input:focus{
-      border-color:#caa74e;
-      box-shadow:0 0 0 3px rgba(202,167,78,.15);
+    input:focus {
+      border-color: #c9a548;
+      box-shadow: 0 0 0 3px rgba(201,165,72,.14);
     }
 
-    .login-btn{
-      width:100%;
-      padding:14px;
-      border:0;
-      border-radius:10px;
-      background:#0b4b3e;
-      color:white;
-      font-size:16px;
-      font-weight:bold;
-      cursor:pointer;
-      margin-top:8px;
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      background: #0b4b3e;
+      color: white;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
     }
 
-    .login-btn:hover{
-      background:#083d33;
+    button:hover {
+      background: #083d33;
     }
 
-    .login-btn:disabled{
-      opacity:.65;
-      cursor:not-allowed;
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
     }
 
-    .message{
-      margin-top:16px;
-      padding:11px;
-      border-radius:8px;
-      text-align:center;
-      font-size:14px;
-      display:none;
+    .message {
+      display: none;
+      margin-top: 15px;
+      padding: 11px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
     }
 
-    .message.error{
-      display:block;
-      color:#9d1f1f;
-      background:#fdeaea;
+    .message.error {
+      display: block;
+      background: #fdeaea;
+      color: #9d2020;
     }
 
-    .message.success{
-      display:block;
-      color:#166329;
-      background:#e9f7ed;
+    .message.success {
+      display: block;
+      background: #e9f7ed;
+      color: #17652c;
     }
 
-    .footer{
-      text-align:center;
-      margin-top:30px;
-      color:#777;
-      line-height:1.9;
-      font-size:13px;
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #777;
+      line-height: 1.9;
+      font-size: 13px;
     }
 
-    .designer{
-      color:#0b4b3e;
-      font-weight:bold;
+    .designer {
+      color: #0b4b3e;
+      font-weight: bold;
     }
 
-    @media(max-width:800px){
-
-      body{
-        padding:12px;
+    @media (max-width: 800px) {
+      body {
+        padding: 12px;
       }
 
-      .login-container{
-        grid-template-columns:1fr;
+      .wrapper {
+        grid-template-columns: 1fr;
       }
 
-      .brand-side{
-        padding:30px 20px;
-        border-left:0;
-        border-bottom:5px solid #caa74e;
+      .brand {
+        border-left: none;
+        border-bottom: 5px solid #c9a548;
+        padding: 30px 20px;
       }
 
-      .brand-box img{
-        width:110px;
+      .brand img {
+        width: 110px;
       }
 
-      .brand-box h1{
-        font-size:23px;
+      .brand h1 {
+        font-size: 23px;
       }
 
-      .brand-box .system-title{
-        font-size:20px;
+      .brand .system-title {
+        font-size: 20px;
       }
 
-      .form-side{
-        padding:35px 22px;
+      .login-side {
+        padding: 35px 22px;
       }
-
     }
   </style>
 </head>
 
 <body>
 
-  <div class="login-container">
+  <div class="wrapper">
 
-    <section class="brand-side">
-
-      <div class="brand-box">
-
+    <section class="brand">
+      <div>
         <img src="logo.jpeg" alt="شعار مدارس الفلاح الأهلية">
 
         <h1>مدارس الفلاح الأهلية</h1>
 
-        <div class="english">
+        <div class="en">
           ALFALAH SCHOOLS
         </div>
 
@@ -248,18 +232,15 @@
           نظام الخطة الأسبوعية
         </div>
 
-        <div class="description">
+        <div class="desc">
           نظام إلكتروني لإعداد ومتابعة الخطط الأسبوعية
           وتنظيم محتوى الدروس والواجبات بما ييسر التواصل
           بين المدرسة والأسرة.
         </div>
-
       </div>
-
     </section>
 
-
-    <section class="form-side">
+    <section class="login-side">
 
       <h2>تسجيل الدخول</h2>
 
@@ -267,355 +248,267 @@
         أدخل اسم المستخدم وكلمة المرور
       </div>
 
-
       <form id="loginForm">
 
         <div class="form-group">
-
-          <label for="username">
-            اسم المستخدم
-          </label>
-
+          <label for="username">اسم المستخدم</label>
           <input
             type="text"
             id="username"
-            autocomplete="username"
             placeholder="اسم المستخدم"
+            autocomplete="username"
             required
           >
-
         </div>
 
-
         <div class="form-group">
-
-          <label for="password">
-            كلمة المرور
-          </label>
-
+          <label for="password">كلمة المرور</label>
           <input
             type="password"
             id="password"
-            autocomplete="current-password"
             placeholder="كلمة المرور"
+            autocomplete="current-password"
             required
           >
-
         </div>
 
-
-        <button
-          type="submit"
-          class="login-btn"
-          id="loginBtn"
-        >
+        <button type="submit" id="loginBtn">
           دخول
         </button>
 
-
-        <div
-          id="message"
-          class="message"
-        ></div>
+        <div id="message" class="message"></div>
 
       </form>
 
-
       <div class="footer">
-
-        <div>
-          مدارس الفلاح الأهلية
-        </div>
-
+        <div>مدارس الفلاح الأهلية</div>
         <div class="designer">
           إعداد وتصميم محمد عامر أحمد
         </div>
-
       </div>
 
     </section>
 
   </div>
 
-
   <script type="module">
 
     import {
       initializeApp
-    }
-    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-
+    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
     import {
       getAuth,
       signInWithEmailAndPassword,
       signOut
-    }
-    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
+    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
     import {
       getFirestore,
       doc,
       getDoc
-    }
-    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
     const firebaseConfig = {
-
-      apiKey:
-        "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
-
-      authDomain:
-        "weekly-plan-3a743.firebaseapp.com",
-
-      projectId:
-        "weekly-plan-3a743",
-
-      storageBucket:
-        "weekly-plan-3a743.firebasestorage.app",
-
-      messagingSenderId:
-        "575884603803",
-
-      appId:
-        "1:575884603803:web:e8c4d82c69fd545bed313e"
-
+      apiKey: "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
+      authDomain: "weekly-plan-3a743.firebaseapp.com",
+      projectId: "weekly-plan-3a743",
+      storageBucket: "weekly-plan-3a743.firebasestorage.app",
+      messagingSenderId: "575884603803",
+      appId: "1:575884603803:web:e8c4d82c69fd545bed313e"
     };
 
 
-    const app =
-      initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+    const db = getFirestore(app);
+
+    const loginForm = document.getElementById("loginForm");
+
+    const loginBtn = document.getElementById("loginBtn");
+
+    const message = document.getElementById("message");
 
 
-    const auth =
-      getAuth(app);
-
-
-    const db =
-      getFirestore(app);
-
-
-    const loginForm =
-      document.getElementById("loginForm");
-
-
-    const loginBtn =
-      document.getElementById("loginBtn");
-
-
-    const message =
-      document.getElementById("message");
-
-
-    function showMessage(text,type){
-
+    function showMessage(text, type) {
       message.textContent = text;
-
-      message.className =
-        "message " + type;
-
+      message.className = "message " + type;
     }
 
 
-    loginForm.addEventListener(
-      "submit",
-      async(event) => {
+    loginForm.addEventListener("submit", async (event) => {
 
-        event.preventDefault();
+      event.preventDefault();
+
+      const username = document
+        .getElementById("username")
+        .value
+        .trim()
+        .toLowerCase();
+
+      const password = document
+        .getElementById("password")
+        .value;
+
+      if (!username || !password) {
+        showMessage(
+          "أدخل اسم المستخدم وكلمة المرور",
+          "error"
+        );
+        return;
+      }
 
 
-        const username =
-          document
-          .getElementById("username")
-          .value
-          .trim()
-          .toLowerCase();
+      loginBtn.disabled = true;
+      loginBtn.textContent = "جاري تسجيل الدخول...";
 
 
-        const password =
-          document
-          .getElementById("password")
-          .value;
+      try {
+
+        let email;
+
+        if (username === "admin") {
+
+          email = "muhammadamer1618@gmail.com";
+
+        } else {
+
+          email = username + "@weeklyplan.local";
+
+        }
 
 
-        if(!username || !password){
+        const credential =
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+
+        const uid = credential.user.uid;
+
+
+        const userRef =
+          doc(db, "users", uid);
+
+
+        const userSnapshot =
+          await getDoc(userRef);
+
+
+        if (!userSnapshot.exists()) {
+
+          await signOut(auth);
 
           showMessage(
-            "أدخل اسم المستخدم وكلمة المرور",
+            "الحساب غير مسجل داخل النظام",
             "error"
           );
 
           return;
-
         }
 
 
-        loginBtn.disabled = true;
-
-        loginBtn.textContent =
-          "جاري تسجيل الدخول...";
+        const userData =
+          userSnapshot.data();
 
 
-        try{
+        if (userData.active === false) {
 
-          /*
-            المستخدم يكتب مثلا:
-            admin
-
-            والنظام يحوله داخليا إلى:
-            admin@weeklyplan.local
-          */
-
-          const email =
-            username +
-            "@weeklyplan.local";
-
-
-          const credential =
-            await signInWithEmailAndPassword(
-              auth,
-              email,
-              password
-            );
-
-
-          const uid =
-            credential.user.uid;
-
-
-          const userRef =
-            doc(
-              db,
-              "users",
-              uid
-            );
-
-
-          const userSnapshot =
-            await getDoc(userRef);
-
-
-          if(!userSnapshot.exists()){
-
-            await signOut(auth);
-
-            showMessage(
-              "الحساب غير مسجل في النظام",
-              "error"
-            );
-
-            return;
-
-          }
-
-
-          const userData =
-            userSnapshot.data();
-
-
-          if(userData.active === false){
-
-            await signOut(auth);
-
-            showMessage(
-              "هذا الحساب غير مفعل",
-              "error"
-            );
-
-            return;
-
-          }
-
-
-          /*
-            حفظ بيانات بسيطة للجلسة
-          */
-
-          sessionStorage.setItem(
-            "weeklyPlanUserName",
-            userData.name || ""
-          );
-
-
-          sessionStorage.setItem(
-            "weeklyPlanUserRole",
-            userData.role || ""
-          );
-
-
-          /*
-            التوجيه حسب الصلاحية
-          */
-
-          if(userData.role === "admin"){
-
-            window.location.href =
-              "admin.html";
-
-          }
-
-          else if(
-            userData.role === "classLeader"
-          ){
-
-            window.location.href =
-              "teacher.html";
-
-          }
-
-          else{
-
-            await signOut(auth);
-
-            showMessage(
-              "لا توجد صلاحية دخول لهذا الحساب",
-              "error"
-            );
-
-          }
-
-
-        }
-        catch(error){
-
-          console.error(error);
-
-
-          let text =
-            "اسم المستخدم أو كلمة المرور غير صحيحة";
-
-
-          if(
-            error.code ===
-            "auth/too-many-requests"
-          ){
-
-            text =
-              "تم إجراء محاولات كثيرة، حاول لاحقًا";
-
-          }
-
+          await signOut(auth);
 
           showMessage(
-            text,
+            "هذا الحساب غير مفعل",
+            "error"
+          );
+
+          return;
+        }
+
+
+        sessionStorage.setItem(
+          "weeklyPlanUserName",
+          userData.name || ""
+        );
+
+        sessionStorage.setItem(
+          "weeklyPlanUserRole",
+          userData.role || ""
+        );
+
+        sessionStorage.setItem(
+          "weeklyPlanUserId",
+          uid
+        );
+
+
+        if (userData.role === "admin") {
+
+          window.location.href =
+            "admin.html";
+
+        }
+
+        else if (
+          userData.role === "classLeader"
+        ) {
+
+          window.location.href =
+            "teacher.html";
+
+        }
+
+        else {
+
+          await signOut(auth);
+
+          showMessage(
+            "لا توجد صلاحية دخول لهذا الحساب",
             "error"
           );
 
         }
-        finally{
-
-          loginBtn.disabled =
-            false;
-
-          loginBtn.textContent =
-            "دخول";
-
-        }
 
       }
-    );
+
+      catch (error) {
+
+        console.error(error);
+
+        let text =
+          "اسم المستخدم أو كلمة المرور غير صحيحة";
+
+        if (
+          error.code ===
+          "auth/too-many-requests"
+        ) {
+          text =
+            "تم إجراء محاولات كثيرة، حاول بعد قليل";
+        }
+
+        if (
+          error.code ===
+          "auth/network-request-failed"
+        ) {
+          text =
+            "تعذر الاتصال بالإنترنت";
+        }
+
+        showMessage(text, "error");
+      }
+
+      finally {
+
+        loginBtn.disabled = false;
+        loginBtn.textContent = "دخول";
+
+      }
+
+    });
 
   </script>
 
