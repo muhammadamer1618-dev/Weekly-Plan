@@ -8,6 +8,10 @@
 
 <title>رائد الصف | الخطة الأسبوعية</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
@@ -16,7 +20,7 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Tahoma,Arial,sans-serif;
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 :root{
@@ -48,17 +52,16 @@ body{
     background:#f5f4ef;
     color:var(--text);
     min-height:100vh;
+    font-weight:500;
 }
 
 
-/* =================================
+/* =========================
    TOP BAR
-================================= */
+========================= */
 
 .topbar{
-
     min-height:86px;
-
     padding:11px 30px;
 
     background:
@@ -77,20 +80,15 @@ body{
     justify-content:space-between;
 
     gap:20px;
-
 }
 
 .brand{
-
     display:flex;
     align-items:center;
-
     gap:15px;
-
 }
 
 .brand img{
-
     width:64px;
     height:64px;
 
@@ -101,41 +99,32 @@ body{
     border-radius:12px;
 
     padding:4px;
-
 }
 
 .brand h1{
-
     font-size:22px;
     margin-bottom:5px;
-
+    font-weight:800;
 }
 
 .brand p{
-
     font-size:14px;
     opacity:.95;
-
+    font-weight:500;
 }
 
 .user-area{
-
     display:flex;
     align-items:center;
-
     gap:12px;
-
 }
 
 .user-name{
-
     font-size:15px;
-    font-weight:bold;
-
+    font-weight:700;
 }
 
 .logout-btn{
-
     border:1px solid #e0c979;
 
     background:rgba(255,255,255,.12);
@@ -148,78 +137,61 @@ body{
 
     cursor:pointer;
 
-    font-weight:bold;
-
+    font-weight:700;
 }
 
 
-/* =================================
+/* =========================
    GENERAL PAGE
-================================= */
+========================= */
 
 .container{
-
     width:min(1350px,95%);
-
     margin:25px auto;
-
 }
 
 .welcome,
 .card{
-
     background:white;
 
     border-radius:17px;
 
-    box-shadow:0 5px 18px rgba(0,0,0,.055);
+    box-shadow:
+    0 5px 18px rgba(0,0,0,.055);
 
     margin-bottom:21px;
 
     overflow:hidden;
-
 }
 
 .welcome{
-
     padding:23px;
-
     border-right:6px solid var(--gold);
-
 }
 
 .welcome h2{
-
     color:var(--green-dark);
 
     font-size:25px;
 
     margin-bottom:9px;
 
+    font-weight:800;
 }
 
 .welcome p{
-
     color:#6d6d6d;
-
     font-size:15px;
-
 }
 
 .class-info{
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:10px;
-
     margin-top:16px;
-
 }
 
 .info-badge{
-
     background:var(--gold-soft);
 
     color:var(--green-dark);
@@ -230,12 +202,10 @@ body{
 
     font-size:14px;
 
-    font-weight:bold;
-
+    font-weight:700;
 }
 
 .card-title{
-
     background:#789685;
 
     color:white;
@@ -246,56 +216,42 @@ body{
 
     font-size:19px;
 
-    font-weight:bold;
-
+    font-weight:800;
 }
 
 
-/* =================================
+/* =========================
    FORM
-================================= */
+========================= */
 
 .week-fields{
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:17px;
-
     padding:23px 23px 18px;
-
 }
 
 .extra-fields{
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:17px;
-
     padding:0 23px 23px;
-
 }
 
 .form-group label{
-
     display:block;
 
     color:var(--green-dark);
 
     font-size:14px;
 
-    font-weight:bold;
+    font-weight:700;
 
     margin-bottom:8px;
-
 }
 
 input,
 select{
-
     width:100%;
 
     border:1px solid #d2d2d2;
@@ -310,37 +266,32 @@ select{
 
     font-size:15px;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+
+    font-weight:500;
 }
 
 input:focus,
 select:focus{
-
     border-color:var(--gold);
 
     box-shadow:
     0 0 0 3px rgba(185,150,72,.13);
-
 }
 
 
-/* =================================
+/* =========================
    DAYS
-================================= */
+========================= */
 
 .days-tabs{
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:9px;
-
     margin-bottom:16px;
-
 }
 
 .day-btn{
-
     flex:1;
 
     min-width:100px;
@@ -359,20 +310,17 @@ select:focus{
 
     font-size:15px;
 
-    font-weight:bold;
+    font-weight:700;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .day-btn.active{
-
     background:#708f7e;
-
     color:white;
-
 }
 
 .plan-top{
-
     background:#eff4f1;
 
     border-bottom:2px solid var(--gold);
@@ -386,48 +334,35 @@ select:focus{
     align-items:center;
 
     justify-content:space-between;
-
 }
 
 .plan-top h3{
-
     font-size:18px;
-
+    font-weight:800;
 }
 
 .day-label{
-
     font-size:17px;
-
-    font-weight:bold;
-
+    font-weight:800;
     color:#91722f;
-
 }
 
 
-/* =================================
+/* =========================
    DATA TABLE
-================================= */
+========================= */
 
 .table-wrap{
-
     overflow:auto;
-
 }
 
 table{
-
     width:100%;
-
     border-collapse:collapse;
-
     min-width:1080px;
-
 }
 
 th{
-
     background:#f6f0df;
 
     color:var(--green-dark);
@@ -440,10 +375,10 @@ th{
 
     line-height:1.45;
 
+    font-weight:700;
 }
 
 td{
-
     padding:8px;
 
     border:1px solid #e1e1e1;
@@ -453,54 +388,41 @@ td{
     vertical-align:middle;
 
     font-size:14px;
-
 }
 
 .period{
-
     width:58px;
 
     font-size:15px;
 
-    font-weight:bold;
+    font-weight:700;
 
     background:#fbf9f1;
 
     color:var(--green-dark);
-
 }
 
 table input{
-
     min-width:100px;
-
     padding:10px 8px;
-
     font-size:14px;
-
 }
 
 .topic-input{
-
     min-width:200px;
-
 }
 
 .checkbox-cell input{
-
     width:21px;
-
     height:21px;
-
 }
 
 
-/* =================================
+/* =========================
    BUTTONS
-================================= */
+========================= */
 
 .actions{
-
     display:flex;
 
     flex-wrap:wrap;
@@ -512,102 +434,72 @@ table input{
     padding:22px;
 
     background:#fcfbf7;
-
 }
 
 .action-btn,
 .history-btn{
-
     border:0;
 
     border-radius:9px;
 
     cursor:pointer;
 
-    font-weight:bold;
+    font-weight:700;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .action-btn{
-
     padding:12px 19px;
-
     font-size:14px;
-
 }
 
 .history-btn{
-
     padding:8px 11px;
-
     margin:3px 2px;
-
     font-size:12px;
-
 }
 
 .save-btn,
 .open-btn{
-
     background:var(--green-dark);
-
     color:white;
-
 }
 
 .preview-btn,
 .view-btn{
-
     background:var(--gold);
-
     color:#173e32;
-
 }
 
 .image-btn,
 .download-btn{
-
     background:var(--blue);
-
     color:white;
-
 }
 
 .pdf-btn{
-
     background:var(--pdf);
-
     color:white;
-
 }
 
 .share-btn,
 .send-btn{
-
     background:var(--share);
-
     color:white;
-
 }
 
 .clear-btn{
-
     background:#e7e7e7;
-
     color:#555;
-
 }
 
 .remove-btn{
-
     background:var(--danger);
-
     color:white;
-
 }
 
 .message{
-
     display:none;
 
     margin:0 20px 20px;
@@ -618,71 +510,52 @@ table input{
 
     border-radius:9px;
 
-    font-weight:bold;
+    font-weight:700;
 
     font-size:14px;
-
 }
 
 .message.success{
-
     display:block;
-
     background:#e9f5ec;
-
     color:#17642c;
-
 }
 
 .message.error{
-
     display:block;
-
     background:#fdeaea;
-
     color:#a11f1f;
-
 }
 
 
-/* =================================
+/* =========================
    HISTORY
-================================= */
+========================= */
 
 .history-body{
-
     padding:22px;
-
 }
 
 .history-table{
-
     min-width:1000px;
-
 }
 
 .history-table th,
 .history-table td{
-
     font-size:14px;
-
 }
 
 .empty-history{
-
     padding:35px;
-
     color:#777;
-
 }
 
 
-/* =================================
+/* =========================
    PREVIEW MODAL
-================================= */
+========================= */
 
 .modal{
-
     position:fixed;
 
     inset:0;
@@ -698,17 +571,13 @@ table input{
     padding:15px;
 
     z-index:9999;
-
 }
 
 .modal.show{
-
     display:flex;
-
 }
 
 .modal-box{
-
     width:min(1320px,100%);
 
     max-height:96vh;
@@ -718,11 +587,9 @@ table input{
     background:#e6e6e6;
 
     border-radius:15px;
-
 }
 
 .modal-header{
-
     position:sticky;
 
     top:0;
@@ -747,20 +614,16 @@ table input{
 
     font-size:16px;
 
+    font-weight:700;
 }
 
 .modal-controls{
-
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
-
 }
 
 .modal-controls button{
-
     border:0;
 
     border-radius:8px;
@@ -769,27 +632,25 @@ table input{
 
     cursor:pointer;
 
-    font-weight:bold;
+    font-weight:700;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .modal-content{
-
     padding:22px;
 
     display:flex;
 
     justify-content:center;
-
 }
 
 
-/* =================================
+/* =========================
    FINAL POSTER
-================================= */
+========================= */
 
 #poster{
-
     width:1240px;
 
     min-height:1754px;
@@ -804,15 +665,21 @@ table input{
 
     padding:27px 31px 55px;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+
+    font-weight:500;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
 }
 
 
-/* =================================
+/* =========================
    POSTER HEADER
-================================= */
+========================= */
 
 .poster-header{
-
     display:grid;
 
     grid-template-columns:205px 1fr 205px;
@@ -826,37 +693,25 @@ table input{
     padding-bottom:12px;
 
     border-bottom:4px solid var(--gold);
-
 }
 
 .school-logo{
-
     text-align:left;
-
     padding-left:10px;
-
 }
 
 .school-logo img{
-
     width:175px;
-
     height:135px;
-
     object-fit:contain;
-
 }
 
 .header-spacer{
-
     width:205px;
-
     height:1px;
-
 }
 
 .poster-government{
-
     direction:rtl;
 
     text-align:center;
@@ -867,31 +722,26 @@ table input{
 
     font-size:21px;
 
-    font-weight:bold;
+    font-weight:800;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .poster-government div{
-
     margin:1px 0;
-
 }
 
 .poster-government div:last-child{
-
     color:var(--green-dark);
-
     font-size:23px;
-
 }
 
 
-/* =================================
+/* =========================
    MAIN TITLE
-================================= */
+========================= */
 
 .poster-class-title{
-
     margin-top:11px;
 
     text-align:center;
@@ -908,19 +758,19 @@ table input{
 
     line-height:1.45;
 
-    font-weight:bold;
+    font-weight:800;
 
     padding:10px 12px;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 
-/* =================================
+/* =========================
    VISION + MESSAGE
-================================= */
+========================= */
 
 .vision-message{
-
     display:grid;
 
     grid-template-columns:.85fr 1.6fr;
@@ -928,11 +778,9 @@ table input{
     gap:11px;
 
     margin-top:11px;
-
 }
 
 .vm-box{
-
     border:1.5px solid #ccb168;
 
     border-radius:8px;
@@ -940,14 +788,12 @@ table input{
     background:#fffdf8;
 
     padding:10px 13px;
-
 }
 
 .vm-title{
-
     color:#92712d;
 
-    font-weight:bold;
+    font-weight:800;
 
     text-align:center;
 
@@ -955,29 +801,29 @@ table input{
 
     margin-bottom:6px;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .vm-text{
-
     text-align:center;
 
     color:#303030;
 
     font-size:15px;
 
-    font-weight:bold;
+    font-weight:600;
 
     line-height:1.65;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 
-/* =================================
+/* =========================
    WEEK INFORMATION
-================================= */
+========================= */
 
 .poster-weekline{
-
     margin-top:10px;
 
     display:flex;
@@ -998,12 +844,12 @@ table input{
 
     font-size:18px;
 
-    font-weight:bold;
+    font-weight:700;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .poster-special{
-
     margin-top:9px;
 
     display:grid;
@@ -1011,11 +857,9 @@ table input{
     grid-template-columns:1fr 1fr;
 
     gap:9px;
-
 }
 
 .special-box{
-
     border:1.5px solid #90a99b;
 
     background:#edf4f0;
@@ -1024,25 +868,24 @@ table input{
 
     font-size:17px;
 
-    font-weight:bold;
+    font-weight:600;
 
     text-align:center;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .special-box strong{
-
     color:#315b49;
-
+    font-weight:800;
 }
 
 
-/* =================================
+/* =========================
    POSTER TABLE
-================================= */
+========================= */
 
 .poster-table{
-
     width:100%;
 
     margin-top:11px;
@@ -1055,10 +898,10 @@ table input{
 
     direction:rtl;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .poster-table th{
-
     background:#eef3ef;
 
     color:#315b49;
@@ -1071,12 +914,12 @@ table input{
 
     line-height:1.35;
 
-    font-weight:bold;
+    font-weight:800;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .poster-table td{
-
     border:1px solid #222;
 
     padding:6px 4px;
@@ -1093,103 +936,78 @@ table input{
 
     vertical-align:middle;
 
+    font-weight:500;
+
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .poster-table .homework-head{
-
     background:#f1e8ca;
-
     color:#614b18;
-
     font-size:17px;
-
 }
 
 .poster-table .day-cell{
-
     background:#789685;
 
     color:white;
 
     width:73px;
 
-    font-size:17px;
+    font-size:19px;
 
-    font-weight:bold;
-
+    font-weight:800;
 }
 
 .poster-table .period-cell{
-
     width:48px;
 
     background:#faf7ed;
 
     font-size:15px;
 
-    font-weight:bold;
-
+    font-weight:700;
 }
 
 .poster-table .subject-cell{
-
     width:110px;
-
     font-size:14px;
-
-    font-weight:bold;
-
+    font-weight:600;
 }
 
 .poster-table .topic-cell{
-
     width:280px;
-
     font-size:14px;
-
 }
 
 .poster-table .book-cell{
-
     width:160px;
-
 }
 
 .poster-table .page-cell{
-
     width:60px;
-
 }
 
 .poster-table .exercise-cell{
-
     width:85px;
-
 }
 
 .poster-table .platform-cell{
-
     width:90px;
-
     font-size:17px;
-
-    font-weight:bold;
-
+    font-weight:800;
 }
 
 .poster-table tr.day-start td{
-
     border-top:5px solid #111 !important;
-
 }
 
 
-/* =================================
+/* =========================
    SIGNATURES
-================================= */
+========================= */
 
 .poster-signatures{
-
     margin-top:21px;
 
     display:grid;
@@ -1200,46 +1018,42 @@ table input{
 
     font-size:18px;
 
-    font-weight:bold;
+    font-weight:700;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 .signature{
-
     text-align:center;
-
 }
 
 .signature-title{
-
     color:#315b49;
 
     margin-bottom:9px;
 
     font-size:18px;
 
+    font-weight:800;
 }
 
 .signature-name{
-
     min-height:30px;
 
     font-size:17px;
 
+    font-weight:600;
 }
 
 .signature-line{
-
     width:185px;
 
     border-bottom:1px solid #666;
 
     margin:14px auto 0;
-
 }
 
 .poster-credit{
-
     position:absolute;
 
     bottom:17px;
@@ -1252,19 +1066,19 @@ table input{
 
     font-size:16px;
 
-    font-weight:bold;
+    font-weight:700;
 
     color:#315b49;
 
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 
-/* =================================
+/* =========================
    SITE FOOTER
-================================= */
+========================= */
 
 footer{
-
     text-align:center;
 
     padding:28px;
@@ -1274,61 +1088,47 @@ footer{
     line-height:1.9;
 
     font-size:14px;
-
 }
 
 footer strong{
-
     color:var(--green-dark);
 
     font-size:15px;
 
+    font-weight:800;
 }
 
 
-/* =================================
+/* =========================
    MOBILE
-================================= */
+========================= */
 
 @media(max-width:800px){
 
     .topbar{
-
         padding:10px 13px;
-
     }
 
     .brand img{
-
         width:53px;
-
         height:53px;
-
     }
 
     .brand h1{
-
         font-size:17px;
-
     }
 
     .user-name{
-
         display:none;
-
     }
 
     .week-fields,
     .extra-fields{
-
         grid-template-columns:1fr;
-
     }
 
     .modal-content{
-
         justify-content:flex-start;
-
     }
 
 }
@@ -1446,14 +1246,11 @@ class="logout-btn">
 <section class="card">
 
 <div class="card-title">
-
 بيانات الخطة الأسبوعية
-
 </div>
 
 
 <div class="week-fields">
-
 
 <div class="form-group">
 
@@ -1521,7 +1318,6 @@ id="endDate">
 
 <div class="extra-fields">
 
-
 <div class="form-group">
 
 <label>
@@ -1570,44 +1366,24 @@ placeholder="اكتب اسم مدير المدرسة">
 
 <div class="days-tabs">
 
-<button
-class="day-btn active"
-data-day="sunday">
-
+<button class="day-btn active" data-day="sunday">
 الأحد
-
 </button>
 
-<button
-class="day-btn"
-data-day="monday">
-
+<button class="day-btn" data-day="monday">
 الاثنين
-
 </button>
 
-<button
-class="day-btn"
-data-day="tuesday">
-
+<button class="day-btn" data-day="tuesday">
 الثلاثاء
-
 </button>
 
-<button
-class="day-btn"
-data-day="wednesday">
-
+<button class="day-btn" data-day="wednesday">
 الأربعاء
-
 </button>
 
-<button
-class="day-btn"
-data-day="thursday">
-
+<button class="day-btn" data-day="thursday">
 الخميس
-
 </button>
 
 </div>
@@ -1625,9 +1401,7 @@ data-day="thursday">
 <div
 id="currentDayLabel"
 class="day-label">
-
 الأحد
-
 </div>
 
 </div>
@@ -1694,54 +1468,37 @@ class="day-label">
 <button
 class="action-btn save-btn"
 id="saveBtn">
-
 حفظ الخطة
-
 </button>
-
 
 <button
 class="action-btn preview-btn"
 id="previewBtn">
-
 معاينة النموذج
-
 </button>
-
 
 <button
 class="action-btn image-btn"
 id="downloadCurrentBtn">
-
 تحميل صورة عالية الجودة
-
 </button>
-
 
 <button
 class="action-btn pdf-btn"
 id="pdfCurrentBtn">
-
 تصدير PDF
-
 </button>
-
 
 <button
 class="action-btn share-btn"
 id="shareCurrentBtn">
-
 إرسال الصورة
-
 </button>
-
 
 <button
 class="action-btn clear-btn"
 id="clearDayBtn">
-
 مسح محتوى اليوم
-
 </button>
 
 </div>
@@ -1758,9 +1515,7 @@ class="message">
 <section class="card">
 
 <div class="card-title">
-
 سجل الخطط الأسبوعية
-
 </div>
 
 
@@ -1830,8 +1585,6 @@ class="empty-history">
 </main>
 
 
-<!-- PREVIEW -->
-
 <div
 class="modal"
 id="previewModal">
@@ -1841,9 +1594,7 @@ id="previewModal">
 <div class="modal-header">
 
 <strong>
-
 معاينة الخطة الأسبوعية
-
 </strong>
 
 
@@ -1889,9 +1640,7 @@ id="previewModal">
 <br>
 
 <strong>
-
 تصميم محمد عامر أحمد
-
 </strong>
 
 </footer>
@@ -2037,9 +1786,9 @@ const poster =
 document.getElementById("poster");
 
 
-/* =================================
+/* =========================
    EMPTY PLAN
-================================= */
+========================= */
 
 function createEmptyDay(){
 
@@ -2091,9 +1840,9 @@ function createEmptyPlan(){
 }
 
 
-/* =================================
+/* =========================
    AUTH
-================================= */
+========================= */
 
 onAuthStateChanged(
 auth,
@@ -2192,7 +1941,6 @@ async user => {
 
         console.error(error);
 
-
         alert(
             "تعذر تحميل بيانات الحساب."
         );
@@ -2215,9 +1963,9 @@ async()=>{
 };
 
 
-/* =================================
+/* =========================
    DAYS
-================================= */
+========================= */
 
 document
 .querySelectorAll(".day-btn")
@@ -2273,9 +2021,7 @@ function renderCurrentDay(){
         tr.innerHTML = `
 
             <td class="period">
-
                 ${index+1}
-
             </td>
 
 
@@ -2409,9 +2155,9 @@ function saveCurrentDayToMemory(){
 }
 
 
-/* =================================
+/* =========================
    WEEK CHANGE
-================================= */
+========================= */
 
 weekNumber.onchange=()=>{
 
@@ -2526,9 +2272,9 @@ async function loadSelectedWeek(week){
 }
 
 
-/* =================================
+/* =========================
    SAVE
-================================= */
+========================= */
 
 document
 .getElementById("saveBtn")
@@ -2676,9 +2422,9 @@ async()=>{
 };
 
 
-/* =================================
+/* =========================
    HISTORY
-================================= */
+========================= */
 
 async function loadPlanHistory(){
 
@@ -2774,23 +2520,17 @@ function renderHistory(){
         tr.innerHTML = `
 
             <td>
-
                 الأسبوع ${plan.weekNumber}
-
             </td>
 
 
             <td>
-
                 ${formatDate(plan.startDate)}
-
             </td>
 
 
             <td>
-
                 ${formatDate(plan.endDate)}
-
             </td>
 
 
@@ -2816,58 +2556,45 @@ function renderHistory(){
 
             <td>
 
-
                 <button
                 class="history-btn open-btn"
                 data-open="${plan.id}">
-
                     فتح
-
                 </button>
 
 
                 <button
                 class="history-btn view-btn"
                 data-view="${plan.id}">
-
                     معاينة
-
                 </button>
 
 
                 <button
                 class="history-btn download-btn"
                 data-download="${plan.id}">
-
                     صورة
-
                 </button>
 
 
                 <button
                 class="history-btn pdf-btn"
                 data-pdf="${plan.id}">
-
                     PDF
-
                 </button>
 
 
                 <button
                 class="history-btn send-btn"
                 data-share="${plan.id}">
-
                     إرسال
-
                 </button>
 
 
                 <button
                 class="history-btn remove-btn"
                 data-delete="${plan.id}">
-
                     حذف
-
                 </button>
 
             </td>
@@ -3142,9 +2869,9 @@ function bindHistoryButtons(){
 }
 
 
-/* =================================
+/* =========================
    OPEN SAVED PLAN
-================================= */
+========================= */
 
 function openPlan(plan){
 
@@ -3268,9 +2995,9 @@ function normalizePlan(source){
 }
 
 
-/* =================================
+/* =========================
    CLEAR DAY
-================================= */
+========================= */
 
 document
 .getElementById("clearDayBtn")
@@ -3317,9 +3044,9 @@ document
 };
 
 
-/* =================================
+/* =========================
    GET CURRENT PLAN
-================================= */
+========================= */
 
 function getCurrentPlan(){
 
@@ -3413,9 +3140,9 @@ function getCurrentPlan(){
 }
 
 
-/* =================================
+/* =========================
    MAIN BUTTONS
-================================= */
+========================= */
 
 document
 .getElementById("previewBtn")
@@ -3569,9 +3296,9 @@ function showPreview(plan){
 }
 
 
-/* =================================
+/* =========================
    PLATFORM
-================================= */
+========================= */
 
 function planUsesMadrasati(plan){
 
@@ -3594,9 +3321,9 @@ function planUsesMadrasati(plan){
 }
 
 
-/* =================================
+/* =========================
    POSTER
-================================= */
+========================= */
 
 function buildPoster(plan){
 
@@ -4065,9 +3792,9 @@ function buildPoster(plan){
 }
 
 
-/* =================================
+/* =========================
    HIGH QUALITY PNG
-================================= */
+========================= */
 
 async function posterToBlob(plan){
 
@@ -4078,22 +3805,62 @@ async function posterToBlob(plan){
     buildPoster(plan);
 
 
-    const modalWasOpen =
-    previewModal.classList.contains("show");
-
-
     /*
-       لو المعاينة مقفولة:
-       نظهر النموذج مؤقتًا خارج الشاشة
-       حتى html2canvas يقدر يصوره.
+      مهم جدًا:
+      ننتظر تحميل Tajawal بالكامل
+      قبل تصوير النموذج.
     */
+
+    if(
+        document.fonts &&
+        document.fonts.ready
+    ){
+
+        await document.fonts.ready;
+
+    }
+
+
+    try{
+
+        await document.fonts.load(
+            '500 16px "Tajawal"'
+        );
+
+        await document.fonts.load(
+            '700 16px "Tajawal"'
+        );
+
+        await document.fonts.load(
+            '800 16px "Tajawal"'
+        );
+
+    }
+    catch(error){
+
+        console.warn(
+            "تعذر انتظار الخط:",
+            error
+        );
+
+    }
+
+
+    const modalWasOpen =
+    previewModal.classList
+    .contains("show");
+
+
     if(!modalWasOpen){
+
+        /*
+          نظهر المعاينة خارج الشاشة
+          بدل display:none
+          حتى html2canvas يقدر يرسمها.
+        */
 
         previewModal.style.display =
         "flex";
-
-        previewModal.style.visibility =
-        "hidden";
 
         previewModal.style.position =
         "fixed";
@@ -4143,10 +3910,6 @@ async function posterToBlob(plan){
 
             {
 
-                /*
-                   كانت 1.7
-                   دلوقتي 3 لجودة أعلى جدًا
-                */
                 scale:3,
 
                 backgroundColor:
@@ -4195,9 +3958,6 @@ async function posterToBlob(plan){
             previewModal.style.display =
             "";
 
-            previewModal.style.visibility =
-            "";
-
             previewModal.style.position =
             "";
 
@@ -4221,9 +3981,9 @@ async function posterToBlob(plan){
 }
 
 
-/* =================================
+/* =========================
    DOWNLOAD PNG
-================================= */
+========================= */
 
 async function downloadPlanImage(plan){
 
@@ -4293,20 +4053,50 @@ async function downloadPlanImage(plan){
 }
 
 
-/* =================================
-   TRUE PDF / PRINT EXPORT
-================================= */
+/* =========================
+   PDF EXPORT
+========================= */
 
 async function exportPlanPDF(plan){
 
+    buildPoster(plan);
+
+
     /*
-       مهم:
-       هنا لا نحول الخطة إلى صورة.
-       نطبع HTML نفسه، لذلك النص والجداول
-       تظل واضحة جدًا داخل PDF.
+      انتظار خط Tajawal قبل فتح
+      نافذة الطباعة.
     */
 
-    buildPoster(plan);
+    if(
+        document.fonts &&
+        document.fonts.ready
+    ){
+
+        await document.fonts.ready;
+
+    }
+
+
+    try{
+
+        await document.fonts.load(
+            '500 16px "Tajawal"'
+        );
+
+        await document.fonts.load(
+            '700 16px "Tajawal"'
+        );
+
+        await document.fonts.load(
+            '800 16px "Tajawal"'
+        );
+
+    }
+    catch(error){
+
+        console.warn(error);
+
+    }
 
 
     await waitForImages(
@@ -4332,18 +4122,9 @@ async function exportPlanPDF(plan){
     }
 
 
-    /*
-       ننسخ النموذج.
-    */
-
     const posterClone =
     poster.cloneNode(true);
 
-
-    /*
-       نحول مسار شعار المدرسة إلى رابط كامل
-       حتى يظهر داخل نافذة الـPDF.
-    */
 
     posterClone
     .querySelectorAll("img")
@@ -4366,10 +4147,6 @@ async function exportPlanPDF(plan){
     });
 
 
-    /*
-       نأخذ CSS الموجود في الصفحة.
-    */
-
     const pageStyles =
 
     Array.from(
@@ -4383,13 +4160,6 @@ async function exportPlanPDF(plan){
 
     .join("\n");
 
-
-    /*
-       1240 × 1754 تمثل تقريبًا نسبة A4.
-       0.64 تجعلها تدخل في صفحة A4 واحدة.
-       التحجيم هنا CSS وليس صورة،
-       وبالتالي الجودة تظل عالية جدًا.
-    */
 
     printWindow.document.write(`
 
@@ -4405,7 +4175,25 @@ async function exportPlanPDF(plan){
                 الخطة الأسبوعية - الأسبوع ${plan.weekNumber}
             </title>
 
+
+            <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com">
+
+
+            <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin>
+
+
+            <link
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+
+
             ${pageStyles}
+
 
             <style>
 
@@ -4432,6 +4220,12 @@ async function exportPlanPDF(plan){
                     background:white !important;
 
                     overflow:hidden;
+
+                    font-family:
+                    "Tajawal",
+                    Tahoma,
+                    Arial,
+                    sans-serif !important;
 
                 }
 
@@ -4482,6 +4276,23 @@ async function exportPlanPDF(plan){
 
                     box-shadow:none !important;
 
+                    font-family:
+                    "Tajawal",
+                    Tahoma,
+                    Arial,
+                    sans-serif !important;
+
+                }
+
+
+                #poster *{
+
+                    font-family:
+                    "Tajawal",
+                    Tahoma,
+                    Arial,
+                    sans-serif !important;
+
                 }
 
 
@@ -4516,9 +4327,11 @@ async function exportPlanPDF(plan){
 
                     #poster{
 
-                        -webkit-print-color-adjust:exact !important;
+                        -webkit-print-color-adjust:
+                        exact !important;
 
-                        print-color-adjust:exact !important;
+                        print-color-adjust:
+                        exact !important;
 
                     }
 
@@ -4549,13 +4362,28 @@ async function exportPlanPDF(plan){
     printWindow.document.close();
 
 
-    /*
-       ننتظر تحميل الشعار والخطوط
-       ثم نفتح نافذة الطباعة.
-    */
-
     printWindow.onload =
-    ()=>{
+    async()=>{
+
+
+        try{
+
+            if(
+                printWindow.document.fonts &&
+                printWindow.document.fonts.ready
+            ){
+
+                await printWindow.document
+                .fonts.ready;
+
+            }
+
+        }
+        catch(error){
+
+            console.warn(error);
+
+        }
 
 
         setTimeout(
@@ -4566,7 +4394,7 @@ async function exportPlanPDF(plan){
                 printWindow.print();
 
             },
-            600
+            700
         );
 
     };
@@ -4574,9 +4402,9 @@ async function exportPlanPDF(plan){
 }
 
 
-/* =================================
+/* =========================
    SHARE IMAGE
-================================= */
+========================= */
 
 async function sharePlanImage(plan){
 
@@ -4671,9 +4499,9 @@ async function sharePlanImage(plan){
 }
 
 
-/* =================================
+/* =========================
    WAIT FOR IMAGES
-================================= */
+========================= */
 
 function waitForImages(element){
 
@@ -4717,9 +4545,9 @@ function waitForImages(element){
 }
 
 
-/* =================================
+/* =========================
    RESET
-================================= */
+========================= */
 
 function resetPlanForm(){
 
@@ -4743,9 +4571,9 @@ function resetPlanForm(){
 }
 
 
-/* =================================
+/* =========================
    HELPERS
-================================= */
+========================= */
 
 function safeDisplay(value){
 
