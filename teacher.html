@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>رائد الفصل | الخطة الأسبوعية</title>
@@ -23,10 +22,6 @@ body{
   color:#222;
   min-height:100vh;
 }
-
-/* =========================
-HEADER
-========================= */
 
 .topbar{
   background:#0b4b3e;
@@ -86,15 +81,6 @@ HEADER
   font-weight:bold;
 }
 
-.logout-btn:hover{
-  background:#c9a548;
-  color:#073f34;
-}
-
-/* =========================
-MAIN
-========================= */
-
 .container{
   width:min(1300px,95%);
   margin:25px auto;
@@ -131,11 +117,7 @@ MAIN
   font-weight:bold;
 }
 
-/* =========================
-WEEK
-========================= */
-
-.week-card{
+.card{
   background:#fff;
   border-radius:16px;
   box-shadow:0 4px 16px rgba(0,0,0,.07);
@@ -184,10 +166,6 @@ select:focus{
   box-shadow:0 0 0 3px rgba(201,165,72,.13);
 }
 
-/* =========================
-DAYS TABS
-========================= */
-
 .days-tabs{
   display:flex;
   gap:8px;
@@ -211,18 +189,6 @@ DAYS TABS
 .day-btn.active{
   background:#0b4b3e;
   color:white;
-  box-shadow:0 3px 8px rgba(0,0,0,.12);
-}
-
-/* =========================
-PLAN
-========================= */
-
-.plan-card{
-  background:white;
-  border-radius:16px;
-  box-shadow:0 4px 16px rgba(0,0,0,.07);
-  overflow:hidden;
 }
 
 .plan-top{
@@ -276,8 +242,7 @@ td{
   width:60px;
 }
 
-table input,
-table select{
+table input{
   min-width:100px;
   padding:9px 7px;
   font-size:12px;
@@ -287,27 +252,10 @@ table select{
   min-width:190px;
 }
 
-.book-input{
-  min-width:125px;
-}
-
-.page-input{
-  min-width:65px;
-}
-
-.exercise-input{
-  min-width:85px;
-}
-
 .checkbox-cell input{
   width:18px;
   height:18px;
-  cursor:pointer;
 }
-
-/* =========================
-BUTTONS
-========================= */
 
 .actions{
   display:flex;
@@ -320,11 +268,11 @@ BUTTONS
 
 .action-btn{
   border:none;
-  padding:12px 23px;
+  padding:11px 18px;
   border-radius:9px;
   cursor:pointer;
   font-weight:bold;
-  font-size:14px;
+  font-size:13px;
 }
 
 .save-btn{
@@ -364,11 +312,50 @@ BUTTONS
   color:#a11f1f;
 }
 
-/* =========================
-PREVIEW
-========================= */
+.history-body{
+  padding:20px;
+}
 
-.preview-modal{
+.history-table{
+  min-width:800px;
+}
+
+.history-table td,
+.history-table th{
+  font-size:13px;
+}
+
+.history-btn{
+  border:none;
+  border-radius:7px;
+  padding:7px 10px;
+  margin:2px;
+  font-size:11px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.open-btn{
+  background:#0b4b3e;
+  color:white;
+}
+
+.view-btn{
+  background:#c9a548;
+  color:#073f34;
+}
+
+.send-btn{
+  background:#248f55;
+  color:white;
+}
+
+.empty-history{
+  padding:30px;
+  color:#777;
+}
+
+.modal{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.55);
@@ -379,11 +366,11 @@ PREVIEW
   padding:20px;
 }
 
-.preview-modal.show{
+.modal.show{
   display:flex;
 }
 
-.preview-box{
+.modal-box{
   width:min(1200px,100%);
   max-height:92vh;
   overflow:auto;
@@ -391,31 +378,38 @@ PREVIEW
   border-radius:15px;
 }
 
-.preview-header{
+.modal-header{
   background:#0b4b3e;
   color:white;
   padding:14px 18px;
+  border-bottom:4px solid #c9a548;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:4px solid #c9a548;
 }
 
-.close-preview{
-  background:#eee;
+.modal-close{
   border:none;
+  background:#eee;
   border-radius:7px;
   padding:7px 12px;
   cursor:pointer;
 }
 
-.preview-content{
+.modal-content{
   padding:20px;
 }
 
 .preview-title{
   text-align:center;
   margin-bottom:16px;
+}
+
+.preview-title img{
+  width:80px;
+  height:80px;
+  object-fit:contain;
+  margin-bottom:8px;
 }
 
 .preview-title h2{
@@ -429,11 +423,19 @@ PREVIEW
   flex-wrap:wrap;
   gap:10px;
   margin-bottom:20px;
-  color:#555;
+}
+
+.preview-info span{
+  background:#f1ebd9;
+  padding:7px 12px;
+  border-radius:20px;
+  color:#0b4b3e;
+  font-weight:bold;
+  font-size:12px;
 }
 
 .preview-day{
-  margin-bottom:24px;
+  margin-bottom:22px;
 }
 
 .preview-day h3{
@@ -441,10 +443,6 @@ PREVIEW
   color:white;
   padding:9px 12px;
   border-right:5px solid #c9a548;
-}
-
-.preview-day table{
-  min-width:900px;
 }
 
 .empty-cell{
@@ -462,10 +460,6 @@ footer{
 footer strong{
   color:#0b4b3e;
 }
-
-/* =========================
-MOBILE
-========================= */
 
 @media(max-width:800px){
 
@@ -490,11 +484,6 @@ MOBILE
     grid-template-columns:1fr;
   }
 
-  .day-btn{
-    flex:auto;
-    min-width:90px;
-  }
-
 }
 
 </style>
@@ -507,35 +496,22 @@ MOBILE
 
 <div class="brand">
 
-<img
-src="logo.jpeg"
-alt="شعار مدارس الفلاح">
+<img src="logo.jpeg" alt="شعار مدارس الفلاح">
 
 <div>
-
-<h1>
-مدارس الفلاح الأهلية
-</h1>
-
-<p>
-نظام الخطة الأسبوعية
-</p>
-
+<h1>مدارس الفلاح الأهلية</h1>
+<p>نظام الخطة الأسبوعية</p>
 </div>
 
 </div>
 
 <div class="user-area">
 
-<div
-class="user-name"
-id="userName">
+<div class="user-name" id="userName">
 رائد الفصل
 </div>
 
-<button
-class="logout-btn"
-id="logoutBtn">
+<button class="logout-btn" id="logoutBtn">
 تسجيل الخروج
 </button>
 
@@ -546,44 +522,32 @@ id="logoutBtn">
 
 <main class="container">
 
-<!-- =========================
-WELCOME
-========================= -->
-
 <section class="welcome">
 
 <h2>
 مرحبًا،
-<span id="leaderName">
-...
-</span>
+<span id="leaderName">...</span>
 </h2>
 
 <p>
-يمكنك إعداد ومراجعة الخطة الأسبوعية للفصل المسند إليك.
+يمكنك إعداد ومراجعة الخطط الأسبوعية للفصل المسند إليك.
 </p>
 
 <div class="class-info">
 
 <div class="info-badge">
 المرحلة:
-<span id="stageText">
--
-</span>
+<span id="stageText">-</span>
 </div>
 
 <div class="info-badge">
 الصف:
-<span id="gradeText">
--
-</span>
+<span id="gradeText">-</span>
 </div>
 
 <div class="info-badge">
 الشعبة:
-<span id="sectionText">
--
-</span>
+<span id="sectionText">-</span>
 </div>
 
 </div>
@@ -591,11 +555,7 @@ WELCOME
 </section>
 
 
-<!-- =========================
-WEEK INFO
-========================= -->
-
-<section class="week-card">
+<section class="card">
 
 <div class="card-title">
 بيانات الأسبوع
@@ -605,16 +565,11 @@ WEEK INFO
 
 <div class="form-group">
 
-<label>
-رقم الأسبوع
-</label>
+<label>رقم الأسبوع</label>
 
 <select id="weekNumber">
 
-<option value="">
-اختر الأسبوع
-</option>
-
+<option value="">اختر الأسبوع</option>
 <option value="1">الأسبوع الأول</option>
 <option value="2">الأسبوع الثاني</option>
 <option value="3">الأسبوع الثالث</option>
@@ -638,30 +593,14 @@ WEEK INFO
 
 </div>
 
-
 <div class="form-group">
-
-<label>
-من تاريخ
-</label>
-
-<input
-type="date"
-id="startDate">
-
+<label>من تاريخ</label>
+<input type="date" id="startDate">
 </div>
 
-
 <div class="form-group">
-
-<label>
-إلى تاريخ
-</label>
-
-<input
-type="date"
-id="endDate">
-
+<label>إلى تاريخ</label>
+<input type="date" id="endDate">
 </div>
 
 </div>
@@ -669,63 +608,42 @@ id="endDate">
 </section>
 
 
-<!-- =========================
-DAYS
-========================= -->
-
 <div class="days-tabs">
 
-<button
-class="day-btn active"
-data-day="sunday">
+<button class="day-btn active" data-day="sunday">
 الأحد
 </button>
 
-<button
-class="day-btn"
-data-day="monday">
+<button class="day-btn" data-day="monday">
 الاثنين
 </button>
 
-<button
-class="day-btn"
-data-day="tuesday">
+<button class="day-btn" data-day="tuesday">
 الثلاثاء
 </button>
 
-<button
-class="day-btn"
-data-day="wednesday">
+<button class="day-btn" data-day="wednesday">
 الأربعاء
 </button>
 
-<button
-class="day-btn"
-data-day="thursday">
+<button class="day-btn" data-day="thursday">
 الخميس
 </button>
 
 </div>
 
 
-<!-- =========================
-PLAN TABLE
-========================= -->
-
-<section class="plan-card">
+<section class="card">
 
 <div class="plan-top">
 
-<h3>
-إدخال الخطة
-</h3>
+<h3>إدخال الخطة</h3>
 
 <div class="day-label" id="currentDayLabel">
 الأحد
 </div>
 
 </div>
-
 
 <div class="table-wrap">
 
@@ -735,41 +653,19 @@ PLAN TABLE
 
 <tr>
 
-<th>
-الحصة
-</th>
-
-<th>
-المادة
-</th>
-
-<th>
-موضوع الدرس
-</th>
-
-<th>
-كتاب الطالب / النشاط
-</th>
-
-<th>
-الصفحة
-</th>
-
-<th>
-رقم التمرين
-</th>
-
-<th>
-منصة مدرستي
-</th>
+<th>الحصة</th>
+<th>المادة</th>
+<th>موضوع الدرس</th>
+<th>كتاب الطالب / النشاط</th>
+<th>الصفحة</th>
+<th>رقم التمرين</th>
+<th>منصة مدرستي</th>
 
 </tr>
 
 </thead>
 
-<tbody id="planRows">
-
-</tbody>
+<tbody id="planRows"></tbody>
 
 </table>
 
@@ -778,29 +674,65 @@ PLAN TABLE
 
 <div class="actions">
 
-<button
-class="action-btn save-btn"
-id="saveBtn">
+<button class="action-btn save-btn" id="saveBtn">
 حفظ الخطة
 </button>
 
-<button
-class="action-btn preview-btn"
-id="previewBtn">
+<button class="action-btn preview-btn" id="previewBtn">
 معاينة الخطة
 </button>
 
-<button
-class="action-btn clear-btn"
-id="clearDayBtn">
+<button class="action-btn clear-btn" id="clearDayBtn">
 مسح اليوم الحالي
 </button>
 
 </div>
 
-<div
-id="message"
-class="message">
+<div id="message" class="message"></div>
+
+</section>
+
+
+<section class="card">
+
+<div class="card-title">
+سجل الخطط الأسبوعية
+</div>
+
+<div class="history-body">
+
+<div class="table-wrap">
+
+<table class="history-table">
+
+<thead>
+
+<tr>
+
+<th>الأسبوع</th>
+<th>من تاريخ</th>
+<th>إلى تاريخ</th>
+<th>آخر تحديث</th>
+<th>الإجراءات</th>
+
+</tr>
+
+</thead>
+
+<tbody id="historyTable">
+
+<tr>
+<td colspan="5" class="empty-history">
+جاري تحميل سجل الخطط...
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
 </div>
 
 </section>
@@ -808,34 +740,23 @@ class="message">
 </main>
 
 
-<!-- =========================
-PREVIEW MODAL
-========================= -->
+<div class="modal" id="previewModal">
 
-<div
-class="preview-modal"
-id="previewModal">
+<div class="modal-box">
 
-<div class="preview-box">
-
-<div class="preview-header">
+<div class="modal-header">
 
 <strong>
 معاينة الخطة الأسبوعية
 </strong>
 
-<button
-class="close-preview"
-id="closePreview">
+<button class="modal-close" id="closePreview">
 إغلاق
 </button>
 
 </div>
 
-<div
-class="preview-content"
-id="previewContent">
-</div>
+<div class="modal-content" id="previewContent"></div>
 
 </div>
 
@@ -855,59 +776,53 @@ id="previewContent">
 </footer>
 
 
-
 <script type="module">
 
-/* =============================================
-FIREBASE
-============================================= */
-
 import {
-initializeApp
+  initializeApp
 }
-from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 
 import {
-getAuth,
-onAuthStateChanged,
-signOut
+  getAuth,
+  onAuthStateChanged,
+  signOut
 }
-from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 
 import {
-getFirestore,
-doc,
-getDoc,
-setDoc,
-serverTimestamp
+  getFirestore,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  serverTimestamp
 }
-from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
 const firebaseConfig = {
 
-apiKey:
-"AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
+  apiKey:
+  "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
 
-authDomain:
-"weekly-plan-3a743.firebaseapp.com",
+  authDomain:
+  "weekly-plan-3a743.firebaseapp.com",
 
-projectId:
-"weekly-plan-3a743",
+  projectId:
+  "weekly-plan-3a743",
 
-storageBucket:
-"weekly-plan-3a743.firebasestorage.app",
+  storageBucket:
+  "weekly-plan-3a743.firebasestorage.app",
 
-messagingSenderId:
-"575884603803",
+  messagingSenderId:
+  "575884603803",
 
-appId:
-"1:575884603803:web:e8c4d82c69fd545bed313e"
+  appId:
+  "1:575884603803:web:e8c4d82c69fd545bed313e"
 
 };
 
@@ -922,21 +837,17 @@ const db =
 getFirestore(app);
 
 
-/* =============================================
-DATA
-============================================= */
-
 const days = {
 
-sunday:"الأحد",
+  sunday:"الأحد",
 
-monday:"الاثنين",
+  monday:"الاثنين",
 
-tuesday:"الثلاثاء",
+  tuesday:"الثلاثاء",
 
-wednesday:"الأربعاء",
+  wednesday:"الأربعاء",
 
-thursday:"الخميس"
+  thursday:"الخميس"
 
 };
 
@@ -944,240 +855,203 @@ thursday:"الخميس"
 let currentDay =
 "sunday";
 
-
 let currentUser =
 null;
-
 
 let currentUserData =
 null;
 
+let savedPlans =
+[];
 
-let planData = {
+let planData =
+createEmptyPlan();
 
-sunday:[],
-
-monday:[],
-
-tuesday:[],
-
-wednesday:[],
-
-thursday:[]
-
-};
-
-
-/* =============================================
-ELEMENTS
-============================================= */
 
 const leaderName =
-document.getElementById(
-"leaderName"
-);
+document.getElementById("leaderName");
 
 const userName =
-document.getElementById(
-"userName"
-);
+document.getElementById("userName");
 
 const stageText =
-document.getElementById(
-"stageText"
-);
+document.getElementById("stageText");
 
 const gradeText =
-document.getElementById(
-"gradeText"
-);
+document.getElementById("gradeText");
 
 const sectionText =
-document.getElementById(
-"sectionText"
-);
+document.getElementById("sectionText");
 
 const planRows =
-document.getElementById(
-"planRows"
-);
+document.getElementById("planRows");
 
 const currentDayLabel =
-document.getElementById(
-"currentDayLabel"
-);
+document.getElementById("currentDayLabel");
 
 const weekNumber =
-document.getElementById(
-"weekNumber"
-);
+document.getElementById("weekNumber");
 
 const startDate =
-document.getElementById(
-"startDate"
-);
+document.getElementById("startDate");
 
 const endDate =
-document.getElementById(
-"endDate"
-);
+document.getElementById("endDate");
 
 const message =
-document.getElementById(
-"message"
-);
+document.getElementById("message");
 
+const historyTable =
+document.getElementById("historyTable");
 
-/* =============================================
-CREATE EMPTY PERIODS
-============================================= */
 
 function createEmptyDay(){
 
-const periods = [];
+  const arr = [];
 
-for(
-let i=1;
-i<=8;
-i++
-){
+  for(
+    let i = 1;
+    i <= 8;
+    i++
+  ){
 
-periods.push({
+    arr.push({
 
-period:i,
+      period:i,
 
-subject:"",
+      subject:"",
 
-topic:"",
+      topic:"",
 
-book:"",
+      book:"",
 
-page:"",
+      page:"",
 
-exercise:"",
+      exercise:"",
 
-madrasati:false
+      madrasati:false
 
-});
+    });
+
+  }
+
+  return arr;
 
 }
 
-return periods;
+
+function createEmptyPlan(){
+
+  return {
+
+    sunday:createEmptyDay(),
+
+    monday:createEmptyDay(),
+
+    tuesday:createEmptyDay(),
+
+    wednesday:createEmptyDay(),
+
+    thursday:createEmptyDay()
+
+  };
 
 }
 
-
-Object.keys(days)
-.forEach(day => {
-
-planData[day] =
-createEmptyDay();
-
-});
-
-
-/* =============================================
-AUTH
-============================================= */
 
 onAuthStateChanged(
 auth,
 async(user) => {
 
-if(!user){
+  if(!user){
 
-window.location.href =
-"index.html";
+    window.location.href =
+    "index.html";
 
-return;
+    return;
 
-}
+  }
 
-try{
+  try{
 
-const snap =
-await getDoc(
-doc(
-db,
-"users",
-user.uid
-)
-);
+    const snap =
+    await getDoc(
+      doc(
+        db,
+        "users",
+        user.uid
+      )
+    );
 
-if(!snap.exists()){
+    if(!snap.exists()){
 
-await signOut(auth);
+      await signOut(auth);
 
-window.location.href =
-"index.html";
+      window.location.href =
+      "index.html";
 
-return;
+      return;
 
-}
+    }
 
-const data =
-snap.data();
+    const data =
+    snap.data();
 
+    if(
+      data.role !== "classLeader" ||
+      data.active === false ||
+      data.deleted === true
+    ){
 
-if(
-data.role !== "classLeader" ||
-data.active === false ||
-data.deleted === true
-){
+      await signOut(auth);
 
-await signOut(auth);
+      window.location.href =
+      "index.html";
 
-window.location.href =
-"index.html";
+      return;
 
-return;
+    }
 
-}
+    currentUser =
+    user;
 
-
-currentUser =
-user;
-
-currentUserData =
-data;
+    currentUserData =
+    data;
 
 
-leaderName.textContent =
-data.name || "رائد الفصل";
+    leaderName.textContent =
+    data.name || "رائد الفصل";
 
-userName.textContent =
-data.name || "رائد الفصل";
+    userName.textContent =
+    data.name || "رائد الفصل";
 
-stageText.textContent =
-data.stage || "-";
+    stageText.textContent =
+    data.stage || "-";
 
-gradeText.textContent =
-data.grade || "-";
+    gradeText.textContent =
+    data.grade || "-";
 
-sectionText.textContent =
-data.section || "-";
-
-
-renderCurrentDay();
-
-}
-catch(error){
-
-console.error(error);
-
-alert(
-"تعذر تحميل بيانات الحساب."
-);
-
-}
-
-}
-);
+    sectionText.textContent =
+    data.section || "-";
 
 
-/* =============================================
-LOGOUT
-============================================= */
+    await loadPlanHistory();
+
+    renderCurrentDay();
+
+  }
+  catch(error){
+
+    console.error(error);
+
+    alert(
+      "تعذر تحميل بيانات الحساب."
+    );
+
+  }
+
+});
+
 
 document
 .getElementById("logoutBtn")
@@ -1185,226 +1059,237 @@ document
 "click",
 async() => {
 
-await signOut(auth);
+  await signOut(auth);
 
-window.location.href =
-"index.html";
+  window.location.href =
+  "index.html";
 
-}
-);
+});
 
-
-/* =============================================
-DAY TABS
-============================================= */
 
 document
 .querySelectorAll(".day-btn")
 .forEach(button => {
 
-button.addEventListener(
-"click",
-() => {
+  button.addEventListener(
+  "click",
+  () => {
 
-saveCurrentDayToMemory();
+    saveCurrentDayToMemory();
 
-currentDay =
-button.dataset.day;
+    currentDay =
+    button.dataset.day;
 
-document
-.querySelectorAll(".day-btn")
-.forEach(btn => {
+    document
+    .querySelectorAll(".day-btn")
+    .forEach(btn => {
 
-btn.classList.remove(
-"active"
-);
+      btn.classList.remove(
+        "active"
+      );
+
+    });
+
+    button.classList.add(
+      "active"
+    );
+
+    currentDayLabel.textContent =
+    days[currentDay];
+
+    renderCurrentDay();
+
+  });
 
 });
 
-button.classList.add(
-"active"
-);
 
-currentDayLabel.textContent =
-days[currentDay];
+weekNumber.addEventListener(
+"change",
+async() => {
 
-renderCurrentDay();
+  if(!weekNumber.value){
 
-}
-);
+    resetForm();
+
+    return;
+
+  }
+
+  await loadSelectedWeek(
+    Number(
+      weekNumber.value
+    )
+  );
 
 });
 
-
-/* =============================================
-RENDER PERIODS
-============================================= */
 
 function renderCurrentDay(){
 
-planRows.innerHTML =
-"";
+  planRows.innerHTML =
+  "";
 
+  planData[currentDay]
+  .forEach(
+  (item,index) => {
 
-planData[currentDay]
-.forEach(
-(item,index) => {
+    const tr =
+    document.createElement(
+      "tr"
+    );
 
-const tr =
-document.createElement("tr");
+    tr.innerHTML = `
 
+      <td class="period">
+        ${index + 1}
+      </td>
 
-tr.innerHTML = `
+      <td>
 
-<td class="period">
-${index + 1}
-</td>
+        <input
+          type="text"
+          class="subject"
+          value="${escapeAttribute(item.subject)}"
+          placeholder="المادة"
+        >
 
-<td>
+      </td>
 
-<input
-type="text"
-class="subject"
-value="${escapeAttribute(item.subject)}"
-placeholder="المادة">
+      <td>
 
-</td>
+        <input
+          type="text"
+          class="topic topic-input"
+          value="${escapeAttribute(item.topic)}"
+          placeholder="موضوع الدرس"
+        >
 
-<td>
+      </td>
 
-<input
-type="text"
-class="topic topic-input"
-value="${escapeAttribute(item.topic)}"
-placeholder="موضوع الدرس">
+      <td>
 
-</td>
+        <input
+          type="text"
+          class="book"
+          value="${escapeAttribute(item.book)}"
+          placeholder="كتاب الطالب / النشاط"
+        >
 
-<td>
+      </td>
 
-<input
-type="text"
-class="book book-input"
-value="${escapeAttribute(item.book)}"
-placeholder="كتاب الطالب / النشاط">
+      <td>
 
-</td>
+        <input
+          type="text"
+          class="page"
+          value="${escapeAttribute(item.page)}"
+          placeholder="ص"
+        >
 
-<td>
+      </td>
 
-<input
-type="text"
-class="page page-input"
-value="${escapeAttribute(item.page)}"
-placeholder="ص">
+      <td>
 
-</td>
+        <input
+          type="text"
+          class="exercise"
+          value="${escapeAttribute(item.exercise)}"
+          placeholder="رقم"
+        >
 
-<td>
+      </td>
 
-<input
-type="text"
-class="exercise exercise-input"
-value="${escapeAttribute(item.exercise)}"
-placeholder="رقم">
+      <td class="checkbox-cell">
 
-</td>
+        <input
+          type="checkbox"
+          class="madrasati"
+          ${item.madrasati ? "checked" : ""}
+        >
 
-<td class="checkbox-cell">
+      </td>
 
-<input
-type="checkbox"
-class="madrasati"
-${item.madrasati ? "checked" : ""}>
+    `;
 
-</td>
+    planRows.appendChild(
+      tr
+    );
 
-`;
-
-
-planRows.appendChild(tr);
+  });
 
 }
-);
 
-}
-
-
-/* =============================================
-SAVE CURRENT DAY LOCALLY
-============================================= */
 
 function saveCurrentDayToMemory(){
 
-const rows =
-planRows.querySelectorAll(
-"tr"
-);
+  const rows =
+  planRows.querySelectorAll(
+    "tr"
+  );
 
+  rows.forEach(
+  (row,index) => {
 
-rows.forEach(
-(row,index) => {
+    planData[currentDay][index] = {
 
-planData[currentDay][index] = {
+      period:
+      index + 1,
 
-period:
-index + 1,
+      subject:
+      row
+      .querySelector(".subject")
+      .value
+      .trim(),
 
-subject:
-row.querySelector(
-".subject"
-).value.trim(),
+      topic:
+      row
+      .querySelector(".topic")
+      .value
+      .trim(),
 
-topic:
-row.querySelector(
-".topic"
-).value.trim(),
+      book:
+      row
+      .querySelector(".book")
+      .value
+      .trim(),
 
-book:
-row.querySelector(
-".book"
-).value.trim(),
+      page:
+      row
+      .querySelector(".page")
+      .value
+      .trim(),
 
-page:
-row.querySelector(
-".page"
-).value.trim(),
+      exercise:
+      row
+      .querySelector(".exercise")
+      .value
+      .trim(),
 
-exercise:
-row.querySelector(
-".exercise"
-).value.trim(),
+      madrasati:
+      row
+      .querySelector(".madrasati")
+      .checked
 
-madrasati:
-row.querySelector(
-".madrasati"
-).checked
+    };
 
-};
-
-});
-
-}
-
-
-/* =============================================
-PLAN DOCUMENT ID
-============================================= */
-
-function getPlanId(){
-
-return (
-currentUser.uid +
-"_week_" +
-weekNumber.value
-);
+  });
 
 }
 
 
-/* =============================================
-SAVE FIREBASE
-============================================= */
+function getPlanId(
+  week
+){
+
+  return (
+    currentUser.uid +
+    "_week_" +
+    week
+  );
+
+}
+
 
 document
 .getElementById("saveBtn")
@@ -1412,479 +1297,1098 @@ document
 "click",
 async() => {
 
-saveCurrentDayToMemory();
+  saveCurrentDayToMemory();
 
+  if(!weekNumber.value){
 
-if(
-!weekNumber.value
-){
+    showMessage(
+      "اختر رقم الأسبوع.",
+      "error"
+    );
 
-showMessage(
-"اختر رقم الأسبوع.",
-"error"
-);
+    return;
 
-return;
+  }
 
-}
+  if(
+    !startDate.value ||
+    !endDate.value
+  ){
 
+    showMessage(
+      "حدد تاريخ بداية ونهاية الأسبوع.",
+      "error"
+    );
 
-if(
-!startDate.value ||
-!endDate.value
-){
+    return;
 
-showMessage(
-"حدد تاريخ بداية ونهاية الأسبوع.",
-"error"
-);
+  }
 
-return;
+  try{
 
-}
+    const planId =
+    getPlanId(
+      weekNumber.value
+    );
 
+    await setDoc(
+      doc(
+        db,
+        "weeklyPlans",
+        planId
+      ),
+      {
 
-try{
+        leaderUid:
+        currentUser.uid,
 
-const planId =
-getPlanId();
+        leaderName:
+        currentUserData.name,
 
+        stage:
+        currentUserData.stage,
 
-await setDoc(
-doc(
-db,
-"weeklyPlans",
-planId
-),
-{
+        grade:
+        currentUserData.grade,
 
-leaderUid:
-currentUser.uid,
+        section:
+        currentUserData.section,
 
-leaderName:
-currentUserData.name,
+        weekNumber:
+        Number(
+          weekNumber.value
+        ),
 
-stage:
-currentUserData.stage,
+        startDate:
+        startDate.value,
 
-grade:
-currentUserData.grade,
+        endDate:
+        endDate.value,
 
-section:
-currentUserData.section,
+        days:
+        planData,
 
-weekNumber:
-Number(
-weekNumber.value
-),
+        status:
+        "draft",
 
-startDate:
-startDate.value,
+        updatedAt:
+        serverTimestamp()
 
-endDate:
-endDate.value,
+      },
+      {
+        merge:true
+      }
+    );
 
-days:
-planData,
+    showMessage(
+      "تم حفظ الخطة الأسبوعية بنجاح ✅",
+      "success"
+    );
 
-status:
-"draft",
+    await loadPlanHistory();
 
-updatedAt:
-serverTimestamp()
+  }
+  catch(error){
 
-},
-{
-merge:true
-}
-);
+    console.error(error);
 
+    showMessage(
+      "حدث خطأ أثناء حفظ الخطة.",
+      "error"
+    );
 
-showMessage(
-"تم حفظ الخطة الأسبوعية بنجاح ✅",
-"success"
-);
-
-}
-catch(error){
-
-console.error(error);
-
-showMessage(
-"حدث خطأ أثناء حفظ الخطة.",
-"error"
-);
-
-}
-
-}
-);
-
-
-/* =============================================
-CLEAR DAY
-============================================= */
-
-document
-.getElementById("clearDayBtn")
-.addEventListener(
-"click",
-() => {
-
-if(
-!confirm(
-"هل تريد مسح بيانات هذا اليوم؟"
-)
-){
-
-return;
-
-}
-
-
-planData[currentDay] =
-createEmptyDay();
-
-renderCurrentDay();
-
-}
-);
-
-
-/* =============================================
-PREVIEW
-============================================= */
-
-document
-.getElementById("previewBtn")
-.addEventListener(
-"click",
-() => {
-
-saveCurrentDayToMemory();
-
-
-if(
-!weekNumber.value
-){
-
-alert(
-"اختر رقم الأسبوع أولًا."
-);
-
-return;
-
-}
-
-
-buildPreview();
-
-
-document
-.getElementById(
-"previewModal"
-)
-.classList.add(
-"show"
-);
-
-}
-);
-
-
-document
-.getElementById(
-"closePreview"
-)
-.addEventListener(
-"click",
-() => {
-
-document
-.getElementById(
-"previewModal"
-)
-.classList.remove(
-"show"
-);
-
-}
-);
-
-
-/* =============================================
-BUILD PREVIEW
-============================================= */
-
-function buildPreview(){
-
-const content =
-document.getElementById(
-"previewContent"
-);
-
-
-let html = `
-
-<div class="preview-title">
-
-<h2>
-الخطة الأسبوعية
-</h2>
-
-<strong>
-${escapeHTML(
-currentUserData.grade || ""
-)}
- (${escapeHTML(
-currentUserData.section || ""
-)})
-</strong>
-
-</div>
-
-
-<div class="preview-info">
-
-<span>
-الأسبوع:
-${escapeHTML(
-weekNumber.value
-)}
-</span>
-
-<span>
-من تاريخ:
-${escapeHTML(
-startDate.value || "-"
-)}
-</span>
-
-<span>
-إلى تاريخ:
-${escapeHTML(
-endDate.value || "-"
-)}
-</span>
-
-<span>
-رائد الفصل:
-${escapeHTML(
-currentUserData.name || ""
-)}
-</span>
-
-</div>
-
-`;
-
-
-Object.keys(days)
-.forEach(day => {
-
-html += `
-
-<div class="preview-day">
-
-<h3>
-${days[day]}
-</h3>
-
-<div class="table-wrap">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>
-الحصة
-</th>
-
-<th>
-المادة
-</th>
-
-<th>
-موضوع الدرس
-</th>
-
-<th>
-كتاب الطالب / النشاط
-</th>
-
-<th>
-الصفحة
-</th>
-
-<th>
-رقم التمرين
-</th>
-
-<th>
-مدرستي
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-`;
-
-
-planData[day]
-.forEach(row => {
-
-html += `
-
-<tr>
-
-<td>
-${row.period}
-</td>
-
-<td>
-${displayValue(
-row.subject
-)}
-</td>
-
-<td>
-${displayValue(
-row.topic
-)}
-</td>
-
-<td>
-${displayValue(
-row.book
-)}
-</td>
-
-<td>
-${displayValue(
-row.page
-)}
-</td>
-
-<td>
-${displayValue(
-row.exercise
-)}
-</td>
-
-<td>
-${row.madrasati
-? "✓"
-: ""}
-</td>
-
-</tr>
-
-`;
+  }
 
 });
 
 
-html += `
+async function loadPlanHistory(){
 
-</tbody>
+  if(!currentUser){
+    return;
+  }
 
-</table>
+  try{
 
-</div>
+    const snapshot =
+    await getDocs(
+      collection(
+        db,
+        "weeklyPlans"
+      )
+    );
 
-</div>
+    savedPlans =
+    [];
 
-`;
+    snapshot.forEach(
+    item => {
+
+      const data =
+      item.data();
+
+      if(
+        data.leaderUid ===
+        currentUser.uid
+      ){
+
+        savedPlans.push({
+
+          id:item.id,
+
+          ...data
+
+        });
+
+      }
+
+    });
+
+    savedPlans.sort(
+    (a,b) =>
+    Number(b.weekNumber || 0) -
+    Number(a.weekNumber || 0)
+    );
+
+    renderHistory();
+
+  }
+  catch(error){
+
+    console.error(error);
+
+    historyTable.innerHTML = `
+
+      <tr>
+
+        <td
+        colspan="5"
+        class="empty-history">
+
+          تعذر تحميل سجل الخطط.
+
+        </td>
+
+      </tr>
+
+    `;
+
+  }
+
+}
+
+
+function renderHistory(){
+
+  if(
+    savedPlans.length === 0
+  ){
+
+    historyTable.innerHTML = `
+
+      <tr>
+
+        <td
+        colspan="5"
+        class="empty-history">
+
+          لا توجد خطط محفوظة حتى الآن.
+
+        </td>
+
+      </tr>
+
+    `;
+
+    return;
+
+  }
+
+  historyTable.innerHTML =
+  "";
+
+  savedPlans.forEach(
+  plan => {
+
+    const tr =
+    document.createElement(
+      "tr"
+    );
+
+    tr.innerHTML = `
+
+      <td>
+        الأسبوع
+        ${plan.weekNumber}
+      </td>
+
+      <td>
+        ${escapeHTML(plan.startDate || "-")}
+      </td>
+
+      <td>
+        ${escapeHTML(plan.endDate || "-")}
+      </td>
+
+      <td>
+        ${formatTimestamp(plan.updatedAt)}
+      </td>
+
+      <td>
+
+        <button
+          class="history-btn open-btn"
+          data-open="${plan.id}">
+          فتح الخطة
+        </button>
+
+        <button
+          class="history-btn view-btn"
+          data-view="${plan.id}">
+          معاينة
+        </button>
+
+        <button
+          class="history-btn send-btn"
+          data-send="${plan.id}">
+          إرسال
+        </button>
+
+      </td>
+
+    `;
+
+    historyTable.appendChild(
+      tr
+    );
+
+  });
+
+  bindHistoryButtons();
+
+}
+
+
+function bindHistoryButtons(){
+
+  document
+  .querySelectorAll(
+    "[data-open]"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+    "click",
+    () => {
+
+      const plan =
+      savedPlans.find(
+        item =>
+        item.id ===
+        button.dataset.open
+      );
+
+      if(!plan){
+        return;
+      }
+
+      openSavedPlan(
+        plan
+      );
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    });
+
+  });
+
+
+  document
+  .querySelectorAll(
+    "[data-view]"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+    "click",
+    () => {
+
+      const plan =
+      savedPlans.find(
+        item =>
+        item.id ===
+        button.dataset.view
+      );
+
+      if(!plan){
+        return;
+      }
+
+      buildPreview(
+        plan
+      );
+
+      document
+      .getElementById(
+        "previewModal"
+      )
+      .classList.add(
+        "show"
+      );
+
+    });
+
+  });
+
+
+  document
+  .querySelectorAll(
+    "[data-send]"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+    "click",
+    () => {
+
+      const plan =
+      savedPlans.find(
+        item =>
+        item.id ===
+        button.dataset.send
+      );
+
+      if(!plan){
+        return;
+      }
+
+      sendPlan(
+        plan
+      );
+
+    });
+
+  });
+
+}
+
+
+async function loadSelectedWeek(
+  selectedWeek
+){
+
+  const existing =
+  savedPlans.find(
+    item =>
+    Number(item.weekNumber) ===
+    Number(selectedWeek)
+  );
+
+  if(existing){
+
+    openSavedPlan(
+      existing
+    );
+
+    showMessage(
+      "تم تحميل الخطة المحفوظة لهذا الأسبوع.",
+      "success"
+    );
+
+    return;
+
+  }
+
+
+  const previousPlans =
+  savedPlans
+  .filter(
+    item =>
+    Number(item.weekNumber) <
+    Number(selectedWeek)
+  )
+  .sort(
+    (a,b) =>
+    Number(b.weekNumber) -
+    Number(a.weekNumber)
+  );
+
+
+  planData =
+  createEmptyPlan();
+
+
+  if(
+    previousPlans.length > 0
+  ){
+
+    const previous =
+    previousPlans[0];
+
+    Object.keys(days)
+    .forEach(day => {
+
+      for(
+        let i=0;
+        i<8;
+        i++
+      ){
+
+        const oldRow =
+        previous.days?.[day]?.[i];
+
+        if(oldRow){
+
+          planData[day][i].subject =
+          oldRow.subject || "";
+
+        }
+
+      }
+
+    });
+
+    showMessage(
+      "تم نقل المواد تلقائيًا من آخر أسبوع محفوظ.",
+      "success"
+    );
+
+  }
+
+
+  startDate.value =
+  "";
+
+  endDate.value =
+  "";
+
+  renderCurrentDay();
+
+}
+
+
+function openSavedPlan(
+  plan
+){
+
+  weekNumber.value =
+  String(
+    plan.weekNumber
+  );
+
+  startDate.value =
+  plan.startDate || "";
+
+  endDate.value =
+  plan.endDate || "";
+
+  planData =
+  normalizeDays(
+    plan.days
+  );
+
+  currentDay =
+  "sunday";
+
+  document
+  .querySelectorAll(
+    ".day-btn"
+  )
+  .forEach(btn => {
+
+    btn.classList.toggle(
+      "active",
+      btn.dataset.day ===
+      "sunday"
+    );
+
+  });
+
+  currentDayLabel.textContent =
+  "الأحد";
+
+  renderCurrentDay();
+
+}
+
+
+function normalizeDays(
+  source
+){
+
+  const result =
+  createEmptyPlan();
+
+  Object.keys(days)
+  .forEach(day => {
+
+    for(
+      let i=0;
+      i<8;
+      i++
+    ){
+
+      const row =
+      source?.[day]?.[i];
+
+      if(row){
+
+        result[day][i] = {
+
+          period:
+          i + 1,
+
+          subject:
+          row.subject || "",
+
+          topic:
+          row.topic || "",
+
+          book:
+          row.book || "",
+
+          page:
+          row.page || "",
+
+          exercise:
+          row.exercise || "",
+
+          madrasati:
+          row.madrasati === true
+
+        };
+
+      }
+
+    }
+
+  });
+
+  return result;
+
+}
+
+
+document
+.getElementById(
+  "clearDayBtn"
+)
+.addEventListener(
+"click",
+() => {
+
+  if(
+    !confirm(
+      "هل تريد مسح بيانات هذا اليوم؟"
+    )
+  ){
+    return;
+  }
+
+  const subjects =
+  planData[currentDay]
+  .map(
+    item =>
+    item.subject
+  );
+
+  planData[currentDay] =
+  createEmptyDay();
+
+  planData[currentDay]
+  .forEach(
+  (item,index) => {
+
+    item.subject =
+    subjects[index] || "";
+
+  });
+
+  renderCurrentDay();
 
 });
 
 
-content.innerHTML =
-html;
-
-}
-
-
-/* =============================================
-HELPERS
-============================================= */
-
-function displayValue(value){
-
-if(!value){
-
-return `
-<span class="empty-cell">
-—
-</span>
-`;
-
-}
-
-return escapeHTML(value);
-
-}
-
-
-function escapeHTML(value){
-
-return String(value)
-.replaceAll(
-"&",
-"&amp;"
+document
+.getElementById(
+  "previewBtn"
 )
-.replaceAll(
-"<",
-"&lt;"
-)
-.replaceAll(
-">",
-"&gt;"
-)
-.replaceAll(
-'"',
-"&quot;"
-)
-.replaceAll(
-"'",
-"&#039;"
-);
-
-}
-
-
-function escapeAttribute(value){
-
-return escapeHTML(
-value || ""
-);
-
-}
-
-
-function showMessage(text,type){
-
-message.textContent =
-text;
-
-message.className =
-"message " + type;
-
-
-setTimeout(
+.addEventListener(
+"click",
 () => {
 
-message.className =
-"message";
+  saveCurrentDayToMemory();
 
-},
-4000
-);
+  if(!weekNumber.value){
+
+    alert(
+      "اختر رقم الأسبوع أولًا."
+    );
+
+    return;
+
+  }
+
+  const temporaryPlan = {
+
+    weekNumber:
+    Number(
+      weekNumber.value
+    ),
+
+    startDate:
+    startDate.value,
+
+    endDate:
+    endDate.value,
+
+    leaderName:
+    currentUserData.name,
+
+    grade:
+    currentUserData.grade,
+
+    section:
+    currentUserData.section,
+
+    days:
+    planData
+
+  };
+
+  buildPreview(
+    temporaryPlan
+  );
+
+  document
+  .getElementById(
+    "previewModal"
+  )
+  .classList.add(
+    "show"
+  );
+
+});
+
+
+document
+.getElementById(
+  "closePreview"
+)
+.addEventListener(
+"click",
+() => {
+
+  document
+  .getElementById(
+    "previewModal"
+  )
+  .classList.remove(
+    "show"
+  );
+
+});
+
+
+function buildPreview(
+  plan
+){
+
+  const content =
+  document.getElementById(
+    "previewContent"
+  );
+
+  let html = `
+
+    <div class="preview-title">
+
+      <img
+        src="logo.jpeg"
+        alt="شعار مدارس الفلاح"
+      >
+
+      <h2>
+        الخطة الأسبوعية
+      </h2>
+
+      <strong>
+        ${escapeHTML(plan.grade || currentUserData.grade || "")}
+        -
+        ${escapeHTML(plan.section || currentUserData.section || "")}
+      </strong>
+
+    </div>
+
+
+    <div class="preview-info">
+
+      <span>
+        الأسبوع:
+        ${escapeHTML(plan.weekNumber || "")}
+      </span>
+
+      <span>
+        من تاريخ:
+        ${escapeHTML(plan.startDate || "-")}
+      </span>
+
+      <span>
+        إلى تاريخ:
+        ${escapeHTML(plan.endDate || "-")}
+      </span>
+
+      <span>
+        رائد الفصل:
+        ${escapeHTML(plan.leaderName || currentUserData.name || "")}
+      </span>
+
+    </div>
+
+  `;
+
+
+  Object.keys(days)
+  .forEach(day => {
+
+    html += `
+
+      <div class="preview-day">
+
+        <h3>
+          ${days[day]}
+        </h3>
+
+        <div class="table-wrap">
+
+        <table>
+
+        <thead>
+
+          <tr>
+
+            <th>الحصة</th>
+            <th>المادة</th>
+            <th>موضوع الدرس</th>
+            <th>كتاب الطالب / النشاط</th>
+            <th>الصفحة</th>
+            <th>رقم التمرين</th>
+            <th>مدرستي</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+    `;
+
+
+    const dayRows =
+    plan.days?.[day] ||
+    createEmptyDay();
+
+
+    dayRows.forEach(
+    row => {
+
+      html += `
+
+        <tr>
+
+          <td>
+            ${row.period}
+          </td>
+
+          <td>
+            ${displayValue(row.subject)}
+          </td>
+
+          <td>
+            ${displayValue(row.topic)}
+          </td>
+
+          <td>
+            ${displayValue(row.book)}
+          </td>
+
+          <td>
+            ${displayValue(row.page)}
+          </td>
+
+          <td>
+            ${displayValue(row.exercise)}
+          </td>
+
+          <td>
+            ${row.madrasati ? "✓" : ""}
+          </td>
+
+        </tr>
+
+      `;
+
+    });
+
+
+    html += `
+
+        </tbody>
+
+        </table>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+
+  content.innerHTML =
+  html;
+
+}
+
+
+function sendPlan(
+  plan
+){
+
+  let text =
+`الخطة الأسبوعية
+مدارس الفلاح الأهلية
+
+الصف: ${plan.grade || currentUserData.grade || ""}
+الشعبة: ${plan.section || currentUserData.section || ""}
+الأسبوع: ${plan.weekNumber}
+من تاريخ: ${plan.startDate || "-"}
+إلى تاريخ: ${plan.endDate || "-"}
+
+`;
+
+
+  Object.keys(days)
+  .forEach(day => {
+
+    text +=
+`\n${days[day]}\n`;
+
+    const rows =
+    plan.days?.[day] || [];
+
+    rows.forEach(
+    row => {
+
+      if(
+        row.subject ||
+        row.topic ||
+        row.book ||
+        row.page ||
+        row.exercise
+      ){
+
+        text +=
+`الحصة ${row.period}: ${row.subject || ""}`;
+
+        if(row.topic){
+
+          text +=
+` - ${row.topic}`;
+
+        }
+
+        if(
+          row.book ||
+          row.page ||
+          row.exercise ||
+          row.madrasati
+        ){
+
+          text +=
+`\nالواجب:`;
+
+          if(row.book){
+
+            text +=
+` ${row.book}`;
+
+          }
+
+          if(row.page){
+
+            text +=
+` ص ${row.page}`;
+
+          }
+
+          if(row.exercise){
+
+            text +=
+` تمرين ${row.exercise}`;
+
+          }
+
+          if(row.madrasati){
+
+            text +=
+` - منصة مدرستي`;
+
+          }
+
+        }
+
+        text +=
+`\n`;
+
+      }
+
+    });
+
+  });
+
+
+  text +=
+`\nرائد الفصل: ${plan.leaderName || currentUserData.name || ""}`;
+
+
+  const url =
+  "https://wa.me/?text=" +
+  encodeURIComponent(
+    text
+  );
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+}
+
+
+function resetForm(){
+
+  planData =
+  createEmptyPlan();
+
+  startDate.value =
+  "";
+
+  endDate.value =
+  "";
+
+  renderCurrentDay();
+
+}
+
+
+function formatTimestamp(
+  timestamp
+){
+
+  if(
+    !timestamp ||
+    !timestamp.toDate
+  ){
+
+    return "-";
+
+  }
+
+  try{
+
+    return timestamp
+    .toDate()
+    .toLocaleString(
+      "ar-SA",
+      {
+        dateStyle:"medium",
+        timeStyle:"short"
+      }
+    );
+
+  }
+  catch{
+
+    return "-";
+
+  }
+
+}
+
+
+function displayValue(
+  value
+){
+
+  if(!value){
+
+    return `
+      <span class="empty-cell">
+      —
+      </span>
+    `;
+
+  }
+
+  return escapeHTML(
+    value
+  );
+
+}
+
+
+function escapeHTML(
+  value
+){
+
+  return String(
+    value ?? ""
+  )
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
+
+}
+
+
+function escapeAttribute(
+  value
+){
+
+  return escapeHTML(
+    value || ""
+  );
+
+}
+
+
+function showMessage(
+  text,
+  type
+){
+
+  message.textContent =
+  text;
+
+  message.className =
+  "message " + type;
+
+  setTimeout(
+  () => {
+
+    message.className =
+    "message";
+
+  },
+  4000
+  );
 
 }
 
