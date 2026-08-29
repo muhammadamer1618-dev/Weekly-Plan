@@ -1,630 +1,623 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>الخطة الأسبوعية | مدارس الفلاح</title>
+  <title>نظام الخطة الأسبوعية | مدارس الفلاح الأهلية</title>
 
   <style>
-    :root {
-      --green: #0b4b3e;
-      --green-dark: #07382f;
-      --gold: #c79a3b;
-      --white: #ffffff;
-      --text: #17342f;
-      --muted: #6f7d79;
-      --border: #d9dedb;
-      --danger: #b42318;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Tahoma, Arial, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Tahoma, Arial, sans-serif;
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(199,154,59,.10),
-          transparent 30%
-        ),
-        linear-gradient(135deg, #faf9f5, #f3f5f2);
-
-      color: var(--text);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 24px;
-    }
-
-    .page {
-      width: 100%;
-      max-width: 1100px;
-      min-height: 680px;
-
-      background: var(--white);
-
-      border: 1px solid #e7e7e7;
-      border-radius: 28px;
-
-      overflow: hidden;
-
-      box-shadow:
-        0 18px 60px rgba(0,0,0,.10);
-
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-    }
-
-    /* =========================
-       الجزء الأخضر
-    ========================= */
-
-    .brand {
-      position: relative;
-
-      background:
-        linear-gradient(
-          160deg,
-          var(--green),
-          var(--green-dark)
-        );
-
-      color: white;
-
-      padding: 58px 50px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      overflow: hidden;
-    }
-
-    .brand::before,
-    .brand::after {
-      content: "";
-
-      position: absolute;
-
-      border-radius: 50%;
-
-      border:
-        1px solid rgba(255,255,255,.14);
-    }
-
-    .brand::before {
-      width: 360px;
-      height: 360px;
-
-      left: -170px;
-      top: -120px;
-    }
-
-    .brand::after {
-      width: 250px;
-      height: 250px;
-
-      right: -120px;
-      bottom: -100px;
-    }
-
-    .logo-box {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* =========================
-       الشعار
-    ========================= */
-
-    .logo {
-      width: 128px;
-      height: 128px;
-
-      object-fit: contain;
-
-      background: white;
-
-      border-radius: 24px;
-
-      padding: 10px;
-
-      border:
-        3px solid rgba(199,154,59,.75);
-
-      display: block;
-
-      margin-bottom: 25px;
-    }
-
-    .school {
-      font-size: 34px;
-      font-weight: 800;
-
-      margin-bottom: 8px;
-    }
-
-    .en {
-      color: #e0bc69;
-
-      letter-spacing: 2px;
-
-      font-size: 15px;
-
-      margin-bottom: 28px;
-    }
-
-    .brand h1 {
-      font-size: 42px;
-
-      line-height: 1.25;
-
-      margin:
-        0 0 18px;
-    }
-
-    .brand p {
-      max-width: 440px;
-
-      font-size: 18px;
-
-      line-height: 1.9;
-
-      margin: 0;
-
-      color: #eef5f2;
-    }
-
-    .tag {
-      position: relative;
-      z-index: 2;
-
-      display: inline-flex;
-
-      align-items: center;
-
-      width: max-content;
-
-      border:
-        1px solid rgba(255,255,255,.2);
-
-      background:
-        rgba(255,255,255,.08);
-
-      padding:
-        10px 14px;
-
-      border-radius: 999px;
-
-      font-size: 14px;
-    }
-
-    /* =========================
-       منطقة تسجيل الدخول
-    ========================= */
-
-    .login-area {
-      padding: 58px 54px;
-
-      display: flex;
-      align-items: center;
-    }
-
-    .card {
-      width: 100%;
-
-      max-width: 430px;
-
-      margin: auto;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-
-      font-size: 14px;
-
-      font-weight: 700;
-
-      margin-bottom: 8px;
-    }
-
-    .card h2 {
-      font-size: 34px;
-
-      margin:
-        0 0 10px;
-
-      color: var(--green);
-    }
-
-    .sub {
-      color: var(--muted);
-
-      margin:
-        0 0 34px;
-
-      line-height: 1.8;
-    }
-
-    /* =========================
-       حقول الإدخال
-    ========================= */
-
-    label {
-      display: block;
-
-      font-weight: 700;
-
-      margin-bottom: 8px;
-    }
-
-    .field {
-      margin-bottom: 20px;
-    }
-
-    input {
-      width: 100%;
-      height: 52px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 14px;
-
-      padding:
-        0 16px;
-
-      font-size: 16px;
-
-      outline: none;
-
-      background: white;
-
-      transition: .2s;
-    }
-
-    input:focus {
-      border-color: var(--gold);
-
-      box-shadow:
-        0 0 0 4px
-        rgba(199,154,59,.12);
-    }
-
-    /* =========================
-       زر الدخول
-    ========================= */
-
-    button {
-      width: 100%;
-      height: 54px;
-
-      border: 0;
-
-      border-radius: 14px;
-
+    body{
+      min-height:100vh;
       background:
         linear-gradient(
           135deg,
-          var(--green),
-          #0f6150
+          rgba(7,63,52,.97),
+          rgba(11,75,62,.94)
         );
-
-      color: white;
-
-      font-size: 18px;
-
-      font-weight: 800;
-
-      cursor: pointer;
-
-      margin-top: 6px;
-
-      box-shadow:
-        0 10px 24px
-        rgba(11,75,62,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:25px;
     }
 
-    button:hover {
-      filter: brightness(1.04);
+    .login-container{
+      width:min(1050px,100%);
+      min-height:570px;
+      background:white;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+      display:grid;
+      grid-template-columns:1fr 1fr;
     }
 
-    /* =========================
-       الرسائل
-    ========================= */
-
-    .note {
-      margin-top: 22px;
-
-      padding:
-        14px 16px;
-
-      border-radius: 12px;
-
-      background: #f7f8f7;
-
-      color: #62716d;
-
-      font-size: 13px;
-
-      line-height: 1.7;
-
-      border:
-        1px solid #ecefec;
+    .brand-side{
+      background:
+        linear-gradient(
+          rgba(6,60,49,.93),
+          rgba(6,60,49,.93)
+        );
+      color:white;
+      padding:50px 40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      border-left:5px solid #caa74e;
     }
 
-    .error {
-      min-height: 22px;
-
-      margin-top: 14px;
-
-      color: var(--danger);
-
-      font-size: 14px;
-
-      font-weight: 700;
+    .brand-box img{
+      width:145px;
+      max-height:160px;
+      object-fit:contain;
+      background:white;
+      padding:8px;
+      border-radius:18px;
+      margin-bottom:20px;
     }
 
-    .footer {
-      margin-top: 26px;
-
-      color: #9aa5a2;
-
-      font-size: 12px;
-
-      text-align: center;
+    .brand-box h1{
+      font-size:28px;
+      margin-bottom:7px;
     }
 
-    /* =========================
-       الجوال
-    ========================= */
+    .brand-box .english{
+      color:#d8bd72;
+      font-weight:bold;
+      letter-spacing:1px;
+      margin-bottom:30px;
+    }
 
-    @media (max-width: 820px) {
+    .brand-box .system-title{
+      font-size:24px;
+      font-weight:bold;
+      margin-bottom:15px;
+    }
 
-      body {
-        padding: 0;
+    .brand-box .description{
+      line-height:1.9;
+      color:#ebebeb;
+      font-size:14px;
+      max-width:390px;
+      margin:auto;
+    }
+
+    .form-side{
+      padding:50px 45px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:#fff;
+    }
+
+    .form-side h2{
+      color:#0b4b3e;
+      font-size:28px;
+      margin-bottom:8px;
+    }
+
+    .subtitle{
+      color:#777;
+      margin-bottom:30px;
+      font-size:14px;
+    }
+
+    .form-group{
+      margin-bottom:18px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:8px;
+      color:#0b4b3e;
+      font-weight:bold;
+    }
+
+    input{
+      width:100%;
+      padding:14px;
+      border:1px solid #d2d2d2;
+      border-radius:10px;
+      font-size:15px;
+      outline:none;
+      transition:.2s;
+    }
+
+    input:focus{
+      border-color:#caa74e;
+      box-shadow:0 0 0 3px rgba(202,167,78,.15);
+    }
+
+    .login-btn{
+      width:100%;
+      padding:14px;
+      border:0;
+      border-radius:10px;
+      background:#0b4b3e;
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      margin-top:8px;
+    }
+
+    .login-btn:hover{
+      background:#083d33;
+    }
+
+    .login-btn:disabled{
+      opacity:.65;
+      cursor:not-allowed;
+    }
+
+    .message{
+      margin-top:16px;
+      padding:11px;
+      border-radius:8px;
+      text-align:center;
+      font-size:14px;
+      display:none;
+    }
+
+    .message.error{
+      display:block;
+      color:#9d1f1f;
+      background:#fdeaea;
+    }
+
+    .message.success{
+      display:block;
+      color:#166329;
+      background:#e9f7ed;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:30px;
+      color:#777;
+      line-height:1.9;
+      font-size:13px;
+    }
+
+    .designer{
+      color:#0b4b3e;
+      font-weight:bold;
+    }
+
+    @media(max-width:800px){
+
+      body{
+        padding:12px;
       }
 
-      .page {
-        grid-template-columns: 1fr;
-
-        border-radius: 0;
-
-        min-height: 100vh;
+      .login-container{
+        grid-template-columns:1fr;
       }
 
-      .brand {
-        min-height: 330px;
-
-        padding:
-          34px 28px;
+      .brand-side{
+        padding:30px 20px;
+        border-left:0;
+        border-bottom:5px solid #caa74e;
       }
 
-      .logo {
-        width: 92px;
-        height: 92px;
+      .brand-box img{
+        width:110px;
       }
 
-      .school {
-        font-size: 27px;
+      .brand-box h1{
+        font-size:23px;
       }
 
-      .brand h1 {
-        font-size: 32px;
+      .brand-box .system-title{
+        font-size:20px;
       }
 
-      .brand p {
-        font-size: 15px;
-      }
-
-      .login-area {
-        padding:
-          36px 24px 48px;
+      .form-side{
+        padding:35px 22px;
       }
 
     }
-
   </style>
 </head>
 
 <body>
 
-<main class="page">
+  <div class="login-container">
 
-  <!-- =========================
-       هوية المدرسة
-  ========================== -->
+    <section class="brand-side">
 
-  <section class="brand">
+      <div class="brand-box">
 
-    <div class="logo-box">
+        <img src="logo.jpeg" alt="شعار مدارس الفلاح الأهلية">
 
-      <!--
-      ارفع شعار المدرسة
-      داخل المستودع باسم:
-      logo.jpeg
-      -->
+        <h1>مدارس الفلاح الأهلية</h1>
 
-      <img
-        class="logo"
-        src="logo.jpeg"
-        alt="شعار مدارس الفلاح"
-        onerror="this.style.display='none'"
-      >
+        <div class="english">
+          ALFALAH SCHOOLS
+        </div>
 
-      <div class="school">
-        مدارس الفلاح الأهلية
+        <div class="system-title">
+          نظام الخطة الأسبوعية
+        </div>
+
+        <div class="description">
+          نظام إلكتروني لإعداد ومتابعة الخطط الأسبوعية
+          وتنظيم محتوى الدروس والواجبات بما ييسر التواصل
+          بين المدرسة والأسرة.
+        </div>
+
       </div>
 
-      <div class="en">
-        ALFALAH SCHOOLS
+    </section>
+
+
+    <section class="form-side">
+
+      <h2>تسجيل الدخول</h2>
+
+      <div class="subtitle">
+        أدخل اسم المستخدم وكلمة المرور
       </div>
-
-      <h1>
-        نظام الخطة الأسبوعية
-      </h1>
-
-      <p>
-        إعداد وتجميع واعتماد الخطة الأسبوعية
-        للفصول بطريقة سهلة، مع إمكانية حفظ
-        الخطط ومراجعتها وتجهيزها للإرسال
-        لأولياء الأمور.
-      </p>
-
-    </div>
-
-    <div class="tag">
-      الخطة الأسبوعية • Weekly Plan
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       تسجيل الدخول
-  ========================== -->
-
-  <section class="login-area">
-
-    <div class="card">
-
-      <div class="eyebrow">
-        تسجيل الدخول
-      </div>
-
-      <h2>
-        مرحبًا بك
-      </h2>
-
-      <p class="sub">
-        أدخل بيانات حسابك للوصول إلى
-        لوحة إعداد الخطة الأسبوعية.
-      </p>
 
 
       <form id="loginForm">
 
-        <div class="field">
+        <div class="form-group">
 
           <label for="username">
             اسم المستخدم
           </label>
 
           <input
-            id="username"
             type="text"
-            placeholder="اكتب اسم المستخدم"
+            id="username"
             autocomplete="username"
+            placeholder="اسم المستخدم"
             required
           >
 
         </div>
 
 
-        <div class="field">
+        <div class="form-group">
 
           <label for="password">
             كلمة المرور
           </label>
 
           <input
-            id="password"
             type="password"
-            placeholder="اكتب كلمة المرور"
+            id="password"
             autocomplete="current-password"
+            placeholder="كلمة المرور"
             required
           >
 
         </div>
 
 
-        <button type="submit">
-          دخول النظام
+        <button
+          type="submit"
+          class="login-btn"
+          id="loginBtn"
+        >
+          دخول
         </button>
 
 
         <div
           id="message"
-          class="error">
-        </div>
+          class="message"
+        ></div>
 
       </form>
 
 
-      <div class="note">
-        سيتم ربط حسابات المعلمين
-        وقاعدة بيانات الخطط بـ Firebase.
+      <div class="footer">
+
+        <div>
+          مدارس الفلاح الأهلية
+        </div>
+
+        <div class="designer">
+          إعداد وتصميم محمد عامر أحمد
+        </div>
+
       </div>
 
+    </section>
 
-      <div class="footer">
-  <div>مدارس الفلاح الأهلية</div>
-  <div style="margin-top:6px; font-weight:700; color:#0b4b3e;">
-    إعداد وتصميم محمد عامر أحمد
   </div>
-</div>
-
-    </div>
-
-  </section>
-
-</main>
 
 
-<script>
+  <script type="module">
 
-  const loginForm =
-    document.getElementById("loginForm");
-
-  const message =
-    document.getElementById("message");
-
-
-  loginForm.addEventListener(
-    "submit",
-    function(e){
-
-      e.preventDefault();
+    import {
+      initializeApp
+    }
+    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 
-      const username =
-        document
-        .getElementById("username")
-        .value
-        .trim();
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      signOut
+    }
+    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 
-      const password =
-        document
-        .getElementById("password")
-        .value
-        .trim();
+    import {
+      getFirestore,
+      doc,
+      getDoc
+    }
+    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-      if(!username || !password){
+    const firebaseConfig = {
 
-        message.textContent =
-          "أدخل اسم المستخدم وكلمة المرور.";
+      apiKey:
+        "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
 
-        return;
+      authDomain:
+        "weekly-plan-3a743.firebaseapp.com",
 
-      }
+      projectId:
+        "weekly-plan-3a743",
+
+      storageBucket:
+        "weekly-plan-3a743.firebasestorage.app",
+
+      messagingSenderId:
+        "575884603803",
+
+      appId:
+        "1:575884603803:web:e8c4d82c69fd545bed313e"
+
+    };
 
 
-      message.textContent =
-        "تم تجهيز الصفحة. سيتم ربط Firebase في الخطوة التالية.";
+    const app =
+      initializeApp(firebaseConfig);
+
+
+    const auth =
+      getAuth(app);
+
+
+    const db =
+      getFirestore(app);
+
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+
+    const loginBtn =
+      document.getElementById("loginBtn");
+
+
+    const message =
+      document.getElementById("message");
+
+
+    function showMessage(text,type){
+
+      message.textContent = text;
+
+      message.className =
+        "message " + type;
 
     }
-  );
 
-</script>
+
+    loginForm.addEventListener(
+      "submit",
+      async(event) => {
+
+        event.preventDefault();
+
+
+        const username =
+          document
+          .getElementById("username")
+          .value
+          .trim()
+          .toLowerCase();
+
+
+        const password =
+          document
+          .getElementById("password")
+          .value;
+
+
+        if(!username || !password){
+
+          showMessage(
+            "أدخل اسم المستخدم وكلمة المرور",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        loginBtn.disabled = true;
+
+        loginBtn.textContent =
+          "جاري تسجيل الدخول...";
+
+
+        try{
+
+          /*
+            المستخدم يكتب مثلا:
+            admin
+
+            والنظام يحوله داخليا إلى:
+            admin@weeklyplan.local
+          */
+
+          const email =
+            username +
+            "@weeklyplan.local";
+
+
+          const credential =
+            await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
+
+
+          const uid =
+            credential.user.uid;
+
+
+          const userRef =
+            doc(
+              db,
+              "users",
+              uid
+            );
+
+
+          const userSnapshot =
+            await getDoc(userRef);
+
+
+          if(!userSnapshot.exists()){
+
+            await signOut(auth);
+
+            showMessage(
+              "الحساب غير مسجل في النظام",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          const userData =
+            userSnapshot.data();
+
+
+          if(userData.active === false){
+
+            await signOut(auth);
+
+            showMessage(
+              "هذا الحساب غير مفعل",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          /*
+            حفظ بيانات بسيطة للجلسة
+          */
+
+          sessionStorage.setItem(
+            "weeklyPlanUserName",
+            userData.name || ""
+          );
+
+
+          sessionStorage.setItem(
+            "weeklyPlanUserRole",
+            userData.role || ""
+          );
+
+
+          /*
+            التوجيه حسب الصلاحية
+          */
+
+          if(userData.role === "admin"){
+
+            window.location.href =
+              "admin.html";
+
+          }
+
+          else if(
+            userData.role === "classLeader"
+          ){
+
+            window.location.href =
+              "teacher.html";
+
+          }
+
+          else{
+
+            await signOut(auth);
+
+            showMessage(
+              "لا توجد صلاحية دخول لهذا الحساب",
+              "error"
+            );
+
+          }
+
+
+        }
+        catch(error){
+
+          console.error(error);
+
+
+          let text =
+            "اسم المستخدم أو كلمة المرور غير صحيحة";
+
+
+          if(
+            error.code ===
+            "auth/too-many-requests"
+          ){
+
+            text =
+              "تم إجراء محاولات كثيرة، حاول لاحقًا";
+
+          }
+
+
+          showMessage(
+            text,
+            "error"
+          );
+
+        }
+        finally{
+
+          loginBtn.disabled =
+            false;
+
+          loginBtn.textContent =
+            "دخول";
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
