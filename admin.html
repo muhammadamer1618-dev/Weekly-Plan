@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إدارة رواد الفصول | مدارس الفلاح الأهلية</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Tahoma, Arial, sans-serif;
+    }
+
+    body{
+      background:#f3f1e8;
+      color:#1d1d1d;
+    }
+
+    .topbar{
+      background:#0b4b3e;
+      color:white;
+      padding:14px 30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:4px solid #c9a548;
+    }
+
+    .topbar .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .topbar img{
+      width:58px;
+      height:58px;
+      object-fit:contain;
+      background:white;
+      border-radius:12px;
+      padding:4px;
+    }
+
+    .topbar h1{
+      font-size:21px;
+      margin-bottom:4px;
+    }
+
+    .topbar p{
+      font-size:13px;
+      opacity:.9;
+    }
+
+    .logout-btn{
+      border:1px solid #c9a548;
+      background:transparent;
+      color:white;
+      padding:9px 16px;
+      border-radius:9px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .container{
+      width:min(1200px,94%);
+      margin:28px auto;
+    }
+
+    .page-title{
+      margin-bottom:20px;
+    }
+
+    .page-title h2{
+      color:#0b4b3e;
+      font-size:25px;
+      margin-bottom:7px;
+    }
+
+    .page-title p{
+      color:#666;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:370px 1fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .card{
+      background:white;
+      border-radius:16px;
+      box-shadow:0 4px 16px rgba(0,0,0,.08);
+      overflow:hidden;
+    }
+
+    .card-header{
+      background:#0b4b3e;
+      color:white;
+      padding:15px 18px;
+      border-bottom:4px solid #c9a548;
+    }
+
+    .card-header h3{
+      font-size:18px;
+    }
+
+    .card-body{
+      padding:20px;
+    }
+
+    .form-group{
+      margin-bottom:14px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-weight:bold;
+      color:#0b4b3e;
+      font-size:14px;
+    }
+
+    input,
+    select{
+      width:100%;
+      padding:11px 12px;
+      border:1px solid #d5d5d5;
+      border-radius:9px;
+      outline:none;
+      font-size:14px;
+      background:#fff;
+    }
+
+    input:focus,
+    select:focus{
+      border-color:#c9a548;
+      box-shadow:0 0 0 3px rgba(201,165,72,.13);
+    }
+
+    .save-btn{
+      width:100%;
+      border:none;
+      background:#c9a548;
+      color:#123c32;
+      padding:12px;
+      border-radius:9px;
+      font-weight:bold;
+      font-size:15px;
+      cursor:pointer;
+      margin-top:7px;
+    }
+
+    .save-btn:hover{
+      filter:brightness(.97);
+    }
+
+    .message{
+      margin-top:12px;
+      padding:10px;
+      border-radius:8px;
+      display:none;
+      text-align:center;
+      font-size:14px;
+      font-weight:bold;
+    }
+
+    .message.success{
+      display:block;
+      background:#e7f6ec;
+      color:#17652c;
+    }
+
+    .message.error{
+      display:block;
+      background:#fdeaea;
+      color:#a51f1f;
+    }
+
+    .table-wrap{
+      overflow:auto;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:820px;
+    }
+
+    th{
+      background:#f0ead7;
+      color:#0b4b3e;
+      padding:12px 8px;
+      border-bottom:2px solid #c9a548;
+      font-size:14px;
+      white-space:nowrap;
+    }
+
+    td{
+      padding:11px 8px;
+      border-bottom:1px solid #ececec;
+      text-align:center;
+      font-size:14px;
+    }
+
+    tr:hover td{
+      background:#faf9f3;
+    }
+
+    .delete-btn{
+      background:#b93232;
+      color:white;
+      border:none;
+      padding:7px 11px;
+      border-radius:7px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .empty{
+      text-align:center;
+      padding:35px;
+      color:#777;
+    }
+
+    .count{
+      background:#c9a548;
+      color:#123c32;
+      font-weight:bold;
+      padding:5px 10px;
+      border-radius:20px;
+      font-size:13px;
+    }
+
+    .footer{
+      text-align:center;
+      color:#666;
+      padding:26px 10px;
+      font-size:13px;
+    }
+
+    .footer strong{
+      color:#0b4b3e;
+    }
+
+    @media(max-width:850px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .topbar{
+        padding:12px 14px;
+      }
+
+      .topbar h1{
+        font-size:17px;
+      }
+
+      .topbar img{
+        width:48px;
+        height:48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="logo.jpeg" alt="شعار مدارس الفلاح" />
+      <div>
+        <h1>مدارس الفلاح الأهلية</h1>
+        <p>نظام إدارة الخطة الأسبوعية</p>
+      </div>
+    </div>
+
+    <button class="logout-btn" onclick="location.href='index.html'">
+      تسجيل الخروج
+    </button>
+  </header>
+
+  <main class="container">
+
+    <div class="page-title">
+      <h2>إدارة رواد الفصول</h2>
+      <p>إضافة حسابات رواد الفصول وربط كل رائد بالصف والشعبة.</p>
+    </div>
+
+    <div class="grid">
+
+      <section class="card">
+        <div class="card-header">
+          <h3>إضافة رائد فصل جديد</h3>
+        </div>
+
+        <div class="card-body">
+
+          <form id="leaderForm">
+
+            <div class="form-group">
+              <label>اسم رائد الفصل</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="مثال: أحمد محمد علي"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>اسم المستخدم</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="مثال: ahmed6a"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>كلمة المرور</label>
+              <input
+                type="text"
+                id="password"
+                placeholder="كلمة مرور مؤقتة"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>المرحلة</label>
+              <select id="stage" required>
+                <option value="">اختر المرحلة</option>
+                <option value="الابتدائية">الابتدائية</option>
+                <option value="المتوسطة">المتوسطة</option>
+                <option value="الثانوية">الثانوية</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>الصف</label>
+              <select id="grade" required>
+                <option value="">اختر الصف</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>الشعبة</label>
+              <select id="section" required>
+                <option value="">اختر الشعبة</option>
+                <option value="أ">أ</option>
+                <option value="ب">ب</option>
+                <option value="ج">ج</option>
+                <option value="د">د</option>
+              </select>
+            </div>
+
+            <button class="save-btn" type="submit">
+              حفظ رائد الفصل
+            </button>
+
+            <div id="message" class="message"></div>
+
+          </form>
+
+        </div>
+      </section>
+
+      <section class="card">
+
+        <div class="card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3>رواد الفصول المسجلون</h3>
+          <span id="count" class="count">0</span>
+        </div>
+
+        <div class="card-body table-wrap">
+
+          <table>
+            <thead>
+              <tr>
+                <th>م</th>
+                <th>الاسم</th>
+                <th>اسم المستخدم</th>
+                <th>المرحلة</th>
+                <th>الصف</th>
+                <th>الشعبة</th>
+                <th>إجراء</th>
+              </tr>
+            </thead>
+
+            <tbody id="leadersTable">
+              <tr>
+                <td colspan="7" class="empty">
+                  جاري تحميل البيانات...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    مدارس الفلاح الأهلية
+    <br />
+    <strong>إعداد وتصميم محمد عامر أحمد</strong>
+  </footer>
+
+  <script type="module">
+
+    import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      getDocs,
+      deleteDoc,
+      doc,
+      query,
+      orderBy,
+      serverTimestamp
+    }
+    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
+      authDomain: "weekly-plan-3a743.firebaseapp.com",
+      projectId: "weekly-plan-3a743",
+      storageBucket: "weekly-plan-3a743.firebasestorage.app",
+      messagingSenderId: "575884603803",
+      appId: "1:575884603803:web:e8c4d82c69fd545bed313e"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+
+    const db = getFirestore(app);
+
+
+    const leaderForm =
+      document.getElementById("leaderForm");
+
+    const stage =
+      document.getElementById("stage");
+
+    const grade =
+      document.getElementById("grade");
+
+    const leadersTable =
+      document.getElementById("leadersTable");
+
+    const message =
+      document.getElementById("message");
+
+    const count =
+      document.getElementById("count");
+
+
+    const gradesByStage = {
+
+      "الابتدائية": [
+        "الأول الابتدائي",
+        "الثاني الابتدائي",
+        "الثالث الابتدائي",
+        "الرابع الابتدائي",
+        "الخامس الابتدائي",
+        "السادس الابتدائي"
+      ],
+
+      "المتوسطة": [
+        "الأول المتوسط",
+        "الثاني المتوسط",
+        "الثالث المتوسط"
+      ],
+
+      "الثانوية": [
+        "الأول الثانوي",
+        "الثاني الثانوي",
+        "الثالث الثانوي"
+      ]
+
+    };
+
+
+    stage.addEventListener("change", () => {
+
+      grade.innerHTML =
+        '<option value="">اختر الصف</option>';
+
+      const selectedStage = stage.value;
+
+      if(!selectedStage) return;
+
+      gradesByStage[selectedStage].forEach(item => {
+
+        const option =
+          document.createElement("option");
+
+        option.value = item;
+        option.textContent = item;
+
+        grade.appendChild(option);
+
+      });
+
+    });
+
+
+    function showMessage(text, type){
+
+      message.textContent = text;
+      message.className =
+        "message " + type;
+
+      setTimeout(() => {
+
+        message.style.display = "none";
+
+      }, 3000);
+
+    }
+
+
+    leaderForm.addEventListener(
+      "submit",
+      async (e) => {
+
+        e.preventDefault();
+
+        const name =
+          document.getElementById("name")
+          .value.trim();
+
+        const username =
+          document.getElementById("username")
+          .value.trim()
+          .toLowerCase();
+
+        const password =
+          document.getElementById("password")
+          .value.trim();
+
+        const stageValue =
+          stage.value;
+
+        const gradeValue =
+          grade.value;
+
+        const sectionValue =
+          document.getElementById("section")
+          .value;
+
+
+        if(
+          !name ||
+          !username ||
+          !password ||
+          !stageValue ||
+          !gradeValue ||
+          !sectionValue
+        ){
+
+          showMessage(
+            "برجاء استكمال جميع البيانات",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        try{
+
+          const snapshot =
+            await getDocs(
+              collection(db,"classLeaders")
+            );
+
+          const usernameExists =
+            snapshot.docs.some(
+              d =>
+              d.data().username === username
+            );
+
+          if(usernameExists){
+
+            showMessage(
+              "اسم المستخدم مستخدم بالفعل",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          const classExists =
+            snapshot.docs.some(d => {
+
+              const data = d.data();
+
+              return (
+                data.stage === stageValue &&
+                data.grade === gradeValue &&
+                data.section === sectionValue
+              );
+
+            });
+
+
+          if(classExists){
+
+            showMessage(
+              "هذا الفصل لديه رائد فصل مسجل بالفعل",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          await addDoc(
+            collection(db,"classLeaders"),
+            {
+
+              name,
+              username,
+              password,
+
+              stage:stageValue,
+
+              grade:gradeValue,
+
+              section:sectionValue,
+
+              role:"classLeader",
+
+              active:true,
+
+              createdAt:
+                serverTimestamp()
+
+            }
+          );
+
+
+          showMessage(
+            "تم إضافة رائد الفصل بنجاح",
+            "success"
+          );
+
+          leaderForm.reset();
+
+          grade.innerHTML =
+            '<option value="">اختر الصف</option>';
+
+          await loadLeaders();
+
+
+        }
+        catch(error){
+
+          console.error(error);
+
+          showMessage(
+            "حدث خطأ أثناء الحفظ",
+            "error"
+          );
+
+        }
+
+      }
+    );
+
+
+    async function loadLeaders(){
+
+      try{
+
+        leadersTable.innerHTML =
+          '<tr><td colspan="7" class="empty">جاري تحميل البيانات...</td></tr>';
+
+
+        const q =
+          query(
+            collection(db,"classLeaders"),
+            orderBy("createdAt","desc")
+          );
+
+
+        const snapshot =
+          await getDocs(q);
+
+
+        count.textContent =
+          snapshot.size;
+
+
+        if(snapshot.empty){
+
+          leadersTable.innerHTML =
+            '<tr><td colspan="7" class="empty">لا توجد بيانات حتى الآن</td></tr>';
+
+          return;
+
+        }
+
+
+        leadersTable.innerHTML = "";
+
+
+        let number = 1;
+
+
+        snapshot.forEach(item => {
+
+          const data =
+            item.data();
+
+
+          const tr =
+            document.createElement("tr");
+
+
+          tr.innerHTML = `
+
+            <td>${number}</td>
+
+            <td>${data.name || ""}</td>
+
+            <td>${data.username || ""}</td>
+
+            <td>${data.stage || ""}</td>
+
+            <td>${data.grade || ""}</td>
+
+            <td>${data.section || ""}</td>
+
+            <td>
+              <button
+                class="delete-btn"
+                data-id="${item.id}">
+                حذف
+              </button>
+            </td>
+
+          `;
+
+
+          leadersTable.appendChild(tr);
+
+          number++;
+
+        });
+
+
+        document
+          .querySelectorAll(".delete-btn")
+          .forEach(button => {
+
+            button.addEventListener(
+              "click",
+              async () => {
+
+                const id =
+                  button.dataset.id;
+
+                const confirmDelete =
+                  confirm(
+                    "هل تريد حذف رائد الفصل؟"
+                  );
+
+                if(!confirmDelete)
+                  return;
+
+
+                try{
+
+                  await deleteDoc(
+                    doc(
+                      db,
+                      "classLeaders",
+                      id
+                    )
+                  );
+
+                  await loadLeaders();
+
+                }
+                catch(error){
+
+                  console.error(error);
+
+                  alert(
+                    "حدث خطأ أثناء الحذف"
+                  );
+
+                }
+
+              }
+            );
+
+          });
+
+
+      }
+      catch(error){
+
+        console.error(error);
+
+        leadersTable.innerHTML =
+          '<tr><td colspan="7" class="empty">تعذر تحميل البيانات من Firebase</td></tr>';
+
+      }
+
+    }
+
+
+    loadLeaders();
+
+  </script>
+
+</body>
+</html>
