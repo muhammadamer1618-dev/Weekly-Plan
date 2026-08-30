@@ -1,715 +1,826 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>لوحة الإدارة | نظام الخطة الأسبوعية</title>
-
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-      font-family:Tahoma, Arial, sans-serif;
-    }
-
-    body{
-      background:#f4f2e9;
-      color:#222;
-      min-height:100vh;
-    }
-
-    .topbar{
-      min-height:82px;
-      background:#0b4b3e;
-      border-bottom:4px solid #c9a548;
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:10px 30px;
-      gap:20px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:13px;
-    }
-
-    .brand img{
-      width:60px;
-      height:60px;
-      object-fit:contain;
-      background:#fff;
-      border-radius:12px;
-      padding:4px;
-    }
-
-    .brand h1{
-      font-size:21px;
-      margin-bottom:3px;
-    }
-
-    .brand p{
-      font-size:13px;
-      color:#e8e8e8;
-    }
-
-    .admin-info{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .admin-name{
-      font-size:14px;
-    }
-
-    .logout-btn{
-      border:1px solid #d2b45d;
-      background:transparent;
-      color:white;
-      padding:9px 15px;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:bold;
-    }
-
-    .logout-btn:hover{
-      background:#c9a548;
-      color:#073f34;
-    }
-
-    .container{
-      width:min(1250px,95%);
-      margin:28px auto;
-    }
-
-    .welcome{
-      margin-bottom:22px;
-    }
-
-    .welcome h2{
-      color:#0b4b3e;
-      font-size:27px;
-      margin-bottom:6px;
-    }
-
-    .welcome p{
-      color:#777;
-      font-size:14px;
-    }
-
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:15px;
-      margin-bottom:22px;
-    }
-
-    .stat-card{
-      background:white;
-      border-radius:14px;
-      padding:18px;
-      box-shadow:0 4px 15px rgba(0,0,0,.06);
-      border-top:4px solid #c9a548;
-    }
-
-    .stat-card span{
-      color:#777;
-      font-size:13px;
-    }
-
-    .stat-card strong{
-      display:block;
-      color:#0b4b3e;
-      font-size:27px;
-      margin-top:5px;
-    }
-
-    .layout{
-      display:grid;
-      grid-template-columns:380px 1fr;
-      gap:22px;
-      align-items:start;
-    }
-
-    .card{
-      background:#fff;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0 5px 18px rgba(0,0,0,.08);
-    }
-
-    .card-header{
-      background:#0b4b3e;
-      border-bottom:4px solid #c9a548;
-      color:white;
-      padding:15px 18px;
-    }
-
-    .card-header h3{
-      font-size:18px;
-    }
-
-    .card-body{
-      padding:20px;
-    }
-
-    .form-group{
-      margin-bottom:14px;
-    }
-
-    label{
-      display:block;
-      font-size:14px;
-      font-weight:bold;
-      color:#0b4b3e;
-      margin-bottom:6px;
-    }
-
-    input,
-    select{
-      width:100%;
-      padding:11px 12px;
-      border:1px solid #d5d5d5;
-      border-radius:9px;
-      outline:none;
-      background:white;
-      font-size:14px;
-    }
-
-    input:focus,
-    select:focus{
-      border-color:#c9a548;
-      box-shadow:0 0 0 3px rgba(201,165,72,.13);
-    }
-
-    .password-note{
-      color:#888;
-      font-size:11px;
-      margin-top:5px;
-    }
-
-    .save-btn{
-      width:100%;
-      border:none;
-      border-radius:9px;
-      padding:12px;
-      background:#c9a548;
-      color:#073f34;
-      font-weight:bold;
-      cursor:pointer;
-      font-size:15px;
-      margin-top:5px;
-    }
-
-    .save-btn:disabled{
-      opacity:.6;
-      cursor:not-allowed;
-    }
-
-    .message{
-      display:none;
-      padding:10px;
-      margin-top:13px;
-      border-radius:8px;
-      font-size:13px;
-      text-align:center;
-      font-weight:bold;
-    }
-
-    .message.success{
-      display:block;
-      color:#17652c;
-      background:#e8f6ec;
-    }
-
-    .message.error{
-      display:block;
-      color:#a11e1e;
-      background:#fdeaea;
-    }
-
-    .table-tools{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:15px;
-    }
-
-    .search-box{
-      max-width:310px;
-    }
-
-    .table-wrap{
-      overflow:auto;
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      min-width:900px;
-    }
-
-    th{
-      padding:12px 8px;
-      background:#f1ebd9;
-      color:#0b4b3e;
-      border-bottom:2px solid #c9a548;
-      font-size:13px;
-      white-space:nowrap;
-    }
-
-    td{
-      padding:11px 8px;
-      border-bottom:1px solid #ececec;
-      text-align:center;
-      font-size:13px;
-    }
-
-    tr:hover td{
-      background:#faf9f4;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:5px 9px;
-      border-radius:20px;
-      font-size:11px;
-      font-weight:bold;
-    }
-
-    .active{
-      background:#e2f5e7;
-      color:#19642c;
-    }
-
-    .inactive{
-      background:#f8e3e3;
-      color:#9c2424;
-    }
-
-    .action-btn{
-      border:none;
-      padding:6px 9px;
-      border-radius:6px;
-      cursor:pointer;
-      font-weight:bold;
-      font-size:11px;
-      margin:2px;
-    }
-
-    .edit-btn{
-      background:#d5b755;
-      color:#173e34;
-    }
-
-    .toggle-btn{
-      background:#0b4b3e;
-      color:white;
-    }
-
-    .delete-btn{
-      background:#b93232;
-      color:white;
-    }
-
-    .empty{
-      padding:35px;
-      color:#777;
-      text-align:center;
-    }
-
-    .modal{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.45);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      z-index:1000;
-    }
-
-    .modal.show{
-      display:flex;
-    }
-
-    .modal-box{
-      width:min(430px,100%);
-      background:white;
-      border-radius:15px;
-      overflow:hidden;
-    }
-
-    .modal-title{
-      background:#0b4b3e;
-      color:white;
-      padding:14px 18px;
-      border-bottom:4px solid #c9a548;
-    }
-
-    .modal-content{
-      padding:20px;
-    }
-
-    .modal-actions{
-      display:flex;
-      gap:10px;
-      margin-top:15px;
-    }
-
-    .modal-actions button{
-      flex:1;
-      border:none;
-      padding:10px;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:bold;
-    }
-
-    .update-btn{
-      background:#c9a548;
-      color:#073f34;
-    }
-
-    .cancel-btn{
-      background:#eee;
-      color:#555;
-    }
-
-    footer{
-      padding:28px 10px;
-      text-align:center;
-      color:#777;
-      font-size:13px;
-      line-height:1.8;
-    }
-
-    footer strong{
-      color:#0b4b3e;
-    }
-
-    @media(max-width:900px){
-      .layout{
-        grid-template-columns:1fr;
-      }
-
-      .stats{
-        grid-template-columns:1fr;
-      }
-
-      .topbar{
-        padding:10px 14px;
-      }
-
-      .admin-name{
-        display:none;
-      }
-
-      .brand h1{
-        font-size:17px;
-      }
-
-      .brand img{
-        width:50px;
-        height:50px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>لوحة الإدارة | نظام الخطة الأسبوعية</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+  background:#f4f2e9;
+  color:#222;
+  min-height:100vh;
+}
+
+.topbar{
+  min-height:82px;
+  background:#0b4b3e;
+  border-bottom:4px solid #c9a548;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 30px;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.brand img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:12px;
+  padding:4px;
+}
+
+.brand h1{
+  font-size:21px;
+  margin-bottom:3px;
+}
+
+.brand p{
+  font-size:13px;
+  color:#e8e8e8;
+}
+
+.admin-info{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.admin-name{
+  font-size:14px;
+}
+
+.logout-btn{
+  border:1px solid #d2b45d;
+  background:transparent;
+  color:white;
+  padding:9px 15px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.logout-btn:hover{
+  background:#c9a548;
+  color:#073f34;
+}
+
+.container{
+  width:min(1350px,96%);
+  margin:28px auto;
+}
+
+.welcome{
+  margin-bottom:22px;
+}
+
+.welcome h2{
+  color:#0b4b3e;
+  font-size:27px;
+  margin-bottom:6px;
+}
+
+.welcome p{
+  color:#777;
+  font-size:14px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:22px;
+}
+
+.stat-card{
+  background:white;
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 4px 15px rgba(0,0,0,.06);
+  border-top:4px solid #c9a548;
+}
+
+.stat-card span{
+  color:#777;
+  font-size:13px;
+}
+
+.stat-card strong{
+  display:block;
+  color:#0b4b3e;
+  font-size:27px;
+  margin-top:5px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:22px;
+  align-items:start;
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.card-header{
+  background:#0b4b3e;
+  border-bottom:4px solid #c9a548;
+  color:white;
+  padding:15px 18px;
+}
+
+.card-header h3{
+  font-size:18px;
+}
+
+.card-body{
+  padding:20px;
+}
+
+.form-group{
+  margin-bottom:14px;
+}
+
+label{
+  display:block;
+  font-size:14px;
+  font-weight:bold;
+  color:#0b4b3e;
+  margin-bottom:6px;
+}
+
+input,
+select{
+  width:100%;
+  padding:11px 12px;
+  border:1px solid #d5d5d5;
+  border-radius:9px;
+  outline:none;
+  background:white;
+  font-size:14px;
+}
+
+input:focus,
+select:focus{
+  border-color:#c9a548;
+  box-shadow:0 0 0 3px rgba(201,165,72,.13);
+}
+
+.password-note{
+  color:#888;
+  font-size:11px;
+  margin-top:5px;
+}
+
+.save-btn{
+  width:100%;
+  border:none;
+  border-radius:9px;
+  padding:12px;
+  background:#c9a548;
+  color:#073f34;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:15px;
+  margin-top:5px;
+}
+
+.save-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.message{
+  display:none;
+  padding:10px;
+  margin-top:13px;
+  border-radius:8px;
+  font-size:13px;
+  text-align:center;
+  font-weight:bold;
+}
+
+.message.success{
+  display:block;
+  color:#17652c;
+  background:#e8f6ec;
+}
+
+.message.error{
+  display:block;
+  color:#a11e1e;
+  background:#fdeaea;
+}
+
+.table-tools{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.search-box{
+  max-width:310px;
+}
+
+.table-wrap{
+  overflow:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:1100px;
+}
+
+th{
+  padding:12px 8px;
+  background:#f1ebd9;
+  color:#0b4b3e;
+  border-bottom:2px solid #c9a548;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+td{
+  padding:11px 8px;
+  border-bottom:1px solid #ececec;
+  text-align:center;
+  font-size:13px;
+}
+
+tr:hover td{
+  background:#faf9f4;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.active{
+  background:#e2f5e7;
+  color:#19642c;
+}
+
+.inactive{
+  background:#f8e3e3;
+  color:#9c2424;
+}
+
+.action-btn{
+  border:none;
+  padding:7px 10px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:11px;
+  margin:2px;
+}
+
+.edit-btn{
+  background:#d5b755;
+  color:#173e34;
+}
+
+.toggle-btn{
+  background:#0b4b3e;
+  color:white;
+}
+
+.delete-btn{
+  background:#b93232;
+  color:white;
+}
+
+.whatsapp-btn{
+  background:#25D366;
+  color:white;
+}
+
+.whatsapp-btn:disabled{
+  background:#bbb;
+  cursor:not-allowed;
+}
+
+.empty{
+  padding:35px;
+  color:#777;
+  text-align:center;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:1000;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(430px,100%);
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.modal-title{
+  background:#0b4b3e;
+  color:white;
+  padding:14px 18px;
+  border-bottom:4px solid #c9a548;
+}
+
+.modal-content{
+  padding:20px;
+  max-height:85vh;
+  overflow:auto;
+}
+
+.modal-actions{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.modal-actions button{
+  flex:1;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.update-btn{
+  background:#c9a548;
+  color:#073f34;
+}
+
+.cancel-btn{
+  background:#eee;
+  color:#555;
+}
+
+footer{
+  padding:28px 10px;
+  text-align:center;
+  color:#777;
+  font-size:13px;
+  line-height:1.8;
+}
+
+footer strong{
+  color:#0b4b3e;
+}
+
+@media(max-width:900px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .topbar{
+    padding:10px 14px;
+  }
+
+  .admin-name{
+    display:none;
+  }
+
+  .brand h1{
+    font-size:17px;
+  }
+
+  .brand img{
+    width:50px;
+    height:50px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header class="topbar">
 
-  <div class="brand">
-    <img src="logo.jpeg" alt="شعار مدارس الفلاح">
-    <div>
-      <h1>مدارس الفلاح الأهلية</h1>
-      <p>نظام الخطة الأسبوعية</p>
-    </div>
+<div class="brand">
+  <img src="logo.jpeg" alt="شعار مدارس الفلاح">
+
+  <div>
+    <h1>مدارس الفلاح الأهلية</h1>
+    <p>نظام الخطة الأسبوعية</p>
+  </div>
+</div>
+
+<div class="admin-info">
+
+  <div class="admin-name" id="adminName">
+    لوحة الإدارة
   </div>
 
-  <div class="admin-info">
-    <div class="admin-name" id="adminName">
-      لوحة الإدارة
-    </div>
+  <button class="logout-btn" id="logoutBtn">
+    تسجيل الخروج
+  </button>
 
-    <button class="logout-btn" id="logoutBtn">
-      تسجيل الخروج
-    </button>
-  </div>
+</div>
 
 </header>
 
 <main class="container">
 
-  <div class="welcome">
-    <h2>لوحة إدارة النظام</h2>
-    <p>إدارة حسابات رواد الفصول وربط كل رائد بالفصل الخاص به.</p>
+<div class="welcome">
+
+  <h2>لوحة إدارة النظام</h2>
+
+  <p>
+    إدارة حسابات رواد الفصول وربط كل رائد بالفصل الخاص به.
+  </p>
+
+</div>
+
+<div class="stats">
+
+  <div class="stat-card">
+    <span>إجمالي رواد الفصول</span>
+    <strong id="totalCount">0</strong>
   </div>
 
-  <div class="stats">
-
-    <div class="stat-card">
-      <span>إجمالي رواد الفصول</span>
-      <strong id="totalCount">0</strong>
-    </div>
-
-    <div class="stat-card">
-      <span>الحسابات المفعلة</span>
-      <strong id="activeCount">0</strong>
-    </div>
-
-    <div class="stat-card">
-      <span>الحسابات غير المفعلة</span>
-      <strong id="inactiveCount">0</strong>
-    </div>
-
+  <div class="stat-card">
+    <span>الحسابات المفعلة</span>
+    <strong id="activeCount">0</strong>
   </div>
 
-  <div class="layout">
-
-    <section class="card">
-
-      <div class="card-header">
-        <h3>إضافة رائد فصل</h3>
-      </div>
-
-      <div class="card-body">
-
-        <form id="leaderForm">
-
-          <div class="form-group">
-            <label>اسم رائد الفصل</label>
-            <input
-              id="name"
-              type="text"
-              placeholder="مثال: أحمد محمد علي"
-              required
-            >
-          </div>
-
-          <div class="form-group">
-            <label>اسم المستخدم</label>
-            <input
-              id="username"
-              type="text"
-              dir="ltr"
-              placeholder="مثال: ahmed6a"
-              required
-            >
-          </div>
-
-          <div class="form-group">
-            <label>كلمة المرور</label>
-            <input
-              id="password"
-              type="text"
-              dir="ltr"
-              minlength="6"
-              placeholder="6 خانات على الأقل"
-              required
-            >
-
-            <div class="password-note">
-              أعطِ اسم المستخدم وكلمة المرور لرائد الفصل.
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>المرحلة</label>
-
-            <select id="stage" required>
-              <option value="">اختر المرحلة</option>
-              <option value="الابتدائية">الابتدائية</option>
-              <option value="المتوسطة">المتوسطة</option>
-              <option value="الثانوية">الثانوية</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>الصف</label>
-
-            <select id="grade" required>
-              <option value="">اختر الصف</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>الشعبة</label>
-
-            <select id="section" required>
-              <option value="">اختر الشعبة</option>
-              <option value="أ">أ</option>
-              <option value="ب">ب</option>
-              <option value="ج">ج</option>
-              <option value="د">د</option>
-            </select>
-          </div>
-
-          <button
-            type="submit"
-            class="save-btn"
-            id="saveBtn"
-          >
-            إنشاء حساب رائد الفصل
-          </button>
-
-          <div id="message" class="message"></div>
-
-        </form>
-
-      </div>
-
-    </section>
-
-    <section class="card">
-
-      <div class="card-header">
-        <h3>رواد الفصول المسجلون</h3>
-      </div>
-
-      <div class="card-body">
-
-        <div class="table-tools">
-          <input
-            class="search-box"
-            id="searchInput"
-            type="text"
-            placeholder="بحث بالاسم أو اسم المستخدم..."
-          >
-        </div>
-
-        <div class="table-wrap">
-
-          <table>
-
-            <thead>
-              <tr>
-                <th>م</th>
-                <th>رائد الفصل</th>
-                <th>اسم المستخدم</th>
-                <th>المرحلة</th>
-                <th>الصف</th>
-                <th>الشعبة</th>
-                <th>الحالة</th>
-                <th>إجراء</th>
-              </tr>
-            </thead>
-
-            <tbody id="leadersTable">
-              <tr>
-                <td colspan="8" class="empty">
-                  جاري تحميل البيانات...
-                </td>
-              </tr>
-            </tbody>
-
-          </table>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </div>
-
-</main>
-
-<div class="modal" id="editModal">
-
-  <div class="modal-box">
-
-    <div class="modal-title">
-      تعديل بيانات رائد الفصل
-    </div>
-
-    <div class="modal-content">
-
-      <input type="hidden" id="editId">
-
-      <div class="form-group">
-        <label>الاسم</label>
-        <input id="editName">
-      </div>
-
-      <div class="form-group">
-        <label>المرحلة</label>
-
-        <select id="editStage">
-          <option value="الابتدائية">الابتدائية</option>
-          <option value="المتوسطة">المتوسطة</option>
-          <option value="الثانوية">الثانوية</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>الصف</label>
-        <select id="editGrade"></select>
-      </div>
-
-      <div class="form-group">
-        <label>الشعبة</label>
-
-        <select id="editSection">
-          <option value="أ">أ</option>
-          <option value="ب">ب</option>
-          <option value="ج">ج</option>
-          <option value="د">د</option>
-        </select>
-      </div>
-
-      <div class="modal-actions">
-
-        <button
-          class="update-btn"
-          id="updateBtn"
-        >
-          حفظ التعديل
-        </button>
-
-        <button
-          class="cancel-btn"
-          id="cancelEdit"
-        >
-          إلغاء
-        </button>
-
-      </div>
-
-    </div>
-
+  <div class="stat-card">
+    <span>الحسابات غير المفعلة</span>
+    <strong id="inactiveCount">0</strong>
   </div>
 
 </div>
 
+<div class="layout">
+
+<section class="card">
+
+<div class="card-header">
+  <h3>إضافة رائد فصل</h3>
+</div>
+
+<div class="card-body">
+
+<form id="leaderForm">
+
+<div class="form-group">
+
+  <label>اسم رائد الفصل</label>
+
+  <input
+    id="name"
+    type="text"
+    placeholder="مثال: أحمد محمد علي"
+    required
+  >
+
+</div>
+
+<div class="form-group">
+
+  <label>رقم الجوال</label>
+
+  <input
+    id="phone"
+    type="tel"
+    dir="ltr"
+    inputmode="numeric"
+    placeholder="مثال: 0591234567"
+    required
+  >
+
+  <div class="password-note">
+    يستخدم الرقم لإرسال بيانات الحساب لرائد الفصل عبر واتساب.
+  </div>
+
+</div>
+
+<div class="form-group">
+
+  <label>اسم المستخدم</label>
+
+  <input
+    id="username"
+    type="text"
+    dir="ltr"
+    placeholder="مثال: ahmed6a"
+    required
+  >
+
+</div>
+
+<div class="form-group">
+
+  <label>كلمة المرور</label>
+
+  <input
+    id="password"
+    type="text"
+    dir="ltr"
+    minlength="6"
+    placeholder="6 خانات على الأقل"
+    required
+  >
+
+  <div class="password-note">
+    أعطِ اسم المستخدم وكلمة المرور لرائد الفصل.
+  </div>
+
+</div>
+
+<div class="form-group">
+
+  <label>المرحلة</label>
+
+  <select id="stage" required>
+    <option value="">اختر المرحلة</option>
+    <option value="الابتدائية">الابتدائية</option>
+    <option value="المتوسطة">المتوسطة</option>
+    <option value="الثانوية">الثانوية</option>
+  </select>
+
+</div>
+
+<div class="form-group">
+
+  <label>الصف</label>
+
+  <select id="grade" required>
+    <option value="">اختر الصف</option>
+  </select>
+
+</div>
+
+<div class="form-group">
+
+  <label>الشعبة</label>
+
+  <select id="section" required>
+    <option value="">اختر الشعبة</option>
+    <option value="أ">أ</option>
+    <option value="ب">ب</option>
+    <option value="ج">ج</option>
+    <option value="د">د</option>
+  </select>
+
+</div>
+
+<button
+  type="submit"
+  class="save-btn"
+  id="saveBtn"
+>
+  إنشاء حساب رائد الفصل
+</button>
+
+<div id="message" class="message"></div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<section class="card">
+
+<div class="card-header">
+  <h3>رواد الفصول المسجلون</h3>
+</div>
+
+<div class="card-body">
+
+<div class="table-tools">
+
+  <input
+    class="search-box"
+    id="searchInput"
+    type="text"
+    placeholder="بحث بالاسم أو اسم المستخدم أو الجوال..."
+  >
+
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+  <th>م</th>
+  <th>رائد الفصل</th>
+  <th>الجوال</th>
+  <th>اسم المستخدم</th>
+  <th>المرحلة</th>
+  <th>الصف</th>
+  <th>الشعبة</th>
+  <th>الحالة</th>
+  <th>إجراء</th>
+</tr>
+
+</thead>
+
+<tbody id="leadersTable">
+
+<tr>
+
+<td colspan="9" class="empty">
+  جاري تحميل البيانات...
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<!-- تعديل رائد الفصل -->
+
+<div class="modal" id="editModal">
+
+<div class="modal-box">
+
+<div class="modal-title">
+  تعديل بيانات رائد الفصل
+</div>
+
+<div class="modal-content">
+
+<input type="hidden" id="editId">
+
+<div class="form-group">
+
+  <label>الاسم</label>
+
+  <input id="editName">
+
+</div>
+
+<div class="form-group">
+
+  <label>رقم الجوال</label>
+
+  <input
+    id="editPhone"
+    type="tel"
+    dir="ltr"
+    inputmode="numeric"
+    placeholder="05xxxxxxxx"
+  >
+
+</div>
+
+<div class="form-group">
+
+  <label>المرحلة</label>
+
+  <select id="editStage">
+
+    <option value="الابتدائية">
+      الابتدائية
+    </option>
+
+    <option value="المتوسطة">
+      المتوسطة
+    </option>
+
+    <option value="الثانوية">
+      الثانوية
+    </option>
+
+  </select>
+
+</div>
+
+<div class="form-group">
+
+  <label>الصف</label>
+
+  <select id="editGrade"></select>
+
+</div>
+
+<div class="form-group">
+
+  <label>الشعبة</label>
+
+  <select id="editSection">
+
+    <option value="أ">أ</option>
+    <option value="ب">ب</option>
+    <option value="ج">ج</option>
+    <option value="د">د</option>
+
+  </select>
+
+</div>
+
+<div class="modal-actions">
+
+<button
+  class="update-btn"
+  id="updateBtn"
+>
+  حفظ التعديل
+</button>
+
+<button
+  class="cancel-btn"
+  id="cancelEdit"
+>
+  إلغاء
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
 <footer>
-  مدارس الفلاح الأهلية
-  <br>
-  <strong>
-    إعداد وتصميم محمد عامر أحمد
-  </strong>
+
+مدارس الفلاح الأهلية
+
+<br>
+
+<strong>
+إعداد وتصميم محمد عامر أحمد
+</strong>
+
 </footer>
+
 
 <script type="module">
 
 import {
   initializeApp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
   getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signOut
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 import {
   getFirestore,
@@ -720,28 +831,52 @@ import {
   setDoc,
   updateDoc,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
-  authDomain: "weekly-plan-3a743.firebaseapp.com",
-  projectId: "weekly-plan-3a743",
-  storageBucket: "weekly-plan-3a743.firebasestorage.app",
-  messagingSenderId: "575884603803",
-  appId: "1:575884603803:web:e8c4d82c69fd545bed313e"
+
+  apiKey:
+  "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
+
+  authDomain:
+  "weekly-plan-3a743.firebaseapp.com",
+
+  projectId:
+  "weekly-plan-3a743",
+
+  storageBucket:
+  "weekly-plan-3a743.firebasestorage.app",
+
+  messagingSenderId:
+  "575884603803",
+
+  appId:
+  "1:575884603803:web:e8c4d82c69fd545bed313e"
+
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
 
-const secondaryApp = initializeApp(
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const db =
+getFirestore(app);
+
+
+const secondaryApp =
+initializeApp(
   firebaseConfig,
   "SecondaryApp"
 );
 
-const secondaryAuth = getAuth(secondaryApp);
+const secondaryAuth =
+getAuth(secondaryApp);
+
 
 const leaderForm =
 document.getElementById("leaderForm");
@@ -754,6 +889,9 @@ document.getElementById("grade");
 
 const section =
 document.getElementById("section");
+
+const phone =
+document.getElementById("phone");
 
 const saveBtn =
 document.getElementById("saveBtn");
@@ -782,8 +920,13 @@ document.getElementById("logoutBtn");
 const searchInput =
 document.getElementById("searchInput");
 
+
 let leaders = [];
 
+
+/* ======================================
+   الصفوف
+====================================== */
 
 const gradesByStage = {
 
@@ -811,21 +954,30 @@ const gradesByStage = {
 };
 
 
-function fillGrades(stageValue,target){
+function fillGrades(
+  stageValue,
+  target
+){
 
   target.innerHTML =
   `<option value="">اختر الصف</option>`;
 
-  if(!stageValue) return;
+  if(!stageValue){
+    return;
+  }
+
 
   gradesByStage[stageValue]
-  .forEach(item => {
+  .forEach(item=>{
 
     const option =
     document.createElement("option");
 
-    option.value = item;
-    option.textContent = item;
+    option.value =
+    item;
+
+    option.textContent =
+    item;
 
     target.appendChild(option);
 
@@ -836,7 +988,7 @@ function fillGrades(stageValue,target){
 
 stage.addEventListener(
   "change",
-  () => {
+  ()=>{
 
     fillGrades(
       stage.value,
@@ -847,9 +999,13 @@ stage.addEventListener(
 );
 
 
+/* ======================================
+   AUTH
+====================================== */
+
 onAuthStateChanged(
   auth,
-  async(user) => {
+  async user=>{
 
     if(!user){
 
@@ -860,16 +1016,20 @@ onAuthStateChanged(
 
     }
 
+
     try{
 
       const userSnap =
       await getDoc(
+
         doc(
           db,
           "users",
           user.uid
         )
+
       );
+
 
       if(!userSnap.exists()){
 
@@ -882,8 +1042,10 @@ onAuthStateChanged(
 
       }
 
+
       const data =
       userSnap.data();
+
 
       if(
         data.role !== "admin" ||
@@ -899,12 +1061,16 @@ onAuthStateChanged(
 
       }
 
+
       adminName.textContent =
-      data.name || "مدير النظام";
+      data.name ||
+      "مدير النظام";
+
 
       await loadLeaders();
 
     }
+
     catch(error){
 
       console.error(error);
@@ -921,7 +1087,7 @@ onAuthStateChanged(
 
 logoutBtn.addEventListener(
   "click",
-  async() => {
+  async()=>{
 
     await signOut(auth);
 
@@ -932,31 +1098,136 @@ logoutBtn.addEventListener(
 );
 
 
-function showMessage(text,type){
+/* ======================================
+   MESSAGE
+====================================== */
 
-  message.textContent = text;
+function showMessage(
+  text,
+  type
+){
+
+  message.textContent =
+  text;
 
   message.className =
   "message " + type;
 
-  setTimeout(() => {
-    message.className = "message";
-  },5000);
+
+  setTimeout(
+    ()=>{
+
+      message.className =
+      "message";
+
+    },
+    5000
+  );
 
 }
 
 
+/* ======================================
+   PHONE
+====================================== */
+
+function normalizePhone(value){
+
+  let number =
+  String(value || "")
+  .replace(/\D/g,"");
+
+
+  /*
+    0591234567
+    يتحول إلى:
+    966591234567
+  */
+
+  if(
+    number.startsWith("05") &&
+    number.length === 10
+  ){
+
+    number =
+    "966" +
+    number.substring(1);
+
+  }
+
+
+  /*
+    لو المستخدم كتب:
+    591234567
+  */
+
+  else if(
+    number.startsWith("5") &&
+    number.length === 9
+  ){
+
+    number =
+    "966" +
+    number;
+
+  }
+
+
+  /*
+    لو كتب:
+    00966591234567
+  */
+
+  else if(
+    number.startsWith("00966")
+  ){
+
+    number =
+    number.substring(2);
+
+  }
+
+
+  return number;
+
+}
+
+
+function validSaudiPhone(value){
+
+  const number =
+  normalizePhone(value);
+
+  return /^9665\d{8}$/.test(
+    number
+  );
+
+}
+
+
+/* ======================================
+   CREATE ACCOUNT
+====================================== */
+
 leaderForm.addEventListener(
   "submit",
-  async(event) => {
+  async event=>{
 
     event.preventDefault();
+
 
     const name =
     document
     .getElementById("name")
     .value
     .trim();
+
+
+    const phoneValue =
+    phone
+    .value
+    .trim();
+
 
     const username =
     document
@@ -966,22 +1237,28 @@ leaderForm.addEventListener(
     .toLowerCase()
     .replace(/\s+/g,"");
 
+
     const password =
     document
     .getElementById("password")
     .value;
 
+
     const stageValue =
     stage.value;
+
 
     const gradeValue =
     grade.value;
 
+
     const sectionValue =
     section.value;
 
+
     if(
       !name ||
+      !phoneValue ||
       !username ||
       !password ||
       !stageValue ||
@@ -998,7 +1275,26 @@ leaderForm.addEventListener(
 
     }
 
-    if(password.length < 6){
+
+    if(
+      !validSaudiPhone(
+        phoneValue
+      )
+    ){
+
+      showMessage(
+        "رقم الجوال غير صحيح. مثال: 0591234567",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      password.length < 6
+    ){
 
       showMessage(
         "كلمة المرور يجب ألا تقل عن 6 خانات.",
@@ -1009,8 +1305,10 @@ leaderForm.addEventListener(
 
     }
 
+
     if(
-      !/^[a-zA-Z0-9._-]+$/.test(username)
+      !/^[a-zA-Z0-9._-]+$/
+      .test(username)
     ){
 
       showMessage(
@@ -1022,47 +1320,79 @@ leaderForm.addEventListener(
 
     }
 
+
     try{
 
-      saveBtn.disabled = true;
+      saveBtn.disabled =
+      true;
 
       saveBtn.textContent =
       "جاري إنشاء الحساب...";
 
+
       const existingUsers =
       await getDocs(
-        collection(db,"users")
+        collection(
+          db,
+          "users"
+        )
       );
 
-      let usernameExists = false;
-      let classExists = false;
 
-      existingUsers.forEach(item => {
+      let usernameExists =
+      false;
 
-        const data =
-        item.data();
+      let classExists =
+      false;
 
-        if(
-          data.username &&
-          data.username.toLowerCase()
-          === username &&
-          data.deleted !== true
-        ){
-          usernameExists = true;
+
+      existingUsers.forEach(
+        item=>{
+
+          const data =
+          item.data();
+
+
+          if(
+            data.username &&
+            data.username
+            .toLowerCase() ===
+            username &&
+            data.deleted !== true
+          ){
+
+            usernameExists =
+            true;
+
+          }
+
+
+          if(
+            data.role ===
+            "classLeader" &&
+
+            data.deleted !== true &&
+
+            data.active !== false &&
+
+            data.stage ===
+            stageValue &&
+
+            data.grade ===
+            gradeValue &&
+
+            data.section ===
+            sectionValue
+          ){
+
+            classExists =
+            true;
+
+          }
+
         }
+      );
 
-        if(
-          data.role === "classLeader" &&
-          data.deleted !== true &&
-          data.active !== false &&
-          data.stage === stageValue &&
-          data.grade === gradeValue &&
-          data.section === sectionValue
-        ){
-          classExists = true;
-        }
-
-      });
 
       if(usernameExists){
 
@@ -1075,6 +1405,7 @@ leaderForm.addEventListener(
 
       }
 
+
       if(classExists){
 
         showMessage(
@@ -1086,45 +1417,76 @@ leaderForm.addEventListener(
 
       }
 
+
       const internalEmail =
+
       username +
       "@weeklyplan.local";
 
+
       const credential =
       await createUserWithEmailAndPassword(
+
         secondaryAuth,
+
         internalEmail,
+
         password
+
       );
+
 
       const uid =
       credential.user.uid;
 
+
       await setDoc(
+
         doc(
           db,
           "users",
           uid
         ),
+
         {
 
           name:name,
 
+          phone:
+          normalizePhone(
+            phoneValue
+          ),
+
           username:username,
 
-          role:"classLeader",
+          /*
+            نحفظ كلمة المرور
+            لاستخدامها في إرسال
+            بيانات الدخول عبر واتساب.
+          */
+          loginPassword:
+          password,
 
-          stage:stageValue,
+          role:
+          "classLeader",
 
-          grade:gradeValue,
+          stage:
+          stageValue,
 
-          section:sectionValue,
+          grade:
+          gradeValue,
 
-          active:true,
+          section:
+          sectionValue,
 
-          deleted:false,
+          active:
+          true,
 
-          email:internalEmail,
+          deleted:
+          false,
+
+          email:
+          internalEmail,
 
           createdAt:
           serverTimestamp(),
@@ -1133,31 +1495,40 @@ leaderForm.addEventListener(
           auth.currentUser.uid
 
         }
+
       );
+
 
       await signOut(
         secondaryAuth
       );
 
+
       showMessage(
-        "تم إنشاء حساب رائد الفصل بنجاح ✅",
+        "تم إنشاء حساب رائد الفصل بنجاح ✅ ويمكنك الآن إرسال بياناته عبر واتساب.",
         "success"
       );
 
+
       leaderForm.reset();
+
 
       grade.innerHTML =
       `<option value="">اختر الصف</option>`;
 
+
       await loadLeaders();
 
     }
+
     catch(error){
 
       console.error(error);
 
+
       let text =
       "حدث خطأ أثناء إنشاء الحساب.";
+
 
       if(
         error.code ===
@@ -1199,15 +1570,18 @@ leaderForm.addEventListener(
 
       }
 
+
       showMessage(
         text,
         "error"
       );
 
     }
+
     finally{
 
-      saveBtn.disabled = false;
+      saveBtn.disabled =
+      false;
 
       saveBtn.textContent =
       "إنشاء حساب رائد الفصل";
@@ -1218,70 +1592,111 @@ leaderForm.addEventListener(
 );
 
 
+/* ======================================
+   LOAD LEADERS
+====================================== */
+
 async function loadLeaders(){
 
   try{
 
-    leadersTable.innerHTML =
-    `
+    leadersTable.innerHTML = `
+
       <tr>
-        <td colspan="8" class="empty">
+
+        <td
+        colspan="9"
+        class="empty">
+
           جاري تحميل البيانات...
+
         </td>
+
       </tr>
+
     `;
+
 
     const snapshot =
     await getDocs(
-      collection(db,"users")
+
+      collection(
+        db,
+        "users"
+      )
+
     );
+
 
     leaders = [];
 
-    snapshot.forEach(item => {
 
-      const data =
-      item.data();
+    snapshot.forEach(
+      item=>{
 
-      if(
-        data.role === "classLeader" &&
-        data.deleted !== true
-      ){
+        const data =
+        item.data();
 
-        leaders.push({
-          id:item.id,
-          ...data
-        });
+
+        if(
+          data.role ===
+          "classLeader" &&
+          data.deleted !== true
+        ){
+
+          leaders.push({
+
+            id:
+            item.id,
+
+            ...data
+
+          });
+
+        }
 
       }
+    );
 
-    });
 
     leaders.sort(
-      (a,b) =>
-      (a.name || "")
-      .localeCompare(
-        b.name || "",
-        "ar"
-      )
+      (a,b)=>
+
+        (a.name || "")
+        .localeCompare(
+          b.name || "",
+          "ar"
+        )
     );
+
 
     updateStats();
 
-    renderLeaders(leaders);
+    renderLeaders(
+      leaders
+    );
 
   }
+
   catch(error){
 
     console.error(error);
 
-    leadersTable.innerHTML =
-    `
+
+    leadersTable.innerHTML = `
+
       <tr>
-        <td colspan="8" class="empty">
+
+        <td
+        colspan="9"
+        class="empty">
+
           تعذر تحميل بيانات رواد الفصول.
+
         </td>
+
       </tr>
+
     `;
 
   }
@@ -1289,10 +1704,15 @@ async function loadLeaders(){
 }
 
 
+/* ======================================
+   STATS
+====================================== */
+
 function updateStats(){
 
   totalCount.textContent =
   leaders.length;
+
 
   const active =
   leaders.filter(
@@ -1300,348 +1720,681 @@ function updateStats(){
     item.active !== false
   ).length;
 
+
   activeCount.textContent =
   active;
 
+
   inactiveCount.textContent =
-  leaders.length - active;
+  leaders.length -
+  active;
 
 }
 
 
+/* ======================================
+   RENDER TABLE
+====================================== */
+
 function renderLeaders(items){
 
-  if(items.length === 0){
+  if(
+    items.length === 0
+  ){
 
-    leadersTable.innerHTML =
-    `
+    leadersTable.innerHTML = `
+
       <tr>
-        <td colspan="8" class="empty">
+
+        <td
+        colspan="9"
+        class="empty">
+
           لا توجد حسابات حتى الآن.
+
         </td>
+
       </tr>
+
     `;
 
     return;
 
   }
 
-  leadersTable.innerHTML = "";
+
+  leadersTable.innerHTML =
+  "";
+
 
   items.forEach(
-    (item,index) => {
+    (item,index)=>{
 
       const tr =
-      document.createElement("tr");
+      document.createElement(
+        "tr"
+      );
+
 
       const isActive =
       item.active !== false;
 
-      tr.innerHTML =
-      `
+
+      const hasPhone =
+      !!item.phone;
+
+
+      tr.innerHTML = `
 
         <td>
           ${index + 1}
         </td>
 
+
         <td>
-          ${escapeHTML(item.name || "")}
+          ${escapeHTML(
+            item.name || ""
+          )}
         </td>
+
 
         <td dir="ltr">
-          ${escapeHTML(item.username || "")}
+
+          ${
+            item.phone
+            ? formatPhone(
+                item.phone
+              )
+            : "-"
+          }
+
         </td>
 
-        <td>
-          ${escapeHTML(item.stage || "")}
+
+        <td dir="ltr">
+
+          ${escapeHTML(
+            item.username || ""
+          )}
+
         </td>
 
-        <td>
-          ${escapeHTML(item.grade || "")}
-        </td>
 
         <td>
-          ${escapeHTML(item.section || "")}
+
+          ${escapeHTML(
+            item.stage || ""
+          )}
+
         </td>
 
+
         <td>
-          <span class="badge ${
+
+          ${escapeHTML(
+            item.grade || ""
+          )}
+
+        </td>
+
+
+        <td>
+
+          ${escapeHTML(
+            item.section || ""
+          )}
+
+        </td>
+
+
+        <td>
+
+          <span
+          class="badge ${
             isActive
             ? "active"
             : "inactive"
           }">
+
             ${
               isActive
               ? "مفعل"
               : "موقوف"
             }
+
           </span>
+
         </td>
+
 
         <td>
 
-          <button
-            class="action-btn edit-btn"
-            data-edit="${item.id}"
-          >
-            تعديل
-          </button>
 
           <button
-            class="action-btn toggle-btn"
-            data-toggle="${item.id}"
-          >
+          class="action-btn whatsapp-btn"
+          data-whatsapp="${item.id}"
+          ${hasPhone ? "" : "disabled"}>
+
+            واتساب
+
+          </button>
+
+
+          <button
+          class="action-btn edit-btn"
+          data-edit="${item.id}">
+
+            تعديل
+
+          </button>
+
+
+          <button
+          class="action-btn toggle-btn"
+          data-toggle="${item.id}">
+
             ${
               isActive
               ? "إيقاف"
               : "تفعيل"
             }
+
           </button>
 
+
           <button
-            class="action-btn delete-btn"
-            data-delete="${item.id}"
-          >
+          class="action-btn delete-btn"
+          data-delete="${item.id}">
+
             حذف
+
           </button>
+
 
         </td>
 
       `;
 
-      leadersTable.appendChild(tr);
+
+      leadersTable.appendChild(
+        tr
+      );
 
     }
   );
+
 
   bindTableButtons();
 
 }
 
 
-function escapeHTML(value){
-
-  return String(value)
-  .replaceAll("&","&amp;")
-  .replaceAll("<","&lt;")
-  .replaceAll(">","&gt;")
-  .replaceAll('"',"&quot;")
-  .replaceAll("'","&#039;");
-
-}
-
+/* ======================================
+   SEARCH
+====================================== */
 
 searchInput.addEventListener(
   "input",
-  () => {
+  ()=>{
 
     const text =
     searchInput.value
     .trim()
     .toLowerCase();
 
+
     const filtered =
-    leaders.filter(item => {
+    leaders.filter(
+      item=>{
 
-      return (
+        return (
 
-        (item.name || "")
-        .toLowerCase()
-        .includes(text)
+          (item.name || "")
+          .toLowerCase()
+          .includes(text)
 
-        ||
+          ||
 
-        (item.username || "")
-        .toLowerCase()
-        .includes(text)
+          (item.username || "")
+          .toLowerCase()
+          .includes(text)
 
-        ||
+          ||
 
-        (item.grade || "")
-        .includes(text)
+          (item.phone || "")
+          .includes(
+            text.replace(
+              /\D/g,
+              ""
+            )
+          )
 
-      );
+          ||
 
-    });
+          (item.grade || "")
+          .includes(text)
 
-    renderLeaders(filtered);
+        );
+
+      }
+    );
+
+
+    renderLeaders(
+      filtered
+    );
 
   }
 );
 
 
-function bindTableButtons(){
+/* ======================================
+   WHATSAPP
+====================================== */
 
-  document
-  .querySelectorAll("[data-toggle]")
-  .forEach(button => {
+function sendWhatsApp(
+  leader
+){
 
-    button.addEventListener(
-      "click",
-      async() => {
+  if(!leader){
 
-        const id =
-        button.dataset.toggle;
+    return;
 
-        const leader =
-        leaders.find(
-          item =>
-          item.id === id
-        );
+  }
 
-        if(!leader) return;
 
-        const newStatus =
-        leader.active === false;
+  if(!leader.phone){
 
-        const text =
-        newStatus
-        ? "هل تريد تفعيل هذا الحساب؟"
-        : "هل تريد إيقاف هذا الحساب؟";
-
-        if(!confirm(text)) return;
-
-        try{
-
-          await updateDoc(
-            doc(
-              db,
-              "users",
-              id
-            ),
-            {
-              active:newStatus
-            }
-          );
-
-          await loadLeaders();
-
-        }
-        catch(error){
-
-          console.error(error);
-
-          alert(
-            "حدث خطأ أثناء تغيير حالة الحساب."
-          );
-
-        }
-
-      }
+    alert(
+      "لا يوجد رقم جوال مسجل لرائد الفصل."
     );
 
-  });
+    return;
+
+  }
 
 
-  document
-  .querySelectorAll("[data-edit]")
-  .forEach(button => {
+  const whatsappNumber =
+  normalizePhone(
+    leader.phone
+  );
 
-    button.addEventListener(
-      "click",
-      () => {
 
-        openEditModal(
-          button.dataset.edit
-        );
+  if(
+    !/^9665\d{8}$/
+    .test(
+      whatsappNumber
+    )
+  ){
 
-      }
+    alert(
+      "رقم الجوال المسجل غير صحيح. قم بتعديله أولًا."
     );
 
-  });
+    return;
+
+  }
 
 
-  document
-  .querySelectorAll("[data-delete]")
-  .forEach(button => {
+  /*
+    الحسابات القديمة التي تم إنشاؤها
+    قبل إضافة خاصية واتساب لن يكون
+    لها loginPassword محفوظ.
+  */
 
-    button.addEventListener(
-      "click",
-      async() => {
+  const passwordText =
+  leader.loginPassword
+  ?
+  leader.loginPassword
+  :
+  "يرجى التواصل مع إدارة النظام";
 
-        const id =
-        button.dataset.delete;
 
-        const leader =
-        leaders.find(
-          item =>
-          item.id === id
-        );
+  const text =
 
-        if(!leader) return;
+`السلام عليكم ورحمة الله وبركاته
 
-        const confirmDelete =
-        confirm(
-          `هل تريد حذف رائد الفصل "${leader.name}" من النظام؟`
-        );
+الأستاذ/ ${leader.name || ""}
 
-        if(!confirmDelete) return;
+تم إنشاء حسابكم في نظام الخطة الأسبوعية بمدارس الفلاح الأهلية.
 
-        const confirmAgain =
-        confirm(
-          "سيتم إخفاء الحساب ومنعه من الدخول. هل أنت متأكد؟"
-        );
+بيانات الدخول:
 
-        if(!confirmAgain) return;
+اسم المستخدم:
+${leader.username || ""}
 
-        try{
+كلمة المرور:
+${passwordText}
 
-          await updateDoc(
-            doc(
-              db,
-              "users",
-              id
-            ),
-            {
-              active:false,
-              deleted:true,
-              deletedAt:
-              serverTimestamp()
-            }
-          );
+المرحلة:
+${leader.stage || ""}
 
-          await loadLeaders();
+الصف:
+${leader.grade || ""}
 
-          alert(
-            "تم حذف رائد الفصل من النظام."
-          );
+الشعبة:
+${leader.section || ""}
 
-        }
-        catch(error){
+رابط الدخول إلى النظام:
+https://muhammadamer1618-dev.github.io/Weekly-Plan/
 
-          console.error(error);
+مع تمنياتنا لكم بالتوفيق.
+مدارس الفلاح الأهلية`;
 
-          alert(
-            "حدث خطأ أثناء الحذف."
-          );
 
-        }
+  const url =
 
-      }
-    );
+  "https://wa.me/" +
+  whatsappNumber +
+  "?text=" +
+  encodeURIComponent(
+    text
+  );
 
-  });
+
+  window.open(
+    url,
+    "_blank"
+  );
 
 }
 
 
+/* ======================================
+   TABLE BUTTONS
+====================================== */
+
+function bindTableButtons(){
+
+
+  /* واتساب */
+
+  document
+  .querySelectorAll(
+    "[data-whatsapp]"
+  )
+  .forEach(
+    button=>{
+
+      button.addEventListener(
+        "click",
+        ()=>{
+
+          const leader =
+          leaders.find(
+            item =>
+            item.id ===
+            button.dataset.whatsapp
+          );
+
+
+          sendWhatsApp(
+            leader
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  /* تفعيل / إيقاف */
+
+  document
+  .querySelectorAll(
+    "[data-toggle]"
+  )
+  .forEach(
+    button=>{
+
+      button.addEventListener(
+        "click",
+        async()=>{
+
+          const id =
+          button.dataset.toggle;
+
+
+          const leader =
+          leaders.find(
+            item =>
+            item.id === id
+          );
+
+
+          if(!leader){
+            return;
+          }
+
+
+          const newStatus =
+          leader.active === false;
+
+
+          const text =
+          newStatus
+          ?
+          "هل تريد تفعيل هذا الحساب؟"
+          :
+          "هل تريد إيقاف هذا الحساب؟";
+
+
+          if(
+            !confirm(text)
+          ){
+            return;
+          }
+
+
+          try{
+
+            await updateDoc(
+
+              doc(
+                db,
+                "users",
+                id
+              ),
+
+              {
+                active:
+                newStatus
+              }
+
+            );
+
+
+            await loadLeaders();
+
+          }
+
+          catch(error){
+
+            console.error(error);
+
+            alert(
+              "حدث خطأ أثناء تغيير حالة الحساب."
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+  /* تعديل */
+
+  document
+  .querySelectorAll(
+    "[data-edit]"
+  )
+  .forEach(
+    button=>{
+
+      button.addEventListener(
+        "click",
+        ()=>{
+
+          openEditModal(
+            button.dataset.edit
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  /* حذف */
+
+  document
+  .querySelectorAll(
+    "[data-delete]"
+  )
+  .forEach(
+    button=>{
+
+      button.addEventListener(
+        "click",
+        async()=>{
+
+          const id =
+          button.dataset.delete;
+
+
+          const leader =
+          leaders.find(
+            item =>
+            item.id === id
+          );
+
+
+          if(!leader){
+            return;
+          }
+
+
+          const confirmDelete =
+          confirm(
+            `هل تريد حذف رائد الفصل "${leader.name}" من النظام؟`
+          );
+
+
+          if(
+            !confirmDelete
+          ){
+            return;
+          }
+
+
+          const confirmAgain =
+          confirm(
+            "سيتم إخفاء الحساب ومنعه من الدخول. هل أنت متأكد؟"
+          );
+
+
+          if(
+            !confirmAgain
+          ){
+            return;
+          }
+
+
+          try{
+
+            await updateDoc(
+
+              doc(
+                db,
+                "users",
+                id
+              ),
+
+              {
+
+                active:false,
+
+                deleted:true,
+
+                deletedAt:
+                serverTimestamp()
+
+              }
+
+            );
+
+
+            await loadLeaders();
+
+
+            alert(
+              "تم حذف رائد الفصل من النظام."
+            );
+
+          }
+
+          catch(error){
+
+            console.error(error);
+
+            alert(
+              "حدث خطأ أثناء الحذف."
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+}
+
+
+/* ======================================
+   EDIT MODAL
+====================================== */
+
 const editModal =
-document.getElementById("editModal");
+document.getElementById(
+  "editModal"
+);
 
 const editId =
-document.getElementById("editId");
+document.getElementById(
+  "editId"
+);
 
 const editName =
-document.getElementById("editName");
+document.getElementById(
+  "editName"
+);
+
+const editPhone =
+document.getElementById(
+  "editPhone"
+);
 
 const editStage =
-document.getElementById("editStage");
+document.getElementById(
+  "editStage"
+);
 
 const editGrade =
-document.getElementById("editGrade");
+document.getElementById(
+  "editGrade"
+);
 
 const editSection =
-document.getElementById("editSection");
+document.getElementById(
+  "editSection"
+);
 
 
 function openEditModal(id){
@@ -1652,27 +2405,43 @@ function openEditModal(id){
     item.id === id
   );
 
-  if(!leader) return;
+
+  if(!leader){
+    return;
+  }
+
 
   editId.value =
   leader.id;
 
+
   editName.value =
   leader.name || "";
 
+
+  editPhone.value =
+  displayPhoneForEdit(
+    leader.phone || ""
+  );
+
+
   editStage.value =
   leader.stage || "";
+
 
   fillGrades(
     editStage.value,
     editGrade
   );
 
+
   editGrade.value =
   leader.grade || "";
 
+
   editSection.value =
   leader.section || "";
+
 
   editModal.classList.add(
     "show"
@@ -1683,7 +2452,7 @@ function openEditModal(id){
 
 editStage.addEventListener(
   "change",
-  () => {
+  ()=>{
 
     fillGrades(
       editStage.value,
@@ -1695,10 +2464,12 @@ editStage.addEventListener(
 
 
 document
-.getElementById("cancelEdit")
+.getElementById(
+  "cancelEdit"
+)
 .addEventListener(
   "click",
-  () => {
+  ()=>{
 
     editModal.classList.remove(
       "show"
@@ -1708,18 +2479,30 @@ document
 );
 
 
+/* ======================================
+   SAVE EDIT
+====================================== */
+
 document
-.getElementById("updateBtn")
+.getElementById(
+  "updateBtn"
+)
 .addEventListener(
   "click",
-  async() => {
+  async()=>{
 
     const id =
     editId.value;
 
+
+    const newPhone =
+    editPhone.value.trim();
+
+
     if(
       !id ||
       !editName.value.trim() ||
+      !newPhone ||
       !editStage.value ||
       !editGrade.value ||
       !editSection.value
@@ -1733,29 +2516,50 @@ document
 
     }
 
-    const duplicateClass =
-    leaders.some(item => {
 
-      return (
+    if(
+      !validSaudiPhone(
+        newPhone
+      )
+    ){
 
-        item.id !== id &&
-
-        item.active !== false &&
-
-        item.stage ===
-        editStage.value &&
-
-        item.grade ===
-        editGrade.value &&
-
-        item.section ===
-        editSection.value
-
+      alert(
+        "رقم الجوال غير صحيح. مثال: 0591234567"
       );
 
-    });
+      return;
 
-    if(duplicateClass){
+    }
+
+
+    const duplicateClass =
+    leaders.some(
+      item=>{
+
+        return (
+
+          item.id !== id &&
+
+          item.active !== false &&
+
+          item.stage ===
+          editStage.value &&
+
+          item.grade ===
+          editGrade.value &&
+
+          item.section ===
+          editSection.value
+
+        );
+
+      }
+    );
+
+
+    if(
+      duplicateClass
+    ){
 
       alert(
         "هذا الفصل مرتبط برائد فصل آخر."
@@ -1765,18 +2569,26 @@ document
 
     }
 
+
     try{
 
       await updateDoc(
+
         doc(
           db,
           "users",
           id
         ),
+
         {
 
           name:
           editName.value.trim(),
+
+          phone:
+          normalizePhone(
+            newPhone
+          ),
 
           stage:
           editStage.value,
@@ -1791,15 +2603,24 @@ document
           serverTimestamp()
 
         }
+
       );
+
 
       editModal.classList.remove(
         "show"
       );
 
+
       await loadLeaders();
 
+
+      alert(
+        "تم تحديث بيانات رائد الفصل بنجاح."
+      );
+
     }
+
     catch(error){
 
       console.error(error);
@@ -1814,12 +2635,17 @@ document
 );
 
 
+/* ======================================
+   MODAL BACKGROUND
+====================================== */
+
 editModal.addEventListener(
   "click",
-  event => {
+  event=>{
 
     if(
-      event.target === editModal
+      event.target ===
+      editModal
     ){
 
       editModal.classList.remove(
@@ -1830,6 +2656,87 @@ editModal.addEventListener(
 
   }
 );
+
+
+/* ======================================
+   HELPERS
+====================================== */
+
+function formatPhone(value){
+
+  const number =
+  normalizePhone(
+    value
+  );
+
+
+  if(
+    number.startsWith(
+      "966"
+    )
+  ){
+
+    return (
+      "0" +
+      number.substring(3)
+    );
+
+  }
+
+
+  return value;
+
+}
+
+
+function displayPhoneForEdit(
+  value
+){
+
+  if(!value){
+    return "";
+  }
+
+
+  return formatPhone(
+    value
+  );
+
+}
+
+
+function escapeHTML(value){
+
+  return String(
+    value || ""
+  )
+
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+
+  .replaceAll(
+    ">",
+    "&gt;"
+  )
+
+  .replaceAll(
+    '"',
+    "&quot;"
+  )
+
+  .replaceAll(
+    "'",
+    "&#039;"
+  );
+
+}
 
 </script>
 
