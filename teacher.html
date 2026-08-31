@@ -31,12 +31,9 @@ rel="stylesheet">
     --green-medium:#557966;
     --green-dark:#315b49;
     --green-light:#edf4f0;
-
     --gold:#b99648;
     --gold-soft:#f5efdf;
-
     --text:#252525;
-
     --danger:#b53a3a;
     --blue:#477da6;
     --share:#34865a;
@@ -385,12 +382,11 @@ select:focus{
 }
 
 /*
-   نفس التوزيع النهائي تقريبًا
-   بدون عمود اليوم داخل شاشة الإدخال
+   شاشة الإدخال
 */
 
 .input-table .input-period{
-    width:5%;
+    width:6%;
 }
 
 .input-table .input-subject{
@@ -398,11 +394,11 @@ select:focus{
 }
 
 .input-table .input-topic{
-    width:60%;
+    width:55%;
 }
 
 .input-table .input-homework{
-    width:25%;
+    width:29%;
 }
 
 .input-table .period{
@@ -426,26 +422,18 @@ select:focus{
 
 .actions{
     display:flex;
-
     flex-wrap:wrap;
-
     justify-content:center;
-
     gap:10px;
-
     padding:22px;
-
     background:#fcfbf7;
 }
 
 .action-btn,
 .history-btn{
     border:0;
-
     border-radius:9px;
-
     cursor:pointer;
-
     font-weight:700;
 }
 
@@ -501,17 +489,11 @@ select:focus{
 
 .message{
     display:none;
-
     margin:0 20px 20px;
-
     padding:12px;
-
     text-align:center;
-
     border-radius:9px;
-
     font-weight:700;
-
     font-size:14px;
 }
 
@@ -646,21 +628,15 @@ select:focus{
 
 .modal-controls button{
     border:0;
-
     border-radius:8px;
-
     padding:9px 13px;
-
     cursor:pointer;
-
     font-weight:700;
 }
 
 .modal-content{
     padding:22px;
-
     display:flex;
-
     justify-content:center;
 }
 
@@ -787,45 +763,31 @@ select:focus{
 
 .vision-message{
     display:grid;
-
     grid-template-columns:.85fr 1.6fr;
-
     gap:11px;
-
     margin-top:11px;
 }
 
 .vm-box{
     border:1.5px solid #ccb168;
-
     border-radius:8px;
-
     background:#fffdf8;
-
     padding:10px 13px;
 }
 
 .vm-title{
     color:#92712d;
-
     font-weight:800;
-
     text-align:center;
-
     font-size:18px;
-
     margin-bottom:6px;
 }
 
 .vm-text{
     text-align:center;
-
     color:#303030;
-
     font-size:15px;
-
     font-weight:600;
-
     line-height:1.65;
 }
 
@@ -836,49 +798,31 @@ select:focus{
 
 .poster-weekline{
     margin-top:10px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:28px;
-
     padding:10px 12px;
-
     border:1.5px solid #c7ad67;
-
     background:#fbf7ea;
-
     font-size:18px;
-
     font-weight:700;
 }
 
 .poster-special{
     margin-top:9px;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:9px;
 }
 
 .special-box{
     border:1.5px solid #90a99b;
-
     background:#edf4f0;
-
     padding:10px;
-
     font-size:17px;
-
     font-weight:600;
-
     text-align:center;
 }
 
@@ -894,13 +838,9 @@ select:focus{
 
 .poster-table{
     width:100%;
-
     margin-top:11px;
-
     border-collapse:collapse;
-
     table-layout:fixed;
-
     direction:rtl;
 }
 
@@ -943,118 +883,72 @@ select:focus{
 }
 
 
-/* =========================
-   DAY 5%
-========================= */
+/* اليوم */
 
 .poster-table .day-cell{
     background:#789685;
-
     color:white;
-
     font-size:18px;
-
     font-weight:800;
-
     padding:0;
-
     text-align:center;
-
     vertical-align:middle;
 }
 
-
-/*
-   اليوم رأسي
-*/
-
 .day-vertical{
     writing-mode:vertical-rl;
-
     transform:rotate(180deg);
-
     white-space:nowrap;
-
     display:inline-block;
-
     letter-spacing:1px;
-
     line-height:1;
-
     font-size:19px;
-
     font-weight:800;
 }
 
 
-/* =========================
-   PERIOD 4%
-========================= */
+/* الحصة */
 
 .poster-table .period-cell{
     background:#faf7ed;
-
-    font-size:14px;
-
-    font-weight:700;
-
+    font-size:15px;
+    font-weight:800;
     text-align:center;
-
-    padding-left:2px;
-
-    padding-right:2px;
+    padding-left:3px;
+    padding-right:3px;
 }
 
 
-/* =========================
-   SUBJECT 8%
-========================= */
+/* المادة */
 
 .poster-table .subject-cell{
     font-size:13px;
-
     font-weight:700;
-
     text-align:center;
-
     padding:4px;
 }
 
 
-/* =========================
-   TOPIC 60%
-========================= */
+/* موضوع الدرس */
 
 .poster-table .topic-cell{
     font-size:14px;
-
     line-height:1.18;
-
     text-align:center;
-
     padding:5px 10px;
-
     word-break:normal;
-
     overflow-wrap:anywhere;
 }
 
 
-/* =========================
-   HOMEWORK 23%
-========================= */
+/* الواجب */
 
 .poster-table .homework-cell{
     font-size:14px;
-
     line-height:1.18;
-
     text-align:center;
-
     padding:5px 8px;
-
     word-break:normal;
-
     overflow-wrap:anywhere;
 }
 
@@ -1070,15 +964,10 @@ select:focus{
 
 .poster-signatures{
     margin-top:21px;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:120px;
-
     font-size:18px;
-
     font-weight:700;
 }
 
@@ -1088,45 +977,31 @@ select:focus{
 
 .signature-title{
     color:#315b49;
-
     margin-bottom:9px;
-
     font-size:18px;
-
     font-weight:800;
 }
 
 .signature-name{
     min-height:30px;
-
     font-size:17px;
-
     font-weight:600;
 }
 
 .signature-line{
     width:185px;
-
     border-bottom:1px solid #666;
-
     margin:14px auto 0;
 }
 
 .poster-credit{
     position:absolute;
-
     bottom:17px;
-
     left:0;
-
     right:0;
-
     text-align:center;
-
     font-size:16px;
-
     font-weight:700;
-
     color:#315b49;
 }
 
@@ -1137,21 +1012,15 @@ select:focus{
 
 footer{
     text-align:center;
-
     padding:28px;
-
     color:#777;
-
     line-height:1.9;
-
     font-size:14px;
 }
 
 footer strong{
     color:var(--green-dark);
-
     font-size:15px;
-
     font-weight:800;
 }
 
@@ -1309,7 +1178,6 @@ class="logout-btn">
 
 <div class="week-fields">
 
-
 <div class="form-group">
 
 <label>
@@ -1318,9 +1186,7 @@ class="logout-btn">
 
 <select id="weekNumber">
 
-<option value="">
-اختر الأسبوع
-</option>
+<option value="">اختر الأسبوع</option>
 
 <option value="1">الأسبوع الأول</option>
 <option value="2">الأسبوع الثاني</option>
@@ -1375,7 +1241,6 @@ id="endDate">
 
 
 <div class="extra-fields">
-
 
 <div class="form-group">
 
@@ -1473,33 +1338,20 @@ class="day-label">
 <table class="input-table">
 
 <colgroup>
-
 <col class="input-period">
 <col class="input-subject">
 <col class="input-topic">
 <col class="input-homework">
-
 </colgroup>
 
 <thead>
 
 <tr>
 
-<th>
-الحصة
-</th>
-
-<th>
-المادة
-</th>
-
-<th>
-موضوع الدرس
-</th>
-
-<th>
-الواجب
-</th>
+<th>الحصة</th>
+<th>المادة</th>
+<th>موضوع الدرس</th>
+<th>الواجب</th>
 
 </tr>
 
@@ -1518,58 +1370,40 @@ class="day-label">
 <button
 class="action-btn save-btn"
 id="saveBtn">
-
 حفظ الخطة
-
 </button>
-
 
 <button
 class="action-btn preview-btn"
 id="previewBtn">
-
 معاينة النموذج
-
 </button>
-
 
 <button
 class="action-btn image-btn"
 id="downloadCurrentBtn">
-
 تحميل صورة عالية الجودة
-
 </button>
-
 
 <button
 class="action-btn pdf-btn"
 id="pdfCurrentBtn">
-
 تصدير PDF
-
 </button>
-
 
 <button
 class="action-btn share-btn"
 id="shareCurrentBtn">
-
 إرسال الصورة
-
 </button>
-
 
 <button
 class="action-btn clear-btn"
 id="clearDayBtn">
-
 مسح محتوى اليوم
-
 </button>
 
 </div>
-
 
 <div
 id="message"
@@ -1585,7 +1419,6 @@ class="message">
 سجل الخطط الأسبوعية
 </div>
 
-
 <div class="history-body">
 
 <div class="table-wrap">
@@ -1595,14 +1428,12 @@ class="message">
 <thead>
 
 <tr>
-
 <th>الأسبوع</th>
 <th>من تاريخ</th>
 <th>إلى تاريخ</th>
 <th>القيمة التربوية</th>
 <th>شخصية الأسبوع</th>
 <th>الإجراءات</th>
-
 </tr>
 
 </thead>
@@ -1610,15 +1441,11 @@ class="message">
 <tbody id="historyTable">
 
 <tr>
-
 <td
 colspan="6"
 class="empty-history">
-
 جاري تحميل سجل الخطط...
-
 </td>
-
 </tr>
 
 </tbody>
@@ -1646,7 +1473,6 @@ id="previewModal">
 معاينة الخطة الأسبوعية
 </strong>
 
-
 <div class="modal-controls">
 
 <button id="modalDownload">
@@ -1669,12 +1495,8 @@ id="previewModal">
 
 </div>
 
-
 <div class="modal-content">
-
-<div id="poster">
-</div>
-
+<div id="poster"></div>
 </div>
 
 </div>
@@ -1696,7 +1518,6 @@ id="previewModal">
 
 
 <script type="module">
-
 
 import {
     initializeApp
@@ -1770,16 +1591,10 @@ const days = {
 
 
 let currentUser = null;
-
 let currentUserData = null;
-
 let currentDay = "sunday";
-
-let planData =
-createEmptyPlan();
-
+let planData = createEmptyPlan();
 let savedPlans = [];
-
 let previewPlan = null;
 
 
@@ -1835,31 +1650,22 @@ const poster =
 document.getElementById("poster");
 
 
-/* =========================
-   EMPTY PLAN
-========================= */
-
 function createEmptyDay(){
 
     const rows = [];
-
 
     for(let i=1;i<=8;i++){
 
         rows.push({
 
             period:i,
-
             subject:"",
-
             topic:"",
-
             homework:""
 
         });
 
     }
-
 
     return rows;
 
@@ -1871,13 +1677,9 @@ function createEmptyPlan(){
     return {
 
         sunday:createEmptyDay(),
-
         monday:createEmptyDay(),
-
         tuesday:createEmptyDay(),
-
         wednesday:createEmptyDay(),
-
         thursday:createEmptyDay()
 
     };
@@ -1885,16 +1687,11 @@ function createEmptyPlan(){
 }
 
 
-/* =========================
-   SUPPORT OLD PLANS
-========================= */
-
 function oldHomeworkToText(row){
 
     if(!row){
         return "";
     }
-
 
     if(
         row.homework !== undefined &&
@@ -1902,9 +1699,7 @@ function oldHomeworkToText(row){
         String(row.homework).trim() !== ""
     ){
 
-        return String(
-            row.homework
-        );
+        return String(row.homework);
 
     }
 
@@ -1912,10 +1707,7 @@ function oldHomeworkToText(row){
     const parts = [];
 
 
-    if(
-        row.book &&
-        String(row.book).trim()
-    ){
+    if(row.book && String(row.book).trim()){
 
         parts.push(
             String(row.book).trim()
@@ -1924,10 +1716,7 @@ function oldHomeworkToText(row){
     }
 
 
-    if(
-        row.page &&
-        String(row.page).trim()
-    ){
+    if(row.page && String(row.page).trim()){
 
         parts.push(
             "ص " +
@@ -1950,9 +1739,7 @@ function oldHomeworkToText(row){
     }
 
 
-    if(
-        row.madrasati === true
-    ){
+    if(row.madrasati === true){
 
         parts.push(
             "منصة مدرستي"
@@ -1965,10 +1752,6 @@ function oldHomeworkToText(row){
 
 }
 
-
-/* =========================
-   AUTH
-========================= */
 
 onAuthStateChanged(
 auth,
@@ -2033,7 +1816,6 @@ async user => {
         currentUser =
         user;
 
-
         currentUserData =
         data;
 
@@ -2070,7 +1852,6 @@ async user => {
 
         console.error(error);
 
-
         alert(
             "تعذر تحميل بيانات الحساب."
         );
@@ -2092,10 +1873,6 @@ async()=>{
 
 };
 
-
-/* =========================
-   DAYS
-========================= */
 
 document
 .querySelectorAll(".day-btn")
@@ -2155,11 +1932,8 @@ function renderCurrentDay(){
         tr.innerHTML = `
 
             <td class="period">
-
                 ${index+1}
-
             </td>
-
 
             <td>
 
@@ -2170,7 +1944,6 @@ function renderCurrentDay(){
 
             </td>
 
-
             <td>
 
                 <input
@@ -2179,7 +1952,6 @@ function renderCurrentDay(){
                 placeholder="موضوع الدرس">
 
             </td>
-
 
             <td>
 
@@ -2217,20 +1989,17 @@ function saveCurrentDayToMemory(){
 
             period:index+1,
 
-
             subject:
             row
             .querySelector(".subject")
             .value
             .trim(),
 
-
             topic:
             row
             .querySelector(".topic")
             .value
             .trim(),
-
 
             homework:
             row
@@ -2244,10 +2013,6 @@ function saveCurrentDayToMemory(){
 
 }
 
-
-/* =========================
-   WEEK CHANGE
-========================= */
 
 weekNumber.onchange=()=>{
 
@@ -2285,9 +2050,7 @@ async function loadSelectedWeek(
 
     if(existing){
 
-        openPlan(
-            existing
-        );
+        openPlan(existing);
 
 
         showMessage(
@@ -2330,11 +2093,7 @@ async function loadSelectedWeek(
         Object.keys(days)
         .forEach(day=>{
 
-            for(
-                let i=0;
-                i<8;
-                i++
-            ){
+            for(let i=0;i<8;i++){
 
                 planData[day][i].subject =
                 previous.days?.[day]?.[i]?.subject || "";
@@ -2357,11 +2116,8 @@ async function loadSelectedWeek(
 
 
     startDate.value = "";
-
     endDate.value = "";
-
     educationalValue.value = "";
-
     weekPersonality.value = "";
 
 
@@ -2369,10 +2125,6 @@ async function loadSelectedWeek(
 
 }
 
-
-/* =========================
-   SAVE
-========================= */
 
 document
 .getElementById("saveBtn")
@@ -2412,7 +2164,6 @@ async()=>{
     try{
 
         const id =
-
         currentUser.uid +
         "_week_" +
         weekNumber.value;
@@ -2431,58 +2182,46 @@ async()=>{
                 leaderUid:
                 currentUser.uid,
 
-
                 leaderName:
                 currentUserData.name,
-
 
                 stage:
                 currentUserData.stage,
 
-
                 grade:
                 currentUserData.grade,
 
-
                 section:
                 currentUserData.section,
-
 
                 weekNumber:
                 Number(
                     weekNumber.value
                 ),
 
-
                 startDate:
                 startDate.value,
 
-
                 endDate:
                 endDate.value,
-
 
                 educationalValue:
                 educationalValue
                 .value
                 .trim(),
 
-
                 weekPersonality:
                 weekPersonality
                 .value
                 .trim(),
-
 
                 principalName:
                 principalName
                 .value
                 .trim(),
 
-
                 days:
                 planData,
-
 
                 updatedAt:
                 serverTimestamp()
@@ -2520,10 +2259,6 @@ async()=>{
 
 };
 
-
-/* =========================
-   HISTORY
-========================= */
 
 async function loadPlanHistory(){
 
@@ -2627,93 +2362,65 @@ function renderHistory(){
                     الأسبوع ${plan.weekNumber}
                 </td>
 
-
                 <td>
                     ${formatDate(plan.startDate)}
                 </td>
-
 
                 <td>
                     ${formatDate(plan.endDate)}
                 </td>
 
-
                 <td>
-
                     ${escapeHTML(
                         plan.educationalValue ||
                         "-"
                     )}
-
                 </td>
 
-
                 <td>
-
                     ${escapeHTML(
                         plan.weekPersonality ||
                         "-"
                     )}
-
                 </td>
 
-
                 <td>
-
 
                     <button
                     class="history-btn open-btn"
                     data-open="${plan.id}">
-
                         فتح
-
                     </button>
-
 
                     <button
                     class="history-btn view-btn"
                     data-view="${plan.id}">
-
                         معاينة
-
                     </button>
-
 
                     <button
                     class="history-btn download-btn"
                     data-download="${plan.id}">
-
                         صورة
-
                     </button>
-
 
                     <button
                     class="history-btn pdf-btn"
                     data-pdf="${plan.id}">
-
                         PDF
-
                     </button>
-
 
                     <button
                     class="history-btn send-btn"
                     data-share="${plan.id}">
-
                         إرسال
-
                     </button>
-
 
                     <button
                     class="history-btn remove-btn"
                     data-delete="${plan.id}">
-
                         حذف
-
                     </button>
-
 
                 </td>
 
@@ -2733,42 +2440,30 @@ function renderHistory(){
 }
 
 
-/* =========================
-   HISTORY BUTTONS
-========================= */
-
 function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-open]"
-    )
+    .querySelectorAll("[data-open]")
     .forEach(btn=>{
 
         btn.onclick=()=>{
 
             const plan =
             savedPlans.find(
-
                 p =>
                 p.id ===
                 btn.dataset.open
-
             );
 
 
             if(plan){
 
-                openPlan(
-                    plan
-                );
-
+                openPlan(plan);
 
                 window.scrollTo({
 
                     top:0,
-
                     behavior:"smooth"
 
                 });
@@ -2781,20 +2476,16 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-view]"
-    )
+    .querySelectorAll("[data-view]")
     .forEach(btn=>{
 
         btn.onclick=()=>{
 
             const plan =
             savedPlans.find(
-
                 p =>
                 p.id ===
                 btn.dataset.view
-
             );
 
 
@@ -2814,9 +2505,7 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-download]"
-    )
+    .querySelectorAll("[data-download]")
     .forEach(btn=>{
 
         btn.onclick =
@@ -2824,11 +2513,9 @@ function bindHistoryButtons(){
 
             const plan =
             savedPlans.find(
-
                 p =>
                 p.id ===
                 btn.dataset.download
-
             );
 
 
@@ -2848,9 +2535,7 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-pdf]"
-    )
+    .querySelectorAll("[data-pdf]")
     .forEach(btn=>{
 
         btn.onclick =
@@ -2858,11 +2543,9 @@ function bindHistoryButtons(){
 
             const plan =
             savedPlans.find(
-
                 p =>
                 p.id ===
                 btn.dataset.pdf
-
             );
 
 
@@ -2882,9 +2565,7 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-share]"
-    )
+    .querySelectorAll("[data-share]")
     .forEach(btn=>{
 
         btn.onclick =
@@ -2892,11 +2573,9 @@ function bindHistoryButtons(){
 
             const plan =
             savedPlans.find(
-
                 p =>
                 p.id ===
                 btn.dataset.share
-
             );
 
 
@@ -2916,9 +2595,7 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-delete]"
-    )
+    .querySelectorAll("[data-delete]")
     .forEach(btn=>{
 
         btn.onclick =
@@ -2926,11 +2603,9 @@ function bindHistoryButtons(){
 
             const plan =
             savedPlans.find(
-
                 p =>
                 p.id ===
                 btn.dataset.delete
-
             );
 
 
@@ -2999,7 +2674,6 @@ function bindHistoryButtons(){
 
                 console.error(error);
 
-
                 alert(
                     "تعذر حذف الخطة."
                 );
@@ -3013,13 +2687,7 @@ function bindHistoryButtons(){
 }
 
 
-/* =========================
-   NORMALIZE OLD PLANS
-========================= */
-
-function normalizePlan(
-    source
-){
+function normalizePlan(source){
 
     const result =
     createEmptyPlan();
@@ -3028,11 +2696,7 @@ function normalizePlan(
     Object.keys(days)
     .forEach(day=>{
 
-        for(
-            let i=0;
-            i<8;
-            i++
-        ){
+        for(let i=0;i<8;i++){
 
             const row =
             source?.[day]?.[i];
@@ -3044,14 +2708,11 @@ function normalizePlan(
 
                     period:i+1,
 
-
                     subject:
                     row.subject || "",
 
-
                     topic:
                     row.topic || "",
-
 
                     homework:
                     oldHomeworkToText(
@@ -3072,9 +2733,7 @@ function normalizePlan(
 }
 
 
-function normalizeSavedPlan(
-    plan
-){
+function normalizeSavedPlan(plan){
 
     return {
 
@@ -3089,10 +2748,6 @@ function normalizeSavedPlan(
 
 }
 
-
-/* =========================
-   OPEN PLAN
-========================= */
 
 function openPlan(
     originalPlan
@@ -3139,9 +2794,7 @@ function openPlan(
 
 
     document
-    .querySelectorAll(
-        ".day-btn"
-    )
+    .querySelectorAll(".day-btn")
     .forEach(btn=>{
 
         btn.classList.toggle(
@@ -3164,10 +2817,6 @@ function openPlan(
 
 }
 
-
-/* =========================
-   CLEAR DAY
-========================= */
 
 document
 .getElementById("clearDayBtn")
@@ -3212,18 +2861,12 @@ document
 };
 
 
-/* =========================
-   CURRENT PLAN
-========================= */
-
 function getCurrentPlan(){
 
     saveCurrentDayToMemory();
 
 
-    if(
-        !weekNumber.value
-    ){
+    if(!weekNumber.value){
 
         alert(
             "اختر رقم الأسبوع أولًا."
@@ -3253,54 +2896,43 @@ function getCurrentPlan(){
         leaderUid:
         currentUser.uid,
 
-
         leaderName:
         currentUserData.name,
-
 
         stage:
         currentUserData.stage,
 
-
         grade:
         currentUserData.grade,
 
-
         section:
         currentUserData.section,
-
 
         weekNumber:
         Number(
             weekNumber.value
         ),
 
-
         startDate:
         startDate.value,
 
-
         endDate:
         endDate.value,
-
 
         educationalValue:
         educationalValue
         .value
         .trim(),
 
-
         weekPersonality:
         weekPersonality
         .value
         .trim(),
 
-
         principalName:
         principalName
         .value
         .trim(),
-
 
         days:
         planData
@@ -3310,10 +2942,6 @@ function getCurrentPlan(){
 }
 
 
-/* =========================
-   MAIN BUTTONS
-========================= */
-
 document
 .getElementById("previewBtn")
 .onclick=()=>{
@@ -3321,13 +2949,8 @@ document
     const plan =
     getCurrentPlan();
 
-
     if(plan){
-
-        showPreview(
-            plan
-        );
-
+        showPreview(plan);
     }
 
 };
@@ -3341,13 +2964,8 @@ async()=>{
     const plan =
     getCurrentPlan();
 
-
     if(plan){
-
-        await downloadPlanImage(
-            plan
-        );
-
+        await downloadPlanImage(plan);
     }
 
 };
@@ -3361,13 +2979,8 @@ async()=>{
     const plan =
     getCurrentPlan();
 
-
     if(plan){
-
-        await exportPlanPDF(
-            plan
-        );
-
+        await exportPlanPDF(plan);
     }
 
 };
@@ -3381,13 +2994,8 @@ async()=>{
     const plan =
     getCurrentPlan();
 
-
     if(plan){
-
-        await sharePlanImage(
-            plan
-        );
-
+        await sharePlanImage(plan);
     }
 
 };
@@ -3452,17 +3060,13 @@ async()=>{
 };
 
 
-function showPreview(
-    plan
-){
+function showPreview(plan){
 
     previewPlan =
     plan;
 
 
-    buildPoster(
-        plan
-    );
+    buildPoster(plan);
 
 
     previewModal
@@ -3473,12 +3077,10 @@ function showPreview(
 
 
 /* =========================
-   POSTER
+   BUILD POSTER
 ========================= */
 
-function buildPoster(
-    plan
-){
+function buildPoster(plan){
 
     let rowsHTML = "";
 
@@ -3503,7 +3105,6 @@ function buildPoster(
                 <tr
                 class="${first ? "day-start" : ""}">
 
-
                     ${
                         first
                         ? `
@@ -3513,9 +3114,7 @@ function buildPoster(
                             class="day-cell">
 
                                 <span class="day-vertical">
-
                                     ${days[day]}
-
                                 </span>
 
                             </td>
@@ -3526,9 +3125,7 @@ function buildPoster(
 
 
                     <td class="period-cell">
-
                         ${index+1}
-
                     </td>
 
 
@@ -3558,7 +3155,6 @@ function buildPoster(
 
                     </td>
 
-
                 </tr>
 
             `;
@@ -3585,26 +3181,21 @@ function buildPoster(
 
             <div class="poster-government">
 
-
                 <div>
                     المملكة العربية السعودية
                 </div>
-
 
                 <div>
                     وزارة التعليم
                 </div>
 
-
                 <div>
                     الإدارة العامة للتعليم بالمنطقة الشرقية
                 </div>
 
-
                 <div>
                     مدارس الفلاح الأهلية
                 </div>
-
 
             </div>
 
@@ -3638,11 +3229,9 @@ function buildPoster(
 
             <div class="vm-box">
 
-
                 <div class="vm-title">
                     الرؤية
                 </div>
-
 
                 <div class="vm-text">
 
@@ -3651,17 +3240,14 @@ function buildPoster(
 
                 </div>
 
-
             </div>
 
 
             <div class="vm-box">
 
-
                 <div class="vm-title">
                     الرسالة
                 </div>
-
 
                 <div class="vm-text">
 
@@ -3671,7 +3257,6 @@ function buildPoster(
 
                 </div>
 
-
             </div>
 
 
@@ -3679,7 +3264,6 @@ function buildPoster(
 
 
         <div class="poster-weekline">
-
 
             <span>
 
@@ -3690,7 +3274,6 @@ function buildPoster(
 
             </span>
 
-
             <span>
 
                 من تاريخ:
@@ -3699,7 +3282,6 @@ function buildPoster(
                 )}
 
             </span>
-
 
             <span>
 
@@ -3710,7 +3292,6 @@ function buildPoster(
 
             </span>
 
-
         </div>
 
 
@@ -3719,32 +3300,26 @@ function buildPoster(
 
             <div class="special-box">
 
-
                 <strong>
                     القيمة التربوية:
                 </strong>
 
-
                 ${safeDisplay(
                     plan.educationalValue
                 )}
-
 
             </div>
 
 
             <div class="special-box">
 
-
                 <strong>
                     شخصية الأسبوع:
                 </strong>
 
-
                 ${safeDisplay(
                     plan.weekPersonality
                 )}
-
 
             </div>
 
@@ -3759,50 +3334,32 @@ function buildPoster(
 
                 <col style="width:5%">
 
-                <col style="width:4%">
+                <col style="width:6%">
 
-                <col style="width:8%">
+                <col style="width:10%">
 
-                <col style="width:60%">
+                <col style="width:53%">
 
-                <col style="width:23%">
+                <col style="width:25%">
 
             </colgroup>
 
 
             <thead>
 
-
                 <tr>
 
+                    <th>اليوم</th>
 
-                    <th>
-                        اليوم
-                    </th>
+                    <th>الحصة</th>
 
+                    <th>المادة</th>
 
-                    <th>
-                        الحصة
-                    </th>
+                    <th>موضوع الدرس</th>
 
-
-                    <th>
-                        المادة
-                    </th>
-
-
-                    <th>
-                        موضوع الدرس
-                    </th>
-
-
-                    <th>
-                        الواجب
-                    </th>
-
+                    <th>الواجب</th>
 
                 </tr>
-
 
             </thead>
 
@@ -3822,11 +3379,9 @@ function buildPoster(
 
             <div class="signature">
 
-
                 <div class="signature-title">
                     رائد الصف
                 </div>
-
 
                 <div class="signature-name">
 
@@ -3836,21 +3391,17 @@ function buildPoster(
 
                 </div>
 
-
                 <div class="signature-line">
                 </div>
-
 
             </div>
 
 
             <div class="signature">
 
-
                 <div class="signature-title">
                     مدير المدرسة
                 </div>
-
 
                 <div class="signature-name">
 
@@ -3860,10 +3411,8 @@ function buildPoster(
 
                 </div>
 
-
                 <div class="signature-line">
                 </div>
-
 
             </div>
 
@@ -3886,17 +3435,13 @@ function buildPoster(
    PNG
 ========================= */
 
-async function posterToBlob(
-    plan
-){
+async function posterToBlob(plan){
 
     previewPlan =
     plan;
 
 
-    buildPoster(
-        plan
-    );
+    buildPoster(plan);
 
 
     if(
@@ -3927,9 +3472,7 @@ async function posterToBlob(
 
     catch(error){
 
-        console.warn(
-            error
-        );
+        console.warn(error);
 
     }
 
@@ -4034,23 +3577,12 @@ async function posterToBlob(
 
         if(!modalWasOpen){
 
-            previewModal.style.display =
-            "";
-
-            previewModal.style.position =
-            "";
-
-            previewModal.style.left =
-            "";
-
-            previewModal.style.top =
-            "";
-
-            previewModal.style.right =
-            "";
-
-            previewModal.style.bottom =
-            "";
+            previewModal.style.display = "";
+            previewModal.style.position = "";
+            previewModal.style.left = "";
+            previewModal.style.top = "";
+            previewModal.style.right = "";
+            previewModal.style.bottom = "";
 
         }
 
@@ -4063,16 +3595,12 @@ async function posterToBlob(
    DOWNLOAD
 ========================= */
 
-async function downloadPlanImage(
-    plan
-){
+async function downloadPlanImage(plan){
 
     try{
 
         const blob =
-        await posterToBlob(
-            plan
-        );
+        await posterToBlob(plan);
 
 
         if(!blob){
@@ -4085,15 +3613,11 @@ async function downloadPlanImage(
 
 
         const url =
-        URL.createObjectURL(
-            blob
-        );
+        URL.createObjectURL(blob);
 
 
         const a =
-        document.createElement(
-            "a"
-        );
+        document.createElement("a");
 
 
         a.href =
@@ -4129,10 +3653,7 @@ async function downloadPlanImage(
 
     catch(error){
 
-        console.error(
-            error
-        );
-
+        console.error(error);
 
         alert(
             "حدث خطأ أثناء إنشاء الصورة."
@@ -4147,13 +3668,9 @@ async function downloadPlanImage(
    PDF
 ========================= */
 
-async function exportPlanPDF(
-    plan
-){
+async function exportPlanPDF(plan){
 
-    buildPoster(
-        plan
-    );
+    buildPoster(plan);
 
 
     if(
@@ -4190,9 +3707,7 @@ async function exportPlanPDF(
 
 
     const posterClone =
-    poster.cloneNode(
-        true
-    );
+    poster.cloneNode(true);
 
 
     posterClone
@@ -4200,9 +3715,7 @@ async function exportPlanPDF(
     .forEach(img=>{
 
         const src =
-        img.getAttribute(
-            "src"
-        );
+        img.getAttribute("src");
 
 
         if(src){
@@ -4245,9 +3758,7 @@ async function exportPlanPDF(
             <meta charset="UTF-8">
 
             <title>
-
                 الخطة الأسبوعية - الأسبوع ${plan.weekNumber}
-
             </title>
 
 
@@ -4271,7 +3782,6 @@ async function exportPlanPDF(
 
 
             <style>
-
 
                 @page{
 
@@ -4357,7 +3867,6 @@ async function exportPlanPDF(
 
                 @media print{
 
-
                     html,
                     body{
 
@@ -4380,7 +3889,6 @@ async function exportPlanPDF(
 
                 }
 
-
             </style>
 
         </head>
@@ -4388,13 +3896,11 @@ async function exportPlanPDF(
 
         <body>
 
-
             <div class="pdf-page">
 
                 ${posterClone.outerHTML}
 
             </div>
-
 
         </body>
 
@@ -4428,9 +3934,7 @@ async function exportPlanPDF(
 
         catch(error){
 
-            console.warn(
-                error
-            );
+            console.warn(error);
 
         }
 
@@ -4455,16 +3959,12 @@ async function exportPlanPDF(
    SHARE
 ========================= */
 
-async function sharePlanImage(
-    plan
-){
+async function sharePlanImage(plan){
 
     try{
 
         const blob =
-        await posterToBlob(
-            plan
-        );
+        await posterToBlob(plan);
 
 
         if(!blob){
@@ -4535,10 +4035,7 @@ async function sharePlanImage(
             "AbortError"
         ){
 
-            console.error(
-                error
-            );
-
+            console.error(error);
 
             alert(
                 "تعذر إرسال الصورة."
@@ -4555,16 +4052,12 @@ async function sharePlanImage(
    IMAGES
 ========================= */
 
-function waitForImages(
-    element
-){
+function waitForImages(element){
 
     const images =
     [
         ...element
-        .querySelectorAll(
-            "img"
-        )
+        .querySelectorAll("img")
     ];
 
 
@@ -4587,7 +4080,6 @@ function waitForImages(
 
                     img.onload =
                     resolve;
-
 
                     img.onerror =
                     resolve;
@@ -4613,13 +4105,9 @@ function resetPlanForm(){
 
 
     startDate.value = "";
-
     endDate.value = "";
-
     educationalValue.value = "";
-
     weekPersonality.value = "";
-
     principalName.value = "";
 
 
@@ -4632,9 +4120,7 @@ function resetPlanForm(){
    HELPERS
 ========================= */
 
-function safeDisplay(
-    value
-){
+function safeDisplay(value){
 
     if(
         value === null ||
@@ -4647,16 +4133,12 @@ function safeDisplay(
     }
 
 
-    return escapeHTML(
-        value
-    );
+    return escapeHTML(value);
 
 }
 
 
-function formatDate(
-    value
-){
+function formatDate(value){
 
     if(!value){
 
@@ -4671,9 +4153,7 @@ function formatDate(
         value.split("-");
 
 
-        if(
-            parts.length === 3
-        ){
+        if(parts.length === 3){
 
             return (
 
@@ -4701,9 +4181,7 @@ function formatDate(
 }
 
 
-function escapeHTML(
-    value
-){
+function escapeHTML(value){
 
     return String(
         value ?? ""
@@ -4737,9 +4215,7 @@ function escapeHTML(
 }
 
 
-function escapeAttr(
-    value
-){
+function escapeAttr(value){
 
     return escapeHTML(
         value || ""
@@ -4777,5 +4253,4 @@ function showMessage(
 </script>
 
 </body>
-
 </html>
