@@ -17,7 +17,6 @@ rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-
 <style>
 
 *{
@@ -37,6 +36,7 @@ rel="stylesheet">
     --gold-soft:#f5efdf;
 
     --text:#252525;
+
     --danger:#b53a3a;
     --blue:#477da6;
     --share:#34865a;
@@ -384,20 +384,25 @@ select:focus{
     vertical-align:middle;
 }
 
+/*
+   نفس التوزيع النهائي تقريبًا
+   بدون عمود اليوم داخل شاشة الإدخال
+*/
+
 .input-table .input-period{
-    width:7%;
+    width:5%;
 }
 
 .input-table .input-subject{
-    width:13%;
+    width:10%;
 }
 
 .input-table .input-topic{
-    width:53%;
+    width:60%;
 }
 
 .input-table .input-homework{
-    width:27%;
+    width:25%;
 }
 
 .input-table .period{
@@ -906,23 +911,23 @@ select:focus{
 
     border:1.5px solid #1b1b1b;
 
-    padding:9px 5px;
+    padding:9px 4px;
 
-    font-size:16px;
+    font-size:15px;
 
     font-weight:800;
 
-    line-height:1.3;
+    line-height:1.25;
 }
 
 .poster-table td{
     border:1px solid #222;
 
-    padding:6px 7px;
+    padding:5px 7px;
 
     height:31px;
 
-    line-height:1.2;
+    line-height:1.18;
 
     font-size:14px;
 
@@ -934,18 +939,47 @@ select:focus{
 
     word-break:normal;
 
-    overflow-wrap:break-word;
+    overflow-wrap:anywhere;
 }
 
 
-/* اليوم */
+/* =========================
+   DAY 5%
+========================= */
 
 .poster-table .day-cell{
     background:#789685;
 
     color:white;
 
-    width:68px;
+    font-size:18px;
+
+    font-weight:800;
+
+    padding:0;
+
+    text-align:center;
+
+    vertical-align:middle;
+}
+
+
+/*
+   اليوم رأسي
+*/
+
+.day-vertical{
+    writing-mode:vertical-rl;
+
+    transform:rotate(180deg);
+
+    white-space:nowrap;
+
+    display:inline-block;
+
+    letter-spacing:1px;
+
+    line-height:1;
 
     font-size:19px;
 
@@ -953,65 +987,75 @@ select:focus{
 }
 
 
-/* الحصة */
+/* =========================
+   PERIOD 4%
+========================= */
 
 .poster-table .period-cell{
-    width:45px;
-
     background:#faf7ed;
 
-    font-size:15px;
+    font-size:14px;
 
     font-weight:700;
+
+    text-align:center;
+
+    padding-left:2px;
+
+    padding-right:2px;
 }
 
 
-/* المادة - أصغر */
+/* =========================
+   SUBJECT 8%
+========================= */
 
 .poster-table .subject-cell{
-    width:105px;
-
-    font-size:14px;
+    font-size:13px;
 
     font-weight:700;
+
+    text-align:center;
+
+    padding:4px;
 }
 
 
-/*
- موضوع الدرس:
- يأخذ تقريبًا ثلثي المساحة
- المتبقية بعد اليوم والحصة والمادة
-*/
+/* =========================
+   TOPIC 60%
+========================= */
 
 .poster-table .topic-cell{
-    width:640px;
-
     font-size:14px;
 
     line-height:1.18;
 
-    padding-left:9px;
+    text-align:center;
 
-    padding-right:9px;
+    padding:5px 10px;
+
+    word-break:normal;
+
+    overflow-wrap:anywhere;
 }
 
 
-/*
- الواجب:
- خانة واحدة فقط
- وتأخذ تقريبًا ثلث المساحة
-*/
+/* =========================
+   HOMEWORK 23%
+========================= */
 
 .poster-table .homework-cell{
-    width:320px;
-
     font-size:14px;
 
     line-height:1.18;
 
-    padding-left:8px;
+    text-align:center;
 
-    padding-right:8px;
+    padding:5px 8px;
+
+    word-break:normal;
+
+    overflow-wrap:anywhere;
 }
 
 
@@ -1143,6 +1187,7 @@ footer strong{
     .modal-content{
         justify-content:flex-start;
     }
+
 }
 
 </style>
@@ -1473,37 +1518,54 @@ class="day-label">
 <button
 class="action-btn save-btn"
 id="saveBtn">
+
 حفظ الخطة
+
 </button>
+
 
 <button
 class="action-btn preview-btn"
 id="previewBtn">
+
 معاينة النموذج
+
 </button>
+
 
 <button
 class="action-btn image-btn"
 id="downloadCurrentBtn">
+
 تحميل صورة عالية الجودة
+
 </button>
+
 
 <button
 class="action-btn pdf-btn"
 id="pdfCurrentBtn">
+
 تصدير PDF
+
 </button>
+
 
 <button
 class="action-btn share-btn"
 id="shareCurrentBtn">
+
 إرسال الصورة
+
 </button>
+
 
 <button
 class="action-btn clear-btn"
 id="clearDayBtn">
+
 مسح محتوى اليوم
+
 </button>
 
 </div>
@@ -1571,8 +1633,6 @@ class="empty-history">
 
 </main>
 
-
-<!-- PREVIEW -->
 
 <div
 class="modal"
@@ -1826,7 +1886,7 @@ function createEmptyPlan(){
 
 
 /* =========================
-   OLD HOMEWORK SUPPORT
+   SUPPORT OLD PLANS
 ========================= */
 
 function oldHomeworkToText(row){
@@ -2700,7 +2760,9 @@ function bindHistoryButtons(){
 
             if(plan){
 
-                openPlan(plan);
+                openPlan(
+                    plan
+                );
 
 
                 window.scrollTo({
@@ -2873,9 +2935,7 @@ function bindHistoryButtons(){
 
 
             if(!plan){
-
                 return;
-
             }
 
 
@@ -2884,9 +2944,7 @@ function bindHistoryButtons(){
                     `هل تريد حذف خطة الأسبوع ${plan.weekNumber}؟`
                 )
             ){
-
                 return;
-
             }
 
 
@@ -2895,9 +2953,7 @@ function bindHistoryButtons(){
                     "سيتم حذف الخطة نهائيًا من سجل الخطط. هل أنت متأكد؟"
                 )
             ){
-
                 return;
-
             }
 
 
@@ -2986,8 +3042,7 @@ function normalizePlan(
 
                 result[day][i] = {
 
-                    period:
-                    i+1,
+                    period:i+1,
 
 
                     subject:
@@ -3123,9 +3178,7 @@ document
             "هل تريد مسح موضوعات الدروس والواجبات لهذا اليوم مع الاحتفاظ بالمواد؟"
         )
     ){
-
         return;
-
     }
 
 
@@ -3459,7 +3512,11 @@ function buildPoster(
                             rowspan="8"
                             class="day-cell">
 
-                                ${days[day]}
+                                <span class="day-vertical">
+
+                                    ${days[day]}
+
+                                </span>
 
                             </td>
 
@@ -3698,6 +3755,21 @@ function buildPoster(
         <table class="poster-table">
 
 
+            <colgroup>
+
+                <col style="width:5%">
+
+                <col style="width:4%">
+
+                <col style="width:8%">
+
+                <col style="width:60%">
+
+                <col style="width:23%">
+
+            </colgroup>
+
+
             <thead>
 
 
@@ -3811,7 +3883,7 @@ function buildPoster(
 
 
 /* =========================
-   HIGH QUALITY PNG
+   PNG
 ========================= */
 
 async function posterToBlob(
@@ -4029,7 +4101,6 @@ async function downloadPlanImage(
 
 
         a.download =
-
         `الخطة_الأسبوعية_${plan.grade}_${plan.section}_الأسبوع_${plan.weekNumber}.png`;
 
 
@@ -4706,4 +4777,5 @@ function showMessage(
 </script>
 
 </body>
+
 </html>
