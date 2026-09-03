@@ -1,516 +1,1489 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نظام الخطة الأسبوعية | مدارس الفلاح الأهلية</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Tahoma, Arial, sans-serif;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>مدارس الفلاح الأهلية</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+}
+
+:root{
+    --green:#0b4b3e;
+    --green-dark:#073f34;
+    --green-soft:#edf4f0;
+    --gold:#c9a548;
+    --gold-soft:#f8f1de;
+    --text:#252525;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #073f34,
+        #0b4b3e
+    );
+
+    padding:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--text);
+}
+
+
+/* =========================
+   MAIN WRAPPER
+========================= */
+
+.wrapper{
+    width:min(1180px,100%);
+
+    background:#fff;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.28);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.hero{
+    background:
+    linear-gradient(
+        135deg,
+        #0b4b3e,
+        #416f5c
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:34px 25px 30px;
+
+    border-bottom:5px solid var(--gold);
+}
+
+.hero img{
+    width:135px;
+    height:135px;
+
+    object-fit:contain;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:7px;
+
+    margin-bottom:15px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.18);
+}
+
+.hero h1{
+    font-size:31px;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+.hero .english{
+    color:#e6cc82;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:1.3px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content{
+    padding:30px;
+}
+
+
+/* =========================
+   VISION MISSION
+========================= */
+
+.identity-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1.7fr;
+
+    gap:16px;
+
+    margin-bottom:28px;
+}
+
+.identity-box{
+    border:1px solid #dbc994;
+
+    background:#fffdf8;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    text-align:center;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.04);
+}
+
+.identity-title{
+    color:#9a762a;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+}
+
+.identity-text{
+    font-size:15px;
+
+    line-height:1.9;
+
+    font-weight:600;
+
+    color:#3d3d3d;
+}
+
+
+/* =========================
+   PORTAL BUTTONS
+========================= */
+
+.portal-title{
+    text-align:center;
+
+    color:var(--green);
+
+    font-size:23px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+}
+
+.portal-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
+    margin-bottom:28px;
+}
+
+.portal-card{
+    border:1px solid #dedbd2;
+
+    border-radius:18px;
+
+    padding:26px 20px;
+
+    text-align:center;
+
+    background:white;
+
+    box-shadow:
+    0 6px 20px rgba(0,0,0,.06);
+
+    transition:.2s;
+}
+
+.portal-card:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 28px rgba(0,0,0,.09);
+}
+
+.portal-icon{
+    width:62px;
+    height:62px;
+
+    margin:0 auto 13px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    background:var(--green-soft);
+}
+
+.portal-card h3{
+    color:var(--green);
+
+    font-size:20px;
+
+    font-weight:800;
+
+    margin-bottom:7px;
+}
+
+.portal-card p{
+    color:#737373;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:17px;
+}
+
+.portal-btn{
+    width:100%;
+
+    border:none;
+
+    border-radius:11px;
+
+    padding:13px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    transition:.2s;
+}
+
+.parent-btn{
+    background:var(--gold);
+    color:#173d32;
+}
+
+.parent-btn:hover{
+    background:#b8943e;
+}
+
+.leader-btn{
+    background:var(--green);
+    color:white;
+}
+
+.leader-btn:hover{
+    background:var(--green-dark);
+}
+
+
+/* =========================
+   LOGIN PANEL
+========================= */
+
+.login-panel{
+    display:none;
+
+    max-width:570px;
+
+    margin:0 auto 30px;
+
+    background:#f8f9f7;
+
+    border:1px solid #ddd;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 5px 18px rgba(0,0,0,.055);
+}
+
+.login-panel.show{
+    display:block;
+}
+
+.login-header{
+    background:#789685;
+
+    color:white;
+
+    border-bottom:4px solid var(--gold);
+
+    padding:15px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.login-header h2{
+    font-size:19px;
+    font-weight:800;
+}
+
+.close-login{
+    border:none;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    width:33px;
+    height:33px;
+
+    border-radius:50%;
+
+    font-size:17px;
+
+    cursor:pointer;
+}
+
+.login-body{
+    padding:24px;
+}
+
+.login-subtitle{
+    text-align:center;
+
+    color:#777;
+
+    margin-bottom:22px;
+
+    font-size:14px;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+label{
+    display:block;
+
+    color:var(--green);
+
+    font-weight:700;
+
+    margin-bottom:7px;
+
+    font-size:14px;
+}
+
+input{
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #d4d4d4;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+input:focus{
+    border-color:var(--gold);
+
+    box-shadow:
+    0 0 0 3px rgba(201,165,72,.14);
+}
+
+.login-btn{
+    width:100%;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:var(--green);
+
+    color:white;
+
+    padding:13px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    margin-top:5px;
+}
+
+.login-btn:hover{
+    background:var(--green-dark);
+}
+
+.login-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+    display:none;
+
+    margin-top:15px;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+.message.error{
+    display:block;
+
+    background:#fdeaea;
+
+    color:#9d2020;
+}
+
+.message.success{
+    display:block;
+
+    background:#e9f7ed;
+
+    color:#17652c;
+}
+
+
+/* =========================
+   MANAGEMENT
+========================= */
+
+.management{
+    margin-top:8px;
+
+    border-top:1px solid #e5e0d5;
+
+    padding-top:24px;
+}
+
+.management-title{
+    text-align:center;
+
+    color:#8d7136;
+
+    font-weight:800;
+
+    margin-bottom:17px;
+
+    font-size:15px;
+}
+
+.management-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+
+    max-width:720px;
+
+    margin:auto;
+}
+
+.management-item{
+    background:var(--gold-soft);
+
+    border:1px solid #e1d2a5;
+
+    border-radius:13px;
+
+    padding:13px;
+
+    text-align:center;
+}
+
+.management-item span{
+    display:block;
+
+    color:#777;
+
+    font-size:12px;
+
+    margin-bottom:4px;
+}
+
+.management-item strong{
+    color:var(--green);
+
+    font-size:15px;
+
+    font-weight:800;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#f6f4ee;
+
+    text-align:center;
+
+    border-top:1px solid #e4dfd2;
+
+    padding:17px;
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.designer{
+    color:var(--green);
+
+    font-weight:800;
+
+    margin-top:2px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    body{
+        padding:12px;
+        align-items:flex-start;
     }
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #073f34, #0b4b3e);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px;
+    .hero{
+        padding:26px 15px;
     }
 
-    .wrapper {
-      width: min(1050px, 100%);
-      min-height: 570px;
-      background: white;
-      border-radius: 22px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    .hero img{
+        width:105px;
+        height:105px;
     }
 
-    .brand {
-      background: #0b4b3e;
-      color: white;
-      padding: 48px 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border-left: 5px solid #c9a548;
+    .hero h1{
+        font-size:23px;
     }
 
-    .brand img {
-      width: 145px;
-      max-height: 160px;
-      object-fit: contain;
-      background: white;
-      padding: 8px;
-      border-radius: 18px;
-      margin-bottom: 20px;
+    .content{
+        padding:20px 16px;
     }
 
-    .brand h1 {
-      font-size: 28px;
-      margin-bottom: 7px;
+    .identity-grid{
+        grid-template-columns:1fr;
     }
 
-    .brand .en {
-      color: #d9bd70;
-      font-weight: bold;
-      margin-bottom: 28px;
-      letter-spacing: 1px;
+    .portal-grid{
+        grid-template-columns:1fr;
     }
 
-    .brand .system-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 14px;
+    .management-grid{
+        grid-template-columns:1fr;
     }
 
-    .brand .desc {
-      font-size: 14px;
-      line-height: 1.9;
-      color: #ededed;
-      max-width: 390px;
-      margin: auto;
-    }
+}
 
-    .login-side {
-      padding: 48px 42px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+</style>
 
-    .login-side h2 {
-      color: #0b4b3e;
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      color: #777;
-      font-size: 14px;
-      margin-bottom: 30px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      color: #0b4b3e;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #d4d4d4;
-      border-radius: 10px;
-      outline: none;
-      font-size: 15px;
-    }
-
-    input:focus {
-      border-color: #c9a548;
-      box-shadow: 0 0 0 3px rgba(201,165,72,.14);
-    }
-
-    button {
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      background: #0b4b3e;
-      color: white;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-
-    button:hover {
-      background: #083d33;
-    }
-
-    button:disabled {
-      opacity: .6;
-      cursor: not-allowed;
-    }
-
-    .message {
-      display: none;
-      margin-top: 15px;
-      padding: 11px;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .message.error {
-      display: block;
-      background: #fdeaea;
-      color: #9d2020;
-    }
-
-    .message.success {
-      display: block;
-      background: #e9f7ed;
-      color: #17652c;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 30px;
-      color: #777;
-      line-height: 1.9;
-      font-size: 13px;
-    }
-
-    .designer {
-      color: #0b4b3e;
-      font-weight: bold;
-    }
-
-    @media (max-width: 800px) {
-      body {
-        padding: 12px;
-      }
-
-      .wrapper {
-        grid-template-columns: 1fr;
-      }
-
-      .brand {
-        border-left: none;
-        border-bottom: 5px solid #c9a548;
-        padding: 30px 20px;
-      }
-
-      .brand img {
-        width: 110px;
-      }
-
-      .brand h1 {
-        font-size: 23px;
-      }
-
-      .brand .system-title {
-        font-size: 20px;
-      }
-
-      .login-side {
-        padding: 35px 22px;
-      }
-    }
-  </style>
 </head>
+
 
 <body>
 
-  <div class="wrapper">
 
-    <section class="brand">
-      <div>
-        <img src="logo.jpeg" alt="شعار مدارس الفلاح الأهلية">
-
-        <h1>مدارس الفلاح الأهلية</h1>
-
-        <div class="en">
-          ALFALAH SCHOOLS
-        </div>
-
-        <div class="system-title">
-          نظام الخطة الأسبوعية
-        </div>
-
-        <div class="desc">
-          نظام إلكتروني لإعداد ومتابعة الخطط الأسبوعية
-          وتنظيم محتوى الدروس والواجبات بما ييسر التواصل
-          بين المدرسة والأسرة.
-        </div>
-      </div>
-    </section>
-
-    <section class="login-side">
-
-      <h2>تسجيل الدخول</h2>
-
-      <div class="subtitle">
-        أدخل اسم المستخدم وكلمة المرور
-      </div>
-
-      <form id="loginForm">
-
-        <div class="form-group">
-          <label for="username">اسم المستخدم</label>
-          <input
-            type="text"
-            id="username"
-            placeholder="اسم المستخدم"
-            autocomplete="username"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="password">كلمة المرور</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="كلمة المرور"
-            autocomplete="current-password"
-            required
-          >
-        </div>
-
-        <button type="submit" id="loginBtn">
-          دخول
-        </button>
-
-        <div id="message" class="message"></div>
-
-      </form>
-
-      <div class="footer">
-        <div>مدارس الفلاح الأهلية</div>
-        <div class="designer">
-          إعداد وتصميم محمد عامر أحمد
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <script type="module">
-
-    import {
-      initializeApp
-    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-
-    import {
-      getAuth,
-      signInWithEmailAndPassword,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
-    import {
-      getFirestore,
-      doc,
-      getDoc
-    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+<div class="wrapper">
 
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
-      authDomain: "weekly-plan-3a743.firebaseapp.com",
-      projectId: "weekly-plan-3a743",
-      storageBucket: "weekly-plan-3a743.firebasestorage.app",
-      messagingSenderId: "575884603803",
-      appId: "1:575884603803:web:e8c4d82c69fd545bed313e"
-    };
+<!-- =========================
+     HEADER
+========================= -->
+
+<section class="hero">
 
 
-    const app = initializeApp(firebaseConfig);
-
-    const auth = getAuth(app);
-
-    const db = getFirestore(app);
-
-    const loginForm = document.getElementById("loginForm");
-
-    const loginBtn = document.getElementById("loginBtn");
-
-    const message = document.getElementById("message");
+<img
+src="logo.jpeg"
+alt="شعار مدارس الفلاح الأهلية">
 
 
-    function showMessage(text, type) {
-      message.textContent = text;
-      message.className = "message " + type;
-    }
+<h1>
+مدارس الفلاح الأهلية
+</h1>
 
 
-    loginForm.addEventListener("submit", async (event) => {
+<div class="english">
+ALFALAH SCHOOLS
+</div>
 
-      event.preventDefault();
 
-      const username = document
-        .getElementById("username")
+</section>
+
+
+<div class="content">
+
+
+<!-- =========================
+     VISION & MISSION
+========================= -->
+
+<div class="identity-grid">
+
+
+<div class="identity-box">
+
+<div class="identity-title">
+الرؤية
+</div>
+
+<div class="identity-text">
+
+الريادة في إعداد المتعلم المتميز المعتز بقيمه والمؤهل لمستقبله.
+
+</div>
+
+</div>
+
+
+<div class="identity-box">
+
+<div class="identity-title">
+الرسالة
+</div>
+
+<div class="identity-text">
+
+نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة،
+ترسخ القيم، وتبني المعرفة، وتطور المهارات،
+وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     PORTALS
+========================= -->
+
+<div class="portal-title">
+
+اختر بوابة الدخول
+
+</div>
+
+
+<div class="portal-grid">
+
+
+<!-- PARENT -->
+
+<div class="portal-card">
+
+
+<div class="portal-icon">
+👨‍👩‍👦
+</div>
+
+
+<h3>
+دخول ولي الأمر
+</h3>
+
+
+<p>
+
+استعراض الخطة الأسبوعية للفصل
+ومتابعة موضوعات الدروس والواجبات.
+
+</p>
+
+
+<button
+type="button"
+class="portal-btn parent-btn"
+id="parentPortalBtn">
+
+دخول بوابة ولي الأمر
+
+</button>
+
+
+</div>
+
+
+<!-- CLASS LEADER -->
+
+<div class="portal-card">
+
+
+<div class="portal-icon">
+👨‍🏫
+</div>
+
+
+<h3>
+دخول رائد الصف
+</h3>
+
+
+<p>
+
+إعداد وتحديث وحفظ الخطة الأسبوعية
+الخاصة بالفصل.
+
+</p>
+
+
+<button
+type="button"
+class="portal-btn leader-btn"
+id="showLoginBtn">
+
+تسجيل دخول رائد الصف
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<section
+id="loginPanel"
+class="login-panel">
+
+
+<div class="login-header">
+
+<h2>
+تسجيل الدخول
+</h2>
+
+
+<button
+type="button"
+id="closeLoginBtn"
+class="close-login">
+
+×
+
+</button>
+
+</div>
+
+
+<div class="login-body">
+
+
+<div class="login-subtitle">
+
+أدخل اسم المستخدم وكلمة المرور
+
+</div>
+
+
+<form id="loginForm">
+
+
+<div class="form-group">
+
+<label for="username">
+
+اسم المستخدم
+
+</label>
+
+
+<input
+type="text"
+id="username"
+placeholder="اسم المستخدم"
+autocomplete="username"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="password">
+
+كلمة المرور
+
+</label>
+
+
+<input
+type="password"
+id="password"
+placeholder="كلمة المرور"
+autocomplete="current-password"
+required>
+
+</div>
+
+
+<button
+type="submit"
+id="loginBtn"
+class="login-btn">
+
+دخول
+
+</button>
+
+
+<div
+id="message"
+class="message">
+</div>
+
+
+</form>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================
+     MANAGEMENT
+========================= -->
+
+<section class="management">
+
+
+<div class="management-title">
+
+الإشراف والإدارة
+
+</div>
+
+
+<div class="management-grid">
+
+
+<div class="management-item">
+
+<span>
+المشرف العام
+</span>
+
+<strong>
+أحمد سمير
+</strong>
+
+</div>
+
+
+<div class="management-item">
+
+<span>
+مدير المدرسة
+</span>
+
+<strong>
+عبد العزيز بن إبراهيم القحطاني
+</strong>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<div class="footer">
+
+<div>
+مدارس الفلاح الأهلية
+</div>
+
+<div class="designer">
+
+تصميم محمد عامر أحمد
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script type="module">
+
+
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
+
+    authDomain:
+    "weekly-plan-3a743.firebaseapp.com",
+
+    projectId:
+    "weekly-plan-3a743",
+
+    storageBucket:
+    "weekly-plan-3a743.firebasestorage.app",
+
+    messagingSenderId:
+    "575884603803",
+
+    appId:
+    "1:575884603803:web:e8c4d82c69fd545bed313e"
+
+};
+
+
+const app =
+initializeApp(
+    firebaseConfig
+);
+
+
+const auth =
+getAuth(
+    app
+);
+
+
+const db =
+getFirestore(
+    app
+);
+
+
+const loginForm =
+document.getElementById(
+    "loginForm"
+);
+
+
+const loginBtn =
+document.getElementById(
+    "loginBtn"
+);
+
+
+const message =
+document.getElementById(
+    "message"
+);
+
+
+const loginPanel =
+document.getElementById(
+    "loginPanel"
+);
+
+
+const showLoginBtn =
+document.getElementById(
+    "showLoginBtn"
+);
+
+
+const closeLoginBtn =
+document.getElementById(
+    "closeLoginBtn"
+);
+
+
+const parentPortalBtn =
+document.getElementById(
+    "parentPortalBtn"
+);
+
+
+/* =========================
+   PARENT PORTAL
+========================= */
+
+parentPortalBtn.onclick =
+()=>{
+
+    window.location.href =
+    "student.html";
+
+};
+
+
+/* =========================
+   SHOW LOGIN
+========================= */
+
+showLoginBtn.onclick =
+()=>{
+
+    loginPanel
+    .classList
+    .add(
+        "show"
+    );
+
+
+    setTimeout(
+        ()=>{
+
+            loginPanel.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"center"
+
+            });
+
+
+            document
+            .getElementById(
+                "username"
+            )
+            .focus();
+
+        },
+        100
+    );
+
+};
+
+
+/* =========================
+   CLOSE LOGIN
+========================= */
+
+closeLoginBtn.onclick =
+()=>{
+
+    loginPanel
+    .classList
+    .remove(
+        "show"
+    );
+
+
+    message.className =
+    "message";
+
+
+    message.textContent =
+    "";
+
+};
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    message.textContent =
+    text;
+
+
+    message.className =
+    "message " +
+    type;
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+loginForm.addEventListener(
+    "submit",
+    async event=>{
+
+
+        event.preventDefault();
+
+
+        const username =
+        document
+        .getElementById(
+            "username"
+        )
         .value
         .trim()
         .toLowerCase();
 
-      const password = document
-        .getElementById("password")
+
+        const password =
+        document
+        .getElementById(
+            "password"
+        )
         .value;
 
-      if (!username || !password) {
-        showMessage(
-          "أدخل اسم المستخدم وكلمة المرور",
-          "error"
-        );
-        return;
-      }
 
+        if(
+            !username ||
+            !password
+        ){
 
-      loginBtn.disabled = true;
-      loginBtn.textContent = "جاري تسجيل الدخول...";
+            showMessage(
 
+                "أدخل اسم المستخدم وكلمة المرور",
 
-      try {
+                "error"
 
-        let email;
+            );
 
-        if (username === "admin") {
-
-          email = "muhammadamer1618@gmail.com";
-
-        } else {
-
-          email = username + "@weeklyplan.local";
+            return;
 
         }
 
 
-        const credential =
-          await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
+        loginBtn.disabled =
+        true;
 
 
-        const uid = credential.user.uid;
+        loginBtn.textContent =
+        "جاري تسجيل الدخول...";
 
 
-        const userRef =
-          doc(db, "users", uid);
+        try{
 
 
-        const userSnapshot =
-          await getDoc(userRef);
+            let email;
 
 
-        if (!userSnapshot.exists()) {
+            if(
+                username ===
+                "admin"
+            ){
 
-          await signOut(auth);
+                email =
+                "muhammadamer1618@gmail.com";
 
-          showMessage(
-            "الحساب غير مسجل داخل النظام",
-            "error"
-          );
+            }
 
-          return;
+            else{
+
+                email =
+                username +
+                "@weeklyplan.local";
+
+            }
+
+
+            const credential =
+            await signInWithEmailAndPassword(
+
+                auth,
+
+                email,
+
+                password
+
+            );
+
+
+            const uid =
+            credential.user.uid;
+
+
+            const userRef =
+            doc(
+                db,
+                "users",
+                uid
+            );
+
+
+            const userSnapshot =
+            await getDoc(
+                userRef
+            );
+
+
+            if(
+                !userSnapshot.exists()
+            ){
+
+                await signOut(
+                    auth
+                );
+
+
+                showMessage(
+
+                    "الحساب غير مسجل داخل النظام",
+
+                    "error"
+
+                );
+
+                return;
+
+            }
+
+
+            const userData =
+            userSnapshot.data();
+
+
+            if(
+                userData.active ===
+                false
+            ){
+
+                await signOut(
+                    auth
+                );
+
+
+                showMessage(
+
+                    "هذا الحساب غير مفعل",
+
+                    "error"
+
+                );
+
+                return;
+
+            }
+
+
+            sessionStorage.setItem(
+
+                "weeklyPlanUserName",
+
+                userData.name ||
+                ""
+
+            );
+
+
+            sessionStorage.setItem(
+
+                "weeklyPlanUserRole",
+
+                userData.role ||
+                ""
+
+            );
+
+
+            sessionStorage.setItem(
+
+                "weeklyPlanUserId",
+
+                uid
+
+            );
+
+
+            if(
+                userData.role ===
+                "admin"
+            ){
+
+                window.location.href =
+                "admin.html";
+
+            }
+
+
+            else if(
+                userData.role ===
+                "classLeader"
+            ){
+
+                window.location.href =
+                "teacher.html";
+
+            }
+
+
+            else{
+
+                await signOut(
+                    auth
+                );
+
+
+                showMessage(
+
+                    "لا توجد صلاحية دخول لهذا الحساب",
+
+                    "error"
+
+                );
+
+            }
+
+
+        }
+
+        catch(error){
+
+
+            console.error(
+                error
+            );
+
+
+            let text =
+
+            "اسم المستخدم أو كلمة المرور غير صحيحة";
+
+
+            if(
+                error.code ===
+                "auth/too-many-requests"
+            ){
+
+                text =
+
+                "تم إجراء محاولات كثيرة، حاول بعد قليل";
+
+            }
+
+
+            if(
+                error.code ===
+                "auth/network-request-failed"
+            ){
+
+                text =
+
+                "تعذر الاتصال بالإنترنت";
+
+            }
+
+
+            showMessage(
+                text,
+                "error"
+            );
+
+        }
+
+        finally{
+
+
+            loginBtn.disabled =
+            false;
+
+
+            loginBtn.textContent =
+            "دخول";
+
         }
 
 
-        const userData =
-          userSnapshot.data();
+    }
+);
 
 
-        if (userData.active === false) {
+</script>
 
-          await signOut(auth);
-
-          showMessage(
-            "هذا الحساب غير مفعل",
-            "error"
-          );
-
-          return;
-        }
-
-
-        sessionStorage.setItem(
-          "weeklyPlanUserName",
-          userData.name || ""
-        );
-
-        sessionStorage.setItem(
-          "weeklyPlanUserRole",
-          userData.role || ""
-        );
-
-        sessionStorage.setItem(
-          "weeklyPlanUserId",
-          uid
-        );
-
-
-        if (userData.role === "admin") {
-
-          window.location.href =
-            "admin.html";
-
-        }
-
-        else if (
-          userData.role === "classLeader"
-        ) {
-
-          window.location.href =
-            "teacher.html";
-
-        }
-
-        else {
-
-          await signOut(auth);
-
-          showMessage(
-            "لا توجد صلاحية دخول لهذا الحساب",
-            "error"
-          );
-
-        }
-
-      }
-
-      catch (error) {
-
-        console.error(error);
-
-        let text =
-          "اسم المستخدم أو كلمة المرور غير صحيحة";
-
-        if (
-          error.code ===
-          "auth/too-many-requests"
-        ) {
-          text =
-            "تم إجراء محاولات كثيرة، حاول بعد قليل";
-        }
-
-        if (
-          error.code ===
-          "auth/network-request-failed"
-        ) {
-          text =
-            "تعذر الاتصال بالإنترنت";
-        }
-
-        showMessage(text, "error");
-      }
-
-      finally {
-
-        loginBtn.disabled = false;
-        loginBtn.textContent = "دخول";
-
-      }
-
-    });
-
-  </script>
 
 </body>
+
 </html>
