@@ -58,39 +58,29 @@ body{
 .topbar{
     min-height:105px;
     padding:13px 30px;
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
         #769786,
         #557764
     );
-
     border-bottom:4px solid var(--gold);
-
     color:white;
 }
 
 .topbar-inner{
     width:min(1250px,95%);
     margin:auto;
-
     display:grid;
     grid-template-columns:120px 1fr 120px;
-
     align-items:center;
 }
 
 .brand-logo img{
     width:82px;
     height:82px;
-
     object-fit:contain;
-
     background:white;
-
     border-radius:14px;
-
     padding:5px;
 }
 
@@ -128,28 +118,18 @@ body{
 
 .card{
     background:white;
-
     border-radius:17px;
-
-    box-shadow:
-    0 5px 18px rgba(0,0,0,.055);
-
+    box-shadow:0 5px 18px rgba(0,0,0,.055);
     margin-bottom:21px;
-
     overflow:hidden;
 }
 
 .card-title{
     background:#789685;
-
     color:white;
-
     border-bottom:4px solid var(--gold);
-
     padding:15px 20px;
-
     font-size:19px;
-
     font-weight:800;
 }
 
@@ -203,41 +183,27 @@ body{
 
 .form-group label{
     display:block;
-
     color:var(--green-dark);
-
     font-size:14px;
-
     font-weight:700;
-
     margin-bottom:8px;
 }
 
 select{
     width:100%;
-
     border:1px solid #d2d2d2;
-
     background:white;
-
     border-radius:10px;
-
     padding:12px;
-
     outline:none;
-
     font-size:15px;
-
     font-family:"Tajawal",Tahoma,Arial,sans-serif;
-
     font-weight:500;
 }
 
 select:focus{
     border-color:var(--gold);
-
-    box-shadow:
-    0 0 0 3px rgba(185,150,72,.13);
+    box-shadow:0 0 0 3px rgba(185,150,72,.13);
 }
 
 .status{
@@ -278,14 +244,9 @@ select:focus{
 
 .plan-summary{
     background:white;
-
     border-radius:17px;
-
     padding:20px;
-
-    box-shadow:
-    0 5px 18px rgba(0,0,0,.055);
-
+    box-shadow:0 5px 18px rgba(0,0,0,.055);
     margin-bottom:18px;
 }
 
@@ -332,7 +293,7 @@ select:focus{
 
 
 /* =========================
-   DAY TABS
+   VIEW TABS
 ========================= */
 
 .view-tabs{
@@ -345,21 +306,13 @@ select:focus{
 .view-btn{
     flex:1;
     min-width:105px;
-
     padding:12px;
-
     border:0;
-
     border-radius:11px;
-
     background:#e6e5e0;
-
     color:var(--green-dark);
-
     cursor:pointer;
-
     font-size:14px;
-
     font-weight:700;
 }
 
@@ -393,33 +346,21 @@ select:focus{
 
 .plan-table th{
     background:#eef3ef;
-
     color:#315b49;
-
     border:1px solid #bdbdbd;
-
     padding:11px 5px;
-
     font-size:14px;
-
     font-weight:800;
 }
 
 .plan-table td{
     border:1px solid #d2d2d2;
-
     padding:8px;
-
     height:38px;
-
     line-height:1.4;
-
     text-align:center;
-
     vertical-align:middle;
-
     font-size:14px;
-
     overflow-wrap:anywhere;
 }
 
@@ -466,15 +407,11 @@ select:focus{
 
 .day-cards{
     background:white;
-
     padding:18px;
-
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:14px;
-
     border-radius:0 0 14px 14px;
-
     box-shadow:0 5px 18px rgba(0,0,0,.055);
 }
 
@@ -489,11 +426,8 @@ select:focus{
     justify-content:space-between;
     align-items:center;
     gap:10px;
-
     background:#f6f0df;
-
     padding:12px 14px;
-
     border-bottom:2px solid var(--gold);
 }
 
@@ -544,15 +478,17 @@ select:focus{
     justify-content:center;
     gap:10px;
     margin-top:20px;
+    margin-bottom:15px;
 }
 
 .action-btn{
     border:0;
-    border-radius:9px;
+    border-radius:10px;
     cursor:pointer;
-    font-weight:700;
-    padding:12px 19px;
+    font-weight:800;
+    padding:13px 20px;
     font-size:14px;
+    min-width:180px;
 }
 
 .print-btn{
@@ -570,9 +506,17 @@ select:focus{
     color:white;
 }
 
+.action-help{
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
 
 /* =========================
-   HIDDEN POSTER HOST
+   HIDDEN POSTER
 ========================= */
 
 .poster-host{
@@ -580,7 +524,7 @@ select:focus{
     left:-10000px;
     top:0;
     width:1240px;
-    z-index:-1;
+    pointer-events:none;
 }
 
 
@@ -590,25 +534,15 @@ select:focus{
 
 #poster{
     width:1240px;
-
     min-height:1754px;
-
     background:#fffefb;
-
     color:#171717;
-
     position:relative;
-
     direction:rtl;
-
     padding:27px 31px 55px;
-
     font-family:"Tajawal",Tahoma,Arial,sans-serif;
-
     font-weight:500;
-
     -webkit-font-smoothing:antialiased;
-
     text-rendering:optimizeLegibility;
 }
 
@@ -619,17 +553,11 @@ select:focus{
 
 .poster-header{
     display:grid;
-
     grid-template-columns:205px 1fr 205px;
-
     direction:ltr;
-
     align-items:center;
-
     min-height:150px;
-
     padding-bottom:12px;
-
     border-bottom:4px solid var(--gold);
 }
 
@@ -651,15 +579,10 @@ select:focus{
 
 .poster-government{
     direction:rtl;
-
     text-align:center;
-
     color:#292929;
-
     line-height:1.65;
-
     font-size:21px;
-
     font-weight:800;
 }
 
@@ -679,23 +602,14 @@ select:focus{
 
 .poster-class-title{
     margin-top:11px;
-
     text-align:center;
-
     background:#eef4f0;
-
     border-right:6px solid #819f8e;
-
     border-left:6px solid #819f8e;
-
     color:#294f40;
-
     font-size:29px;
-
     line-height:1.45;
-
     font-weight:800;
-
     padding:10px 12px;
 }
 
@@ -736,53 +650,36 @@ select:focus{
 
 
 /* =========================
-   POSTER WEEK INFO
+   POSTER WEEK
 ========================= */
 
 .poster-weekline{
     margin-top:10px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:28px;
-
     padding:10px 12px;
-
     border:1.5px solid #c7ad67;
-
     background:#fbf7ea;
-
     font-size:18px;
-
     font-weight:700;
 }
 
 .poster-special{
     margin-top:9px;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:9px;
 }
 
 .special-box{
     border:1.5px solid #90a99b;
-
     background:#edf4f0;
-
     padding:10px;
-
     font-size:17px;
-
     font-weight:600;
-
     text-align:center;
 }
 
@@ -798,97 +695,61 @@ select:focus{
 
 .poster-table{
     width:100%;
-
     margin-top:11px;
-
     border-collapse:collapse;
-
     table-layout:fixed;
-
     direction:rtl;
 }
 
 .poster-table th{
     background:#eef3ef;
-
     color:#315b49;
-
     border:1.5px solid #1b1b1b;
-
     padding:9px 4px;
-
     font-size:15px;
-
     font-weight:800;
-
     line-height:1.25;
 }
 
 .poster-table td{
     border:1px solid #222;
-
     padding:5px 7px;
-
     height:31px;
-
     line-height:1.18;
-
     font-size:14px;
-
     text-align:center;
-
     vertical-align:middle;
-
     font-weight:500;
-
     word-break:normal;
-
     overflow-wrap:anywhere;
 }
 
 .poster-table .day-cell{
     background:#789685;
-
     color:white;
-
     font-size:18px;
-
     font-weight:800;
-
     padding:0;
-
     text-align:center;
-
     vertical-align:middle;
 }
 
 .day-vertical{
     writing-mode:vertical-rl;
-
     transform:rotate(180deg);
-
     white-space:nowrap;
-
     display:inline-block;
-
     letter-spacing:1px;
-
     line-height:1;
-
     font-size:19px;
-
     font-weight:800;
 }
 
 .poster-table .period-cell{
     background:#faf7ed;
-
     font-size:15px;
-
     font-weight:800;
-
     text-align:center;
-
     padding-left:3px;
     padding-right:3px;
 }
@@ -929,15 +790,10 @@ select:focus{
 
 .poster-signatures{
     margin-top:21px;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:120px;
-
     font-size:18px;
-
     font-weight:700;
 }
 
@@ -947,44 +803,31 @@ select:focus{
 
 .signature-title{
     color:#315b49;
-
     margin-bottom:9px;
-
     font-size:18px;
-
     font-weight:800;
 }
 
 .signature-name{
     min-height:30px;
-
     font-size:17px;
-
     font-weight:600;
 }
 
 .signature-line{
     width:185px;
-
     border-bottom:1px solid #666;
-
     margin:14px auto 0;
 }
 
 .poster-credit{
     position:absolute;
-
     bottom:17px;
-
     left:0;
     right:0;
-
     text-align:center;
-
     font-size:16px;
-
     font-weight:700;
-
     color:#315b49;
 }
 
@@ -1058,6 +901,10 @@ footer strong{
         grid-template-columns:1fr;
     }
 
+    .action-btn{
+        width:100%;
+    }
+
 }
 
 @media(max-width:500px){
@@ -1080,19 +927,6 @@ footer strong{
 
 }
 
-
-/* =========================
-   PRINT NORMAL PAGE
-========================= */
-
-@media print{
-
-    body > *{
-        display:none !important;
-    }
-
-}
-
 </style>
 
 </head>
@@ -1105,7 +939,6 @@ footer strong{
 
 <div class="topbar-inner">
 
-
 <div class="brand-logo">
 
 <img
@@ -1113,7 +946,6 @@ src="logo.jpeg"
 alt="شعار مدارس الفلاح">
 
 </div>
-
 
 <div class="portal-title">
 
@@ -1131,10 +963,8 @@ alt="شعار مدارس الفلاح">
 
 </div>
 
-
 <div class="top-spacer">
 </div>
-
 
 </div>
 
@@ -1145,7 +975,6 @@ alt="شعار مدارس الفلاح">
 
 
 <section class="school-identity">
-
 
 <div class="identity-box">
 
@@ -1178,16 +1007,13 @@ alt="شعار مدارس الفلاح">
 
 </div>
 
-
 </section>
 
 
 <section class="card">
 
 <div class="card-title">
-
 اختر الخطة الأسبوعية
-
 </div>
 
 
@@ -1261,7 +1087,6 @@ alt="شعار مدارس الفلاح">
 
 </div>
 
-
 </div>
 
 
@@ -1269,7 +1094,6 @@ alt="شعار مدارس الفلاح">
 id="status"
 class="status">
 </div>
-
 
 </section>
 
@@ -1281,11 +1105,9 @@ class="plan-area">
 
 <div class="plan-summary">
 
-
 <h2 id="planTitle">
 الخطة الأسبوعية
 </h2>
-
 
 <div
 id="weekDate"
@@ -1321,15 +1143,12 @@ class="week-date">
 
 </div>
 
-
 </div>
-
 
 </div>
 
 
 <div class="view-tabs">
-
 
 <button
 class="view-btn active"
@@ -1384,7 +1203,6 @@ data-day="thursday">
 
 </button>
 
-
 </div>
 
 
@@ -1427,11 +1245,9 @@ class="week-view">
 <tbody id="weekRows">
 </tbody>
 
-
 </table>
 
 </div>
-
 
 </div>
 
@@ -1440,39 +1256,26 @@ class="week-view">
 id="dayView"
 class="day-view">
 
-
 <div
 id="dayTitle"
 class="day-title">
 </div>
-
 
 <div
 id="dayCards"
 class="day-cards">
 </div>
 
-
 </div>
 
 
 <div class="actions">
 
-
 <button
 id="printOfficialBtn"
 class="action-btn print-btn">
 
-طباعة الخطة الرسمية
-
-</button>
-
-
-<button
-id="downloadOfficialBtn"
-class="action-btn image-btn">
-
-تحميل صورة الخطة
+🖨️ طباعة الخطة الرسمية
 
 </button>
 
@@ -1481,13 +1284,29 @@ class="action-btn image-btn">
 id="pdfOfficialBtn"
 class="action-btn pdf-btn">
 
-حفظ PDF
+📄 حفظ الخطة PDF
 
 </button>
 
 
+<button
+id="downloadOfficialBtn"
+class="action-btn image-btn">
+
+🖼️ تحميل صورة الخطة
+
+</button>
+
 </div>
 
+
+<div class="action-help">
+
+عند اختيار حفظ PDF ستظهر نافذة الطباعة، اختر
+<strong>Save as PDF / حفظ كملف PDF</strong>
+من خيارات الطابعة.
+
+</div>
 
 </section>
 
@@ -1512,7 +1331,7 @@ aria-hidden="true">
 <br>
 
 <strong>
-بوابة الطالب - الخطة الأسبوعية
+تصميم محمد عامر أحمد
 </strong>
 
 </footer>
@@ -1628,79 +1447,112 @@ document.getElementById(
     "weekSelect"
 );
 
+
 const stageSelect =
 document.getElementById(
     "stageSelect"
 );
+
 
 const gradeSelect =
 document.getElementById(
     "gradeSelect"
 );
 
+
 const sectionSelect =
 document.getElementById(
     "sectionSelect"
 );
+
 
 const status =
 document.getElementById(
     "status"
 );
 
+
 const planArea =
 document.getElementById(
     "planArea"
 );
+
 
 const planTitle =
 document.getElementById(
     "planTitle"
 );
 
+
 const weekDate =
 document.getElementById(
     "weekDate"
 );
+
 
 const valueText =
 document.getElementById(
     "valueText"
 );
 
+
 const personalityText =
 document.getElementById(
     "personalityText"
 );
+
 
 const weekRows =
 document.getElementById(
     "weekRows"
 );
 
+
 const weekView =
 document.getElementById(
     "weekView"
 );
+
 
 const dayView =
 document.getElementById(
     "dayView"
 );
 
+
 const dayTitle =
 document.getElementById(
     "dayTitle"
 );
+
 
 const dayCards =
 document.getElementById(
     "dayCards"
 );
 
+
 const poster =
 document.getElementById(
     "poster"
+);
+
+
+const printOfficialBtn =
+document.getElementById(
+    "printOfficialBtn"
+);
+
+
+const pdfOfficialBtn =
+document.getElementById(
+    "pdfOfficialBtn"
+);
+
+
+const downloadOfficialBtn =
+document.getElementById(
+    "downloadOfficialBtn"
 );
 
 
@@ -1710,14 +1562,18 @@ let currentPlan = null;
 
 
 /* =========================
-   EMPTY PLAN
+   EMPTY DATA
 ========================= */
 
 function createEmptyDay(){
 
     const result = [];
 
-    for(let i=1;i<=8;i++){
+    for(
+        let i=1;
+        i<=8;
+        i++
+    ){
 
         result.push({
 
@@ -1751,7 +1607,7 @@ function createEmptyDays(){
 
 
 /* =========================
-   LOAD
+   LOAD PLANS
 ========================= */
 
 async function loadPlans(){
@@ -1829,7 +1685,7 @@ async function loadPlans(){
 
 
 /* =========================
-   WEEKS
+   WEEK SELECT
 ========================= */
 
 function fillWeekSelect(){
@@ -1850,12 +1706,15 @@ function fillWeekSelect(){
             week =>
             Number.isFinite(
                 week
-            ) &&
-            week >= 1 &&
+            )
+            &&
+            week >= 1
+            &&
             week <= 18
         )
 
     )
+
     .sort(
         (a,b)=>a-b
     );
@@ -1873,8 +1732,10 @@ function fillWeekSelect(){
                 "option"
             );
 
+
             option.value =
             week;
+
 
             option.textContent =
             "الأسبوع " +
@@ -1882,6 +1743,7 @@ function fillWeekSelect(){
                 weekNames[week] ||
                 week
             );
+
 
             weekSelect.appendChild(
                 option
@@ -1903,10 +1765,13 @@ weekSelect.addEventListener(
 
         resetAfterWeek();
 
+
         if(
             !weekSelect.value
         ){
+
             return;
+
         }
 
 
@@ -1932,7 +1797,9 @@ weekSelect.addEventListener(
                 plan.stage || ""
             )
 
-            .filter(Boolean)
+            .filter(
+                Boolean
+            )
 
         );
 
@@ -1958,8 +1825,10 @@ stageSelect.addEventListener(
         gradeSelect.innerHTML =
         `<option value="">اختر الصف</option>`;
 
+
         sectionSelect.innerHTML =
         `<option value="">اختر الشعبة</option>`;
+
 
         hidePlan();
 
@@ -1967,12 +1836,15 @@ stageSelect.addEventListener(
         if(
             !stageSelect.value
         ){
+
             return;
+
         }
 
 
         const filtered =
         getWeekPlans()
+
         .filter(
             plan =>
             plan.stage ===
@@ -1990,7 +1862,9 @@ stageSelect.addEventListener(
                 plan.grade || ""
             )
 
-            .filter(Boolean)
+            .filter(
+                Boolean
+            )
 
         );
 
@@ -2016,13 +1890,16 @@ gradeSelect.addEventListener(
         sectionSelect.innerHTML =
         `<option value="">اختر الشعبة</option>`;
 
+
         hidePlan();
 
 
         if(
             !gradeSelect.value
         ){
+
             return;
+
         }
 
 
@@ -2052,7 +1929,9 @@ gradeSelect.addEventListener(
                 plan.section || ""
             )
 
-            .filter(Boolean)
+            .filter(
+                Boolean
+            )
 
         );
 
@@ -2081,12 +1960,15 @@ sectionSelect.addEventListener(
         if(
             !sectionSelect.value
         ){
+
             return;
+
         }
 
 
         const found =
         getWeekPlans()
+
         .find(
             plan =>
 
@@ -2135,7 +2017,7 @@ sectionSelect.addEventListener(
 
 
 /* =========================
-   HELPERS SELECT
+   SELECT HELPERS
 ========================= */
 
 function getWeekPlans(){
@@ -2158,11 +2040,14 @@ function resetAfterWeek(){
     stageSelect.innerHTML =
     `<option value="">اختر المرحلة</option>`;
 
+
     gradeSelect.innerHTML =
     `<option value="">اختر الصف</option>`;
 
+
     sectionSelect.innerHTML =
     `<option value="">اختر الشعبة</option>`;
+
 
     hidePlan();
 
@@ -2180,6 +2065,7 @@ function fillSimpleSelect(
 
 
     values
+
     .sort(
         (a,b)=>
         String(a).localeCompare(
@@ -2187,6 +2073,7 @@ function fillSimpleSelect(
             "ar"
         )
     )
+
     .forEach(
         value=>{
 
@@ -2195,11 +2082,14 @@ function fillSimpleSelect(
                 "option"
             );
 
+
             option.value =
             value;
 
+
             option.textContent =
             value;
+
 
             element.appendChild(
                 option
@@ -2212,7 +2102,7 @@ function fillSimpleSelect(
 
 
 /* =========================
-   NORMALIZE
+   NORMALIZE PLAN
 ========================= */
 
 function normalizeSavedPlan(
@@ -2274,8 +2164,7 @@ function normalizeSavedPlan(
 
         ...plan,
 
-        days:
-        normalized
+        days:normalized
 
     };
 
@@ -2283,15 +2172,19 @@ function normalizeSavedPlan(
 
 
 /* =========================
-   OLD HOMEWORK SUPPORT
+   OLD HOMEWORK
 ========================= */
 
 function oldHomeworkToText(
     row
 ){
 
-    if(!row){
+    if(
+        !row
+    ){
+
         return "";
+
     }
 
 
@@ -2364,8 +2257,7 @@ function oldHomeworkToText(
 
 
     if(
-        row.madrasati ===
-        true
+        row.madrasati === true
     ){
 
         parts.push(
@@ -2383,7 +2275,7 @@ function oldHomeworkToText(
 
 
 /* =========================
-   RENDER MAIN PAGE
+   RENDER PLAN
 ========================= */
 
 function renderPlan(
@@ -2401,12 +2293,10 @@ function renderPlan(
 
 
     planTitle.textContent =
-
     `الخطة الأسبوعية لصف ${plan.grade} (${plan.section})`;
 
 
     weekDate.textContent =
-
     `الأسبوع ${
         weekNames[
             Number(
@@ -2478,8 +2368,7 @@ function renderWeekTable(
 
 
                     const first =
-                    index ===
-                    0;
+                    index === 0;
 
 
                     tr.innerHTML = `
@@ -2491,9 +2380,7 @@ function renderWeekTable(
                             `<td
                             rowspan="8"
                             class="day-cell">
-
                                 ${days[day]}
-
                             </td>`
 
                             :
@@ -2502,36 +2389,28 @@ function renderWeekTable(
 
 
                         <td class="period-cell">
-
                             ${index+1}
-
                         </td>
 
 
                         <td class="subject-cell">
-
                             ${displayText(
                                 row.subject
                             )}
-
                         </td>
 
 
                         <td>
-
                             ${displayText(
                                 row.topic
                             )}
-
                         </td>
 
 
                         <td>
-
                             ${displayText(
                                 row.homework
                             )}
-
                         </td>
 
                     `;
@@ -2551,7 +2430,7 @@ function renderWeekTable(
 
 
 /* =========================
-   SINGLE DAY
+   DAY VIEW
 ========================= */
 
 function renderSingleDay(
@@ -2561,7 +2440,9 @@ function renderSingleDay(
     if(
         !currentPlan
     ){
+
         return;
+
     }
 
 
@@ -2592,25 +2473,17 @@ function renderSingleDay(
 
             card.innerHTML = `
 
-
                 <div class="lesson-head">
 
-
                     <div class="lesson-period">
-
                         الحصة ${index+1}
-
                     </div>
 
-
                     <div class="lesson-subject">
-
                         ${displayText(
                             row.subject
                         )}
-
                     </div>
-
 
                 </div>
 
@@ -2625,11 +2498,9 @@ function renderSingleDay(
                         </span>
 
                         <strong>
-
                             ${displayText(
                                 row.topic
                             )}
-
                         </strong>
 
                     </div>
@@ -2642,11 +2513,9 @@ function renderSingleDay(
                         </span>
 
                         <strong>
-
                             ${displayText(
                                 row.homework
                             )}
-
                         </strong>
 
                     </div>
@@ -2669,7 +2538,9 @@ function renderSingleDay(
     "none";
 
 
-    dayView.classList.add(
+    dayView
+    .classList
+    .add(
         "show"
     );
 
@@ -2703,7 +2574,9 @@ document
                 );
 
 
-                button.classList.add(
+                button
+                .classList
+                .add(
                     "active"
                 );
 
@@ -2743,7 +2616,9 @@ function showFullWeek(){
     "block";
 
 
-    dayView.classList.remove(
+    dayView
+    .classList
+    .remove(
         "show"
     );
 
@@ -2782,8 +2657,7 @@ function showFullWeek(){
 
 
 /* =========================
-   BUILD OFFICIAL POSTER
-   مطابق لصفحة المعلم
+   OFFICIAL POSTER
 ========================= */
 
 function buildPoster(
@@ -2809,8 +2683,7 @@ function buildPoster(
                 )=>{
 
                     const first =
-                    index ===
-                    0;
+                    index === 0;
 
 
                     rowsHTML += `
@@ -2830,9 +2703,7 @@ function buildPoster(
                                 class="day-cell">
 
                                     <span class="day-vertical">
-
                                         ${days[day]}
-
                                     </span>
 
                                 </td>
@@ -2845,38 +2716,29 @@ function buildPoster(
 
 
                             <td class="period-cell">
-
                                 ${index+1}
-
                             </td>
 
 
                             <td class="subject-cell">
-
                                 ${safeDisplay(
                                     row.subject
                                 )}
-
                             </td>
 
 
                             <td class="topic-cell">
-
                                 ${safeDisplay(
                                     row.topic
                                 )}
-
                             </td>
 
 
                             <td class="homework-cell">
-
                                 ${safeDisplay(
                                     row.homework
                                 )}
-
                             </td>
-
 
                         </tr>
 
@@ -3062,13 +2924,9 @@ function buildPoster(
             <colgroup>
 
                 <col style="width:5%">
-
                 <col style="width:6%">
-
                 <col style="width:10%">
-
                 <col style="width:53%">
-
                 <col style="width:25%">
 
             </colgroup>
@@ -3079,13 +2937,9 @@ function buildPoster(
                 <tr>
 
                     <th>اليوم</th>
-
                     <th>الحصة</th>
-
                     <th>المادة</th>
-
                     <th>موضوع الدرس</th>
-
                     <th>الواجب</th>
 
                 </tr>
@@ -3109,20 +2963,14 @@ function buildPoster(
             <div class="signature">
 
                 <div class="signature-title">
-
                     رائد الصف
-
                 </div>
 
-
                 <div class="signature-name">
-
                     ${escapeHTML(
                         plan.leaderName || ""
                     )}
-
                 </div>
-
 
                 <div class="signature-line">
                 </div>
@@ -3133,20 +2981,14 @@ function buildPoster(
             <div class="signature">
 
                 <div class="signature-title">
-
                     مدير المدرسة
-
                 </div>
 
-
                 <div class="signature-name">
-
                     ${escapeHTML(
                         plan.principalName || ""
                     )}
-
                 </div>
-
 
                 <div class="signature-line">
                 </div>
@@ -3169,7 +3011,7 @@ function buildPoster(
 
 
 /* =========================
-   WAIT FONT
+   PREPARE POSTER
 ========================= */
 
 async function preparePoster(
@@ -3197,9 +3039,11 @@ async function preparePoster(
             '500 16px "Tajawal"'
         );
 
+
         await document.fonts.load(
             '700 16px "Tajawal"'
         );
+
 
         await document.fonts.load(
             '800 16px "Tajawal"'
@@ -3209,7 +3053,9 @@ async function preparePoster(
 
     catch(error){
 
-        console.warn(error);
+        console.warn(
+            error
+        );
 
     }
 
@@ -3230,6 +3076,500 @@ async function preparePoster(
             )
         )
     );
+
+}
+
+
+/* =========================
+   PRINT / PDF WINDOW
+========================= */
+
+async function openOfficialPrintWindow(
+    mode
+){
+
+    if(
+        !currentPlan
+    ){
+
+        alert(
+            "اختر الخطة أولًا."
+        );
+
+        return;
+
+    }
+
+
+    /*
+      نفتح النافذة أولًا مباشرة من الضغط
+      حتى لا يمنعها المتصفح
+    */
+
+    const printWindow =
+    window.open(
+        "",
+        "_blank"
+    );
+
+
+    if(
+        !printWindow
+    ){
+
+        alert(
+            "المتصفح منع نافذة الطباعة. اسمح بالنوافذ المنبثقة ثم حاول مرة أخرى."
+        );
+
+        return;
+
+    }
+
+
+    printWindow.document.write(`
+
+        <!DOCTYPE html>
+
+        <html lang="ar" dir="rtl">
+
+        <head>
+
+            <meta charset="UTF-8">
+
+            <title>
+                جاري تجهيز الخطة...
+            </title>
+
+            <style>
+
+                body{
+                    font-family:Tahoma,Arial,sans-serif;
+                    direction:rtl;
+                    text-align:center;
+                    padding:60px 20px;
+                    color:#315b49;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            <h2>
+                جاري تجهيز الخطة الأسبوعية...
+            </h2>
+
+        </body>
+
+        </html>
+
+    `);
+
+
+    printWindow.document.close();
+
+
+    try{
+
+        await preparePoster(
+            currentPlan
+        );
+
+
+        const posterClone =
+        poster.cloneNode(
+            true
+        );
+
+
+        posterClone
+        .querySelectorAll(
+            "img"
+        )
+        .forEach(
+            img=>{
+
+                const src =
+                img.getAttribute(
+                    "src"
+                );
+
+
+                if(
+                    src
+                ){
+
+                    img.src =
+                    new URL(
+                        src,
+                        window.location.href
+                    ).href;
+
+                }
+
+            }
+        );
+
+
+        const pageStyles =
+
+        Array.from(
+            document.querySelectorAll(
+                "style"
+            )
+        )
+
+        .map(
+            style =>
+            style.innerHTML
+        )
+
+        .join(
+            "\n"
+        );
+
+
+        const title =
+        mode === "pdf"
+        ?
+        `حفظ الخطة PDF - الأسبوع ${currentPlan.weekNumber}`
+        :
+        `طباعة الخطة الأسبوعية - الأسبوع ${currentPlan.weekNumber}`;
+
+
+        printWindow.document.open();
+
+
+        printWindow.document.write(`
+
+            <!DOCTYPE html>
+
+            <html lang="ar" dir="rtl">
+
+            <head>
+
+                <meta charset="UTF-8">
+
+                <title>
+                    ${title}
+                </title>
+
+
+                <link
+                rel="preconnect"
+                href="https://fonts.googleapis.com">
+
+
+                <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossorigin>
+
+
+                <link
+                href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+                rel="stylesheet">
+
+
+                <style>
+
+                    ${pageStyles}
+
+
+                    @page{
+
+                        size:A4 portrait;
+
+                        margin:0;
+
+                    }
+
+
+                    html,
+                    body{
+
+                        margin:0 !important;
+
+                        padding:0 !important;
+
+                        width:210mm !important;
+
+                        min-width:210mm !important;
+
+                        height:297mm !important;
+
+                        min-height:297mm !important;
+
+                        background:white !important;
+
+                        overflow:hidden !important;
+
+                        font-family:
+                        "Tajawal",
+                        Tahoma,
+                        Arial,
+                        sans-serif !important;
+
+                    }
+
+
+                    body{
+
+                        display:block !important;
+
+                    }
+
+
+                    .pdf-page{
+
+                        display:block !important;
+
+                        position:relative !important;
+
+                        width:210mm !important;
+
+                        height:297mm !important;
+
+                        overflow:hidden !important;
+
+                        background:white !important;
+
+                        margin:0 !important;
+
+                        padding:0 !important;
+
+                    }
+
+
+                    #poster{
+
+                        display:block !important;
+
+                        position:absolute !important;
+
+                        top:0 !important;
+
+                        left:0 !important;
+
+                        width:1240px !important;
+
+                        min-height:1754px !important;
+
+                        transform:scale(0.64) !important;
+
+                        transform-origin:top left !important;
+
+                        margin:0 !important;
+
+                        box-shadow:none !important;
+
+                        visibility:visible !important;
+
+                        opacity:1 !important;
+
+                    }
+
+
+                    #poster *{
+
+                        font-family:
+                        "Tajawal",
+                        Tahoma,
+                        Arial,
+                        sans-serif !important;
+
+                    }
+
+
+                    @media print{
+
+                        html,
+                        body{
+
+                            display:block !important;
+
+                            visibility:visible !important;
+
+                            margin:0 !important;
+
+                            padding:0 !important;
+
+                            background:white !important;
+
+                        }
+
+
+                        .pdf-page{
+
+                            display:block !important;
+
+                            visibility:visible !important;
+
+                        }
+
+
+                        #poster{
+
+                            display:block !important;
+
+                            visibility:visible !important;
+
+                            opacity:1 !important;
+
+                            -webkit-print-color-adjust:
+                            exact !important;
+
+                            print-color-adjust:
+                            exact !important;
+
+                        }
+
+                    }
+
+                </style>
+
+            </head>
+
+
+            <body>
+
+
+                <div class="pdf-page">
+
+                    ${posterClone.outerHTML}
+
+                </div>
+
+
+            </body>
+
+            </html>
+
+        `);
+
+
+        printWindow.document.close();
+
+
+        const finishPrinting =
+        async()=>{
+
+
+            try{
+
+                if(
+                    printWindow.document.fonts &&
+                    printWindow.document.fonts.ready
+                ){
+
+                    await printWindow
+                    .document
+                    .fonts
+                    .ready;
+
+                }
+
+            }
+
+            catch(error){
+
+                console.warn(
+                    error
+                );
+
+            }
+
+
+            const images =
+            [
+                ...printWindow.document
+                .querySelectorAll(
+                    "img"
+                )
+            ];
+
+
+            await Promise.all(
+
+                images.map(
+                    img=>{
+
+                        if(
+                            img.complete
+                        ){
+
+                            return Promise.resolve();
+
+                        }
+
+
+                        return new Promise(
+                            resolve=>{
+
+                                img.onload =
+                                resolve;
+
+                                img.onerror =
+                                resolve;
+
+                            }
+                        );
+
+                    }
+                )
+
+            );
+
+
+            setTimeout(
+                ()=>{
+
+                    printWindow.focus();
+
+                    printWindow.print();
+
+                },
+                500
+            );
+
+        };
+
+
+        if(
+            printWindow.document.readyState ===
+            "complete"
+        ){
+
+            finishPrinting();
+
+        }
+
+        else{
+
+            printWindow.onload =
+            finishPrinting;
+
+        }
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        printWindow.close();
+
+
+        alert(
+            "تعذر تجهيز الخطة للطباعة."
+        );
+
+    }
 
 }
 
@@ -3306,6 +3646,10 @@ async function downloadOfficialImage(){
         !currentPlan
     ){
 
+        alert(
+            "اختر الخطة أولًا."
+        );
+
         return;
 
     }
@@ -3347,7 +3691,6 @@ async function downloadOfficialImage(){
 
 
         link.download =
-
         `الخطة_الأسبوعية_${currentPlan.grade}_${currentPlan.section}_الأسبوع_${currentPlan.weekNumber}.png`;
 
 
@@ -3378,7 +3721,9 @@ async function downloadOfficialImage(){
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
 
 
         alert(
@@ -3391,348 +3736,41 @@ async function downloadOfficialImage(){
 
 
 /* =========================
-   PDF / PRINT OFFICIAL
-========================= */
-
-async function exportOfficialPDF(){
-
-    if(
-        !currentPlan
-    ){
-
-        return;
-
-    }
-
-
-    await preparePoster(
-        currentPlan
-    );
-
-
-    const printWindow =
-    window.open(
-        "",
-        "_blank"
-    );
-
-
-    if(
-        !printWindow
-    ){
-
-        alert(
-            "المتصفح منع نافذة الطباعة. اسمح بالنوافذ المنبثقة ثم حاول مرة أخرى."
-        );
-
-        return;
-
-    }
-
-
-    const posterClone =
-    poster.cloneNode(
-        true
-    );
-
-
-    posterClone
-    .querySelectorAll(
-        "img"
-    )
-    .forEach(
-        img=>{
-
-            const src =
-            img.getAttribute(
-                "src"
-            );
-
-
-            if(
-                src
-            ){
-
-                img.src =
-                new URL(
-                    src,
-                    window.location.href
-                ).href;
-
-            }
-
-        }
-    );
-
-
-    const pageStyles =
-
-    Array.from(
-        document.querySelectorAll(
-            "style"
-        )
-    )
-
-    .map(
-        style =>
-        style.outerHTML
-    )
-
-    .join(
-        "\n"
-    );
-
-
-    printWindow.document.write(`
-
-        <!DOCTYPE html>
-
-        <html lang="ar" dir="rtl">
-
-        <head>
-
-            <meta charset="UTF-8">
-
-            <title>
-
-                الخطة الأسبوعية - الأسبوع ${currentPlan.weekNumber}
-
-            </title>
-
-
-            <link
-            rel="preconnect"
-            href="https://fonts.googleapis.com">
-
-
-            <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin>
-
-
-            <link
-            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-
-
-            ${pageStyles}
-
-
-            <style>
-
-                @page{
-
-                    size:A4 portrait;
-
-                    margin:0;
-
-                }
-
-
-                html,
-                body{
-
-                    margin:0 !important;
-
-                    padding:0 !important;
-
-                    width:210mm;
-
-                    height:297mm;
-
-                    background:white !important;
-
-                    overflow:hidden;
-
-                    font-family:
-                    "Tajawal",
-                    Tahoma,
-                    Arial,
-                    sans-serif !important;
-
-                }
-
-
-                .pdf-page{
-
-                    position:relative;
-
-                    width:210mm;
-
-                    height:297mm;
-
-                    overflow:hidden;
-
-                    background:white;
-
-                }
-
-
-                #poster{
-
-                    position:absolute;
-
-                    top:0;
-
-                    left:0;
-
-                    width:1240px !important;
-
-                    min-height:1754px !important;
-
-                    transform:scale(0.64);
-
-                    transform-origin:top left;
-
-                    margin:0 !important;
-
-                    box-shadow:none !important;
-
-                }
-
-
-                #poster *{
-
-                    font-family:
-                    "Tajawal",
-                    Tahoma,
-                    Arial,
-                    sans-serif !important;
-
-                }
-
-
-                @media print{
-
-                    html,
-                    body{
-
-                        margin:0 !important;
-
-                        padding:0 !important;
-
-                    }
-
-
-                    #poster{
-
-                        -webkit-print-color-adjust:
-                        exact !important;
-
-                        print-color-adjust:
-                        exact !important;
-
-                    }
-
-                }
-
-            </style>
-
-        </head>
-
-
-        <body>
-
-
-            <div class="pdf-page">
-
-                ${posterClone.outerHTML}
-
-            </div>
-
-
-        </body>
-
-        </html>
-
-    `);
-
-
-    printWindow.document.close();
-
-
-    printWindow.onload =
-    async()=>{
-
-
-        try{
-
-            if(
-                printWindow.document.fonts &&
-                printWindow.document.fonts.ready
-            ){
-
-                await printWindow
-                .document
-                .fonts
-                .ready;
-
-            }
-
-        }
-
-        catch(error){
-
-            console.warn(
-                error
-            );
-
-        }
-
-
-        setTimeout(
-            ()=>{
-
-                printWindow.focus();
-
-                printWindow.print();
-
-            },
-            700
-        );
-
-    };
-
-}
-
-
-/* =========================
    BUTTONS
 ========================= */
 
-document
-.getElementById(
-    "printOfficialBtn"
-)
-.addEventListener(
+printOfficialBtn.addEventListener(
     "click",
-    exportOfficialPDF
+    ()=>{
+
+        openOfficialPrintWindow(
+            "print"
+        );
+
+    }
 );
 
 
-document
-.getElementById(
-    "pdfOfficialBtn"
-)
-.addEventListener(
+pdfOfficialBtn.addEventListener(
     "click",
-    exportOfficialPDF
+    ()=>{
+
+        openOfficialPrintWindow(
+            "pdf"
+        );
+
+    }
 );
 
 
-document
-.getElementById(
-    "downloadOfficialBtn"
-)
-.addEventListener(
+downloadOfficialBtn.addEventListener(
     "click",
     downloadOfficialImage
 );
 
 
 /* =========================
-   IMAGES
+   WAIT IMAGES
 ========================= */
 
 function waitForImages(
@@ -3796,8 +3834,7 @@ function displayText(
         value === undefined ||
         String(
             value
-        ).trim() ===
-        ""
+        ).trim() === ""
     ){
 
         return "-";
@@ -3821,8 +3858,7 @@ function safeDisplay(
         value === undefined ||
         String(
             value
-        ).trim() ===
-        ""
+        ).trim() === ""
     ){
 
         return "";
@@ -3865,12 +3901,10 @@ function formatDate(
 
 
         if(
-            parts.length ===
-            3
+            parts.length === 3
         ){
 
             return (
-
                 parts[2]
                 +
                 "/"
@@ -3880,7 +3914,6 @@ function formatDate(
                 "/"
                 +
                 parts[0]
-
             );
 
         }
@@ -3968,8 +4001,7 @@ function escapeHTML(
 ){
 
     return String(
-        value ??
-        ""
+        value ?? ""
     )
 
     .replaceAll(
@@ -4009,7 +4041,5 @@ loadPlans();
 
 </script>
 
-
 </body>
-
 </html>
