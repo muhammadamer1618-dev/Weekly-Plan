@@ -4,15 +4,18 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>بوابة الطالب | الخطة الأسبوعية</title>
 
-<title>
-بوابة الطالب | الخطة الأسبوعية
-</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link
+href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
 
@@ -20,201 +23,250 @@ content="width=device-width, initial-scale=1.0">
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Tahoma,Arial,sans-serif;
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+}
+
+:root{
+    --green:#6f927f;
+    --green-medium:#557966;
+    --green-dark:#315b49;
+    --green-light:#edf4f0;
+    --gold:#b99648;
+    --gold-soft:#f5efdf;
+    --text:#252525;
+    --blue:#477da6;
+    --pdf:#8d4b77;
+}
+
+html{
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 }
 
 body{
-    background:#f4f1e7;
-    color:#1d1d1d;
+    background:#f5f4ef;
+    color:var(--text);
     min-height:100vh;
+    font-weight:500;
 }
 
-/* ==============================
+
+/* =========================
    HEADER
-============================== */
+========================= */
 
-.top-header{
-    background:#0b4b3e;
-    border-bottom:5px solid #c9a548;
+.topbar{
+    min-height:105px;
+    padding:13px 30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #769786,
+        #557764
+    );
+
+    border-bottom:4px solid var(--gold);
+
     color:white;
-    padding:20px;
 }
 
-.header-inner{
-    width:min(1250px,94%);
+.topbar-inner{
+    width:min(1250px,95%);
     margin:auto;
 
     display:grid;
-    grid-template-columns:150px 1fr 150px;
+    grid-template-columns:120px 1fr 120px;
+
     align-items:center;
 }
 
-.logo-box{
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-}
+.brand-logo img{
+    width:82px;
+    height:82px;
 
-.logo-box img{
-    width:105px;
-    height:105px;
     object-fit:contain;
 
     background:white;
-    border-radius:18px;
-    padding:7px;
+
+    border-radius:14px;
+
+    padding:5px;
 }
 
-.school-title{
+.portal-title{
     text-align:center;
 }
 
-.school-title h1{
-    font-size:30px;
-    margin-bottom:7px;
-}
-
-.school-title h2{
-    color:#f1d475;
-    font-size:23px;
+.portal-title h1{
+    font-size:27px;
+    font-weight:800;
     margin-bottom:4px;
 }
 
-.school-title p{
-    font-size:15px;
-    opacity:.92;
+.portal-title h2{
+    color:#f2d77d;
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:3px;
 }
 
-/* ==============================
-   MAIN
-============================== */
+.portal-title p{
+    font-size:15px;
+    opacity:.95;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
 
 .container{
     width:min(1250px,95%);
-    margin:25px auto 40px;
+    margin:24px auto;
 }
 
-/* ==============================
-   VISION MISSION
-============================== */
+.card{
+    background:white;
 
-.identity-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-    margin-bottom:22px;
-}
+    border-radius:17px;
 
-.identity-card{
-    background:#fff;
-    border-radius:15px;
+    box-shadow:
+    0 5px 18px rgba(0,0,0,.055);
+
+    margin-bottom:21px;
+
     overflow:hidden;
-    box-shadow:0 4px 14px rgba(0,0,0,.06);
-    border:1px solid #e3decf;
+}
+
+.card-title{
+    background:#789685;
+
+    color:white;
+
+    border-bottom:4px solid var(--gold);
+
+    padding:15px 20px;
+
+    font-size:19px;
+
+    font-weight:800;
+}
+
+
+/* =========================
+   VISION
+========================= */
+
+.school-identity{
+    display:grid;
+    grid-template-columns:.85fr 1.6fr;
+    gap:13px;
+    margin-bottom:20px;
+}
+
+.identity-box{
+    background:#fffdf8;
+    border:1.5px solid #ccb168;
+    border-radius:13px;
+    padding:14px 16px;
+    box-shadow:0 4px 14px rgba(0,0,0,.04);
 }
 
 .identity-title{
-    background:#0b4b3e;
-    color:#fff;
-    padding:10px 15px;
+    color:#92712d;
+    font-weight:800;
     text-align:center;
-    font-weight:bold;
-    border-bottom:3px solid #c9a548;
+    font-size:18px;
+    margin-bottom:7px;
 }
 
 .identity-text{
-    padding:16px;
-    line-height:1.9;
     text-align:center;
+    color:#303030;
     font-size:14px;
+    font-weight:600;
+    line-height:1.8;
 }
 
-/* ==============================
-   FILTER BOX
-============================== */
 
-.filter-card{
-    background:#fff;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
-    margin-bottom:22px;
-}
-
-.filter-header{
-    background:#0b4b3e;
-    color:white;
-    padding:14px 20px;
-    border-bottom:4px solid #c9a548;
-}
-
-.filter-header h3{
-    font-size:18px;
-}
-
-.filter-body{
-    padding:20px;
-}
+/* =========================
+   FILTER
+========================= */
 
 .filters{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    gap:15px;
+    padding:22px;
 }
 
 .form-group label{
     display:block;
-    margin-bottom:6px;
-    color:#0b4b3e;
-    font-size:13px;
-    font-weight:bold;
+
+    color:var(--green-dark);
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
 }
 
 select{
     width:100%;
-    padding:11px 12px;
-    border:1px solid #d9d4c7;
-    border-radius:9px;
-    background:#fff;
+
+    border:1px solid #d2d2d2;
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:12px;
+
     outline:none;
-    font-size:14px;
+
+    font-size:15px;
+
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+
+    font-weight:500;
 }
 
 select:focus{
-    border-color:#c9a548;
-    box-shadow:0 0 0 3px rgba(201,165,72,.12);
+    border-color:var(--gold);
+
+    box-shadow:
+    0 0 0 3px rgba(185,150,72,.13);
 }
 
-/* ==============================
-   STATUS
-============================== */
-
-.status-message{
-    margin-top:17px;
+.status{
+    display:none;
+    margin:0 22px 22px;
     padding:13px;
     border-radius:10px;
     text-align:center;
-    font-weight:bold;
-    display:none;
+    font-weight:700;
 }
 
-.status-message.show{
+.status.show{
     display:block;
 }
 
-.status-info{
-    background:#edf5f2;
-    color:#0b4b3e;
+.status.info{
+    background:#edf4f0;
+    color:#315b49;
 }
 
-.status-error{
+.status.error{
     background:#fdeaea;
-    color:#9a2424;
+    color:#a11f1f;
 }
 
-/* ==============================
-   PLAN
-============================== */
+
+/* =========================
+   SELECTED PLAN
+========================= */
 
 .plan-area{
     display:none;
@@ -224,170 +276,174 @@ select:focus{
     display:block;
 }
 
-.plan-head{
+.plan-summary{
     background:white;
-    padding:20px;
-    border-radius:17px;
-    box-shadow:0 5px 17px rgba(0,0,0,.07);
-    margin-bottom:17px;
-}
 
-.class-title{
-    text-align:center;
+    border-radius:17px;
+
+    padding:20px;
+
+    box-shadow:
+    0 5px 18px rgba(0,0,0,.055);
+
     margin-bottom:18px;
 }
 
-.class-title h2{
-    color:#0b4b3e;
-    font-size:26px;
-    margin-bottom:7px;
+.plan-summary h2{
+    text-align:center;
+    color:var(--green-dark);
+    font-size:25px;
+    font-weight:800;
+    margin-bottom:6px;
 }
 
-.class-title p{
+.plan-summary .week-date{
+    text-align:center;
     color:#777;
-    font-size:14px;
+    margin-bottom:16px;
 }
 
-.week-highlights{
+.special-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:13px;
+    gap:12px;
 }
 
-.highlight{
-    background:#f8f4e9;
-    border:1px solid #eadfbf;
-    border-radius:12px;
-    padding:14px 16px;
+.special-card{
+    background:#edf4f0;
+    border:1px solid #90a99b;
+    border-radius:11px;
+    padding:13px;
+    text-align:center;
 }
 
-.highlight span{
+.special-card span{
     display:block;
     color:#777;
     font-size:12px;
     margin-bottom:5px;
 }
 
-.highlight strong{
-    color:#0b4b3e;
+.special-card strong{
+    color:#315b49;
     font-size:16px;
+    font-weight:800;
 }
 
-/* ==============================
-   VIEW SWITCH
-============================== */
 
-.view-buttons{
+/* =========================
+   DAY TABS
+========================= */
+
+.view-tabs{
     display:flex;
-    gap:8px;
     flex-wrap:wrap;
-    justify-content:center;
+    gap:9px;
     margin-bottom:17px;
 }
 
 .view-btn{
-    border:none;
-    border-radius:25px;
-    padding:10px 18px;
-    background:#fff;
-    color:#0b4b3e;
-    border:1px solid #d8d2c3;
-    cursor:pointer;
-    font-weight:bold;
-}
+    flex:1;
+    min-width:105px;
 
-.view-btn:hover{
-    border-color:#c9a548;
+    padding:12px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:#e6e5e0;
+
+    color:var(--green-dark);
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:700;
 }
 
 .view-btn.active{
-    background:#0b4b3e;
-    color:#fff;
-    border-color:#0b4b3e;
+    background:#708f7e;
+    color:white;
 }
 
-/* ==============================
+
+/* =========================
    WEEK TABLE
-============================== */
+========================= */
 
 .week-view{
-    display:block;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.055);
 }
 
 .table-wrap{
     overflow:auto;
-    background:white;
-    border-radius:16px;
-    box-shadow:0 5px 18px rgba(0,0,0,.07);
 }
 
 .plan-table{
     width:100%;
     border-collapse:collapse;
-    min-width:850px;
     table-layout:fixed;
-}
-
-.plan-table col.day{
-    width:8%;
-}
-
-.plan-table col.period{
-    width:7%;
-}
-
-.plan-table col.subject{
-    width:13%;
-}
-
-.plan-table col.topic{
-    width:47%;
-}
-
-.plan-table col.homework{
-    width:25%;
+    min-width:900px;
 }
 
 .plan-table th{
-    background:#0b4b3e;
-    color:#fff;
-    border:1px solid #ddd;
-    padding:11px 7px;
+    background:#eef3ef;
+
+    color:#315b49;
+
+    border:1px solid #bdbdbd;
+
+    padding:11px 5px;
+
     font-size:14px;
+
+    font-weight:800;
 }
 
 .plan-table td{
-    border:1px solid #ddd;
-    padding:9px 8px;
+    border:1px solid #d2d2d2;
+
+    padding:8px;
+
+    height:38px;
+
+    line-height:1.4;
+
     text-align:center;
-    line-height:1.6;
-    font-size:13px;
+
+    vertical-align:middle;
+
+    font-size:14px;
+
+    overflow-wrap:anywhere;
 }
 
-.plan-table tr:nth-child(even) td{
-    background:#fbfaf6;
-}
-
-.day-cell{
-    background:#789685 !important;
+.plan-table .day-cell{
+    background:#789685;
     color:white;
-    font-weight:bold;
-    font-size:16px !important;
+    font-weight:800;
+    font-size:16px;
 }
 
-.period-cell{
-    background:#f7f2e4 !important;
-    font-weight:bold;
+.plan-table .period-cell{
+    background:#faf7ed;
+    font-weight:800;
 }
 
-.subject-cell{
-    font-weight:bold;
-    color:#0b4b3e;
+.plan-table .subject-cell{
+    font-weight:700;
+    color:#315b49;
 }
 
-/* ==============================
-   SINGLE DAY
-============================== */
+
+/* =========================
+   DAY VIEW
+========================= */
 
 .day-view{
     display:none;
@@ -397,186 +453,609 @@ select:focus{
     display:block;
 }
 
-.day-heading{
-    text-align:center;
-    background:#0b4b3e;
+.day-title{
+    background:#789685;
     color:white;
-    border-bottom:4px solid #c9a548;
-    border-radius:15px 15px 0 0;
+    text-align:center;
     padding:14px;
-    font-size:22px;
-    font-weight:bold;
+    font-size:21px;
+    font-weight:800;
+    border-bottom:4px solid var(--gold);
+    border-radius:14px 14px 0 0;
 }
 
 .day-cards{
-    background:#fff;
+    background:white;
+
     padding:18px;
-    border-radius:0 0 15px 15px;
-    box-shadow:0 5px 17px rgba(0,0,0,.07);
 
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:13px;
+    gap:14px;
+
+    border-radius:0 0 14px 14px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.055);
 }
 
 .lesson-card{
-    border:1px solid #e1dccf;
-    border-radius:14px;
+    border:1px solid #d9d6cc;
+    border-radius:13px;
     overflow:hidden;
 }
 
-.lesson-top{
+.lesson-head{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     gap:10px;
 
-    background:#f3edda;
+    background:#f6f0df;
+
     padding:12px 14px;
-    border-bottom:2px solid #c9a548;
+
+    border-bottom:2px solid var(--gold);
 }
 
-.lesson-number{
-    color:#0b4b3e;
-    font-weight:bold;
+.lesson-period{
+    color:#315b49;
+    font-weight:800;
 }
 
 .lesson-subject{
-    color:#0b4b3e;
-    font-weight:bold;
-    font-size:16px;
+    color:#315b49;
+    font-size:17px;
+    font-weight:800;
 }
 
-.lesson-content{
-    padding:15px;
+.lesson-body{
+    padding:16px;
 }
 
-.lesson-section{
-    margin-bottom:13px;
+.lesson-part{
+    margin-bottom:14px;
 }
 
-.lesson-section:last-child{
+.lesson-part:last-child{
     margin-bottom:0;
 }
 
-.lesson-section span{
+.lesson-part span{
     display:block;
-    font-size:12px;
     color:#777;
+    font-size:12px;
     margin-bottom:5px;
 }
 
-.lesson-section strong{
+.lesson-part strong{
     display:block;
-    line-height:1.8;
     font-size:15px;
+    line-height:1.7;
 }
 
-/* ==============================
+
+/* =========================
    ACTIONS
-============================== */
+========================= */
 
 .actions{
     display:flex;
+    flex-wrap:wrap;
     justify-content:center;
     gap:10px;
-    flex-wrap:wrap;
     margin-top:20px;
 }
 
 .action-btn{
-    border:none;
-    padding:11px 20px;
+    border:0;
     border-radius:9px;
     cursor:pointer;
-    font-weight:bold;
+    font-weight:700;
+    padding:12px 19px;
     font-size:14px;
 }
 
 .print-btn{
-    background:#0b4b3e;
+    background:var(--green-dark);
     color:white;
 }
 
-.link-btn{
-    background:#c9a548;
-    color:#073f34;
+.image-btn{
+    background:var(--blue);
+    color:white;
 }
 
-/* ==============================
-   EMPTY LESSON
-============================== */
-
-.empty-text{
-    color:#aaa !important;
-    font-weight:normal !important;
+.pdf-btn{
+    background:var(--pdf);
+    color:white;
 }
 
-/* ==============================
+
+/* =========================
+   HIDDEN POSTER HOST
+========================= */
+
+.poster-host{
+    position:fixed;
+    left:-10000px;
+    top:0;
+    width:1240px;
+    z-index:-1;
+}
+
+
+/* =========================
+   POSTER
+========================= */
+
+#poster{
+    width:1240px;
+
+    min-height:1754px;
+
+    background:#fffefb;
+
+    color:#171717;
+
+    position:relative;
+
+    direction:rtl;
+
+    padding:27px 31px 55px;
+
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+
+    font-weight:500;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+}
+
+
+/* =========================
+   POSTER HEADER
+========================= */
+
+.poster-header{
+    display:grid;
+
+    grid-template-columns:205px 1fr 205px;
+
+    direction:ltr;
+
+    align-items:center;
+
+    min-height:150px;
+
+    padding-bottom:12px;
+
+    border-bottom:4px solid var(--gold);
+}
+
+.school-logo{
+    text-align:left;
+    padding-left:10px;
+}
+
+.school-logo img{
+    width:175px;
+    height:135px;
+    object-fit:contain;
+}
+
+.header-spacer{
+    width:205px;
+    height:1px;
+}
+
+.poster-government{
+    direction:rtl;
+
+    text-align:center;
+
+    color:#292929;
+
+    line-height:1.65;
+
+    font-size:21px;
+
+    font-weight:800;
+}
+
+.poster-government div{
+    margin:1px 0;
+}
+
+.poster-government div:last-child{
+    color:var(--green-dark);
+    font-size:23px;
+}
+
+
+/* =========================
+   POSTER TITLE
+========================= */
+
+.poster-class-title{
+    margin-top:11px;
+
+    text-align:center;
+
+    background:#eef4f0;
+
+    border-right:6px solid #819f8e;
+
+    border-left:6px solid #819f8e;
+
+    color:#294f40;
+
+    font-size:29px;
+
+    line-height:1.45;
+
+    font-weight:800;
+
+    padding:10px 12px;
+}
+
+
+/* =========================
+   POSTER VISION
+========================= */
+
+.vision-message{
+    display:grid;
+    grid-template-columns:.85fr 1.6fr;
+    gap:11px;
+    margin-top:11px;
+}
+
+.vm-box{
+    border:1.5px solid #ccb168;
+    border-radius:8px;
+    background:#fffdf8;
+    padding:10px 13px;
+}
+
+.vm-title{
+    color:#92712d;
+    font-weight:800;
+    text-align:center;
+    font-size:18px;
+    margin-bottom:6px;
+}
+
+.vm-text{
+    text-align:center;
+    color:#303030;
+    font-size:15px;
+    font-weight:600;
+    line-height:1.65;
+}
+
+
+/* =========================
+   POSTER WEEK INFO
+========================= */
+
+.poster-weekline{
+    margin-top:10px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:28px;
+
+    padding:10px 12px;
+
+    border:1.5px solid #c7ad67;
+
+    background:#fbf7ea;
+
+    font-size:18px;
+
+    font-weight:700;
+}
+
+.poster-special{
+    margin-top:9px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:9px;
+}
+
+.special-box{
+    border:1.5px solid #90a99b;
+
+    background:#edf4f0;
+
+    padding:10px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    text-align:center;
+}
+
+.special-box strong{
+    color:#315b49;
+    font-weight:800;
+}
+
+
+/* =========================
+   POSTER TABLE
+========================= */
+
+.poster-table{
+    width:100%;
+
+    margin-top:11px;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+    direction:rtl;
+}
+
+.poster-table th{
+    background:#eef3ef;
+
+    color:#315b49;
+
+    border:1.5px solid #1b1b1b;
+
+    padding:9px 4px;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    line-height:1.25;
+}
+
+.poster-table td{
+    border:1px solid #222;
+
+    padding:5px 7px;
+
+    height:31px;
+
+    line-height:1.18;
+
+    font-size:14px;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+    font-weight:500;
+
+    word-break:normal;
+
+    overflow-wrap:anywhere;
+}
+
+.poster-table .day-cell{
+    background:#789685;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    padding:0;
+
+    text-align:center;
+
+    vertical-align:middle;
+}
+
+.day-vertical{
+    writing-mode:vertical-rl;
+
+    transform:rotate(180deg);
+
+    white-space:nowrap;
+
+    display:inline-block;
+
+    letter-spacing:1px;
+
+    line-height:1;
+
+    font-size:19px;
+
+    font-weight:800;
+}
+
+.poster-table .period-cell{
+    background:#faf7ed;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    text-align:center;
+
+    padding-left:3px;
+    padding-right:3px;
+}
+
+.poster-table .subject-cell{
+    font-size:13px;
+    font-weight:700;
+    text-align:center;
+    padding:4px;
+}
+
+.poster-table .topic-cell{
+    font-size:14px;
+    line-height:1.18;
+    text-align:center;
+    padding:5px 10px;
+    word-break:normal;
+    overflow-wrap:anywhere;
+}
+
+.poster-table .homework-cell{
+    font-size:14px;
+    line-height:1.18;
+    text-align:center;
+    padding:5px 8px;
+    word-break:normal;
+    overflow-wrap:anywhere;
+}
+
+.poster-table tr.day-start td{
+    border-top:5px solid #111 !important;
+}
+
+
+/* =========================
+   SIGNATURES
+========================= */
+
+.poster-signatures{
+    margin-top:21px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:120px;
+
+    font-size:18px;
+
+    font-weight:700;
+}
+
+.signature{
+    text-align:center;
+}
+
+.signature-title{
+    color:#315b49;
+
+    margin-bottom:9px;
+
+    font-size:18px;
+
+    font-weight:800;
+}
+
+.signature-name{
+    min-height:30px;
+
+    font-size:17px;
+
+    font-weight:600;
+}
+
+.signature-line{
+    width:185px;
+
+    border-bottom:1px solid #666;
+
+    margin:14px auto 0;
+}
+
+.poster-credit{
+    position:absolute;
+
+    bottom:17px;
+
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#315b49;
+}
+
+
+/* =========================
    FOOTER
-============================== */
+========================= */
 
 footer{
     text-align:center;
-    padding:25px 15px;
+    padding:27px;
     color:#777;
-    font-size:13px;
     line-height:1.8;
+    font-size:13px;
 }
 
 footer strong{
-    color:#0b4b3e;
+    color:var(--green-dark);
+    font-weight:800;
 }
 
-/* ==============================
+
+/* =========================
    MOBILE
-============================== */
+========================= */
 
 @media(max-width:800px){
 
-    .header-inner{
-        grid-template-columns:85px 1fr;
+    .topbar{
+        padding:10px;
     }
 
-    .header-spacer{
+    .topbar-inner{
+        grid-template-columns:75px 1fr;
+    }
+
+    .top-spacer{
         display:none;
     }
 
-    .logo-box img{
-        width:75px;
-        height:75px;
+    .brand-logo img{
+        width:64px;
+        height:64px;
     }
 
-    .school-title h1{
-        font-size:20px;
-    }
-
-    .school-title h2{
+    .portal-title h1{
         font-size:18px;
     }
 
-    .school-title p{
+    .portal-title h2{
+        font-size:17px;
+    }
+
+    .portal-title p{
         font-size:12px;
+    }
+
+    .school-identity{
+        grid-template-columns:1fr;
     }
 
     .filters{
         grid-template-columns:1fr 1fr;
     }
 
-    .identity-grid{
-        grid-template-columns:1fr;
-    }
-
-    .week-highlights{
+    .special-grid{
         grid-template-columns:1fr;
     }
 
     .day-cards{
         grid-template-columns:1fr;
-    }
-
-    .class-title h2{
-        font-size:21px;
     }
 
 }
@@ -587,70 +1066,29 @@ footer strong{
         grid-template-columns:1fr;
     }
 
-    .top-header{
-        padding:14px 5px;
+    .container{
+        width:94%;
     }
 
-    .header-inner{
-        width:96%;
+    .portal-title h1{
+        font-size:16px;
     }
 
-    .logo-box img{
-        width:65px;
-        height:65px;
-    }
-
-    .school-title h1{
-        font-size:17px;
-    }
-
-    .school-title h2{
+    .portal-title h2{
         font-size:15px;
     }
 
 }
 
-/* ==============================
-   PRINT
-============================== */
+
+/* =========================
+   PRINT NORMAL PAGE
+========================= */
 
 @media print{
 
-    body{
-        background:white;
-    }
-
-    .filter-card,
-    .view-buttons,
-    .actions,
-    footer{
+    body > *{
         display:none !important;
-    }
-
-    .top-header{
-        background:white;
-        color:#111;
-        border-bottom:3px solid #c9a548;
-    }
-
-    .school-title h2{
-        color:#0b4b3e;
-    }
-
-    .school-title p{
-        color:#444;
-    }
-
-    .identity-card,
-    .plan-head,
-    .table-wrap,
-    .day-cards{
-        box-shadow:none;
-    }
-
-    .container{
-        width:100%;
-        margin:10px auto;
     }
 
 }
@@ -663,12 +1101,12 @@ footer strong{
 <body>
 
 
-<header class="top-header">
+<header class="topbar">
 
-<div class="header-inner">
+<div class="topbar-inner">
 
 
-<div class="logo-box">
+<div class="brand-logo">
 
 <img
 src="logo.jpeg"
@@ -677,7 +1115,7 @@ alt="شعار مدارس الفلاح">
 </div>
 
 
-<div class="school-title">
+<div class="portal-title">
 
 <h1>
 مدارس الفلاح الأهلية
@@ -694,7 +1132,7 @@ alt="شعار مدارس الفلاح">
 </div>
 
 
-<div class="header-spacer">
+<div class="top-spacer">
 </div>
 
 
@@ -706,13 +1144,13 @@ alt="شعار مدارس الفلاح">
 <main class="container">
 
 
-<section class="identity-grid">
+<section class="school-identity">
 
 
-<div class="identity-card">
+<div class="identity-box">
 
 <div class="identity-title">
-رؤية المدرسة
+الرؤية
 </div>
 
 <div class="identity-text">
@@ -724,15 +1162,17 @@ alt="شعار مدارس الفلاح">
 </div>
 
 
-<div class="identity-card">
+<div class="identity-box">
 
 <div class="identity-title">
-رسالة المدرسة
+الرسالة
 </div>
 
 <div class="identity-text">
 
-نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة، ترسخ القيم، وتبني المعرفة، وتطور المهارات، وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
+نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة،
+ترسخ القيم، وتبني المعرفة، وتطور المهارات،
+وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
 
 </div>
 
@@ -742,19 +1182,13 @@ alt="شعار مدارس الفلاح">
 </section>
 
 
-<section class="filter-card">
+<section class="card">
 
+<div class="card-title">
 
-<div class="filter-header">
-
-<h3>
-اختر بيانات الفصل
-</h3>
+اختر الخطة الأسبوعية
 
 </div>
-
-
-<div class="filter-body">
 
 
 <div class="filters">
@@ -832,12 +1266,10 @@ alt="شعار مدارس الفلاح">
 
 
 <div
-id="statusMessage"
-class="status-message">
+id="status"
+class="status">
 </div>
 
-
-</div>
 
 </section>
 
@@ -847,44 +1279,43 @@ id="planArea"
 class="plan-area">
 
 
-<div class="plan-head">
+<div class="plan-summary">
 
 
-<div class="class-title">
-
-<h2 id="classPlanTitle">
+<h2 id="planTitle">
 الخطة الأسبوعية
 </h2>
 
-<p id="planDates">
-</p>
 
+<div
+id="weekDate"
+class="week-date">
 </div>
 
 
-<div class="week-highlights">
+<div class="special-grid">
 
 
-<div class="highlight">
+<div class="special-card">
 
 <span>
 القيمة التربوية
 </span>
 
-<strong id="educationalValue">
+<strong id="valueText">
 -
 </strong>
 
 </div>
 
 
-<div class="highlight">
+<div class="special-card">
 
 <span>
 شخصية الأسبوع
 </span>
 
-<strong id="weekCharacter">
+<strong id="personalityText">
 -
 </strong>
 
@@ -897,9 +1328,7 @@ class="plan-area">
 </div>
 
 
-<div
-id="viewButtons"
-class="view-buttons">
+<div class="view-tabs">
 
 
 <button
@@ -971,15 +1400,11 @@ class="week-view">
 
 <colgroup>
 
-<col class="day">
-
-<col class="period">
-
-<col class="subject">
-
-<col class="topic">
-
-<col class="homework">
+<col style="width:7%">
+<col style="width:7%">
+<col style="width:11%">
+<col style="width:50%">
+<col style="width:25%">
 
 </colgroup>
 
@@ -988,32 +1413,18 @@ class="week-view">
 
 <tr>
 
-<th>
-اليوم
-</th>
-
-<th>
-الحصة
-</th>
-
-<th>
-المادة
-</th>
-
-<th>
-موضوع الدرس
-</th>
-
-<th>
-الواجب
-</th>
+<th>اليوم</th>
+<th>الحصة</th>
+<th>المادة</th>
+<th>موضوع الدرس</th>
+<th>الواجب</th>
 
 </tr>
 
 </thead>
 
 
-<tbody id="weekTableBody">
+<tbody id="weekRows">
 </tbody>
 
 
@@ -1031,8 +1442,8 @@ class="day-view">
 
 
 <div
-id="dayHeading"
-class="day-heading">
+id="dayTitle"
+class="day-title">
 </div>
 
 
@@ -1049,19 +1460,28 @@ class="day-cards">
 
 
 <button
-class="action-btn print-btn"
-id="printBtn">
+id="printOfficialBtn"
+class="action-btn print-btn">
 
-طباعة الخطة
+طباعة الخطة الرسمية
 
 </button>
 
 
 <button
-class="action-btn link-btn"
-id="copyLinkBtn">
+id="downloadOfficialBtn"
+class="action-btn image-btn">
 
-نسخ رابط الصفحة
+تحميل صورة الخطة
+
+</button>
+
+
+<button
+id="pdfOfficialBtn"
+class="action-btn pdf-btn">
+
+حفظ PDF
 
 </button>
 
@@ -1075,6 +1495,16 @@ id="copyLinkBtn">
 </main>
 
 
+<div
+class="poster-host"
+aria-hidden="true">
+
+<div id="poster">
+</div>
+
+</div>
+
+
 <footer>
 
 مدارس الفلاح الأهلية
@@ -1082,7 +1512,7 @@ id="copyLinkBtn">
 <br>
 
 <strong>
-الخطة الأسبوعية
+بوابة الطالب - الخطة الأسبوعية
 </strong>
 
 </footer>
@@ -1104,10 +1534,6 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
-
-/* ==============================
-   FIREBASE
-============================== */
 
 const firebaseConfig = {
 
@@ -1144,140 +1570,17 @@ getFirestore(
 );
 
 
-/* ==============================
-   ELEMENTS
-============================== */
-
-const weekSelect =
-document.getElementById(
-    "weekSelect"
-);
-
-
-const stageSelect =
-document.getElementById(
-    "stageSelect"
-);
-
-
-const gradeSelect =
-document.getElementById(
-    "gradeSelect"
-);
-
-
-const sectionSelect =
-document.getElementById(
-    "sectionSelect"
-);
-
-
-const planArea =
-document.getElementById(
-    "planArea"
-);
-
-
-const statusMessage =
-document.getElementById(
-    "statusMessage"
-);
-
-
-const classPlanTitle =
-document.getElementById(
-    "classPlanTitle"
-);
-
-
-const planDates =
-document.getElementById(
-    "planDates"
-);
-
-
-const educationalValue =
-document.getElementById(
-    "educationalValue"
-);
-
-
-const weekCharacter =
-document.getElementById(
-    "weekCharacter"
-);
-
-
-const weekTableBody =
-document.getElementById(
-    "weekTableBody"
-);
-
-
-const weekView =
-document.getElementById(
-    "weekView"
-);
-
-
-const dayView =
-document.getElementById(
-    "dayView"
-);
-
-
-const dayHeading =
-document.getElementById(
-    "dayHeading"
-);
-
-
-const dayCards =
-document.getElementById(
-    "dayCards"
-);
-
-
-const printBtn =
-document.getElementById(
-    "printBtn"
-);
-
-
-const copyLinkBtn =
-document.getElementById(
-    "copyLinkBtn"
-);
-
-
-let plans =
-[];
-
-
-let currentPlan =
-null;
-
-
-/* ==============================
+/* =========================
    DAYS
-============================== */
+========================= */
 
 const days = {
 
-    sunday:
-    "الأحد",
-
-    monday:
-    "الاثنين",
-
-    tuesday:
-    "الثلاثاء",
-
-    wednesday:
-    "الأربعاء",
-
-    thursday:
-    "الخميس"
+    sunday:"الأحد",
+    monday:"الاثنين",
+    tuesday:"الثلاثاء",
+    wednesday:"الأربعاء",
+    thursday:"الخميس"
 
 };
 
@@ -1288,9 +1591,9 @@ Object.keys(
 );
 
 
-/* ==============================
+/* =========================
    WEEK NAMES
-============================== */
+========================= */
 
 const weekNames = {
 
@@ -1316,14 +1619,144 @@ const weekNames = {
 };
 
 
-/* ==============================
-   LOAD PLANS
-============================== */
+/* =========================
+   ELEMENTS
+========================= */
+
+const weekSelect =
+document.getElementById(
+    "weekSelect"
+);
+
+const stageSelect =
+document.getElementById(
+    "stageSelect"
+);
+
+const gradeSelect =
+document.getElementById(
+    "gradeSelect"
+);
+
+const sectionSelect =
+document.getElementById(
+    "sectionSelect"
+);
+
+const status =
+document.getElementById(
+    "status"
+);
+
+const planArea =
+document.getElementById(
+    "planArea"
+);
+
+const planTitle =
+document.getElementById(
+    "planTitle"
+);
+
+const weekDate =
+document.getElementById(
+    "weekDate"
+);
+
+const valueText =
+document.getElementById(
+    "valueText"
+);
+
+const personalityText =
+document.getElementById(
+    "personalityText"
+);
+
+const weekRows =
+document.getElementById(
+    "weekRows"
+);
+
+const weekView =
+document.getElementById(
+    "weekView"
+);
+
+const dayView =
+document.getElementById(
+    "dayView"
+);
+
+const dayTitle =
+document.getElementById(
+    "dayTitle"
+);
+
+const dayCards =
+document.getElementById(
+    "dayCards"
+);
+
+const poster =
+document.getElementById(
+    "poster"
+);
+
+
+let plans = [];
+
+let currentPlan = null;
+
+
+/* =========================
+   EMPTY PLAN
+========================= */
+
+function createEmptyDay(){
+
+    const result = [];
+
+    for(let i=1;i<=8;i++){
+
+        result.push({
+
+            period:i,
+            subject:"",
+            topic:"",
+            homework:""
+
+        });
+
+    }
+
+    return result;
+
+}
+
+
+function createEmptyDays(){
+
+    return {
+
+        sunday:createEmptyDay(),
+        monday:createEmptyDay(),
+        tuesday:createEmptyDay(),
+        wednesday:createEmptyDay(),
+        thursday:createEmptyDay()
+
+    };
+
+}
+
+
+/* =========================
+   LOAD
+========================= */
 
 async function loadPlans(){
 
     try{
-
 
         showStatus(
             "جاري تحميل الخطط الأسبوعية...",
@@ -1342,35 +1775,26 @@ async function loadPlans(){
         );
 
 
-        plans =
-        [];
+        plans = [];
 
 
         snapshot.forEach(
             item=>{
 
-
-                const raw =
-                item.data();
-
-
                 plans.push({
 
-                    id:
-                    item.id,
+                    id:item.id,
 
-                    ...raw
+                    ...item.data()
 
                 });
-
 
             }
         );
 
 
         if(
-            plans.length ===
-            0
+            plans.length === 0
         ){
 
             showStatus(
@@ -1383,57 +1807,57 @@ async function loadPlans(){
         }
 
 
-        fillWeeks();
-
+        fillWeekSelect();
 
         hideStatus();
-
 
     }
 
     catch(error){
 
-
-        console.error(
-            error
-        );
+        console.error(error);
 
 
         showStatus(
-            "تعذر تحميل الخطط. تأكد من إعداد صلاحية القراءة في Firestore.",
+            "تعذر تحميل الخطط الأسبوعية.",
             "error"
         );
-
 
     }
 
 }
 
 
-/* ==============================
-   WEEK SELECT
-============================== */
+/* =========================
+   WEEKS
+========================= */
 
-function fillWeeks(){
+function fillWeekSelect(){
 
     const weeks =
-    uniqueSorted(
+    unique(
 
         plans
 
         .map(
-            plan =>
+            item =>
             Number(
-                plan.weekNumber
+                item.weekNumber
             )
         )
 
         .filter(
             week =>
+            Number.isFinite(
+                week
+            ) &&
             week >= 1 &&
             week <= 18
         )
 
+    )
+    .sort(
+        (a,b)=>a-b
     );
 
 
@@ -1444,18 +1868,13 @@ function fillWeeks(){
     weeks.forEach(
         week=>{
 
-
             const option =
             document.createElement(
                 "option"
             );
 
-
             option.value =
-            String(
-                week
-            );
-
+            week;
 
             option.textContent =
             "الأسبوع " +
@@ -1464,53 +1883,34 @@ function fillWeeks(){
                 week
             );
 
-
             weekSelect.appendChild(
                 option
             );
 
-
         }
     );
-
 
 }
 
 
-/* ==============================
-   CHANGE WEEK
-============================== */
+/* =========================
+   WEEK CHANGE
+========================= */
 
 weekSelect.addEventListener(
     "change",
     ()=>{
 
-
-        stageSelect.innerHTML =
-        `<option value="">اختر المرحلة</option>`;
-
-
-        gradeSelect.innerHTML =
-        `<option value="">اختر الصف</option>`;
-
-
-        sectionSelect.innerHTML =
-        `<option value="">اختر الشعبة</option>`;
-
-
-        hidePlan();
-
+        resetAfterWeek();
 
         if(
             !weekSelect.value
         ){
-
             return;
-
         }
 
 
-        const filtered =
+        const weekPlans =
         plans.filter(
             plan =>
             Number(
@@ -1523,47 +1923,43 @@ weekSelect.addEventListener(
 
 
         const stages =
-        uniqueSorted(
+        unique(
 
-            filtered
+            weekPlans
+
             .map(
                 plan =>
-                getPlanStage(
-                    plan
-                )
+                plan.stage || ""
             )
+
             .filter(Boolean)
 
         );
 
 
-        fillSelect(
+        fillSimpleSelect(
             stageSelect,
             stages,
             "اختر المرحلة"
         );
 
-
     }
 );
 
 
-/* ==============================
-   CHANGE STAGE
-============================== */
+/* =========================
+   STAGE CHANGE
+========================= */
 
 stageSelect.addEventListener(
     "change",
     ()=>{
 
-
         gradeSelect.innerHTML =
         `<option value="">اختر الصف</option>`;
 
-
         sectionSelect.innerHTML =
         `<option value="">اختر الشعبة</option>`;
-
 
         hidePlan();
 
@@ -1571,61 +1967,54 @@ stageSelect.addEventListener(
         if(
             !stageSelect.value
         ){
-
             return;
-
         }
 
 
         const filtered =
-        getSelectedWeekPlans()
+        getWeekPlans()
         .filter(
             plan =>
-            getPlanStage(
-                plan
-            ) ===
+            plan.stage ===
             stageSelect.value
         );
 
 
         const grades =
-        uniqueSorted(
+        unique(
 
             filtered
+
             .map(
                 plan =>
-                getPlanGrade(
-                    plan
-                )
+                plan.grade || ""
             )
+
             .filter(Boolean)
 
         );
 
 
-        fillSelect(
+        fillSimpleSelect(
             gradeSelect,
             grades,
             "اختر الصف"
         );
 
-
     }
 );
 
 
-/* ==============================
-   CHANGE GRADE
-============================== */
+/* =========================
+   GRADE CHANGE
+========================= */
 
 gradeSelect.addEventListener(
     "change",
     ()=>{
 
-
         sectionSelect.innerHTML =
         `<option value="">اختر الشعبة</option>`;
-
 
         hidePlan();
 
@@ -1633,66 +2022,58 @@ gradeSelect.addEventListener(
         if(
             !gradeSelect.value
         ){
-
             return;
-
         }
 
 
         const filtered =
-        getSelectedWeekPlans()
+        getWeekPlans()
 
         .filter(
             plan =>
-            getPlanStage(
-                plan
-            ) ===
+            plan.stage ===
             stageSelect.value
         )
 
         .filter(
             plan =>
-            getPlanGrade(
-                plan
-            ) ===
+            plan.grade ===
             gradeSelect.value
         );
 
 
         const sections =
-        uniqueSorted(
+        unique(
 
             filtered
+
             .map(
                 plan =>
-                getPlanSection(
-                    plan
-                )
+                plan.section || ""
             )
+
             .filter(Boolean)
 
         );
 
 
-        fillSelect(
+        fillSimpleSelect(
             sectionSelect,
             sections,
             "اختر الشعبة"
         );
 
-
     }
 );
 
 
-/* ==============================
-   CHANGE SECTION
-============================== */
+/* =========================
+   SECTION CHANGE
+========================= */
 
 sectionSelect.addEventListener(
     "change",
     ()=>{
-
 
         hidePlan();
 
@@ -1700,35 +2081,28 @@ sectionSelect.addEventListener(
         if(
             !sectionSelect.value
         ){
-
             return;
-
         }
 
 
         const found =
-        getSelectedWeekPlans()
+        getWeekPlans()
         .find(
             plan =>
 
-            getPlanStage(
-                plan
-            ) ===
+            plan.stage ===
             stageSelect.value
 
             &&
 
-            getPlanGrade(
-                plan
-            ) ===
+            plan.grade ===
             gradeSelect.value
 
             &&
 
-            getPlanSection(
-                plan
-            ) ===
+            plan.section ===
             sectionSelect.value
+
         );
 
 
@@ -1737,7 +2111,7 @@ sectionSelect.addEventListener(
         ){
 
             showStatus(
-                "لم يتم العثور على خطة محفوظة لهذا الفصل.",
+                "لا توجد خطة محفوظة لهذا الفصل في الأسبوع المختار.",
                 "error"
             );
 
@@ -1747,7 +2121,7 @@ sectionSelect.addEventListener(
 
 
         currentPlan =
-        normalizePlan(
+        normalizeSavedPlan(
             found
         );
 
@@ -1756,16 +2130,15 @@ sectionSelect.addEventListener(
             currentPlan
         );
 
-
     }
 );
 
 
-/* ==============================
-   SELECT HELPERS
-============================== */
+/* =========================
+   HELPERS SELECT
+========================= */
 
-function getSelectedWeekPlans(){
+function getWeekPlans(){
 
     return plans.filter(
         plan =>
@@ -1780,38 +2153,57 @@ function getSelectedWeekPlans(){
 }
 
 
-function fillSelect(
-    select,
+function resetAfterWeek(){
+
+    stageSelect.innerHTML =
+    `<option value="">اختر المرحلة</option>`;
+
+    gradeSelect.innerHTML =
+    `<option value="">اختر الصف</option>`;
+
+    sectionSelect.innerHTML =
+    `<option value="">اختر الشعبة</option>`;
+
+    hidePlan();
+
+}
+
+
+function fillSimpleSelect(
+    element,
     values,
     placeholder
 ){
 
-    select.innerHTML =
+    element.innerHTML =
     `<option value="">${placeholder}</option>`;
 
 
-    values.forEach(
+    values
+    .sort(
+        (a,b)=>
+        String(a).localeCompare(
+            String(b),
+            "ar"
+        )
+    )
+    .forEach(
         value=>{
-
 
             const option =
             document.createElement(
                 "option"
             );
 
-
             option.value =
             value;
-
 
             option.textContent =
             value;
 
-
-            select.appendChild(
+            element.appendChild(
                 option
             );
-
 
         }
     );
@@ -1819,172 +2211,60 @@ function fillSelect(
 }
 
 
-/* ==============================
-   PLAN FIELD HELPERS
-============================== */
+/* =========================
+   NORMALIZE
+========================= */
 
-function getPlanStage(
+function normalizeSavedPlan(
     plan
 ){
 
-    return (
-
-        plan.stage
-
-        ||
-
-        plan.classStage
-
-        ||
-
-        plan.classInfo?.stage
-
-        ||
-
-        ""
-
-    );
-
-}
-
-
-function getPlanGrade(
-    plan
-){
-
-    return (
-
-        plan.grade
-
-        ||
-
-        plan.classGrade
-
-        ||
-
-        plan.classInfo?.grade
-
-        ||
-
-        ""
-
-    );
-
-}
-
-
-function getPlanSection(
-    plan
-){
-
-    return (
-
-        plan.section
-
-        ||
-
-        plan.classSection
-
-        ||
-
-        plan.classInfo?.section
-
-        ||
-
-        ""
-
-    );
-
-}
-
-
-/* ==============================
-   NORMALIZE PLAN
-============================== */
-
-function normalizePlan(
-    source
-){
-
-    const normalizedDays =
-    {};
+    const normalized =
+    createEmptyDays();
 
 
     dayKeys.forEach(
         day=>{
 
-
-            let rows =
-            source.days?.[day];
-
-
-            if(
-                !Array.isArray(
-                    rows
-                )
-            ){
-
-                rows =
-                source[day];
-
-            }
-
-
-            if(
-                !Array.isArray(
-                    rows
-                )
-            ){
-
-                rows =
-                [];
-
-            }
-
-
-            normalizedDays[day] =
+            const sourceRows =
+            Array.isArray(
+                plan.days?.[day]
+            )
+            ?
+            plan.days[day]
+            :
             [];
 
 
             for(
-                let i = 0;
-                i < 8;
+                let i=0;
+                i<8;
                 i++
             ){
 
                 const row =
-                rows[i] ||
+                sourceRows[i] ||
                 {};
 
 
-                normalizedDays[day]
-                .push({
+                normalized[day][i] = {
 
-                    period:
-                    row.period ||
-                    i + 1,
-
+                    period:i+1,
 
                     subject:
-                    row.subject ||
-                    "",
-
+                    row.subject || "",
 
                     topic:
-                    row.topic ||
-                    row.lessonTopic ||
-                    "",
-
+                    row.topic || "",
 
                     homework:
                     oldHomeworkToText(
                         row
                     )
 
-                });
+                };
 
             }
-
 
         }
     );
@@ -1992,119 +2272,35 @@ function normalizePlan(
 
     return {
 
-        ...source,
-
-
-        stage:
-        getPlanStage(
-            source
-        ),
-
-
-        grade:
-        getPlanGrade(
-            source
-        ),
-
-
-        section:
-        getPlanSection(
-            source
-        ),
-
-
-        educationalValue:
-
-        source.educationalValue
-
-        ||
-
-        source.value
-
-        ||
-
-        source.weekValue
-
-        ||
-
-        "",
-
-
-        weekCharacter:
-
-        source.weekCharacter
-
-        ||
-
-        source.character
-
-        ||
-
-        source.characterOfWeek
-
-        ||
-
-        "",
-
-
-        startDate:
-
-        source.startDate
-
-        ||
-
-        source.weekStartDate
-
-        ||
-
-        "",
-
-
-        endDate:
-
-        source.endDate
-
-        ||
-
-        source.weekEndDate
-
-        ||
-
-        "",
-
+        ...plan,
 
         days:
-        normalizedDays
+        normalized
 
     };
 
 }
 
 
-/* ==============================
+/* =========================
    OLD HOMEWORK SUPPORT
-============================== */
+========================= */
 
 function oldHomeworkToText(
     row
 ){
 
+    if(!row){
+        return "";
+    }
+
+
     if(
-        row.homework !==
-        undefined
-
-        &&
-
-        row.homework !==
-        null
-
-        &&
-
+        row.homework !== undefined &&
+        row.homework !== null &&
         String(
             row.homework
-        )
-        .trim() !==
-        ""
+        ).trim() !== ""
     ){
 
         return String(
@@ -2114,8 +2310,7 @@ function oldHomeworkToText(
     }
 
 
-    const parts =
-    [];
+    const parts = [];
 
 
     if(
@@ -2187,9 +2382,9 @@ function oldHomeworkToText(
 }
 
 
-/* ==============================
-   RENDER PLAN
-============================== */
+/* =========================
+   RENDER MAIN PAGE
+========================= */
 
 function renderPlan(
     plan
@@ -2198,118 +2393,76 @@ function renderPlan(
     hideStatus();
 
 
-    planArea.classList.add(
+    planArea
+    .classList
+    .add(
         "show"
     );
 
 
-    classPlanTitle.textContent =
+    planTitle.textContent =
 
-    `الخطة الأسبوعية لـ ${plan.grade} (${plan.section})`;
-
-
-    let datesText =
-    `الأسبوع ${weekNames[plan.weekNumber] || plan.weekNumber}`;
+    `الخطة الأسبوعية لصف ${plan.grade} (${plan.section})`;
 
 
-    if(
-        plan.startDate ||
-        plan.endDate
-    ){
+    weekDate.textContent =
 
-        datesText +=
-        " — ";
-
-
-        if(
-            plan.startDate
-        ){
-
-            datesText +=
-            plan.startDate;
-
-        }
+    `الأسبوع ${
+        weekNames[
+            Number(
+                plan.weekNumber
+            )
+        ]
+        ||
+        plan.weekNumber
+    } — من ${formatDate(plan.startDate)} إلى ${formatDate(plan.endDate)}`;
 
 
-        if(
-            plan.startDate &&
-            plan.endDate
-        ){
-
-            datesText +=
-            " إلى ";
-
-        }
-
-
-        if(
-            plan.endDate
-        ){
-
-            datesText +=
-            plan.endDate;
-
-        }
-
-    }
-
-
-    planDates.textContent =
-    datesText;
-
-
-    educationalValue.textContent =
-
+    valueText.textContent =
     plan.educationalValue ||
     "-";
 
 
-    weekCharacter.textContent =
-
-    plan.weekCharacter ||
+    personalityText.textContent =
+    plan.weekPersonality ||
     "-";
 
 
-    renderFullWeek(
+    renderWeekTable(
         plan
     );
 
 
-    showWeekView();
+    showFullWeek();
 
 
     planArea.scrollIntoView({
 
-        behavior:
-        "smooth",
-
-        block:
-        "start"
+        behavior:"smooth",
+        block:"start"
 
     });
 
 }
 
 
-/* ==============================
-   FULL WEEK
-============================== */
+/* =========================
+   WEEK TABLE
+========================= */
 
-function renderFullWeek(
+function renderWeekTable(
     plan
 ){
 
-    weekTableBody.innerHTML =
+    weekRows.innerHTML =
     "";
 
 
     dayKeys.forEach(
         day=>{
 
-
             const rows =
-            plan.days[day] ||
-            [];
+            plan.days[day];
 
 
             rows.forEach(
@@ -2318,45 +2471,39 @@ function renderFullWeek(
                     index
                 )=>{
 
-
                     const tr =
                     document.createElement(
                         "tr"
                     );
 
 
-                    let dayCell =
-                    "";
-
-
-                    if(
-                        index ===
-                        0
-                    ){
-
-                        dayCell = `
-
-                        <td
-                        rowspan="8"
-                        class="day-cell">
-
-                            ${days[day]}
-
-                        </td>
-
-                        `;
-
-                    }
+                    const first =
+                    index ===
+                    0;
 
 
                     tr.innerHTML = `
 
-                        ${dayCell}
+                        ${
+                            first
+                            ?
+
+                            `<td
+                            rowspan="8"
+                            class="day-cell">
+
+                                ${days[day]}
+
+                            </td>`
+
+                            :
+                            ""
+                        }
 
 
                         <td class="period-cell">
 
-                            ${row.period || index + 1}
+                            ${index+1}
 
                         </td>
 
@@ -2390,14 +2537,12 @@ function renderFullWeek(
                     `;
 
 
-                    weekTableBody.appendChild(
+                    weekRows.appendChild(
                         tr
                     );
 
-
                 }
             );
-
 
         }
     );
@@ -2405,29 +2550,22 @@ function renderFullWeek(
 }
 
 
-/* ==============================
-   DAY VIEW
-============================== */
+/* =========================
+   SINGLE DAY
+========================= */
 
-function renderDay(
+function renderSingleDay(
     day
 ){
 
     if(
         !currentPlan
     ){
-
         return;
-
     }
 
 
-    const rows =
-    currentPlan.days[day] ||
-    [];
-
-
-    dayHeading.textContent =
+    dayTitle.textContent =
     `خطة يوم ${days[day]}`;
 
 
@@ -2435,12 +2573,12 @@ function renderDay(
     "";
 
 
-    rows.forEach(
+    currentPlan.days[day]
+    .forEach(
         (
             row,
             index
         )=>{
-
 
             const card =
             document.createElement(
@@ -2455,66 +2593,66 @@ function renderDay(
             card.innerHTML = `
 
 
-            <div class="lesson-top">
+                <div class="lesson-head">
 
 
-                <div class="lesson-number">
+                    <div class="lesson-period">
 
-                    الحصة ${row.period || index + 1}
+                        الحصة ${index+1}
 
-                </div>
-
-
-                <div class="lesson-subject">
-
-                    ${displayText(
-                        row.subject
-                    )}
-
-                </div>
+                    </div>
 
 
-            </div>
-
-
-            <div class="lesson-content">
-
-
-                <div class="lesson-section">
-
-                    <span>
-                        موضوع الدرس
-                    </span>
-
-                    <strong>
+                    <div class="lesson-subject">
 
                         ${displayText(
-                            row.topic
+                            row.subject
                         )}
 
-                    </strong>
+                    </div>
+
 
                 </div>
 
 
-                <div class="lesson-section">
+                <div class="lesson-body">
 
-                    <span>
-                        الواجب
-                    </span>
 
-                    <strong>
+                    <div class="lesson-part">
 
-                        ${displayText(
-                            row.homework
-                        )}
+                        <span>
+                            موضوع الدرس
+                        </span>
 
-                    </strong>
+                        <strong>
+
+                            ${displayText(
+                                row.topic
+                            )}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="lesson-part">
+
+                        <span>
+                            الواجب
+                        </span>
+
+                        <strong>
+
+                            ${displayText(
+                                row.homework
+                            )}
+
+                        </strong>
+
+                    </div>
+
 
                 </div>
-
-
-            </div>
 
             `;
 
@@ -2522,7 +2660,6 @@ function renderDay(
             dayCards.appendChild(
                 card
             );
-
 
         }
     );
@@ -2539,9 +2676,9 @@ function renderDay(
 }
 
 
-/* ==============================
+/* =========================
    VIEW BUTTONS
-============================== */
+========================= */
 
 document
 .querySelectorAll(
@@ -2550,18 +2687,16 @@ document
 .forEach(
     button=>{
 
-
         button.addEventListener(
             "click",
             ()=>{
-
 
                 document
                 .querySelectorAll(
                     ".view-btn"
                 )
                 .forEach(
-                    item =>
+                    item=>
                     item.classList.remove(
                         "active"
                     )
@@ -2578,37 +2713,31 @@ document
                     "week"
                 ){
 
-                    showWeekView();
+                    showFullWeek();
 
                     return;
 
                 }
 
 
-                const day =
-                button.dataset.day;
-
-
                 if(
-                    day
+                    button.dataset.day
                 ){
 
-                    renderDay(
-                        day
+                    renderSingleDay(
+                        button.dataset.day
                     );
 
                 }
 
-
             }
         );
-
 
     }
 );
 
 
-function showWeekView(){
+function showFullWeek(){
 
     weekView.style.display =
     "block";
@@ -2624,7 +2753,7 @@ function showWeekView(){
         ".view-btn"
     )
     .forEach(
-        item =>
+        item=>
         item.classList.remove(
             "active"
         )
@@ -2641,7 +2770,9 @@ function showWeekView(){
         weekButton
     ){
 
-        weekButton.classList.add(
+        weekButton
+        .classList
+        .add(
             "active"
         );
 
@@ -2650,184 +2781,1161 @@ function showWeekView(){
 }
 
 
-/* ==============================
-   PRINT
-============================== */
+/* =========================
+   BUILD OFFICIAL POSTER
+   مطابق لصفحة المعلم
+========================= */
 
-printBtn.addEventListener(
-    "click",
-    ()=>{
+function buildPoster(
+    plan
+){
 
-        window.print();
+    let rowsHTML =
+    "";
+
+
+    dayKeys.forEach(
+        day=>{
+
+            const rows =
+            plan.days?.[day] ||
+            createEmptyDay();
+
+
+            rows.forEach(
+                (
+                    row,
+                    index
+                )=>{
+
+                    const first =
+                    index ===
+                    0;
+
+
+                    rowsHTML += `
+
+                        <tr
+                        class="${first ? "day-start" : ""}">
+
+
+                            ${
+                                first
+                                ?
+
+                                `
+
+                                <td
+                                rowspan="8"
+                                class="day-cell">
+
+                                    <span class="day-vertical">
+
+                                        ${days[day]}
+
+                                    </span>
+
+                                </td>
+
+                                `
+
+                                :
+                                ""
+                            }
+
+
+                            <td class="period-cell">
+
+                                ${index+1}
+
+                            </td>
+
+
+                            <td class="subject-cell">
+
+                                ${safeDisplay(
+                                    row.subject
+                                )}
+
+                            </td>
+
+
+                            <td class="topic-cell">
+
+                                ${safeDisplay(
+                                    row.topic
+                                )}
+
+                            </td>
+
+
+                            <td class="homework-cell">
+
+                                ${safeDisplay(
+                                    row.homework
+                                )}
+
+                            </td>
+
+
+                        </tr>
+
+                    `;
+
+                }
+            );
+
+        }
+    );
+
+
+    poster.innerHTML = `
+
+
+        <div class="poster-header">
+
+
+            <div class="school-logo">
+
+                <img
+                src="logo.jpeg"
+                alt="شعار مدارس الفلاح">
+
+            </div>
+
+
+            <div class="poster-government">
+
+                <div>
+                    المملكة العربية السعودية
+                </div>
+
+                <div>
+                    وزارة التعليم
+                </div>
+
+                <div>
+                    الإدارة العامة للتعليم بالمنطقة الشرقية
+                </div>
+
+                <div>
+                    مدارس الفلاح الأهلية
+                </div>
+
+            </div>
+
+
+            <div
+            class="header-spacer"
+            aria-hidden="true">
+            </div>
+
+
+        </div>
+
+
+        <div class="poster-class-title">
+
+            الخطة الأسبوعية لصف
+
+            ${escapeHTML(
+                plan.grade || ""
+            )}
+
+            (${escapeHTML(
+                plan.section || ""
+            )})
+
+        </div>
+
+
+        <div class="vision-message">
+
+
+            <div class="vm-box">
+
+                <div class="vm-title">
+                    الرؤية
+                </div>
+
+                <div class="vm-text">
+
+                    الريادة في إعداد المتعلم المتميز
+                    المعتز بقيمه والمؤهل لمستقبله.
+
+                </div>
+
+            </div>
+
+
+            <div class="vm-box">
+
+                <div class="vm-title">
+                    الرسالة
+                </div>
+
+                <div class="vm-text">
+
+                    نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة،
+                    ترسخ القيم، وتبني المعرفة، وتطور المهارات،
+                    وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="poster-weekline">
+
+
+            <span>
+
+                الأسبوع:
+                ${escapeHTML(
+                    plan.weekNumber
+                )}
+
+            </span>
+
+
+            <span>
+
+                من تاريخ:
+                ${formatDate(
+                    plan.startDate
+                )}
+
+            </span>
+
+
+            <span>
+
+                إلى تاريخ:
+                ${formatDate(
+                    plan.endDate
+                )}
+
+            </span>
+
+
+        </div>
+
+
+        <div class="poster-special">
+
+
+            <div class="special-box">
+
+                <strong>
+                    القيمة التربوية:
+                </strong>
+
+                ${safeDisplay(
+                    plan.educationalValue
+                )}
+
+            </div>
+
+
+            <div class="special-box">
+
+                <strong>
+                    شخصية الأسبوع:
+                </strong>
+
+                ${safeDisplay(
+                    plan.weekPersonality
+                )}
+
+            </div>
+
+
+        </div>
+
+
+        <table class="poster-table">
+
+
+            <colgroup>
+
+                <col style="width:5%">
+
+                <col style="width:6%">
+
+                <col style="width:10%">
+
+                <col style="width:53%">
+
+                <col style="width:25%">
+
+            </colgroup>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>اليوم</th>
+
+                    <th>الحصة</th>
+
+                    <th>المادة</th>
+
+                    <th>موضوع الدرس</th>
+
+                    <th>الواجب</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                ${rowsHTML}
+
+            </tbody>
+
+
+        </table>
+
+
+        <div class="poster-signatures">
+
+
+            <div class="signature">
+
+                <div class="signature-title">
+
+                    رائد الصف
+
+                </div>
+
+
+                <div class="signature-name">
+
+                    ${escapeHTML(
+                        plan.leaderName || ""
+                    )}
+
+                </div>
+
+
+                <div class="signature-line">
+                </div>
+
+            </div>
+
+
+            <div class="signature">
+
+                <div class="signature-title">
+
+                    مدير المدرسة
+
+                </div>
+
+
+                <div class="signature-name">
+
+                    ${escapeHTML(
+                        plan.principalName || ""
+                    )}
+
+                </div>
+
+
+                <div class="signature-line">
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="poster-credit">
+
+            تصميم محمد عامر أحمد
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================
+   WAIT FONT
+========================= */
+
+async function preparePoster(
+    plan
+){
+
+    buildPoster(
+        plan
+    );
+
+
+    if(
+        document.fonts &&
+        document.fonts.ready
+    ){
+
+        await document.fonts.ready;
 
     }
-);
 
 
-/* ==============================
-   COPY LINK
-============================== */
+    try{
 
-copyLinkBtn.addEventListener(
-    "click",
+        await document.fonts.load(
+            '500 16px "Tajawal"'
+        );
+
+        await document.fonts.load(
+            '700 16px "Tajawal"'
+        );
+
+        await document.fonts.load(
+            '800 16px "Tajawal"'
+        );
+
+    }
+
+    catch(error){
+
+        console.warn(error);
+
+    }
+
+
+    await waitForImages(
+        poster
+    );
+
+
+    await new Promise(
+        resolve=>
+
+        requestAnimationFrame(
+            ()=>
+
+            requestAnimationFrame(
+                resolve
+            )
+        )
+    );
+
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+async function posterToBlob(
+    plan
+){
+
+    await preparePoster(
+        plan
+    );
+
+
+    const canvas =
+    await html2canvas(
+
+        poster,
+
+        {
+
+            scale:3,
+
+            backgroundColor:
+            "#fffefb",
+
+            useCORS:true,
+
+            allowTaint:false,
+
+            logging:false,
+
+            imageTimeout:15000,
+
+            removeContainer:true
+
+        }
+
+    );
+
+
+    return await new Promise(
+        resolve=>{
+
+            canvas.toBlob(
+
+                blob=>
+                resolve(
+                    blob
+                ),
+
+                "image/png",
+
+                1
+
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   DOWNLOAD IMAGE
+========================= */
+
+async function downloadOfficialImage(){
+
+    if(
+        !currentPlan
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        const blob =
+        await posterToBlob(
+            currentPlan
+        );
+
+
+        if(
+            !blob
+        ){
+
+            throw new Error(
+                "تعذر إنشاء الصورة"
+            );
+
+        }
+
+
+        const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+        const link =
+        document.createElement(
+            "a"
+        );
+
+
+        link.href =
+        url;
+
+
+        link.download =
+
+        `الخطة_الأسبوعية_${currentPlan.grade}_${currentPlan.section}_الأسبوع_${currentPlan.weekNumber}.png`;
+
+
+        document.body
+        .appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        setTimeout(
+            ()=>{
+
+                URL.revokeObjectURL(
+                    url
+                );
+
+            },
+            1500
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+
+        alert(
+            "تعذر إنشاء صورة الخطة."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   PDF / PRINT OFFICIAL
+========================= */
+
+async function exportOfficialPDF(){
+
+    if(
+        !currentPlan
+    ){
+
+        return;
+
+    }
+
+
+    await preparePoster(
+        currentPlan
+    );
+
+
+    const printWindow =
+    window.open(
+        "",
+        "_blank"
+    );
+
+
+    if(
+        !printWindow
+    ){
+
+        alert(
+            "المتصفح منع نافذة الطباعة. اسمح بالنوافذ المنبثقة ثم حاول مرة أخرى."
+        );
+
+        return;
+
+    }
+
+
+    const posterClone =
+    poster.cloneNode(
+        true
+    );
+
+
+    posterClone
+    .querySelectorAll(
+        "img"
+    )
+    .forEach(
+        img=>{
+
+            const src =
+            img.getAttribute(
+                "src"
+            );
+
+
+            if(
+                src
+            ){
+
+                img.src =
+                new URL(
+                    src,
+                    window.location.href
+                ).href;
+
+            }
+
+        }
+    );
+
+
+    const pageStyles =
+
+    Array.from(
+        document.querySelectorAll(
+            "style"
+        )
+    )
+
+    .map(
+        style =>
+        style.outerHTML
+    )
+
+    .join(
+        "\n"
+    );
+
+
+    printWindow.document.write(`
+
+        <!DOCTYPE html>
+
+        <html lang="ar" dir="rtl">
+
+        <head>
+
+            <meta charset="UTF-8">
+
+            <title>
+
+                الخطة الأسبوعية - الأسبوع ${currentPlan.weekNumber}
+
+            </title>
+
+
+            <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com">
+
+
+            <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin>
+
+
+            <link
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+
+
+            ${pageStyles}
+
+
+            <style>
+
+                @page{
+
+                    size:A4 portrait;
+
+                    margin:0;
+
+                }
+
+
+                html,
+                body{
+
+                    margin:0 !important;
+
+                    padding:0 !important;
+
+                    width:210mm;
+
+                    height:297mm;
+
+                    background:white !important;
+
+                    overflow:hidden;
+
+                    font-family:
+                    "Tajawal",
+                    Tahoma,
+                    Arial,
+                    sans-serif !important;
+
+                }
+
+
+                .pdf-page{
+
+                    position:relative;
+
+                    width:210mm;
+
+                    height:297mm;
+
+                    overflow:hidden;
+
+                    background:white;
+
+                }
+
+
+                #poster{
+
+                    position:absolute;
+
+                    top:0;
+
+                    left:0;
+
+                    width:1240px !important;
+
+                    min-height:1754px !important;
+
+                    transform:scale(0.64);
+
+                    transform-origin:top left;
+
+                    margin:0 !important;
+
+                    box-shadow:none !important;
+
+                }
+
+
+                #poster *{
+
+                    font-family:
+                    "Tajawal",
+                    Tahoma,
+                    Arial,
+                    sans-serif !important;
+
+                }
+
+
+                @media print{
+
+                    html,
+                    body{
+
+                        margin:0 !important;
+
+                        padding:0 !important;
+
+                    }
+
+
+                    #poster{
+
+                        -webkit-print-color-adjust:
+                        exact !important;
+
+                        print-color-adjust:
+                        exact !important;
+
+                    }
+
+                }
+
+            </style>
+
+        </head>
+
+
+        <body>
+
+
+            <div class="pdf-page">
+
+                ${posterClone.outerHTML}
+
+            </div>
+
+
+        </body>
+
+        </html>
+
+    `);
+
+
+    printWindow.document.close();
+
+
+    printWindow.onload =
     async()=>{
 
 
         try{
 
+            if(
+                printWindow.document.fonts &&
+                printWindow.document.fonts.ready
+            ){
 
-            await navigator.clipboard.writeText(
-                window.location.href
-            );
+                await printWindow
+                .document
+                .fonts
+                .ready;
 
-
-            copyLinkBtn.textContent =
-            "تم نسخ الرابط ✓";
-
-
-            setTimeout(
-                ()=>{
-
-
-                    copyLinkBtn.textContent =
-                    "نسخ رابط الصفحة";
-
-
-                },
-                1800
-            );
-
+            }
 
         }
 
-        catch{
+        catch(error){
 
-
-            alert(
-                "تعذر نسخ الرابط تلقائيًا."
+            console.warn(
+                error
             );
-
 
         }
 
 
-    }
+        setTimeout(
+            ()=>{
+
+                printWindow.focus();
+
+                printWindow.print();
+
+            },
+            700
+        );
+
+    };
+
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+document
+.getElementById(
+    "printOfficialBtn"
+)
+.addEventListener(
+    "click",
+    exportOfficialPDF
 );
 
 
-/* ==============================
-   UTILITIES
-============================== */
+document
+.getElementById(
+    "pdfOfficialBtn"
+)
+.addEventListener(
+    "click",
+    exportOfficialPDF
+);
+
+
+document
+.getElementById(
+    "downloadOfficialBtn"
+)
+.addEventListener(
+    "click",
+    downloadOfficialImage
+);
+
+
+/* =========================
+   IMAGES
+========================= */
+
+function waitForImages(
+    element
+){
+
+    const images =
+    [
+        ...element
+        .querySelectorAll(
+            "img"
+        )
+    ];
+
+
+    return Promise.all(
+
+        images.map(
+            img=>{
+
+                if(
+                    img.complete &&
+                    img.naturalWidth > 0
+                ){
+
+                    return Promise.resolve();
+
+                }
+
+
+                return new Promise(
+                    resolve=>{
+
+                        img.onload =
+                        resolve;
+
+                        img.onerror =
+                        resolve;
+
+                    }
+                );
+
+            }
+        )
+
+    );
+
+}
+
+
+/* =========================
+   DISPLAY
+========================= */
 
 function displayText(
     value
 ){
 
-    const text =
-    String(
-        value ||
-        ""
-    ).trim();
-
-
     if(
-        !text
+        value === null ||
+        value === undefined ||
+        String(
+            value
+        ).trim() ===
+        ""
     ){
 
-        return `
-        <span class="empty-text">
-        -
-        </span>
-        `;
+        return "-";
 
     }
 
 
     return escapeHTML(
-        text
+        value
     );
 
 }
 
 
-function uniqueSorted(
-    array
+function safeDisplay(
+    value
 ){
 
-    return [
-        ...new Set(
-            array
-        )
-    ].sort(
-        (
-            a,
-            b
-        )=>{
+    if(
+        value === null ||
+        value === undefined ||
+        String(
+            value
+        ).trim() ===
+        ""
+    ){
+
+        return "";
+
+    }
 
 
-            if(
-                typeof a ===
-                "number" &&
-                typeof b ===
-                "number"
-            ){
-
-                return a - b;
-
-            }
-
-
-            return String(a)
-            .localeCompare(
-                String(b),
-                "ar"
-            );
-
-
-        }
+    return escapeHTML(
+        value
     );
 
 }
 
+
+/* =========================
+   DATE
+========================= */
+
+function formatDate(
+    value
+){
+
+    if(
+        !value
+    ){
+
+        return "-";
+
+    }
+
+
+    try{
+
+        const parts =
+        String(
+            value
+        ).split(
+            "-"
+        );
+
+
+        if(
+            parts.length ===
+            3
+        ){
+
+            return (
+
+                parts[2]
+                +
+                "/"
+                +
+                parts[1]
+                +
+                "/"
+                +
+                parts[0]
+
+            );
+
+        }
+
+
+        return value;
+
+    }
+
+    catch{
+
+        return value;
+
+    }
+
+}
+
+
+/* =========================
+   STATUS
+========================= */
 
 function showStatus(
     text,
     type
 ){
 
-    statusMessage.textContent =
+    status.textContent =
     text;
 
 
-    statusMessage.className =
-    "status-message show " +
-    (
-        type ===
-        "error"
-        ?
-        "status-error"
-        :
-        "status-info"
-    );
+    status.className =
+    "status show " +
+    type;
 
 }
 
 
 function hideStatus(){
 
-    statusMessage.className =
-    "status-message";
-
-
-    statusMessage.textContent =
+    status.textContent =
     "";
+
+
+    status.className =
+    "status";
 
 }
 
 
 function hidePlan(){
 
-    planArea.classList.remove(
+    planArea
+    .classList
+    .remove(
         "show"
     );
 
@@ -2838,12 +3946,29 @@ function hidePlan(){
 }
 
 
+/* =========================
+   UTIL
+========================= */
+
+function unique(
+    array
+){
+
+    return [
+        ...new Set(
+            array
+        )
+    ];
+
+}
+
+
 function escapeHTML(
     value
 ){
 
     return String(
-        value ||
+        value ??
         ""
     )
 
@@ -2875,14 +4000,16 @@ function escapeHTML(
 }
 
 
-/* ==============================
+/* =========================
    START
-============================== */
+========================= */
 
 loadPlans();
 
 
 </script>
 
+
 </body>
+
 </html>
