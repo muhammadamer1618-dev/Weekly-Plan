@@ -52,11 +52,6 @@ body{
     font-weight:500;
 }
 
-
-/* =========================
-   TOP BAR
-========================= */
-
 .topbar{
     min-height:86px;
     padding:11px 30px;
@@ -115,11 +110,6 @@ body{
     cursor:pointer;
     font-weight:700;
 }
-
-
-/* =========================
-   GENERAL
-========================= */
 
 .container{
     width:min(1350px,95%);
@@ -192,11 +182,6 @@ body{
     font-weight:800;
 }
 
-
-/* =========================
-   FORM
-========================= */
-
 .week-fields{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -237,11 +222,6 @@ select:focus{
     border-color:var(--gold);
     box-shadow:0 0 0 3px rgba(185,150,72,.13);
 }
-
-
-/* =========================
-   DAYS
-========================= */
 
 .days-tabs{
     display:flex;
@@ -289,11 +269,6 @@ select:focus{
     color:#91722f;
 }
 
-
-/* =========================
-   INPUT TABLE
-========================= */
-
 .table-wrap{
     overflow:auto;
 }
@@ -321,21 +296,10 @@ select:focus{
     vertical-align:middle;
 }
 
-.input-table .input-period{
-    width:6%;
-}
-
-.input-table .input-subject{
-    width:10%;
-}
-
-.input-table .input-topic{
-    width:55%;
-}
-
-.input-table .input-homework{
-    width:29%;
-}
+.input-table .input-period{width:6%;}
+.input-table .input-subject{width:10%;}
+.input-table .input-topic{width:55%;}
+.input-table .input-homework{width:29%;}
 
 .input-table .period{
     background:#fbf9f1;
@@ -350,11 +314,6 @@ select:focus{
     padding:10px;
     font-size:14px;
 }
-
-
-/* =========================
-   BUTTONS
-========================= */
 
 .actions{
     display:flex;
@@ -384,20 +343,17 @@ select:focus{
     font-size:12px;
 }
 
-.save-btn,
-.open-btn{
+.save-btn,.open-btn{
     background:var(--green-dark);
     color:white;
 }
 
-.preview-btn,
-.view-btn{
+.preview-btn,.view-btn{
     background:var(--gold);
     color:#173e32;
 }
 
-.image-btn,
-.download-btn{
+.image-btn,.download-btn{
     background:var(--blue);
     color:white;
 }
@@ -407,8 +363,7 @@ select:focus{
     color:white;
 }
 
-.share-btn,
-.send-btn{
+.share-btn,.send-btn{
     background:var(--share);
     color:white;
 }
@@ -445,11 +400,6 @@ select:focus{
     color:#a11f1f;
 }
 
-
-/* =========================
-   HISTORY
-========================= */
-
 .history-body{
     padding:22px;
 }
@@ -480,11 +430,6 @@ select:focus{
     padding:35px;
     color:#777;
 }
-
-
-/* =========================
-   MODAL
-========================= */
 
 .modal{
     position:fixed;
@@ -544,11 +489,6 @@ select:focus{
     display:flex;
     justify-content:center;
 }
-
-
-/* =========================
-   POSTER
-========================= */
 
 #poster{
     width:1240px;
@@ -819,11 +759,6 @@ select:focus{
     color:#315b49;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer{
     text-align:center;
     padding:28px;
@@ -837,11 +772,6 @@ footer strong{
     font-size:15px;
     font-weight:800;
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:800px){
 
@@ -870,7 +800,6 @@ footer strong{
     .modal-content{
         justify-content:flex-start;
     }
-
 }
 
 </style>
@@ -879,46 +808,27 @@ footer strong{
 
 <body>
 
-
 <header class="topbar">
 
 <div class="brand">
 
-<img
-src="logo.jpeg"
-alt="شعار مدارس الفلاح">
+<img src="logo.jpeg" alt="شعار مدارس الفلاح">
 
 <div>
-
-<h1>
-مدارس الفلاح الأهلية
-</h1>
-
-<p>
-نظام الخطة الأسبوعية
-</p>
-
+<h1>مدارس الفلاح الأهلية</h1>
+<p>نظام الخطة الأسبوعية</p>
 </div>
 
 </div>
-
 
 <div class="user-area">
 
-<div
-id="userName"
-class="user-name">
-
+<div id="userName" class="user-name">
 رائد الصف
-
 </div>
 
-<button
-id="logoutBtn"
-class="logout-btn">
-
+<button id="logoutBtn" class="logout-btn">
 تسجيل الخروج
-
 </button>
 
 </div>
@@ -928,65 +838,41 @@ class="logout-btn">
 
 <main class="container">
 
-
 <section class="welcome">
 
 <h2>
-
 مرحبًا،
-<span id="leaderName">
-...
-</span>
-
+<span id="leaderName">...</span>
 </h2>
 
 <p>
 يمكنك إعداد وحفظ وإرسال الخطة الأسبوعية للفصل.
 </p>
 
-
 <div class="class-info">
 
 <div class="info-badge">
-
 المرحلة:
-
-<span id="stageText">
--
-</span>
-
+<span id="stageText">-</span>
 </div>
 
 <div class="info-badge">
-
 الصف:
-
-<span id="gradeText">
--
-</span>
-
+<span id="gradeText">-</span>
 </div>
 
 <div class="info-badge">
-
 الشعبة:
-
-<span id="sectionText">
--
-</span>
-
+<span id="sectionText">-</span>
 </div>
 
 </div>
-
 
 <div class="schedule-note">
 
-<strong>جدول المواد ثابت للفصل:</strong>
+<strong>جدول المواد:</strong>
 
-بعد حفظ المواد لأول مرة سيستخدمها النظام تلقائيًا
-في جميع الأسابيع الجديدة، بينما تظل موضوعات الدروس
-والواجبات فارغة لكل أسبوع.
+عند اختيار أسبوع جديد سيقوم النظام تلقائيًا بأخذ أسماء المواد من أقرب أسبوع سابق محفوظ، بينما تبدأ موضوعات الدروس والواجبات فارغة.
 
 </div>
 
@@ -999,19 +885,15 @@ class="logout-btn">
 بيانات الخطة الأسبوعية
 </div>
 
-
 <div class="week-fields">
 
 <div class="form-group">
 
-<label>
-رقم الأسبوع
-</label>
+<label>رقم الأسبوع</label>
 
 <select id="weekNumber">
 
 <option value="">اختر الأسبوع</option>
-
 <option value="1">الأسبوع الأول</option>
 <option value="2">الأسبوع الثاني</option>
 <option value="3">الأسبوع الثالث</option>
@@ -1035,30 +917,14 @@ class="logout-btn">
 
 </div>
 
-
 <div class="form-group">
-
-<label>
-من تاريخ
-</label>
-
-<input
-type="date"
-id="startDate">
-
+<label>من تاريخ</label>
+<input type="date" id="startDate">
 </div>
 
-
 <div class="form-group">
-
-<label>
-إلى تاريخ
-</label>
-
-<input
-type="date"
-id="endDate">
-
+<label>إلى تاريخ</label>
+<input type="date" id="endDate">
 </div>
 
 </div>
@@ -1067,44 +933,18 @@ id="endDate">
 <div class="extra-fields">
 
 <div class="form-group">
-
-<label>
-القيمة التربوية
-</label>
-
-<input
-type="text"
-id="educationalValue"
-placeholder="مثال: الصبر">
-
+<label>القيمة التربوية</label>
+<input type="text" id="educationalValue" placeholder="مثال: الصبر">
 </div>
 
-
 <div class="form-group">
-
-<label>
-شخصية الأسبوع
-</label>
-
-<input
-type="text"
-id="weekPersonality"
-placeholder="اكتب شخصية الأسبوع">
-
+<label>شخصية الأسبوع</label>
+<input type="text" id="weekPersonality" placeholder="اكتب شخصية الأسبوع">
 </div>
 
-
 <div class="form-group">
-
-<label>
-اسم مدير المدرسة
-</label>
-
-<input
-type="text"
-id="principalName"
-placeholder="اكتب اسم مدير المدرسة">
-
+<label>اسم مدير المدرسة</label>
+<input type="text" id="principalName" placeholder="اكتب اسم مدير المدرسة">
 </div>
 
 </div>
@@ -1114,25 +954,11 @@ placeholder="اكتب اسم مدير المدرسة">
 
 <div class="days-tabs">
 
-<button class="day-btn active" data-day="sunday">
-الأحد
-</button>
-
-<button class="day-btn" data-day="monday">
-الاثنين
-</button>
-
-<button class="day-btn" data-day="tuesday">
-الثلاثاء
-</button>
-
-<button class="day-btn" data-day="wednesday">
-الأربعاء
-</button>
-
-<button class="day-btn" data-day="thursday">
-الخميس
-</button>
+<button class="day-btn active" data-day="sunday">الأحد</button>
+<button class="day-btn" data-day="monday">الاثنين</button>
+<button class="day-btn" data-day="tuesday">الثلاثاء</button>
+<button class="day-btn" data-day="wednesday">الأربعاء</button>
+<button class="day-btn" data-day="thursday">الخميس</button>
 
 </div>
 
@@ -1141,99 +967,69 @@ placeholder="اكتب اسم مدير المدرسة">
 
 <div class="plan-top">
 
-<h3>
-إدخال الخطة
-</h3>
+<h3>إدخال الخطة</h3>
 
-<div
-id="currentDayLabel"
-class="day-label">
-
+<div id="currentDayLabel" class="day-label">
 الأحد
-
 </div>
 
 </div>
-
 
 <div class="table-wrap">
 
 <table class="input-table">
 
 <colgroup>
-
 <col class="input-period">
 <col class="input-subject">
 <col class="input-topic">
 <col class="input-homework">
-
 </colgroup>
 
 <thead>
-
 <tr>
-
 <th>الحصة</th>
 <th>المادة</th>
 <th>موضوع الدرس</th>
 <th>الواجب</th>
-
 </tr>
-
 </thead>
 
-<tbody id="planRows">
-</tbody>
+<tbody id="planRows"></tbody>
 
 </table>
 
 </div>
 
-
 <div class="actions">
 
-<button
-class="action-btn save-btn"
-id="saveBtn">
+<button class="action-btn save-btn" id="saveBtn">
 حفظ الخطة
 </button>
 
-<button
-class="action-btn preview-btn"
-id="previewBtn">
+<button class="action-btn preview-btn" id="previewBtn">
 معاينة النموذج
 </button>
 
-<button
-class="action-btn image-btn"
-id="downloadCurrentBtn">
+<button class="action-btn image-btn" id="downloadCurrentBtn">
 تحميل صورة عالية الجودة
 </button>
 
-<button
-class="action-btn pdf-btn"
-id="pdfCurrentBtn">
+<button class="action-btn pdf-btn" id="pdfCurrentBtn">
 تصدير PDF
 </button>
 
-<button
-class="action-btn share-btn"
-id="shareCurrentBtn">
+<button class="action-btn share-btn" id="shareCurrentBtn">
 إرسال الصورة
 </button>
 
-<button
-class="action-btn clear-btn"
-id="clearDayBtn">
+<button class="action-btn clear-btn" id="clearDayBtn">
 مسح محتوى اليوم
 </button>
 
 </div>
 
-<div
-id="message"
-class="message">
-</div>
+<div id="message" class="message"></div>
 
 </section>
 
@@ -1253,14 +1049,12 @@ class="message">
 <thead>
 
 <tr>
-
 <th>الأسبوع</th>
 <th>من تاريخ</th>
 <th>إلى تاريخ</th>
 <th>القيمة التربوية</th>
 <th>شخصية الأسبوع</th>
 <th>الإجراءات</th>
-
 </tr>
 
 </thead>
@@ -1268,15 +1062,9 @@ class="message">
 <tbody id="historyTable">
 
 <tr>
-
-<td
-colspan="6"
-class="empty-history">
-
+<td colspan="6" class="empty-history">
 جاري تحميل سجل الخطط...
-
 </td>
-
 </tr>
 
 </tbody>
@@ -1292,9 +1080,7 @@ class="empty-history">
 </main>
 
 
-<div
-class="modal"
-id="previewModal">
+<div class="modal" id="previewModal">
 
 <div class="modal-box">
 
@@ -1304,35 +1090,19 @@ id="previewModal">
 معاينة الخطة الأسبوعية
 </strong>
 
-
 <div class="modal-controls">
 
-<button id="modalDownload">
-تحميل صورة
-</button>
-
-<button id="modalPDF">
-تصدير PDF
-</button>
-
-<button id="modalShare">
-إرسال الصورة
-</button>
-
-<button id="closePreview">
-إغلاق
-</button>
+<button id="modalDownload">تحميل صورة</button>
+<button id="modalPDF">تصدير PDF</button>
+<button id="modalShare">إرسال الصورة</button>
+<button id="closePreview">إغلاق</button>
 
 </div>
 
 </div>
-
 
 <div class="modal-content">
-
-<div id="poster">
-</div>
-
+<div id="poster"></div>
 </div>
 
 </div>
@@ -1360,14 +1130,12 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-
 import {
     getAuth,
     onAuthStateChanged,
     signOut
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
 
 import {
     getFirestore,
@@ -1425,17 +1193,13 @@ const days = {
 
 };
 
-
 const dayKeys =
 Object.keys(days);
 
 
 let currentUser = null;
-
 let currentUserData = null;
-
-let currentDay =
-"sunday";
+let currentDay = "sunday";
 
 let planData =
 createEmptyPlan();
@@ -1446,115 +1210,63 @@ let previewPlan =
 null;
 
 
-/*
-=================================
-الجدول الثابت للمواد
-=================================
-*/
-
-let fixedSchedule =
-createEmptySchedule();
-
-
 const leaderName =
-document.getElementById(
-    "leaderName"
-);
+document.getElementById("leaderName");
 
 const userName =
-document.getElementById(
-    "userName"
-);
+document.getElementById("userName");
 
 const stageText =
-document.getElementById(
-    "stageText"
-);
+document.getElementById("stageText");
 
 const gradeText =
-document.getElementById(
-    "gradeText"
-);
+document.getElementById("gradeText");
 
 const sectionText =
-document.getElementById(
-    "sectionText"
-);
+document.getElementById("sectionText");
 
 const weekNumber =
-document.getElementById(
-    "weekNumber"
-);
+document.getElementById("weekNumber");
 
 const startDate =
-document.getElementById(
-    "startDate"
-);
+document.getElementById("startDate");
 
 const endDate =
-document.getElementById(
-    "endDate"
-);
+document.getElementById("endDate");
 
 const educationalValue =
-document.getElementById(
-    "educationalValue"
-);
+document.getElementById("educationalValue");
 
 const weekPersonality =
-document.getElementById(
-    "weekPersonality"
-);
+document.getElementById("weekPersonality");
 
 const principalName =
-document.getElementById(
-    "principalName"
-);
+document.getElementById("principalName");
 
 const planRows =
-document.getElementById(
-    "planRows"
-);
+document.getElementById("planRows");
 
 const currentDayLabel =
-document.getElementById(
-    "currentDayLabel"
-);
+document.getElementById("currentDayLabel");
 
 const historyTable =
-document.getElementById(
-    "historyTable"
-);
+document.getElementById("historyTable");
 
 const message =
-document.getElementById(
-    "message"
-);
+document.getElementById("message");
 
 const previewModal =
-document.getElementById(
-    "previewModal"
-);
+document.getElementById("previewModal");
 
 const poster =
-document.getElementById(
-    "poster"
-);
+document.getElementById("poster");
 
-
-/* =========================
-   EMPTY PLAN
-========================= */
 
 function createEmptyDay(){
 
     const rows = [];
 
-    for(
-        let i=1;
-        i<=8;
-        i++
-    ){
+    for(let i=1;i<=8;i++){
 
         rows.push({
 
@@ -1587,49 +1299,11 @@ function createEmptyPlan(){
 }
 
 
-/* =========================
-   EMPTY FIXED SCHEDULE
-========================= */
-
-function createEmptySchedule(){
-
-    return {
-
-        sunday:[
-            "","","","","","","",""
-        ],
-
-        monday:[
-            "","","","","","","",""
-        ],
-
-        tuesday:[
-            "","","","","","","",""
-        ],
-
-        wednesday:[
-            "","","","","","","",""
-        ],
-
-        thursday:[
-            "","","","","","","",""
-        ]
-
-    };
-
-}
-
-
-/* =========================
-   OLD HOMEWORK
-========================= */
-
 function oldHomeworkToText(row){
 
     if(!row){
         return "";
     }
-
 
     if(
         row.homework !== undefined &&
@@ -1637,20 +1311,13 @@ function oldHomeworkToText(row){
         String(row.homework).trim() !== ""
     ){
 
-        return String(
-            row.homework
-        );
+        return String(row.homework);
 
     }
 
-
     const parts = [];
 
-
-    if(
-        row.book &&
-        String(row.book).trim()
-    ){
+    if(row.book && String(row.book).trim()){
 
         parts.push(
             String(row.book).trim()
@@ -1658,11 +1325,7 @@ function oldHomeworkToText(row){
 
     }
 
-
-    if(
-        row.page &&
-        String(row.page).trim()
-    ){
+    if(row.page && String(row.page).trim()){
 
         parts.push(
             "ص " +
@@ -1671,11 +1334,7 @@ function oldHomeworkToText(row){
 
     }
 
-
-    if(
-        row.exercise &&
-        String(row.exercise).trim()
-    ){
+    if(row.exercise && String(row.exercise).trim()){
 
         parts.push(
             "تمرين " +
@@ -1684,10 +1343,7 @@ function oldHomeworkToText(row){
 
     }
 
-
-    if(
-        row.madrasati === true
-    ){
+    if(row.madrasati === true){
 
         parts.push(
             "منصة مدرستي"
@@ -1695,10 +1351,7 @@ function oldHomeworkToText(row){
 
     }
 
-
-    return parts.join(
-        " - "
-    );
+    return parts.join(" - ");
 
 }
 
@@ -1719,7 +1372,6 @@ async user=>{
         return;
 
     }
-
 
     try{
 
@@ -1795,21 +1447,7 @@ async user=>{
         data.section || "-";
 
 
-        /*
-        أولًا نحمل الخطط القديمة
-        */
-
         await loadPlanHistory();
-
-
-        /*
-        ثم نحمل الجدول الثابت.
-        إذا لم يكن موجودًا سيتم
-        تكوينه من أحدث خطة قديمة.
-        */
-
-        await loadFixedSchedule();
-
 
         renderCurrentDay();
 
@@ -1828,14 +1466,8 @@ async user=>{
 });
 
 
-/* =========================
-   LOGOUT
-========================= */
-
 document
-.getElementById(
-    "logoutBtn"
-)
+.getElementById("logoutBtn")
 .onclick =
 async()=>{
 
@@ -1847,421 +1479,147 @@ async()=>{
 };
 
 
-/* =========================================================
-   LOAD FIXED SCHEDULE
-========================================================= */
+/* =========================
+   CHECK PLAN SUBJECTS
+========================= */
 
-async function loadFixedSchedule(){
+function planHasSubjects(plan){
 
-    if(!currentUser){
-        return;
-    }
+    return dayKeys.some(
+        day=>{
 
+            const rows =
+            plan?.days?.[day];
 
-    try{
-
-        const scheduleRef =
-        doc(
-            db,
-            "classSchedules",
-            currentUser.uid
-        );
-
-
-        const snap =
-        await getDoc(
-            scheduleRef
-        );
-
-
-        /*
-        يوجد جدول ثابت بالفعل
-        */
-
-        if(snap.exists()){
-
-            const data =
-            snap.data();
-
-
-            fixedSchedule =
-            normalizeSchedule(
-                data.subjects
-            );
-
-
-            return;
-
-        }
-
-
-        /*
-        لا يوجد جدول ثابت:
-        نحاول تكوينه من أحدث خطة
-        قديمة تحتوي على مواد.
-        */
-
-        const sourcePlan =
-        findLatestPlanWithSubjects();
-
-
-        if(sourcePlan){
-
-            fixedSchedule =
-            scheduleFromPlan(
-                sourcePlan
-            );
-
-
-            if(
-                scheduleHasSubjects(
-                    fixedSchedule
-                )
-            ){
-
-                await setDoc(
-
-                    scheduleRef,
-
-                    {
-
-                        leaderUid:
-                        currentUser.uid,
-
-                        leaderName:
-                        currentUserData?.name || "",
-
-                        stage:
-                        currentUserData?.stage || "",
-
-                        grade:
-                        currentUserData?.grade || "",
-
-                        section:
-                        currentUserData?.section || "",
-
-                        subjects:
-                        fixedSchedule,
-
-                        updatedAt:
-                        serverTimestamp()
-
-                    },
-
-                    {
-                        merge:true
-                    }
-
-                );
-
+            if(!Array.isArray(rows)){
+                return false;
             }
 
+            return rows.some(
+                row=>
+                String(
+                    row?.subject || ""
+                ).trim() !== ""
+            );
+
         }
-
-    }
-
-    catch(error){
-
-        console.error(
-            "تعذر تحميل جدول المواد الثابت:",
-            error
-        );
-
-    }
+    );
 
 }
 
 
-/* =========================================================
-   SAVE / UPDATE FIXED SCHEDULE
-========================================================= */
+/* =========================
+   FIND SUBJECT SOURCE
+========================= */
 
-async function syncFixedScheduleFromPlan(){
+function findScheduleSourceForWeek(targetWeek){
 
-    if(!currentUser){
-        return;
-    }
-
-
-    /*
-    مهم:
-    لا نمسح مادة محفوظة إذا كانت
-    الخانة الحالية فارغة بالخطأ.
-    يتم تحديث الخانات المكتوب فيها
-    اسم مادة فقط.
-    */
-
-    dayKeys.forEach(
-        day=>{
-
-            for(
-                let i=0;
-                i<8;
-                i++
-            ){
-
-                const subject =
-                String(
-                    planData?.[day]?.[i]?.subject ||
-                    ""
-                ).trim();
+    const target =
+    Number(targetWeek);
 
 
-                if(subject){
-
-                    fixedSchedule[day][i] =
-                    subject;
-
-                }
-
-            }
-
-        }
+    const plansWithSubjects =
+    savedPlans.filter(
+        plan=>
+        planHasSubjects(plan)
     );
 
 
     if(
-        !scheduleHasSubjects(
-            fixedSchedule
-        )
+        plansWithSubjects.length === 0
     ){
 
-        return;
+        return null;
 
     }
 
 
-    await setDoc(
+    /*
+    نبحث عن أقرب أسبوع سابق.
+    */
 
-        doc(
-            db,
-            "classSchedules",
-            currentUser.uid
-        ),
+    const previous =
+    plansWithSubjects
 
-        {
+    .filter(
+        plan=>
+        Number(plan.weekNumber) <
+        target
+    )
 
-            leaderUid:
-            currentUser.uid,
-
-            leaderName:
-            currentUserData?.name || "",
-
-            stage:
-            currentUserData?.stage || "",
-
-            grade:
-            currentUserData?.grade || "",
-
-            section:
-            currentUserData?.section || "",
-
-            subjects:
-            fixedSchedule,
-
-            updatedAt:
-            serverTimestamp()
-
-        },
-
-        {
-            merge:true
-        }
-
-    );
-
-}
-
-
-/* =========================================================
-   NORMALIZE FIXED SCHEDULE
-========================================================= */
-
-function normalizeSchedule(
-    source
-){
-
-    const result =
-    createEmptySchedule();
-
-
-    dayKeys.forEach(
-        day=>{
-
-            for(
-                let i=0;
-                i<8;
-                i++
-            ){
-
-                result[day][i] =
-                String(
-                    source?.[day]?.[i] ||
-                    ""
-                );
-
-            }
-
-        }
-    );
-
-
-    return result;
-
-}
-
-
-/* =========================================================
-   SCHEDULE FROM OLD PLAN
-========================================================= */
-
-function scheduleFromPlan(
-    plan
-){
-
-    const result =
-    createEmptySchedule();
-
-
-    dayKeys.forEach(
-        day=>{
-
-            for(
-                let i=0;
-                i<8;
-                i++
-            ){
-
-                result[day][i] =
-                String(
-                    plan?.days?.[day]?.[i]?.subject ||
-                    ""
-                ).trim();
-
-            }
-
-        }
-    );
-
-
-    return result;
-
-}
-
-
-/* =========================================================
-   DOES SCHEDULE HAVE SUBJECTS?
-========================================================= */
-
-function scheduleHasSubjects(
-    schedule
-){
-
-    return dayKeys.some(
-        day=>
-
-        schedule?.[day]?.some(
-            subject=>
-            String(
-                subject || ""
-            ).trim() !== ""
-        )
-
-    );
-
-}
-
-
-/* =========================================================
-   FIND MOST RECENT OLD PLAN
-========================================================= */
-
-function findLatestPlanWithSubjects(){
-
-    const ordered = [
-        ...savedPlans
-    ].sort(
+    .sort(
         (a,b)=>
         Number(b.weekNumber) -
         Number(a.weekNumber)
     );
 
 
-    return ordered.find(
-        plan=>{
+    if(previous.length){
 
-            return dayKeys.some(
-                day=>
+        return previous[0];
 
-                Array.isArray(
-                    plan.days?.[day]
-                )
-                &&
-                plan.days[day].some(
-                    row=>
-                    String(
-                        row?.subject ||
-                        ""
-                    ).trim()
-                )
+    }
 
-            );
 
-        }
-    );
+    /*
+    لو لا يوجد أسبوع سابق نستخدم
+    أحدث خطة بها مواد.
+    */
+
+    return [
+        ...plansWithSubjects
+    ]
+
+    .sort(
+        (a,b)=>
+        Number(b.weekNumber) -
+        Number(a.weekNumber)
+    )[0] || null;
 
 }
 
 
-/* =========================================================
-   APPLY FIXED SCHEDULE TO PLAN
-========================================================= */
+/* =========================
+   COPY SUBJECTS ONLY
+========================= */
 
-function applyFixedScheduleToPlan(
-    plan,
-    onlyEmpty=true
-){
+function copySubjectsOnly(sourcePlan){
+
+    const result =
+    createEmptyPlan();
+
+
+    if(!sourcePlan){
+
+        return result;
+
+    }
+
+
+    const source =
+    normalizePlan(
+        sourcePlan.days
+    );
+
 
     dayKeys.forEach(
         day=>{
 
-            for(
-                let i=0;
-                i<8;
-                i++
-            ){
+            for(let i=0;i<8;i++){
 
-                const fixedSubject =
+                result[day][i].subject =
                 String(
-                    fixedSchedule?.[day]?.[i] ||
+                    source?.[day]?.[i]?.subject ||
                     ""
-                ).trim();
+                );
 
 
-                if(!fixedSubject){
-                    continue;
-                }
+                result[day][i].topic =
+                "";
 
 
-                const currentSubject =
-                String(
-                    plan?.[day]?.[i]?.subject ||
-                    ""
-                ).trim();
-
-
-                if(
-                    onlyEmpty &&
-                    currentSubject
-                ){
-
-                    continue;
-
-                }
-
-
-                plan[day][i].subject =
-                fixedSubject;
+                result[day][i].homework =
+                "";
 
             }
 
@@ -2269,19 +1627,17 @@ function applyFixedScheduleToPlan(
     );
 
 
-    return plan;
+    return result;
 
 }
 
 
 /* =========================
-   DAY TABS
+   DAYS
 ========================= */
 
 document
-.querySelectorAll(
-    ".day-btn"
-)
+.querySelectorAll(".day-btn")
 .forEach(
     button=>{
 
@@ -2295,23 +1651,16 @@ document
 
 
             document
-            .querySelectorAll(
-                ".day-btn"
-            )
+            .querySelectorAll(".day-btn")
             .forEach(
-                btn=>{
-
-                    btn.classList.remove(
-                        "active"
-                    );
-
-                }
+                btn=>
+                btn.classList.remove("active")
             );
 
 
-            button.classList.add(
-                "active"
-            );
+            button
+            .classList
+            .add("active");
 
 
             currentDayLabel.textContent =
@@ -2326,10 +1675,6 @@ document
 );
 
 
-/* =========================
-   RENDER DAY
-========================= */
-
 function renderCurrentDay(){
 
     planRows.innerHTML =
@@ -2338,15 +1683,10 @@ function renderCurrentDay(){
 
     planData[currentDay]
     .forEach(
-        (
-            item,
-            index
-        )=>{
+        (item,index)=>{
 
             const tr =
-            document.createElement(
-                "tr"
-            );
+            document.createElement("tr");
 
 
             tr.innerHTML = `
@@ -2385,9 +1725,7 @@ function renderCurrentDay(){
             `;
 
 
-            planRows.appendChild(
-                tr
-            );
+            planRows.appendChild(tr);
 
         }
     );
@@ -2395,23 +1733,14 @@ function renderCurrentDay(){
 }
 
 
-/* =========================
-   SAVE CURRENT DAY MEMORY
-========================= */
-
 function saveCurrentDayToMemory(){
 
     const rows =
-    planRows.querySelectorAll(
-        "tr"
-    );
+    planRows.querySelectorAll("tr");
 
 
     rows.forEach(
-        (
-            row,
-            index
-        )=>{
+        (row,index)=>{
 
             planData[currentDay][index] = {
 
@@ -2420,25 +1749,19 @@ function saveCurrentDayToMemory(){
 
                 subject:
                 row
-                .querySelector(
-                    ".subject"
-                )
+                .querySelector(".subject")
                 .value
                 .trim(),
 
                 topic:
                 row
-                .querySelector(
-                    ".topic"
-                )
+                .querySelector(".topic")
                 .value
                 .trim(),
 
                 homework:
                 row
-                .querySelector(
-                    ".homework"
-                )
+                .querySelector(".homework")
                 .value
                 .trim()
 
@@ -2460,9 +1783,7 @@ async()=>{
     saveCurrentDayToMemory();
 
 
-    if(
-        !weekNumber.value
-    ){
+    if(!weekNumber.value){
 
         resetPlanForm();
 
@@ -2472,61 +1793,33 @@ async()=>{
 
 
     await loadSelectedWeek(
-
         Number(
             weekNumber.value
         )
-
     );
 
 };
 
 
-/* =========================================================
-   LOAD WEEK
-========================================================= */
-
-async function loadSelectedWeek(
-    week
-){
+async function loadSelectedWeek(week){
 
     const existing =
     savedPlans.find(
-
         plan=>
-        Number(
-            plan.weekNumber
-        ) ===
-        Number(
-            week
-        )
-
+        Number(plan.weekNumber) ===
+        Number(week)
     );
 
 
     /*
-    ---------------------------------
-    الأسبوع محفوظ مسبقًا
-    ---------------------------------
+    الأسبوع محفوظ بالفعل
     */
 
     if(existing){
 
-        const normalized =
+        planData =
         normalizePlan(
             existing.days
-        );
-
-
-        /*
-        لو توجد خانات مادة فارغة
-        نكملها من الجدول الثابت
-        */
-
-        planData =
-        applyFixedScheduleToPlan(
-            normalized,
-            true
         );
 
 
@@ -2554,11 +1847,8 @@ async function loadSelectedWeek(
 
 
         showMessage(
-
-            "تم تحميل الخطة المحفوظة، وتم استكمال جدول المواد الثابت تلقائيًا.",
-
+            "تم تحميل الخطة المحفوظة.",
             "success"
-
         );
 
 
@@ -2568,24 +1858,17 @@ async function loadSelectedWeek(
 
 
     /*
-    ---------------------------------
-    أسبوع جديد
-    ---------------------------------
+    أسبوع جديد:
+    المواد فقط من أقرب أسبوع سابق.
     */
+
+    const sourcePlan =
+    findScheduleSourceForWeek(week);
+
 
     planData =
-    createEmptyPlan();
-
-
-    /*
-    أهم تغيير:
-    لا نحتاج الأسبوع السابق.
-    نضع الجدول الثابت مباشرة.
-    */
-
-    applyFixedScheduleToPlan(
-        planData,
-        false
+    copySubjectsOnly(
+        sourcePlan
     );
 
 
@@ -2605,11 +1888,6 @@ async function loadSelectedWeek(
     "";
 
 
-    /*
-    اسم المدير فقط يمكن ترحيله
-    من أحدث خطة محفوظة.
-    */
-
     const latestPlan =
     savedPlans
     .slice()
@@ -2628,18 +1906,11 @@ async function loadSelectedWeek(
     renderCurrentDay();
 
 
-    if(
-        scheduleHasSubjects(
-            fixedSchedule
-        )
-    ){
+    if(sourcePlan){
 
         showMessage(
-
-            "تم تحميل جدول المواد الثابت للفصل. اكتب موضوعات الدروس والواجبات فقط ✅",
-
+            `تم نقل أسماء المواد من الأسبوع ${sourcePlan.weekNumber} فقط. موضوعات الدروس والواجبات فارغة ✅`,
             "success"
-
         );
 
     }
@@ -2647,11 +1918,8 @@ async function loadSelectedWeek(
     else{
 
         showMessage(
-
-            "هذا أول جدول للفصل. أدخل المواد مرة واحدة، وبعد الحفظ ستظهر تلقائيًا في جميع الأسابيع.",
-
+            "لا توجد خطة سابقة بها مواد. أدخل المواد ثم احفظ الخطة.",
             "success"
-
         );
 
     }
@@ -2664,18 +1932,14 @@ async function loadSelectedWeek(
 ========================= */
 
 document
-.getElementById(
-    "saveBtn"
-)
+.getElementById("saveBtn")
 .onclick =
 async()=>{
 
     saveCurrentDayToMemory();
 
 
-    if(
-        !weekNumber.value
-    ){
+    if(!weekNumber.value){
 
         showMessage(
             "اختر رقم الأسبوع.",
@@ -2704,25 +1968,6 @@ async()=>{
 
     try{
 
-        /*
-        قبل حفظ الخطة:
-        نحدّث جدول المواد الثابت.
-        */
-
-        await syncFixedScheduleFromPlan();
-
-
-        /*
-        ثم نكمل أي خانات مواد فارغة
-        من الجدول الثابت.
-        */
-
-        applyFixedScheduleToPlan(
-            planData,
-            true
-        );
-
-
         const id =
         currentUser.uid +
         "_week_" +
@@ -2743,16 +1988,16 @@ async()=>{
                 currentUser.uid,
 
                 leaderName:
-                currentUserData.name,
+                currentUserData.name || "",
 
                 stage:
-                currentUserData.stage,
+                currentUserData.stage || "",
 
                 grade:
-                currentUserData.grade,
+                currentUserData.grade || "",
 
                 section:
-                currentUserData.section,
+                currentUserData.section || "",
 
                 weekNumber:
                 Number(
@@ -2802,26 +2047,23 @@ async()=>{
 
 
         showMessage(
-
-            "تم حفظ الخطة وجدول المواد الثابت بنجاح ✅",
-
+            "تم حفظ الخطة بنجاح ✅",
             "success"
-
         );
 
     }
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            "SAVE ERROR:",
+            error
+        );
 
 
         showMessage(
-
             "حدث خطأ أثناء حفظ الخطة.",
-
             "error"
-
         );
 
     }
@@ -2857,9 +2099,25 @@ async function loadPlanHistory(){
             item.data();
 
 
+            /*
+            نضمن أن سجل الخطط يحتوي
+            على الخطط الحقيقية فقط.
+            */
+
             if(
                 data.leaderUid ===
                 currentUser.uid
+                &&
+                data.documentType !==
+                "fixedSchedule"
+                &&
+                data.weekNumber !== undefined
+                &&
+                data.weekNumber !== null
+                &&
+                !isNaN(
+                    Number(data.weekNumber)
+                )
             ){
 
                 savedPlans.push({
@@ -2878,11 +2136,9 @@ async function loadPlanHistory(){
 
 
     savedPlans.sort(
-
         (a,b)=>
         Number(b.weekNumber) -
         Number(a.weekNumber)
-
     );
 
 
@@ -2897,9 +2153,7 @@ async function loadPlanHistory(){
 
 function renderHistory(){
 
-    if(
-        savedPlans.length === 0
-    ){
+    if(savedPlans.length === 0){
 
         historyTable.innerHTML = `
 
@@ -2917,7 +2171,6 @@ function renderHistory(){
 
         `;
 
-
         return;
 
     }
@@ -2931,9 +2184,7 @@ function renderHistory(){
         plan=>{
 
             const tr =
-            document.createElement(
-                "tr"
-            );
+            document.createElement("tr");
 
 
             tr.innerHTML = `
@@ -3007,9 +2258,7 @@ function renderHistory(){
             `;
 
 
-            historyTable.appendChild(
-                tr
-            );
+            historyTable.appendChild(tr);
 
         }
     );
@@ -3020,22 +2269,15 @@ function renderHistory(){
 }
 
 
-/* =========================
-   HISTORY BUTTONS
-========================= */
-
 function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-open]"
-    )
+    .querySelectorAll("[data-open]")
     .forEach(
         button=>{
 
-            button.onclick =
-            ()=>{
+            button.onclick=()=>{
 
                 const plan =
                 findPlan(
@@ -3049,9 +2291,7 @@ function bindHistoryButtons(){
                     plan.weekNumber;
 
 
-                    openPlan(
-                        plan
-                    );
+                    openPlan(plan);
 
                 }
 
@@ -3062,14 +2302,11 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-view]"
-    )
+    .querySelectorAll("[data-view]")
     .forEach(
         button=>{
 
-            button.onclick =
-            ()=>{
+            button.onclick=()=>{
 
                 const plan =
                 findPlan(
@@ -3080,9 +2317,7 @@ function bindHistoryButtons(){
                 if(plan){
 
                     openPreview(
-                        normalizeSavedPlan(
-                            plan
-                        )
+                        normalizeSavedPlan(plan)
                     );
 
                 }
@@ -3094,9 +2329,7 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-download]"
-    )
+    .querySelectorAll("[data-download]")
     .forEach(
         button=>{
 
@@ -3112,11 +2345,7 @@ function bindHistoryButtons(){
                 if(plan){
 
                     await downloadPlanImage(
-
-                        normalizeSavedPlan(
-                            plan
-                        )
-
+                        normalizeSavedPlan(plan)
                     );
 
                 }
@@ -3128,14 +2357,11 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-pdf]"
-    )
+    .querySelectorAll("[data-pdf]")
     .forEach(
         button=>{
 
-            button.onclick =
-            ()=>{
+            button.onclick=()=>{
 
                 const plan =
                 findPlan(
@@ -3146,11 +2372,7 @@ function bindHistoryButtons(){
                 if(plan){
 
                     exportPlanPDF(
-
-                        normalizeSavedPlan(
-                            plan
-                        )
-
+                        normalizeSavedPlan(plan)
                     );
 
                 }
@@ -3162,9 +2384,7 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-share]"
-    )
+    .querySelectorAll("[data-share]")
     .forEach(
         button=>{
 
@@ -3180,11 +2400,7 @@ function bindHistoryButtons(){
                 if(plan){
 
                     await sharePlanImage(
-
-                        normalizeSavedPlan(
-                            plan
-                        )
-
+                        normalizeSavedPlan(plan)
                     );
 
                 }
@@ -3196,9 +2412,7 @@ function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll(
-        "[data-delete]"
-    )
+    .querySelectorAll("[data-delete]")
     .forEach(
         button=>{
 
@@ -3244,12 +2458,8 @@ function bindHistoryButtons(){
 
 
                     if(
-                        Number(
-                            weekNumber.value
-                        ) ===
-                        Number(
-                            plan.weekNumber
-                        )
+                        Number(weekNumber.value) ===
+                        Number(plan.weekNumber)
                     ){
 
                         weekNumber.value =
@@ -3261,11 +2471,8 @@ function bindHistoryButtons(){
 
 
                     showMessage(
-
-                        "تم حذف الخطة. جدول المواد الثابت لم يتم حذفه.",
-
+                        "تم حذف الخطة.",
                         "success"
-
                     );
 
                 }
@@ -3276,11 +2483,8 @@ function bindHistoryButtons(){
 
 
                     showMessage(
-
                         "تعذر حذف الخطة.",
-
                         "error"
-
                     );
 
                 }
@@ -3293,13 +2497,7 @@ function bindHistoryButtons(){
 }
 
 
-/* =========================
-   FIND PLAN
-========================= */
-
-function findPlan(
-    id
-){
+function findPlan(id){
 
     return savedPlans.find(
         item=>
@@ -3310,12 +2508,10 @@ function findPlan(
 
 
 /* =========================
-   NORMALIZE PLAN
+   NORMALIZE
 ========================= */
 
-function normalizePlan(
-    source
-){
+function normalizePlan(source){
 
     const result =
     createEmptyPlan();
@@ -3334,11 +2530,7 @@ function normalizePlan(
             [];
 
 
-            for(
-                let i=0;
-                i<8;
-                i++
-            ){
+            for(let i=0;i<8;i++){
 
                 const row =
                 sourceRows[i] ||
@@ -3359,9 +2551,7 @@ function normalizePlan(
                     "",
 
                     homework:
-                    oldHomeworkToText(
-                        row
-                    )
+                    oldHomeworkToText(row)
 
                 };
 
@@ -3376,32 +2566,16 @@ function normalizePlan(
 }
 
 
-/* =========================
-   NORMALIZE SAVED PLAN
-========================= */
-
-function normalizeSavedPlan(
-    plan
-){
-
-    const normalizedDays =
-    normalizePlan(
-        plan.days
-    );
-
-
-    applyFixedScheduleToPlan(
-        normalizedDays,
-        true
-    );
-
+function normalizeSavedPlan(plan){
 
     return {
 
         ...plan,
 
         days:
-        normalizedDays
+        normalizePlan(
+            plan.days
+        )
 
     };
 
@@ -3412,14 +2586,10 @@ function normalizeSavedPlan(
    OPEN PLAN
 ========================= */
 
-function openPlan(
-    plan
-){
+function openPlan(plan){
 
     const normalized =
-    normalizeSavedPlan(
-        plan
-    );
+    normalizeSavedPlan(plan);
 
 
     planData =
@@ -3455,11 +2625,8 @@ function openPlan(
 
 
     showMessage(
-
         "تم فتح الخطة المحفوظة.",
-
         "success"
-
     );
 
 
@@ -3475,13 +2642,11 @@ function openPlan(
 
 
 /* =========================
-   CLEAR CURRENT DAY
+   CLEAR DAY
 ========================= */
 
 document
-.getElementById(
-    "clearDayBtn"
-)
+.getElementById("clearDayBtn")
 .onclick =
 ()=>{
 
@@ -3498,10 +2663,6 @@ document
 
     }
 
-
-    /*
-    لا نمسح المادة.
-    */
 
     planData[currentDay]
     .forEach(
@@ -3521,18 +2682,15 @@ document
 
 
     showMessage(
-
         "تم مسح موضوعات الدروس والواجبات مع الاحتفاظ بالمواد.",
-
         "success"
-
     );
 
 };
 
 
 /* =========================
-   CURRENT PLAN OBJECT
+   CURRENT PLAN
 ========================= */
 
 function getCurrentPlan(){
@@ -3540,9 +2698,7 @@ function getCurrentPlan(){
     saveCurrentDayToMemory();
 
 
-    if(
-        !weekNumber.value
-    ){
+    if(!weekNumber.value){
 
         alert(
             "اختر رقم الأسبوع أولًا."
@@ -3551,12 +2707,6 @@ function getCurrentPlan(){
         return null;
 
     }
-
-
-    applyFixedScheduleToPlan(
-        planData,
-        true
-    );
 
 
     return {
@@ -3611,13 +2761,11 @@ function getCurrentPlan(){
 
 
 /* =========================
-   PREVIEW BUTTON
+   PREVIEW / EXPORT BUTTONS
 ========================= */
 
 document
-.getElementById(
-    "previewBtn"
-)
+.getElementById("previewBtn")
 .onclick =
 ()=>{
 
@@ -3627,23 +2775,15 @@ document
 
     if(plan){
 
-        openPreview(
-            plan
-        );
+        openPreview(plan);
 
     }
 
 };
 
 
-/* =========================
-   DOWNLOAD CURRENT
-========================= */
-
 document
-.getElementById(
-    "downloadCurrentBtn"
-)
+.getElementById("downloadCurrentBtn")
 .onclick =
 async()=>{
 
@@ -3653,23 +2793,15 @@ async()=>{
 
     if(plan){
 
-        await downloadPlanImage(
-            plan
-        );
+        await downloadPlanImage(plan);
 
     }
 
 };
 
 
-/* =========================
-   PDF CURRENT
-========================= */
-
 document
-.getElementById(
-    "pdfCurrentBtn"
-)
+.getElementById("pdfCurrentBtn")
 .onclick =
 ()=>{
 
@@ -3679,23 +2811,15 @@ document
 
     if(plan){
 
-        exportPlanPDF(
-            plan
-        );
+        exportPlanPDF(plan);
 
     }
 
 };
 
 
-/* =========================
-   SHARE CURRENT
-========================= */
-
 document
-.getElementById(
-    "shareCurrentBtn"
-)
+.getElementById("shareCurrentBtn")
 .onclick =
 async()=>{
 
@@ -3705,9 +2829,7 @@ async()=>{
 
     if(plan){
 
-        await sharePlanImage(
-            plan
-        );
+        await sharePlanImage(plan);
 
     }
 
@@ -3715,47 +2837,33 @@ async()=>{
 
 
 /* =========================
-   OPEN PREVIEW
+   PREVIEW MODAL
 ========================= */
 
-function openPreview(
-    plan
-){
+function openPreview(plan){
 
     previewPlan =
     plan;
 
 
-    buildPoster(
-        plan
-    );
+    buildPoster(plan);
 
 
     previewModal
     .classList
-    .add(
-        "show"
-    );
+    .add("show");
 
 }
 
 
-/* =========================
-   CLOSE PREVIEW
-========================= */
-
 document
-.getElementById(
-    "closePreview"
-)
+.getElementById("closePreview")
 .onclick =
 ()=>{
 
     previewModal
     .classList
-    .remove(
-        "show"
-    );
+    .remove("show");
 
 };
 
@@ -3771,9 +2879,7 @@ previewModal.addEventListener(
 
             previewModal
             .classList
-            .remove(
-                "show"
-            );
+            .remove("show");
 
         }
 
@@ -3781,14 +2887,8 @@ previewModal.addEventListener(
 );
 
 
-/* =========================
-   MODAL BUTTONS
-========================= */
-
 document
-.getElementById(
-    "modalDownload"
-)
+.getElementById("modalDownload")
 .onclick =
 async()=>{
 
@@ -3804,9 +2904,7 @@ async()=>{
 
 
 document
-.getElementById(
-    "modalPDF"
-)
+.getElementById("modalPDF")
 .onclick =
 ()=>{
 
@@ -3822,9 +2920,7 @@ document
 
 
 document
-.getElementById(
-    "modalShare"
-)
+.getElementById("modalShare")
 .onclick =
 async()=>{
 
@@ -3840,12 +2936,10 @@ async()=>{
 
 
 /* =========================
-   POSTER
+   BUILD POSTER
 ========================= */
 
-function buildPoster(
-    plan
-){
+function buildPoster(plan){
 
     let rowsHTML =
     "";
@@ -3860,10 +2954,7 @@ function buildPoster(
 
 
             rows.forEach(
-                (
-                    row,
-                    index
-                )=>{
+                (row,index)=>{
 
                     const first =
                     index === 0;
@@ -4111,8 +3202,7 @@ function buildPoster(
                     )}
                 </div>
 
-                <div class="signature-line">
-                </div>
+                <div class="signature-line"></div>
 
             </div>
 
@@ -4129,8 +3219,7 @@ function buildPoster(
                     )}
                 </div>
 
-                <div class="signature-line">
-                </div>
+                <div class="signature-line"></div>
 
             </div>
 
@@ -4138,9 +3227,7 @@ function buildPoster(
 
 
         <div class="poster-credit">
-
             تصميم محمد عامر أحمد
-
         </div>
 
     `;
@@ -4149,80 +3236,15 @@ function buildPoster(
 
 
 /* =========================
-   PREPARE POSTER
-========================= */
-
-async function preparePoster(
-    plan
-){
-
-    buildPoster(
-        plan
-    );
-
-
-    if(
-        !previewModal
-        .classList
-        .contains(
-            "show"
-        )
-    ){
-
-        previewModal.style.display =
-        "flex";
-
-        previewModal.style.position =
-        "fixed";
-
-        previewModal.style.left =
-        "-10000px";
-
-    }
-
-
-    if(
-        document.fonts &&
-        document.fonts.ready
-    ){
-
-        await document.fonts.ready;
-
-    }
-
-
-    await waitForImages(
-        poster
-    );
-
-
-    await new Promise(
-        resolve=>
-        requestAnimationFrame(
-            ()=>
-            requestAnimationFrame(
-                resolve
-            )
-        )
-    );
-
-}
-
-
-/* =========================
    POSTER TO BLOB
 ========================= */
 
-async function posterToBlob(
-    plan
-){
+async function posterToBlob(plan){
 
     const modalWasOpen =
     previewModal
     .classList
-    .contains(
-        "show"
-    );
+    .contains("show");
 
 
     const oldDisplay =
@@ -4239,9 +3261,7 @@ async function posterToBlob(
     plan;
 
 
-    buildPoster(
-        plan
-    );
+    buildPoster(plan);
 
 
     if(!modalWasOpen){
@@ -4268,9 +3288,7 @@ async function posterToBlob(
     }
 
 
-    await waitForImages(
-        poster
-    );
+    await waitForImages(poster);
 
 
     await new Promise(
@@ -4300,7 +3318,9 @@ async function posterToBlob(
 
             allowTaint:false,
 
-            logging:false
+            logging:false,
+
+            imageTimeout:15000
 
         }
 
@@ -4345,16 +3365,12 @@ async function posterToBlob(
    DOWNLOAD IMAGE
 ========================= */
 
-async function downloadPlanImage(
-    plan
-){
+async function downloadPlanImage(plan){
 
     try{
 
         const blob =
-        await posterToBlob(
-            plan
-        );
+        await posterToBlob(plan);
 
 
         if(!blob){
@@ -4367,15 +3383,11 @@ async function downloadPlanImage(
 
 
         const url =
-        URL.createObjectURL(
-            blob
-        );
+        URL.createObjectURL(blob);
 
 
         const a =
-        document.createElement(
-            "a"
-        );
+        document.createElement("a");
 
 
         a.href =
@@ -4387,9 +3399,7 @@ async function downloadPlanImage(
 
 
         document.body
-        .appendChild(
-            a
-        );
+        .appendChild(a);
 
 
         a.click();
@@ -4401,9 +3411,7 @@ async function downloadPlanImage(
         setTimeout(
             ()=>{
 
-                URL.revokeObjectURL(
-                    url
-                );
+                URL.revokeObjectURL(url);
 
             },
             1500
@@ -4429,9 +3437,7 @@ async function downloadPlanImage(
    PDF
 ========================= */
 
-async function exportPlanPDF(
-    plan
-){
+async function exportPlanPDF(plan){
 
     const printWindow =
     window.open(
@@ -4453,9 +3459,7 @@ async function exportPlanPDF(
 
     try{
 
-        buildPoster(
-            plan
-        );
+        buildPoster(plan);
 
 
         if(
@@ -4468,28 +3472,20 @@ async function exportPlanPDF(
         }
 
 
-        await waitForImages(
-            poster
-        );
+        await waitForImages(poster);
 
 
         const clone =
-        poster.cloneNode(
-            true
-        );
+        poster.cloneNode(true);
 
 
         clone
-        .querySelectorAll(
-            "img"
-        )
+        .querySelectorAll("img")
         .forEach(
             img=>{
 
                 const src =
-                img.getAttribute(
-                    "src"
-                );
+                img.getAttribute("src");
 
 
                 if(src){
@@ -4508,26 +3504,22 @@ async function exportPlanPDF(
 
         const styles =
         Array.from(
-            document.querySelectorAll(
-                "style"
-            )
+            document.querySelectorAll("style")
         )
+
         .map(
             style=>
             style.innerHTML
         )
-        .join(
-            "\n"
-        );
+
+        .join("\n");
 
 
         printWindow.document.write(`
 
         <!DOCTYPE html>
 
-        <html
-        lang="ar"
-        dir="rtl">
+        <html lang="ar" dir="rtl">
 
         <head>
 
@@ -4555,9 +3547,9 @@ async function exportPlanPDF(
             margin:0 !important;
             padding:0 !important;
             background:white !important;
-            width:210mm;
-            height:297mm;
-            overflow:hidden;
+            width:210mm !important;
+            height:297mm !important;
+            overflow:hidden !important;
         }
 
         body{
@@ -4565,11 +3557,11 @@ async function exportPlanPDF(
         }
 
         .print-page{
-            width:210mm;
-            height:297mm;
-            position:relative;
-            overflow:hidden;
-            background:white;
+            width:210mm !important;
+            height:297mm !important;
+            position:relative !important;
+            overflow:hidden !important;
+            background:white !important;
         }
 
         #poster{
@@ -4577,23 +3569,35 @@ async function exportPlanPDF(
             position:absolute !important;
             top:0 !important;
             left:0 !important;
-            transform:scale(.64);
-            transform-origin:top left;
+            width:1240px !important;
+            min-height:1754px !important;
+            transform:scale(.64) !important;
+            transform-origin:top left !important;
+            margin:0 !important;
             box-shadow:none !important;
+            visibility:visible !important;
+            opacity:1 !important;
         }
 
         @media print{
 
-            body,
-            .print-page,
-            #poster{
+            html,
+            body{
+                display:block !important;
+                visibility:visible !important;
+            }
+
+            .print-page{
                 display:block !important;
                 visibility:visible !important;
             }
 
             #poster{
-                -webkit-print-color-adjust:exact;
-                print-color-adjust:exact;
+                display:block !important;
+                visibility:visible !important;
+                opacity:1 !important;
+                -webkit-print-color-adjust:exact !important;
+                print-color-adjust:exact !important;
             }
 
         }
@@ -4606,7 +3610,7 @@ async function exportPlanPDF(
 
         <div class="print-page">
 
-        ${clone.outerHTML}
+            ${clone.outerHTML}
 
         </div>
 
@@ -4667,19 +3671,15 @@ async function exportPlanPDF(
 
 
 /* =========================
-   SHARE IMAGE
+   SHARE
 ========================= */
 
-async function sharePlanImage(
-    plan
-){
+async function sharePlanImage(plan){
 
     try{
 
         const blob =
-        await posterToBlob(
-            plan
-        );
+        await posterToBlob(plan);
 
 
         if(!blob){
@@ -4726,9 +3726,7 @@ async function sharePlanImage(
 
         else{
 
-            await downloadPlanImage(
-                plan
-            );
+            await downloadPlanImage(plan);
 
 
             alert(
@@ -4764,14 +3762,10 @@ async function sharePlanImage(
    WAIT IMAGES
 ========================= */
 
-function waitForImages(
-    element
-){
+function waitForImages(element){
 
     const images = [
-        ...element.querySelectorAll(
-            "img"
-        )
+        ...element.querySelectorAll("img")
     ];
 
 
@@ -4820,17 +3814,6 @@ function resetPlanForm(){
     createEmptyPlan();
 
 
-    /*
-    عند العودة للنموذج الفارغ
-    نضع الجدول الثابت كذلك.
-    */
-
-    applyFixedScheduleToPlan(
-        planData,
-        false
-    );
-
-
     startDate.value =
     "";
 
@@ -4862,9 +3845,7 @@ function resetPlanForm(){
    HELPERS
 ========================= */
 
-function safeDisplay(
-    value
-){
+function safeDisplay(value){
 
     if(
         value === null ||
@@ -4877,16 +3858,12 @@ function safeDisplay(
     }
 
 
-    return escapeHTML(
-        value
-    );
+    return escapeHTML(value);
 
 }
 
 
-function formatDate(
-    value
-){
+function formatDate(value){
 
     if(!value){
 
@@ -4902,18 +3879,14 @@ function formatDate(
         .split("-");
 
 
-        if(
-            parts.length === 3
-        ){
+        if(parts.length === 3){
 
             return (
-
                 parts[2] +
                 "/" +
                 parts[1] +
                 "/" +
                 parts[0]
-
             );
 
         }
@@ -4932,9 +3905,7 @@ function formatDate(
 }
 
 
-function escapeHTML(
-    value
-){
+function escapeHTML(value){
 
     return String(
         value ?? ""
@@ -4968,9 +3939,7 @@ function escapeHTML(
 }
 
 
-function escapeAttr(
-    value
-){
+function escapeAttr(value){
 
     return escapeHTML(
         value || ""
@@ -4979,10 +3948,7 @@ function escapeAttr(
 }
 
 
-function showMessage(
-    text,
-    type
-){
+function showMessage(text,type){
 
     message.textContent =
     text;
@@ -5015,5 +3981,4 @@ function showMessage(
 </script>
 
 </body>
-
 </html>
