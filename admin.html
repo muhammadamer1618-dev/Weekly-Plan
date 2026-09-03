@@ -463,6 +463,129 @@ tr:hover td{
 }
 
 
+/* =========================================
+   إدارة جميع الخطط الأسبوعية
+========================================= */
+
+.plans-management-card{
+  margin-bottom:22px;
+}
+
+.plans-management-toolbar{
+  display:grid;
+  grid-template-columns:1.4fr .8fr .8fr .8fr auto;
+  gap:10px;
+  align-items:end;
+  margin-bottom:16px;
+}
+
+.plans-management-toolbar .form-group{
+  margin-bottom:0;
+}
+
+.manage-refresh-btn{
+  border:none;
+  background:#0b4b3e;
+  color:white;
+  padding:11px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  height:41px;
+}
+
+.manage-refresh-btn:hover{
+  background:#126653;
+}
+
+.plans-count-line{
+  margin-bottom:12px;
+  color:#666;
+  font-size:13px;
+}
+
+.plans-count-line strong{
+  color:#0b4b3e;
+  font-size:17px;
+}
+
+.all-plans-table{
+  min-width:1180px;
+}
+
+.plan-delete-btn{
+  background:#b93232;
+  color:white;
+}
+
+.plan-view-btn{
+  background:#d5b755;
+  color:#173e34;
+}
+
+.orphan-badge{
+  display:inline-block;
+  margin-top:4px;
+  padding:3px 7px;
+  border-radius:12px;
+  background:#fff0d8;
+  color:#93651d;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.plan-details-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.plan-details-item{
+  background:#f8f7f2;
+  border:1px solid #e7e2d3;
+  border-radius:9px;
+  padding:10px;
+}
+
+.plan-details-item strong{
+  display:block;
+  color:#0b4b3e;
+  font-size:12px;
+  margin-bottom:4px;
+}
+
+.plan-details-wide{
+  grid-column:1 / -1;
+}
+
+.plan-days-summary{
+  margin-top:14px;
+}
+
+.plan-days-summary table{
+  min-width:700px;
+}
+
+@media(max-width:900px){
+
+  .plans-management-toolbar{
+    grid-template-columns:1fr;
+  }
+
+  .manage-refresh-btn{
+    width:100%;
+  }
+
+  .plan-details-grid{
+    grid-template-columns:1fr;
+  }
+
+  .plan-details-wide{
+    grid-column:auto;
+  }
+}
+
+
 /* ========================================= */
 
 .modal{
@@ -590,42 +713,40 @@ footer strong{
 
 <div class="brand">
 
-  <img
-  src="logo.jpeg"
-  alt="شعار مدارس الفلاح">
+<img src="logo.jpeg" alt="شعار مدارس الفلاح">
 
-  <div>
+<div>
 
-    <h1>
-      مدارس الفلاح الأهلية
-    </h1>
+<h1>
+مدارس الفلاح الأهلية
+</h1>
 
-    <p>
-      نظام الخطة الأسبوعية
-    </p>
+<p>
+نظام الخطة الأسبوعية
+</p>
 
-  </div>
+</div>
 
 </div>
 
 
 <div class="admin-info">
 
-  <div
-  class="admin-name"
-  id="adminName">
+<div
+class="admin-name"
+id="adminName">
 
-    لوحة الإدارة
+لوحة الإدارة
 
-  </div>
+</div>
 
-  <button
-  class="logout-btn"
-  id="logoutBtn">
+<button
+class="logout-btn"
+id="logoutBtn">
 
-    تسجيل الخروج
+تسجيل الخروج
 
-  </button>
+</button>
 
 </div>
 
@@ -637,56 +758,56 @@ footer strong{
 
 <div class="welcome">
 
-  <h2>
-    لوحة إدارة النظام
-  </h2>
+<h2>
+لوحة إدارة النظام
+</h2>
 
-  <p>
-    إدارة حسابات رواد الفصول وربط كل رائد بالفصل الخاص به.
-  </p>
+<p>
+إدارة حسابات رواد الفصول وربط كل رائد بالفصل الخاص به.
+</p>
 
 </div>
 
 
 <div class="stats">
 
-  <div class="stat-card">
+<div class="stat-card">
 
-    <span>
-      إجمالي رواد الفصول
-    </span>
+<span>
+إجمالي رواد الفصول
+</span>
 
-    <strong id="totalCount">
-      0
-    </strong>
+<strong id="totalCount">
+0
+</strong>
 
-  </div>
-
-
-  <div class="stat-card">
-
-    <span>
-      الحسابات المفعلة
-    </span>
-
-    <strong id="activeCount">
-      0
-    </strong>
-
-  </div>
+</div>
 
 
-  <div class="stat-card">
+<div class="stat-card">
 
-    <span>
-      الحسابات غير المفعلة
-    </span>
+<span>
+الحسابات المفعلة
+</span>
 
-    <strong id="inactiveCount">
-      0
-    </strong>
+<strong id="activeCount">
+0
+</strong>
 
-  </div>
+</div>
+
+
+<div class="stat-card">
+
+<span>
+الحسابات غير المفعلة
+</span>
+
+<strong id="inactiveCount">
+0
+</strong>
+
+</div>
 
 </div>
 
@@ -699,108 +820,103 @@ footer strong{
 
 <div class="card-header">
 
-  <h3>
-    متابعة الخطط الأسبوعية
-  </h3>
+<h3>
+متابعة الخطط الأسبوعية
+</h3>
 
 </div>
 
 
 <div class="card-body">
 
-
 <div class="monitor-toolbar">
 
+<div class="monitor-select-box">
 
-  <div class="monitor-select-box">
+<label>
+اختر الأسبوع للمتابعة
+</label>
 
-    <label>
-      اختر الأسبوع للمتابعة
-    </label>
+<select id="monitorWeek">
 
-    <select id="monitorWeek">
+<option value="1">الأسبوع الأول</option>
+<option value="2">الأسبوع الثاني</option>
+<option value="3">الأسبوع الثالث</option>
+<option value="4">الأسبوع الرابع</option>
+<option value="5">الأسبوع الخامس</option>
+<option value="6">الأسبوع السادس</option>
+<option value="7">الأسبوع السابع</option>
+<option value="8">الأسبوع الثامن</option>
+<option value="9">الأسبوع التاسع</option>
+<option value="10">الأسبوع العاشر</option>
+<option value="11">الأسبوع الحادي عشر</option>
+<option value="12">الأسبوع الثاني عشر</option>
+<option value="13">الأسبوع الثالث عشر</option>
+<option value="14">الأسبوع الرابع عشر</option>
+<option value="15">الأسبوع الخامس عشر</option>
+<option value="16">الأسبوع السادس عشر</option>
+<option value="17">الأسبوع السابع عشر</option>
+<option value="18">الأسبوع الثامن عشر</option>
 
-      <option value="1">الأسبوع الأول</option>
-      <option value="2">الأسبوع الثاني</option>
-      <option value="3">الأسبوع الثالث</option>
-      <option value="4">الأسبوع الرابع</option>
-      <option value="5">الأسبوع الخامس</option>
-      <option value="6">الأسبوع السادس</option>
-      <option value="7">الأسبوع السابع</option>
-      <option value="8">الأسبوع الثامن</option>
-      <option value="9">الأسبوع التاسع</option>
-      <option value="10">الأسبوع العاشر</option>
-      <option value="11">الأسبوع الحادي عشر</option>
-      <option value="12">الأسبوع الثاني عشر</option>
-      <option value="13">الأسبوع الثالث عشر</option>
-      <option value="14">الأسبوع الرابع عشر</option>
-      <option value="15">الأسبوع الخامس عشر</option>
-      <option value="16">الأسبوع السادس عشر</option>
-      <option value="17">الأسبوع السابع عشر</option>
-      <option value="18">الأسبوع الثامن عشر</option>
+</select>
 
-    </select>
-
-  </div>
+</div>
 
 
-  <div class="monitor-actions">
+<div class="monitor-actions">
 
-    <button
-    class="refresh-monitor-btn"
-    id="refreshMonitorBtn">
+<button
+class="refresh-monitor-btn"
+id="refreshMonitorBtn">
 
-      تحديث المتابعة
+تحديث المتابعة
 
-    </button>
+</button>
 
-  </div>
-
+</div>
 
 </div>
 
 
 <div class="monitor-summary">
 
+<div class="monitor-box monitor-total">
 
-  <div class="monitor-box monitor-total">
+<span>
+رواد الفصول المطلوب منهم الخطة
+</span>
 
-    <span>
-      رواد الفصول المطلوب منهم الخطة
-    </span>
+<strong id="monitorTotal">
+0
+</strong>
 
-    <strong id="monitorTotal">
-      0
-    </strong>
-
-  </div>
-
-
-  <div class="monitor-box monitor-done">
-
-    <span>
-      تم حفظ الخطة
-    </span>
-
-    <strong id="monitorSaved">
-      0
-    </strong>
-
-  </div>
+</div>
 
 
-  <div class="monitor-box monitor-pending">
+<div class="monitor-box monitor-done">
 
-    <span>
-      لم يحفظوا الخطة
-    </span>
+<span>
+تم حفظ الخطة
+</span>
 
-    <strong id="monitorMissing">
-      0
-    </strong>
+<strong id="monitorSaved">
+0
+</strong>
 
-  </div>
+</div>
 
+
+<div class="monitor-box monitor-pending">
+
+<span>
+لم يحفظوا الخطة
+</span>
+
+<strong id="monitorMissing">
+0
+</strong>
+
+</div>
 
 </div>
 
@@ -812,35 +928,13 @@ footer strong{
 <thead>
 
 <tr>
-
-  <th>
-    م
-  </th>
-
-  <th>
-    رائد الفصل
-  </th>
-
-  <th>
-    المرحلة
-  </th>
-
-  <th>
-    الصف
-  </th>
-
-  <th>
-    الشعبة
-  </th>
-
-  <th>
-    حالة الخطة
-  </th>
-
-  <th>
-    آخر حفظ
-  </th>
-
+<th>م</th>
+<th>رائد الفصل</th>
+<th>المرحلة</th>
+<th>الصف</th>
+<th>الشعبة</th>
+<th>حالة الخطة</th>
+<th>آخر حفظ</th>
 </tr>
 
 </thead>
@@ -854,7 +948,7 @@ footer strong{
 colspan="7"
 class="empty">
 
-  جاري تحميل متابعة الخطط...
+جاري تحميل متابعة الخطط...
 
 </td>
 
@@ -866,13 +960,203 @@ class="empty">
 
 </div>
 
-
 </div>
 
 </section>
 
 
-<!-- ====================================== -->
+<!-- ======================================
+     إدارة جميع الخطط الأسبوعية
+====================================== -->
+
+<section class="card plans-management-card">
+
+<div class="card-header">
+
+<h3>
+إدارة جميع الخطط الأسبوعية
+</h3>
+
+</div>
+
+
+<div class="card-body">
+
+<div class="plans-management-toolbar">
+
+<div class="form-group">
+
+<label>
+بحث
+</label>
+
+<input
+id="planSearchInput"
+type="text"
+placeholder="اسم رائد الصف أو المرحلة أو الصف أو الشعبة...">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+الأسبوع
+</label>
+
+<select id="planWeekFilter">
+
+<option value="">
+كل الأسابيع
+</option>
+
+<option value="1">الأسبوع الأول</option>
+<option value="2">الأسبوع الثاني</option>
+<option value="3">الأسبوع الثالث</option>
+<option value="4">الأسبوع الرابع</option>
+<option value="5">الأسبوع الخامس</option>
+<option value="6">الأسبوع السادس</option>
+<option value="7">الأسبوع السابع</option>
+<option value="8">الأسبوع الثامن</option>
+<option value="9">الأسبوع التاسع</option>
+<option value="10">الأسبوع العاشر</option>
+<option value="11">الأسبوع الحادي عشر</option>
+<option value="12">الأسبوع الثاني عشر</option>
+<option value="13">الأسبوع الثالث عشر</option>
+<option value="14">الأسبوع الرابع عشر</option>
+<option value="15">الأسبوع الخامس عشر</option>
+<option value="16">الأسبوع السادس عشر</option>
+<option value="17">الأسبوع السابع عشر</option>
+<option value="18">الأسبوع الثامن عشر</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+المرحلة
+</label>
+
+<select id="planStageFilter">
+
+<option value="">
+كل المراحل
+</option>
+
+<option value="الابتدائية">
+الابتدائية
+</option>
+
+<option value="المتوسطة">
+المتوسطة
+</option>
+
+<option value="الثانوية">
+الثانوية
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+حالة الرائد
+</label>
+
+<select id="planLeaderStateFilter">
+
+<option value="">
+الكل
+</option>
+
+<option value="active">
+رائد موجود
+</option>
+
+<option value="deleted">
+رائد محذوف/غير موجود
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="manage-refresh-btn"
+id="refreshAllPlansBtn">
+
+تحديث الخطط
+
+</button>
+
+</div>
+
+
+<div class="plans-count-line">
+
+عدد الخطط الظاهرة:
+
+<strong id="allPlansCount">
+0
+</strong>
+
+</div>
+
+
+<div class="table-wrap">
+
+<table class="all-plans-table">
+
+<thead>
+
+<tr>
+
+<th>م</th>
+<th>رائد الصف</th>
+<th>المرحلة</th>
+<th>الصف</th>
+<th>الشعبة</th>
+<th>الأسبوع</th>
+<th>من تاريخ</th>
+<th>إلى تاريخ</th>
+<th>آخر حفظ</th>
+<th>الإجراءات</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="allPlansTable">
+
+<tr>
+
+<td
+colspan="10"
+class="empty">
+
+جاري تحميل الخطط...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
 
 
 <div class="layout">
@@ -882,181 +1166,176 @@ class="empty">
 
 <div class="card-header">
 
-  <h3>
-    إضافة رائد فصل
-  </h3>
+<h3>
+إضافة رائد فصل
+</h3>
 
 </div>
 
 
 <div class="card-body">
 
-
 <form id="leaderForm">
 
 
 <div class="form-group">
 
-  <label>
-    اسم رائد الفصل
-  </label>
+<label>
+اسم رائد الفصل
+</label>
 
-  <input
-    id="name"
-    type="text"
-    placeholder="مثال: أحمد محمد علي"
-    required
-  >
-
-</div>
-
-
-<div class="form-group">
-
-  <label>
-    رقم الجوال
-  </label>
-
-  <input
-    id="phone"
-    type="tel"
-    dir="ltr"
-    inputmode="numeric"
-    placeholder="مثال: 0591234567"
-    required
-  >
-
-  <div class="password-note">
-
-    يستخدم الرقم لإرسال بيانات الحساب لرائد الفصل عبر واتساب.
-
-  </div>
+<input
+id="name"
+type="text"
+placeholder="مثال: أحمد محمد علي"
+required>
 
 </div>
 
 
 <div class="form-group">
 
-  <label>
-    اسم المستخدم
-  </label>
+<label>
+رقم الجوال
+</label>
 
-  <input
-    id="username"
-    type="text"
-    dir="ltr"
-    placeholder="مثال: ahmed6a"
-    required
-  >
+<input
+id="phone"
+type="tel"
+dir="ltr"
+inputmode="numeric"
+placeholder="مثال: 0591234567"
+required>
+
+<div class="password-note">
+
+يستخدم الرقم لإرسال بيانات الحساب لرائد الفصل عبر واتساب.
+
+</div>
 
 </div>
 
 
 <div class="form-group">
 
-  <label>
-    كلمة المرور
-  </label>
+<label>
+اسم المستخدم
+</label>
 
-  <input
-    id="password"
-    type="text"
-    dir="ltr"
-    minlength="6"
-    placeholder="6 خانات على الأقل"
-    required
-  >
-
-  <div class="password-note">
-
-    أعطِ اسم المستخدم وكلمة المرور لرائد الفصل.
-
-  </div>
+<input
+id="username"
+type="text"
+dir="ltr"
+placeholder="مثال: ahmed6a"
+required>
 
 </div>
 
 
 <div class="form-group">
 
-  <label>
-    المرحلة
-  </label>
+<label>
+كلمة المرور
+</label>
 
-  <select
-  id="stage"
-  required>
+<input
+id="password"
+type="text"
+dir="ltr"
+minlength="6"
+placeholder="6 خانات على الأقل"
+required>
 
-    <option value="">
-      اختر المرحلة
-    </option>
+<div class="password-note">
 
-    <option value="الابتدائية">
-      الابتدائية
-    </option>
+أعطِ اسم المستخدم وكلمة المرور لرائد الفصل.
 
-    <option value="المتوسطة">
-      المتوسطة
-    </option>
-
-    <option value="الثانوية">
-      الثانوية
-    </option>
-
-  </select>
+</div>
 
 </div>
 
 
 <div class="form-group">
 
-  <label>
-    الصف
-  </label>
+<label>
+المرحلة
+</label>
 
-  <select
-  id="grade"
-  required>
+<select
+id="stage"
+required>
 
-    <option value="">
-      اختر الصف
-    </option>
+<option value="">
+اختر المرحلة
+</option>
 
-  </select>
+<option value="الابتدائية">
+الابتدائية
+</option>
+
+<option value="المتوسطة">
+المتوسطة
+</option>
+
+<option value="الثانوية">
+الثانوية
+</option>
+
+</select>
 
 </div>
 
 
 <div class="form-group">
 
-  <label>
-    الشعبة
-  </label>
+<label>
+الصف
+</label>
 
-  <select
-  id="section"
-  required>
+<select
+id="grade"
+required>
 
-    <option value="">
-      اختر الشعبة
-    </option>
+<option value="">
+اختر الصف
+</option>
 
-    <option value="أ">
-      أ
-    </option>
+</select>
 
-    <option value="ب">
-      ب
-    </option>
+</div>
 
-    <option value="ج">
-      ج
-    </option>
 
-    <option value="د">
-      د
-    </option>
+<div class="form-group">
 
-  </select>
+<label>
+الشعبة
+</label>
+
+<select
+id="section"
+required>
+
+<option value="">
+اختر الشعبة
+</option>
+
+<option value="أ">
+أ
+</option>
+
+<option value="ب">
+ب
+</option>
+
+<option value="ج">
+ج
+</option>
+
+<option value="د">
+د
+</option>
+
+</select>
 
 </div>
 
@@ -1066,7 +1345,7 @@ type="submit"
 class="save-btn"
 id="saveBtn">
 
-  إنشاء حساب رائد الفصل
+إنشاء حساب رائد الفصل
 
 </button>
 
@@ -1075,7 +1354,6 @@ id="saveBtn">
 id="message"
 class="message">
 </div>
-
 
 </form>
 
@@ -1086,27 +1364,24 @@ class="message">
 
 <section class="card">
 
-
 <div class="card-header">
 
-  <h3>
-    رواد الفصول المسجلون
-  </h3>
+<h3>
+رواد الفصول المسجلون
+</h3>
 
 </div>
 
 
 <div class="card-body">
 
-
 <div class="table-tools">
 
-  <input
-    class="search-box"
-    id="searchInput"
-    type="text"
-    placeholder="بحث بالاسم أو اسم المستخدم أو الجوال..."
-  >
+<input
+class="search-box"
+id="searchInput"
+type="text"
+placeholder="بحث بالاسم أو اسم المستخدم أو الجوال...">
 
 </div>
 
@@ -1118,43 +1393,15 @@ class="message">
 <thead>
 
 <tr>
-
-  <th>
-    م
-  </th>
-
-  <th>
-    رائد الفصل
-  </th>
-
-  <th>
-    الجوال
-  </th>
-
-  <th>
-    اسم المستخدم
-  </th>
-
-  <th>
-    المرحلة
-  </th>
-
-  <th>
-    الصف
-  </th>
-
-  <th>
-    الشعبة
-  </th>
-
-  <th>
-    الحالة
-  </th>
-
-  <th>
-    إجراء
-  </th>
-
+<th>م</th>
+<th>رائد الفصل</th>
+<th>الجوال</th>
+<th>اسم المستخدم</th>
+<th>المرحلة</th>
+<th>الصف</th>
+<th>الشعبة</th>
+<th>الحالة</th>
+<th>إجراء</th>
 </tr>
 
 </thead>
@@ -1168,7 +1415,7 @@ class="message">
 colspan="9"
 class="empty">
 
-  جاري تحميل البيانات...
+جاري تحميل البيانات...
 
 </td>
 
@@ -1202,13 +1449,12 @@ id="editModal">
 
 <div class="modal-title">
 
-  تعديل بيانات رائد الفصل
+تعديل بيانات رائد الفصل
 
 </div>
 
 
 <div class="modal-content">
-
 
 <input
 type="hidden"
@@ -1217,118 +1463,158 @@ id="editId">
 
 <div class="form-group">
 
-  <label>
-    الاسم
-  </label>
+<label>
+الاسم
+</label>
 
-  <input id="editName">
-
-</div>
-
-
-<div class="form-group">
-
-  <label>
-    رقم الجوال
-  </label>
-
-  <input
-    id="editPhone"
-    type="tel"
-    dir="ltr"
-    inputmode="numeric"
-    placeholder="05xxxxxxxx"
-  >
+<input id="editName">
 
 </div>
 
 
 <div class="form-group">
 
-  <label>
-    المرحلة
-  </label>
+<label>
+رقم الجوال
+</label>
 
-  <select id="editStage">
-
-    <option value="الابتدائية">
-      الابتدائية
-    </option>
-
-    <option value="المتوسطة">
-      المتوسطة
-    </option>
-
-    <option value="الثانوية">
-      الثانوية
-    </option>
-
-  </select>
+<input
+id="editPhone"
+type="tel"
+dir="ltr"
+inputmode="numeric"
+placeholder="05xxxxxxxx">
 
 </div>
 
 
 <div class="form-group">
 
-  <label>
-    الصف
-  </label>
+<label>
+المرحلة
+</label>
 
-  <select id="editGrade">
-  </select>
+<select id="editStage">
+
+<option value="الابتدائية">
+الابتدائية
+</option>
+
+<option value="المتوسطة">
+المتوسطة
+</option>
+
+<option value="الثانوية">
+الثانوية
+</option>
+
+</select>
 
 </div>
 
 
 <div class="form-group">
 
-  <label>
-    الشعبة
-  </label>
+<label>
+الصف
+</label>
 
-  <select id="editSection">
+<select id="editGrade">
+</select>
 
-    <option value="أ">
-      أ
-    </option>
+</div>
 
-    <option value="ب">
-      ب
-    </option>
 
-    <option value="ج">
-      ج
-    </option>
+<div class="form-group">
 
-    <option value="د">
-      د
-    </option>
+<label>
+الشعبة
+</label>
 
-  </select>
+<select id="editSection">
+
+<option value="أ">
+أ
+</option>
+
+<option value="ب">
+ب
+</option>
+
+<option value="ج">
+ج
+</option>
+
+<option value="د">
+د
+</option>
+
+</select>
 
 </div>
 
 
 <div class="modal-actions">
 
-
 <button
 class="update-btn"
 id="updateBtn">
 
-  حفظ التعديل
+حفظ التعديل
 
 </button>
-
 
 <button
 class="cancel-btn"
 id="cancelEdit">
 
-  إلغاء
+إلغاء
 
 </button>
 
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ======================================
+     تفاصيل الخطة
+====================================== -->
+
+<div
+class="modal"
+id="planDetailsModal">
+
+<div
+class="modal-box"
+style="width:min(900px,100%);">
+
+<div class="modal-title">
+
+تفاصيل الخطة الأسبوعية
+
+</div>
+
+
+<div class="modal-content">
+
+<div id="planDetailsContent">
+</div>
+
+
+<div class="modal-actions">
+
+<button
+class="cancel-btn"
+id="closePlanDetails">
+
+إغلاق
+
+</button>
 
 </div>
 
@@ -1378,6 +1664,7 @@ import {
   getDocs,
   setDoc,
   updateDoc,
+  deleteDoc,
   serverTimestamp
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
@@ -1555,6 +1842,62 @@ document.getElementById(
 );
 
 
+/* إدارة جميع الخطط */
+
+const planSearchInput =
+document.getElementById(
+  "planSearchInput"
+);
+
+
+const planWeekFilter =
+document.getElementById(
+  "planWeekFilter"
+);
+
+
+const planStageFilter =
+document.getElementById(
+  "planStageFilter"
+);
+
+
+const planLeaderStateFilter =
+document.getElementById(
+  "planLeaderStateFilter"
+);
+
+
+const refreshAllPlansBtn =
+document.getElementById(
+  "refreshAllPlansBtn"
+);
+
+
+const allPlansTable =
+document.getElementById(
+  "allPlansTable"
+);
+
+
+const allPlansCount =
+document.getElementById(
+  "allPlansCount"
+);
+
+
+const planDetailsModal =
+document.getElementById(
+  "planDetailsModal"
+);
+
+
+const planDetailsContent =
+document.getElementById(
+  "planDetailsContent"
+);
+
+
 let leaders = [];
 
 let weeklyPlans = [];
@@ -1569,15 +1912,10 @@ const gradesByStage = {
   "الابتدائية":[
 
     "الأول الابتدائي",
-
     "الثاني الابتدائي",
-
     "الثالث الابتدائي",
-
     "الرابع الابتدائي",
-
     "الخامس الابتدائي",
-
     "السادس الابتدائي"
 
   ],
@@ -1586,9 +1924,7 @@ const gradesByStage = {
   "المتوسطة":[
 
     "الأول المتوسط",
-
     "الثاني المتوسط",
-
     "الثالث المتوسط"
 
   ],
@@ -1597,9 +1933,7 @@ const gradesByStage = {
   "الثانوية":[
 
     "الأول الثانوي",
-
     "الثاني الثانوي",
-
     "الثالث الثانوي"
 
   ]
@@ -1749,18 +2083,8 @@ onAuthStateChanged(
       "مدير النظام";
 
 
-      /*
-        الحسابات تُحمّل بنفس
-        الطريقة القديمة تمامًا.
-      */
-
       await loadLeaders();
 
-
-      /*
-        الجديد فقط:
-        قراءة الخطط الأسبوعية.
-      */
 
       await loadWeeklyPlans(
         true
@@ -1928,7 +2252,6 @@ function validSaudiPhone(
 
 /* ======================================
    CREATE ACCOUNT
-   نفس الكود القديم
 ====================================== */
 
 leaderForm.addEventListener(
@@ -2283,11 +2606,6 @@ leaderForm.addEventListener(
       await loadLeaders();
 
 
-      /*
-        تحديث جدول المتابعة فقط
-        بعد إضافة رائد جديد.
-      */
-
       renderPlanMonitoring();
 
 
@@ -2376,7 +2694,6 @@ leaderForm.addEventListener(
 
 /* ======================================
    LOAD LEADERS
-   نفس طريقة العمل الأصلية
 ====================================== */
 
 async function loadLeaders(){
@@ -2467,12 +2784,9 @@ async function loadLeaders(){
     );
 
 
-    /*
-      لا يغير أي بيانات.
-      يعيد فقط رسم المتابعة.
-    */
-
     renderPlanMonitoring();
+
+    renderAllPlansManagement();
 
 
   }
@@ -3187,10 +3501,8 @@ function bindTableButtons(){
                 active:
                 false,
 
-
                 deleted:
                 true,
-
 
                 deletedAt:
                 serverTimestamp()
@@ -3580,15 +3892,6 @@ editModal.addEventListener(
    متابعة الخطط الأسبوعية
 ====================================== */
 
-
-/*
-  هذه الدالة تقرأ collection
-  weeklyPlans فقط.
-
-  لا تقوم بأي تعديل أو حذف
-  أو إضافة في الحسابات.
-*/
-
 async function loadWeeklyPlans(
   chooseLatestWeek = false
 ){
@@ -3654,12 +3957,6 @@ async function loadWeeklyPlans(
     );
 
 
-    /*
-      في أول مرة فقط:
-      نعرض آخر أسبوع توجد له
-      خطة محفوظة تلقائيًا.
-    */
-
     if(
       chooseLatestWeek &&
       weeklyPlans.length >
@@ -3709,6 +4006,8 @@ async function loadWeeklyPlans(
 
     renderPlanMonitoring();
 
+    renderAllPlansManagement();
+
 
   }
 
@@ -3736,6 +4035,29 @@ async function loadWeeklyPlans(
       </tr>
 
     `;
+
+
+    if(
+      allPlansTable
+    ){
+
+      allPlansTable.innerHTML = `
+
+        <tr>
+
+          <td
+          colspan="10"
+          class="empty">
+
+            تعذر تحميل الخطط الأسبوعية.
+
+          </td>
+
+        </tr>
+
+      `;
+
+    }
 
 
   }
@@ -3777,11 +4099,6 @@ function renderPlanMonitoring(){
     monitorWeek.value
   );
 
-
-  /*
-    الحسابات الموقوفة لا نحسبها
-    ضمن المطلوب منهم تسليم الخطة.
-  */
 
   const activeLeaders =
   leaders.filter(
@@ -3839,16 +4156,14 @@ function renderPlanMonitoring(){
     leader=>{
 
 
-      /*
-        نبحث عن خطة لهذا الرائد
-        ولهذا الأسبوع.
-      */
-
       const matchingPlans =
       weeklyPlans
 
       .filter(
         plan =>
+
+          plan.documentType !==
+          "fixedSchedule" &&
 
           plan.leaderUid ===
           leader.id &&
@@ -3909,11 +4224,6 @@ function renderPlanMonitoring(){
   activeLeaders.length -
   savedCount;
 
-
-  /*
-    نظهر من لم يحفظ أولًا
-    ثم من حفظ.
-  */
 
   result.sort(
     (a,b)=>{
@@ -4289,6 +4599,1213 @@ function formatPlanTimestamp(
 
 
 /* ======================================
+   إدارة جميع الخطط الأسبوعية
+====================================== */
+
+function isRealWeeklyPlan(
+  plan
+){
+
+  const week =
+  Number(
+    plan?.weekNumber
+  );
+
+
+  return (
+
+    Number.isFinite(
+      week
+    ) &&
+
+    week >= 1 &&
+
+    week <= 18 &&
+
+    plan?.documentType !==
+    "fixedSchedule"
+
+  );
+
+}
+
+
+function getLeaderForPlan(
+  plan
+){
+
+  if(
+    !plan?.leaderUid
+  ){
+
+    return null;
+
+  }
+
+
+  return leaders.find(
+    leader =>
+    leader.id ===
+    plan.leaderUid
+  ) || null;
+
+}
+
+
+/* ======================================
+   رسم جميع الخطط
+====================================== */
+
+function renderAllPlansManagement(){
+
+  if(
+    !allPlansTable
+  ){
+
+    return;
+
+  }
+
+
+  const searchText =
+  String(
+    planSearchInput?.value ||
+    ""
+  )
+  .trim()
+  .toLowerCase();
+
+
+  const weekValue =
+  String(
+    planWeekFilter?.value ||
+    ""
+  );
+
+
+  const stageValue =
+  String(
+    planStageFilter?.value ||
+    ""
+  );
+
+
+  const leaderState =
+  String(
+    planLeaderStateFilter?.value ||
+    ""
+  );
+
+
+  let plans =
+  weeklyPlans
+  .filter(
+    plan =>
+    isRealWeeklyPlan(
+      plan
+    )
+  );
+
+
+  plans =
+  plans.filter(
+    plan=>{
+
+
+      const leader =
+      getLeaderForPlan(
+        plan
+      );
+
+
+      const leaderExists =
+      !!leader;
+
+
+      if(
+        leaderState ===
+        "active" &&
+
+        !leaderExists
+      ){
+
+        return false;
+
+      }
+
+
+      if(
+        leaderState ===
+        "deleted" &&
+
+        leaderExists
+      ){
+
+        return false;
+
+      }
+
+
+      if(
+        weekValue &&
+
+        Number(
+          plan.weekNumber
+        ) !==
+        Number(
+          weekValue
+        )
+      ){
+
+        return false;
+
+      }
+
+
+      if(
+        stageValue &&
+
+        String(
+          plan.stage ||
+          ""
+        ) !==
+        stageValue
+      ){
+
+        return false;
+
+      }
+
+
+      if(
+        searchText
+      ){
+
+        const searchable = [
+
+          plan.leaderName || "",
+          leader?.name || "",
+          plan.stage || "",
+          plan.grade || "",
+          plan.section || "",
+          String(
+            plan.weekNumber ||
+            ""
+          )
+
+        ]
+        .join(
+          " "
+        )
+        .toLowerCase();
+
+
+        if(
+          !searchable.includes(
+            searchText
+          )
+        ){
+
+          return false;
+
+        }
+
+      }
+
+
+      return true;
+
+    }
+  );
+
+
+  plans.sort(
+    (a,b)=>{
+
+
+      const weekDiff =
+
+      Number(
+        b.weekNumber
+      ) -
+
+      Number(
+        a.weekNumber
+      );
+
+
+      if(
+        weekDiff !== 0
+      ){
+
+        return weekDiff;
+
+      }
+
+
+      return (
+
+        getPlanTime(
+          b
+        ) -
+
+        getPlanTime(
+          a
+        )
+
+      );
+
+    }
+  );
+
+
+  allPlansCount.textContent =
+  plans.length;
+
+
+  if(
+    plans.length ===
+    0
+  ){
+
+    allPlansTable.innerHTML = `
+
+      <tr>
+
+        <td
+        colspan="10"
+        class="empty">
+
+          لا توجد خطط مطابقة للبحث.
+
+        </td>
+
+      </tr>
+
+    `;
+
+
+    return;
+
+  }
+
+
+  allPlansTable.innerHTML =
+  "";
+
+
+  plans.forEach(
+    (
+      plan,
+      index
+    )=>{
+
+
+      const leader =
+      getLeaderForPlan(
+        plan
+      );
+
+
+      const tr =
+      document.createElement(
+        "tr"
+      );
+
+
+      tr.innerHTML = `
+
+        <td>
+          ${index + 1}
+        </td>
+
+        <td>
+
+          ${escapeHTML(
+            plan.leaderName ||
+            leader?.name ||
+            "رائد صف غير موجود"
+          )}
+
+          ${
+            !leader
+            ?
+            `
+              <div class="orphan-badge">
+                الحساب محذوف أو غير موجود
+              </div>
+            `
+            :
+            ""
+          }
+
+        </td>
+
+        <td>
+          ${escapeHTML(
+            plan.stage ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            plan.grade ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            plan.section ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          الأسبوع ${escapeHTML(
+            plan.weekNumber
+          )}
+        </td>
+
+        <td>
+          ${formatSimpleDate(
+            plan.startDate
+          )}
+        </td>
+
+        <td>
+          ${formatSimpleDate(
+            plan.endDate
+          )}
+        </td>
+
+        <td>
+          ${formatPlanTimestamp(
+            plan.updatedAt ||
+            plan.createdAt
+          )}
+        </td>
+
+        <td>
+
+          <button
+          class="action-btn plan-view-btn"
+          data-plan-view="${escapeHTML(plan.id)}">
+
+            عرض
+
+          </button>
+
+          <button
+          class="action-btn plan-delete-btn"
+          data-plan-delete="${escapeHTML(plan.id)}">
+
+            حذف الخطة
+
+          </button>
+
+        </td>
+
+      `;
+
+
+      allPlansTable.appendChild(
+        tr
+      );
+
+
+    }
+  );
+
+
+  bindAllPlanButtons();
+
+}
+
+
+/* ======================================
+   أزرار إدارة الخطط
+====================================== */
+
+function bindAllPlanButtons(){
+
+
+  document
+  .querySelectorAll(
+    "[data-plan-view]"
+  )
+  .forEach(
+    button=>{
+
+
+      button.addEventListener(
+        "click",
+        ()=>{
+
+
+          const plan =
+          weeklyPlans.find(
+            item =>
+            item.id ===
+            button.dataset.planView
+          );
+
+
+          if(
+            plan
+          ){
+
+            openPlanDetails(
+              plan
+            );
+
+          }
+
+
+        }
+      );
+
+
+    }
+  );
+
+
+  document
+  .querySelectorAll(
+    "[data-plan-delete]"
+  )
+  .forEach(
+    button=>{
+
+
+      button.addEventListener(
+        "click",
+        async()=>{
+
+
+          const plan =
+          weeklyPlans.find(
+            item =>
+            item.id ===
+            button.dataset.planDelete
+          );
+
+
+          if(
+            !plan
+          ){
+
+            return;
+
+          }
+
+
+          const firstConfirm =
+          confirm(
+
+            `هل تريد حذف خطة الأسبوع ${plan.weekNumber} الخاصة بـ "${plan.leaderName || "رائد الصف"}"؟`
+
+          );
+
+
+          if(
+            !firstConfirm
+          ){
+
+            return;
+
+          }
+
+
+          const secondConfirm =
+          confirm(
+
+            "سيتم حذف الخطة نهائيًا من قاعدة البيانات وستختفي من بوابة ولي الأمر. هل أنت متأكد؟"
+
+          );
+
+
+          if(
+            !secondConfirm
+          ){
+
+            return;
+
+          }
+
+
+          try{
+
+
+            button.disabled =
+            true;
+
+
+            button.textContent =
+            "جاري الحذف...";
+
+
+            await deleteDoc(
+
+              doc(
+                db,
+                "weeklyPlans",
+                plan.id
+              )
+
+            );
+
+
+            weeklyPlans =
+            weeklyPlans.filter(
+              item =>
+              item.id !==
+              plan.id
+            );
+
+
+            renderPlanMonitoring();
+
+
+            renderAllPlansManagement();
+
+
+            await loadWeeklyPlans(
+              false
+            );
+
+
+            alert(
+              "تم حذف الخطة نهائيًا، ولن تظهر لولي الأمر بعد الآن."
+            );
+
+
+          }
+
+          catch(error){
+
+
+            console.error(
+              "خطأ حذف الخطة:",
+              error
+            );
+
+
+            alert(
+              "تعذر حذف الخطة. تأكد من صلاحيات الأدمن في Firestore."
+            );
+
+
+            button.disabled =
+            false;
+
+
+            button.textContent =
+            "حذف الخطة";
+
+
+          }
+
+
+        }
+      );
+
+
+    }
+  );
+
+}
+
+
+/* ======================================
+   تفاصيل الخطة
+====================================== */
+
+function openPlanDetails(
+  plan
+){
+
+  const dayNames = {
+
+    sunday:
+    "الأحد",
+
+    monday:
+    "الاثنين",
+
+    tuesday:
+    "الثلاثاء",
+
+    wednesday:
+    "الأربعاء",
+
+    thursday:
+    "الخميس"
+
+  };
+
+
+  const detailsDays =
+  Object.keys(
+    dayNames
+  )
+  .map(
+    day=>{
+
+
+      const rows =
+      Array.isArray(
+        plan.days?.[day]
+      )
+      ?
+      plan.days[day]
+      :
+      [];
+
+
+      const rowsHtml =
+      rows
+      .map(
+        (
+          row,
+          index
+        )=>{
+
+
+          const homework =
+          row?.homework ||
+          buildOldHomeworkText(
+            row
+          );
+
+
+          return `
+
+            <tr>
+
+              <td>
+                ${index + 1}
+              </td>
+
+              <td>
+                ${escapeHTML(
+                  row?.subject ||
+                  ""
+                )}
+              </td>
+
+              <td>
+                ${escapeHTML(
+                  row?.topic ||
+                  ""
+                )}
+              </td>
+
+              <td>
+                ${escapeHTML(
+                  homework ||
+                  ""
+                )}
+              </td>
+
+            </tr>
+
+          `;
+
+
+        }
+      )
+      .join(
+        ""
+      );
+
+
+      return `
+
+        <h4
+        style="
+          color:#0b4b3e;
+          margin:16px 0 8px;
+        ">
+
+          ${dayNames[day]}
+
+        </h4>
+
+
+        <div class="table-wrap">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  الحصة
+                </th>
+
+                <th>
+                  المادة
+                </th>
+
+                <th>
+                  موضوع الدرس
+                </th>
+
+                <th>
+                  الواجب
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              ${
+                rowsHtml ||
+                `
+                  <tr>
+
+                    <td
+                    colspan="4"
+                    class="empty">
+
+                      لا توجد بيانات.
+
+                    </td>
+
+                  </tr>
+                `
+              }
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      `;
+
+
+    }
+  )
+  .join(
+    ""
+  );
+
+
+  planDetailsContent.innerHTML = `
+
+    <div class="plan-details-grid">
+
+      <div class="plan-details-item">
+
+        <strong>
+          رائد الصف
+        </strong>
+
+        ${escapeHTML(
+          plan.leaderName ||
+          "-"
+        )}
+
+      </div>
+
+
+      <div class="plan-details-item">
+
+        <strong>
+          الأسبوع
+        </strong>
+
+        الأسبوع ${escapeHTML(
+          plan.weekNumber ||
+          "-"
+        )}
+
+      </div>
+
+
+      <div class="plan-details-item">
+
+        <strong>
+          المرحلة
+        </strong>
+
+        ${escapeHTML(
+          plan.stage ||
+          "-"
+        )}
+
+      </div>
+
+
+      <div class="plan-details-item">
+
+        <strong>
+          الصف / الشعبة
+        </strong>
+
+        ${escapeHTML(
+          plan.grade ||
+          "-"
+        )}
+
+        -
+
+        ${escapeHTML(
+          plan.section ||
+          "-"
+        )}
+
+      </div>
+
+
+      <div class="plan-details-item">
+
+        <strong>
+          من تاريخ
+        </strong>
+
+        ${formatSimpleDate(
+          plan.startDate
+        )}
+
+      </div>
+
+
+      <div class="plan-details-item">
+
+        <strong>
+          إلى تاريخ
+        </strong>
+
+        ${formatSimpleDate(
+          plan.endDate
+        )}
+
+      </div>
+
+
+      <div class="plan-details-item">
+
+        <strong>
+          القيمة التربوية
+        </strong>
+
+        ${escapeHTML(
+          plan.educationalValue ||
+          "-"
+        )}
+
+      </div>
+
+
+      <div class="plan-details-item">
+
+        <strong>
+          شخصية الأسبوع
+        </strong>
+
+        ${escapeHTML(
+          plan.weekPersonality ||
+          "-"
+        )}
+
+      </div>
+
+
+      <div class="plan-details-item plan-details-wide">
+
+        <strong>
+          مدير المدرسة
+        </strong>
+
+        ${escapeHTML(
+          plan.principalName ||
+          "-"
+        )}
+
+      </div>
+
+    </div>
+
+
+    <div class="plan-days-summary">
+
+      ${detailsDays}
+
+    </div>
+
+  `;
+
+
+  planDetailsModal
+  .classList
+  .add(
+    "show"
+  );
+
+}
+
+
+/* ======================================
+   إغلاق تفاصيل الخطة
+====================================== */
+
+document
+.getElementById(
+  "closePlanDetails"
+)
+.addEventListener(
+  "click",
+  ()=>{
+
+
+    planDetailsModal
+    .classList
+    .remove(
+      "show"
+    );
+
+
+  }
+);
+
+
+planDetailsModal.addEventListener(
+  "click",
+  event=>{
+
+
+    if(
+      event.target ===
+      planDetailsModal
+    ){
+
+      planDetailsModal
+      .classList
+      .remove(
+        "show"
+      );
+
+    }
+
+
+  }
+);
+
+
+/* ======================================
+   فلاتر إدارة الخطط
+====================================== */
+
+[
+  planSearchInput,
+  planWeekFilter,
+  planStageFilter,
+  planLeaderStateFilter
+]
+.forEach(
+  element=>{
+
+
+    if(
+      !element
+    ){
+
+      return;
+
+    }
+
+
+    element.addEventListener(
+
+      element.tagName ===
+      "INPUT"
+      ?
+      "input"
+      :
+      "change",
+
+      ()=>{
+
+
+        renderAllPlansManagement();
+
+
+      }
+
+    );
+
+
+  }
+);
+
+
+refreshAllPlansBtn.addEventListener(
+  "click",
+  async()=>{
+
+
+    await loadWeeklyPlans(
+      false
+    );
+
+
+  }
+);
+
+
+/* ======================================
+   واجب قديم
+====================================== */
+
+function buildOldHomeworkText(
+  row
+){
+
+  if(
+    !row
+  ){
+
+    return "";
+
+  }
+
+
+  const parts = [];
+
+
+  if(
+    row.book &&
+    String(
+      row.book
+    ).trim()
+  ){
+
+    parts.push(
+      String(
+        row.book
+      ).trim()
+    );
+
+  }
+
+
+  if(
+    row.page &&
+    String(
+      row.page
+    ).trim()
+  ){
+
+    parts.push(
+
+      "ص " +
+      String(
+        row.page
+      ).trim()
+
+    );
+
+  }
+
+
+  if(
+    row.exercise &&
+    String(
+      row.exercise
+    ).trim()
+  ){
+
+    parts.push(
+
+      "تمرين " +
+      String(
+        row.exercise
+      ).trim()
+
+    );
+
+  }
+
+
+  if(
+    row.madrasati ===
+    true
+  ){
+
+    parts.push(
+      "منصة مدرستي"
+    );
+
+  }
+
+
+  return parts.join(
+    " - "
+  );
+
+}
+
+
+/* ======================================
+   تنسيق تاريخ بسيط
+====================================== */
+
+function formatSimpleDate(
+  value
+){
+
+  if(
+    !value
+  ){
+
+    return "-";
+
+  }
+
+
+  const parts =
+  String(
+    value
+  )
+  .split(
+    "-"
+  );
+
+
+  if(
+    parts.length ===
+    3
+  ){
+
+    return (
+
+      parts[2] +
+      "/" +
+      parts[1] +
+      "/" +
+      parts[0]
+
+    );
+
+  }
+
+
+  return escapeHTML(
+    value
+  );
+
+}
+
+
+/* ======================================
    HELPERS
 ====================================== */
 
@@ -4309,8 +5826,12 @@ function formatPhone(
   ){
 
     return (
+
       "0" +
-      number.substring(3)
+      number.substring(
+        3
+      )
+
     );
 
   }
