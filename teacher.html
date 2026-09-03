@@ -60,22 +60,12 @@ body{
 .topbar{
     min-height:86px;
     padding:11px 30px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #769786,
-        #557764
-    );
-
+    background:linear-gradient(135deg,#769786,#557764);
     border-bottom:4px solid var(--gold);
-
     color:white;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     gap:20px;
 }
 
@@ -88,13 +78,9 @@ body{
 .brand img{
     width:64px;
     height:64px;
-
     object-fit:contain;
-
     background:white;
-
     border-radius:12px;
-
     padding:4px;
 }
 
@@ -122,17 +108,11 @@ body{
 
 .logout-btn{
     border:1px solid #e0c979;
-
     background:rgba(255,255,255,.12);
-
     color:white;
-
     border-radius:9px;
-
     padding:10px 17px;
-
     cursor:pointer;
-
     font-weight:700;
 }
 
@@ -149,14 +129,9 @@ body{
 .welcome,
 .card{
     background:white;
-
     border-radius:17px;
-
-    box-shadow:
-    0 5px 18px rgba(0,0,0,.055);
-
+    box-shadow:0 5px 18px rgba(0,0,0,.055);
     margin-bottom:21px;
-
     overflow:hidden;
 }
 
@@ -167,11 +142,8 @@ body{
 
 .welcome h2{
     color:var(--green-dark);
-
     font-size:25px;
-
     margin-bottom:9px;
-
     font-weight:800;
 }
 
@@ -189,29 +161,34 @@ body{
 
 .info-badge{
     background:var(--gold-soft);
-
     color:var(--green-dark);
-
     border-radius:22px;
-
     padding:9px 15px;
-
     font-size:14px;
-
     font-weight:700;
+}
+
+.schedule-note{
+    margin-top:14px;
+    background:#edf4f0;
+    border:1px solid #98afa2;
+    border-radius:10px;
+    padding:11px 14px;
+    color:#315b49;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.schedule-note strong{
+    font-weight:800;
 }
 
 .card-title{
     background:#789685;
-
     color:white;
-
     border-bottom:4px solid var(--gold);
-
     padding:15px 20px;
-
     font-size:19px;
-
     font-weight:800;
 }
 
@@ -236,43 +213,29 @@ body{
 
 .form-group label{
     display:block;
-
     color:var(--green-dark);
-
     font-size:14px;
-
     font-weight:700;
-
     margin-bottom:8px;
 }
 
 input,
 select{
     width:100%;
-
     border:1px solid #d2d2d2;
-
     background:white;
-
     border-radius:10px;
-
     padding:12px;
-
     outline:none;
-
     font-size:15px;
-
     font-family:"Tajawal",Tahoma,Arial,sans-serif;
-
     font-weight:500;
 }
 
 input:focus,
 select:focus{
     border-color:var(--gold);
-
-    box-shadow:
-    0 0 0 3px rgba(185,150,72,.13);
+    box-shadow:0 0 0 3px rgba(185,150,72,.13);
 }
 
 
@@ -289,23 +252,14 @@ select:focus{
 
 .day-btn{
     flex:1;
-
     min-width:100px;
-
     padding:13px;
-
     border:0;
-
     border-radius:11px;
-
     background:#e6e5e0;
-
     color:var(--green-dark);
-
     cursor:pointer;
-
     font-size:15px;
-
     font-weight:700;
 }
 
@@ -316,17 +270,11 @@ select:focus{
 
 .plan-top{
     background:#eff4f1;
-
     border-bottom:2px solid var(--gold);
-
     color:var(--green-dark);
-
     padding:15px 20px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 }
 
@@ -359,31 +307,19 @@ select:focus{
 
 .input-table th{
     background:#f6f0df;
-
     color:var(--green-dark);
-
     padding:13px 8px;
-
     border:1px solid #d6cfbd;
-
     font-size:14px;
-
     font-weight:800;
 }
 
 .input-table td{
     padding:8px;
-
     border:1px solid #e1e1e1;
-
     text-align:center;
-
     vertical-align:middle;
 }
-
-/*
-   شاشة الإدخال
-*/
 
 .input-table .input-period{
     width:6%;
@@ -526,25 +462,17 @@ select:focus{
 
 .history-table th{
     background:#f6f0df;
-
     color:var(--green-dark);
-
     padding:12px 7px;
-
     border:1px solid #d6cfbd;
-
     font-size:14px;
-
     font-weight:700;
 }
 
 .history-table td{
     padding:8px;
-
     border:1px solid #e1e1e1;
-
     text-align:center;
-
     font-size:14px;
 }
 
@@ -560,19 +488,12 @@ select:focus{
 
 .modal{
     position:fixed;
-
     inset:0;
-
     background:rgba(0,0,0,.62);
-
     display:none;
-
     align-items:center;
-
     justify-content:center;
-
     padding:15px;
-
     z-index:9999;
 }
 
@@ -582,41 +503,25 @@ select:focus{
 
 .modal-box{
     width:min(1320px,100%);
-
     max-height:96vh;
-
     overflow:auto;
-
     background:#e6e6e6;
-
     border-radius:15px;
 }
 
 .modal-header{
     position:sticky;
-
     top:0;
-
     z-index:20;
-
     background:#456856;
-
     color:white;
-
     padding:13px 18px;
-
     border-bottom:4px solid var(--gold);
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:15px;
-
     font-size:16px;
-
     font-weight:700;
 }
 
@@ -647,46 +552,25 @@ select:focus{
 
 #poster{
     width:1240px;
-
     min-height:1754px;
-
     background:#fffefb;
-
     color:#171717;
-
     position:relative;
-
     direction:rtl;
-
     padding:27px 31px 55px;
-
     font-family:"Tajawal",Tahoma,Arial,sans-serif;
-
     font-weight:500;
-
     -webkit-font-smoothing:antialiased;
-
     text-rendering:optimizeLegibility;
 }
 
-
-/* =========================
-   POSTER HEADER
-========================= */
-
 .poster-header{
     display:grid;
-
     grid-template-columns:205px 1fr 205px;
-
     direction:ltr;
-
     align-items:center;
-
     min-height:150px;
-
     padding-bottom:12px;
-
     border-bottom:4px solid var(--gold);
 }
 
@@ -708,15 +592,10 @@ select:focus{
 
 .poster-government{
     direction:rtl;
-
     text-align:center;
-
     color:#292929;
-
     line-height:1.65;
-
     font-size:21px;
-
     font-weight:800;
 }
 
@@ -729,37 +608,18 @@ select:focus{
     font-size:23px;
 }
 
-
-/* =========================
-   TITLE
-========================= */
-
 .poster-class-title{
     margin-top:11px;
-
     text-align:center;
-
     background:#eef4f0;
-
     border-right:6px solid #819f8e;
-
     border-left:6px solid #819f8e;
-
     color:#294f40;
-
     font-size:29px;
-
     line-height:1.45;
-
     font-weight:800;
-
     padding:10px 12px;
 }
-
-
-/* =========================
-   VISION
-========================= */
 
 .vision-message{
     display:grid;
@@ -790,11 +650,6 @@ select:focus{
     font-weight:600;
     line-height:1.65;
 }
-
-
-/* =========================
-   WEEK INFO
-========================= */
 
 .poster-weekline{
     margin-top:10px;
@@ -831,11 +686,6 @@ select:focus{
     font-weight:800;
 }
 
-
-/* =========================
-   FINAL TABLE
-========================= */
-
 .poster-table{
     width:100%;
     margin-top:11px;
@@ -846,44 +696,26 @@ select:focus{
 
 .poster-table th{
     background:#eef3ef;
-
     color:#315b49;
-
     border:1.5px solid #1b1b1b;
-
     padding:9px 4px;
-
     font-size:15px;
-
     font-weight:800;
-
     line-height:1.25;
 }
 
 .poster-table td{
     border:1px solid #222;
-
     padding:5px 7px;
-
     height:31px;
-
     line-height:1.18;
-
     font-size:14px;
-
     text-align:center;
-
     vertical-align:middle;
-
     font-weight:500;
-
     word-break:normal;
-
     overflow-wrap:anywhere;
 }
-
-
-/* اليوم */
 
 .poster-table .day-cell{
     background:#789685;
@@ -906,9 +738,6 @@ select:focus{
     font-weight:800;
 }
 
-
-/* الحصة */
-
 .poster-table .period-cell{
     background:#faf7ed;
     font-size:15px;
@@ -918,18 +747,12 @@ select:focus{
     padding-right:3px;
 }
 
-
-/* المادة */
-
 .poster-table .subject-cell{
     font-size:13px;
     font-weight:700;
     text-align:center;
     padding:4px;
 }
-
-
-/* موضوع الدرس */
 
 .poster-table .topic-cell{
     font-size:14px;
@@ -940,9 +763,6 @@ select:focus{
     overflow-wrap:anywhere;
 }
 
-
-/* الواجب */
-
 .poster-table .homework-cell{
     font-size:14px;
     line-height:1.18;
@@ -952,15 +772,9 @@ select:focus{
     overflow-wrap:anywhere;
 }
 
-
 .poster-table tr.day-start td{
     border-top:5px solid #111 !important;
 }
-
-
-/* =========================
-   SIGNATURES
-========================= */
 
 .poster-signatures{
     margin-top:21px;
@@ -1063,7 +877,6 @@ footer strong{
 
 </head>
 
-
 <body>
 
 
@@ -1163,6 +976,17 @@ class="logout-btn">
 </span>
 
 </div>
+
+</div>
+
+
+<div class="schedule-note">
+
+<strong>جدول المواد ثابت للفصل:</strong>
+
+بعد حفظ المواد لأول مرة سيستخدمها النظام تلقائيًا
+في جميع الأسابيع الجديدة، بينما تظل موضوعات الدروس
+والواجبات فارغة لكل أسبوع.
 
 </div>
 
@@ -1315,7 +1139,6 @@ placeholder="اكتب اسم مدير المدرسة">
 
 <section class="card">
 
-
 <div class="plan-top">
 
 <h3>
@@ -1338,10 +1161,12 @@ class="day-label">
 <table class="input-table">
 
 <colgroup>
+
 <col class="input-period">
 <col class="input-subject">
 <col class="input-topic">
 <col class="input-homework">
+
 </colgroup>
 
 <thead>
@@ -1428,12 +1253,14 @@ class="message">
 <thead>
 
 <tr>
+
 <th>الأسبوع</th>
 <th>من تاريخ</th>
 <th>إلى تاريخ</th>
 <th>القيمة التربوية</th>
 <th>شخصية الأسبوع</th>
 <th>الإجراءات</th>
+
 </tr>
 
 </thead>
@@ -1441,11 +1268,15 @@ class="message">
 <tbody id="historyTable">
 
 <tr>
+
 <td
 colspan="6"
 class="empty-history">
+
 جاري تحميل سجل الخطط...
+
 </td>
+
 </tr>
 
 </tbody>
@@ -1473,6 +1304,7 @@ id="previewModal">
 معاينة الخطة الأسبوعية
 </strong>
 
+
 <div class="modal-controls">
 
 <button id="modalDownload">
@@ -1495,8 +1327,12 @@ id="previewModal">
 
 </div>
 
+
 <div class="modal-content">
-<div id="poster"></div>
+
+<div id="poster">
+</div>
+
 </div>
 
 </div>
@@ -1590,71 +1426,135 @@ const days = {
 };
 
 
+const dayKeys =
+Object.keys(days);
+
+
 let currentUser = null;
+
 let currentUserData = null;
-let currentDay = "sunday";
-let planData = createEmptyPlan();
+
+let currentDay =
+"sunday";
+
+let planData =
+createEmptyPlan();
+
 let savedPlans = [];
-let previewPlan = null;
+
+let previewPlan =
+null;
+
+
+/*
+=================================
+الجدول الثابت للمواد
+=================================
+*/
+
+let fixedSchedule =
+createEmptySchedule();
 
 
 const leaderName =
-document.getElementById("leaderName");
+document.getElementById(
+    "leaderName"
+);
 
 const userName =
-document.getElementById("userName");
+document.getElementById(
+    "userName"
+);
 
 const stageText =
-document.getElementById("stageText");
+document.getElementById(
+    "stageText"
+);
 
 const gradeText =
-document.getElementById("gradeText");
+document.getElementById(
+    "gradeText"
+);
 
 const sectionText =
-document.getElementById("sectionText");
+document.getElementById(
+    "sectionText"
+);
 
 const weekNumber =
-document.getElementById("weekNumber");
+document.getElementById(
+    "weekNumber"
+);
 
 const startDate =
-document.getElementById("startDate");
+document.getElementById(
+    "startDate"
+);
 
 const endDate =
-document.getElementById("endDate");
+document.getElementById(
+    "endDate"
+);
 
 const educationalValue =
-document.getElementById("educationalValue");
+document.getElementById(
+    "educationalValue"
+);
 
 const weekPersonality =
-document.getElementById("weekPersonality");
+document.getElementById(
+    "weekPersonality"
+);
 
 const principalName =
-document.getElementById("principalName");
+document.getElementById(
+    "principalName"
+);
 
 const planRows =
-document.getElementById("planRows");
+document.getElementById(
+    "planRows"
+);
 
 const currentDayLabel =
-document.getElementById("currentDayLabel");
+document.getElementById(
+    "currentDayLabel"
+);
 
 const historyTable =
-document.getElementById("historyTable");
+document.getElementById(
+    "historyTable"
+);
 
 const message =
-document.getElementById("message");
+document.getElementById(
+    "message"
+);
 
 const previewModal =
-document.getElementById("previewModal");
+document.getElementById(
+    "previewModal"
+);
 
 const poster =
-document.getElementById("poster");
+document.getElementById(
+    "poster"
+);
 
+
+/* =========================
+   EMPTY PLAN
+========================= */
 
 function createEmptyDay(){
 
     const rows = [];
 
-    for(let i=1;i<=8;i++){
+    for(
+        let i=1;
+        i<=8;
+        i++
+    ){
 
         rows.push({
 
@@ -1687,11 +1587,49 @@ function createEmptyPlan(){
 }
 
 
+/* =========================
+   EMPTY FIXED SCHEDULE
+========================= */
+
+function createEmptySchedule(){
+
+    return {
+
+        sunday:[
+            "","","","","","","",""
+        ],
+
+        monday:[
+            "","","","","","","",""
+        ],
+
+        tuesday:[
+            "","","","","","","",""
+        ],
+
+        wednesday:[
+            "","","","","","","",""
+        ],
+
+        thursday:[
+            "","","","","","","",""
+        ]
+
+    };
+
+}
+
+
+/* =========================
+   OLD HOMEWORK
+========================= */
+
 function oldHomeworkToText(row){
 
     if(!row){
         return "";
     }
+
 
     if(
         row.homework !== undefined &&
@@ -1699,7 +1637,9 @@ function oldHomeworkToText(row){
         String(row.homework).trim() !== ""
     ){
 
-        return String(row.homework);
+        return String(
+            row.homework
+        );
 
     }
 
@@ -1707,7 +1647,10 @@ function oldHomeworkToText(row){
     const parts = [];
 
 
-    if(row.book && String(row.book).trim()){
+    if(
+        row.book &&
+        String(row.book).trim()
+    ){
 
         parts.push(
             String(row.book).trim()
@@ -1716,7 +1659,10 @@ function oldHomeworkToText(row){
     }
 
 
-    if(row.page && String(row.page).trim()){
+    if(
+        row.page &&
+        String(row.page).trim()
+    ){
 
         parts.push(
             "ص " +
@@ -1739,7 +1685,9 @@ function oldHomeworkToText(row){
     }
 
 
-    if(row.madrasati === true){
+    if(
+        row.madrasati === true
+    ){
 
         parts.push(
             "منصة مدرستي"
@@ -1748,14 +1696,20 @@ function oldHomeworkToText(row){
     }
 
 
-    return parts.join(" - ");
+    return parts.join(
+        " - "
+    );
 
 }
 
 
+/* =========================
+   AUTH
+========================= */
+
 onAuthStateChanged(
 auth,
-async user => {
+async user=>{
 
     if(!user){
 
@@ -1841,7 +1795,20 @@ async user => {
         data.section || "-";
 
 
+        /*
+        أولًا نحمل الخطط القديمة
+        */
+
         await loadPlanHistory();
+
+
+        /*
+        ثم نحمل الجدول الثابت.
+        إذا لم يكن موجودًا سيتم
+        تكوينه من أحدث خطة قديمة.
+        */
+
+        await loadFixedSchedule();
 
 
         renderCurrentDay();
@@ -1861,8 +1828,14 @@ async user => {
 });
 
 
+/* =========================
+   LOGOUT
+========================= */
+
 document
-.getElementById("logoutBtn")
+.getElementById(
+    "logoutBtn"
+)
 .onclick =
 async()=>{
 
@@ -1874,105 +1847,557 @@ async()=>{
 };
 
 
-document
-.querySelectorAll(".day-btn")
-.forEach(button=>{
+/* =========================================================
+   LOAD FIXED SCHEDULE
+========================================================= */
 
-    button.onclick=()=>{
+async function loadFixedSchedule(){
 
-        saveCurrentDayToMemory();
-
-
-        currentDay =
-        button.dataset.day;
+    if(!currentUser){
+        return;
+    }
 
 
-        document
-        .querySelectorAll(".day-btn")
-        .forEach(btn=>{
+    try{
 
-            btn.classList.remove(
-                "active"
-            );
-
-        });
-
-
-        button.classList.add(
-            "active"
+        const scheduleRef =
+        doc(
+            db,
+            "classSchedules",
+            currentUser.uid
         );
 
 
-        currentDayLabel.textContent =
-        days[currentDay];
+        const snap =
+        await getDoc(
+            scheduleRef
+        );
 
 
-        renderCurrentDay();
+        /*
+        يوجد جدول ثابت بالفعل
+        */
 
-    };
+        if(snap.exists()){
 
-});
+            const data =
+            snap.data();
 
+
+            fixedSchedule =
+            normalizeSchedule(
+                data.subjects
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+        لا يوجد جدول ثابت:
+        نحاول تكوينه من أحدث خطة
+        قديمة تحتوي على مواد.
+        */
+
+        const sourcePlan =
+        findLatestPlanWithSubjects();
+
+
+        if(sourcePlan){
+
+            fixedSchedule =
+            scheduleFromPlan(
+                sourcePlan
+            );
+
+
+            if(
+                scheduleHasSubjects(
+                    fixedSchedule
+                )
+            ){
+
+                await setDoc(
+
+                    scheduleRef,
+
+                    {
+
+                        leaderUid:
+                        currentUser.uid,
+
+                        leaderName:
+                        currentUserData?.name || "",
+
+                        stage:
+                        currentUserData?.stage || "",
+
+                        grade:
+                        currentUserData?.grade || "",
+
+                        section:
+                        currentUserData?.section || "",
+
+                        subjects:
+                        fixedSchedule,
+
+                        updatedAt:
+                        serverTimestamp()
+
+                    },
+
+                    {
+                        merge:true
+                    }
+
+                );
+
+            }
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(
+            "تعذر تحميل جدول المواد الثابت:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE / UPDATE FIXED SCHEDULE
+========================================================= */
+
+async function syncFixedScheduleFromPlan(){
+
+    if(!currentUser){
+        return;
+    }
+
+
+    /*
+    مهم:
+    لا نمسح مادة محفوظة إذا كانت
+    الخانة الحالية فارغة بالخطأ.
+    يتم تحديث الخانات المكتوب فيها
+    اسم مادة فقط.
+    */
+
+    dayKeys.forEach(
+        day=>{
+
+            for(
+                let i=0;
+                i<8;
+                i++
+            ){
+
+                const subject =
+                String(
+                    planData?.[day]?.[i]?.subject ||
+                    ""
+                ).trim();
+
+
+                if(subject){
+
+                    fixedSchedule[day][i] =
+                    subject;
+
+                }
+
+            }
+
+        }
+    );
+
+
+    if(
+        !scheduleHasSubjects(
+            fixedSchedule
+        )
+    ){
+
+        return;
+
+    }
+
+
+    await setDoc(
+
+        doc(
+            db,
+            "classSchedules",
+            currentUser.uid
+        ),
+
+        {
+
+            leaderUid:
+            currentUser.uid,
+
+            leaderName:
+            currentUserData?.name || "",
+
+            stage:
+            currentUserData?.stage || "",
+
+            grade:
+            currentUserData?.grade || "",
+
+            section:
+            currentUserData?.section || "",
+
+            subjects:
+            fixedSchedule,
+
+            updatedAt:
+            serverTimestamp()
+
+        },
+
+        {
+            merge:true
+        }
+
+    );
+
+}
+
+
+/* =========================================================
+   NORMALIZE FIXED SCHEDULE
+========================================================= */
+
+function normalizeSchedule(
+    source
+){
+
+    const result =
+    createEmptySchedule();
+
+
+    dayKeys.forEach(
+        day=>{
+
+            for(
+                let i=0;
+                i<8;
+                i++
+            ){
+
+                result[day][i] =
+                String(
+                    source?.[day]?.[i] ||
+                    ""
+                );
+
+            }
+
+        }
+    );
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   SCHEDULE FROM OLD PLAN
+========================================================= */
+
+function scheduleFromPlan(
+    plan
+){
+
+    const result =
+    createEmptySchedule();
+
+
+    dayKeys.forEach(
+        day=>{
+
+            for(
+                let i=0;
+                i<8;
+                i++
+            ){
+
+                result[day][i] =
+                String(
+                    plan?.days?.[day]?.[i]?.subject ||
+                    ""
+                ).trim();
+
+            }
+
+        }
+    );
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   DOES SCHEDULE HAVE SUBJECTS?
+========================================================= */
+
+function scheduleHasSubjects(
+    schedule
+){
+
+    return dayKeys.some(
+        day=>
+
+        schedule?.[day]?.some(
+            subject=>
+            String(
+                subject || ""
+            ).trim() !== ""
+        )
+
+    );
+
+}
+
+
+/* =========================================================
+   FIND MOST RECENT OLD PLAN
+========================================================= */
+
+function findLatestPlanWithSubjects(){
+
+    const ordered = [
+        ...savedPlans
+    ].sort(
+        (a,b)=>
+        Number(b.weekNumber) -
+        Number(a.weekNumber)
+    );
+
+
+    return ordered.find(
+        plan=>{
+
+            return dayKeys.some(
+                day=>
+
+                Array.isArray(
+                    plan.days?.[day]
+                )
+                &&
+                plan.days[day].some(
+                    row=>
+                    String(
+                        row?.subject ||
+                        ""
+                    ).trim()
+                )
+
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   APPLY FIXED SCHEDULE TO PLAN
+========================================================= */
+
+function applyFixedScheduleToPlan(
+    plan,
+    onlyEmpty=true
+){
+
+    dayKeys.forEach(
+        day=>{
+
+            for(
+                let i=0;
+                i<8;
+                i++
+            ){
+
+                const fixedSubject =
+                String(
+                    fixedSchedule?.[day]?.[i] ||
+                    ""
+                ).trim();
+
+
+                if(!fixedSubject){
+                    continue;
+                }
+
+
+                const currentSubject =
+                String(
+                    plan?.[day]?.[i]?.subject ||
+                    ""
+                ).trim();
+
+
+                if(
+                    onlyEmpty &&
+                    currentSubject
+                ){
+
+                    continue;
+
+                }
+
+
+                plan[day][i].subject =
+                fixedSubject;
+
+            }
+
+        }
+    );
+
+
+    return plan;
+
+}
+
+
+/* =========================
+   DAY TABS
+========================= */
+
+document
+.querySelectorAll(
+    ".day-btn"
+)
+.forEach(
+    button=>{
+
+        button.onclick=()=>{
+
+            saveCurrentDayToMemory();
+
+
+            currentDay =
+            button.dataset.day;
+
+
+            document
+            .querySelectorAll(
+                ".day-btn"
+            )
+            .forEach(
+                btn=>{
+
+                    btn.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            button.classList.add(
+                "active"
+            );
+
+
+            currentDayLabel.textContent =
+            days[currentDay];
+
+
+            renderCurrentDay();
+
+        };
+
+    }
+);
+
+
+/* =========================
+   RENDER DAY
+========================= */
 
 function renderCurrentDay(){
 
-    planRows.innerHTML = "";
+    planRows.innerHTML =
+    "";
 
 
     planData[currentDay]
     .forEach(
-    (item,index)=>{
+        (
+            item,
+            index
+        )=>{
 
-        const tr =
-        document.createElement(
-            "tr"
-        );
-
-
-        tr.innerHTML = `
-
-            <td class="period">
-                ${index+1}
-            </td>
-
-            <td>
-
-                <input
-                class="subject"
-                value="${escapeAttr(item.subject)}"
-                placeholder="المادة">
-
-            </td>
-
-            <td>
-
-                <input
-                class="topic"
-                value="${escapeAttr(item.topic)}"
-                placeholder="موضوع الدرس">
-
-            </td>
-
-            <td>
-
-                <input
-                class="homework"
-                value="${escapeAttr(item.homework)}"
-                placeholder="مثال: كتاب الطالب ص 15 / حل النشاط / ورقة عمل">
-
-            </td>
-
-        `;
+            const tr =
+            document.createElement(
+                "tr"
+            );
 
 
-        planRows.appendChild(
-            tr
-        );
+            tr.innerHTML = `
 
-    });
+                <td class="period">
+                    ${index+1}
+                </td>
+
+                <td>
+
+                    <input
+                    class="subject"
+                    value="${escapeAttr(item.subject)}"
+                    placeholder="المادة">
+
+                </td>
+
+                <td>
+
+                    <input
+                    class="topic"
+                    value="${escapeAttr(item.topic)}"
+                    placeholder="موضوع الدرس">
+
+                </td>
+
+                <td>
+
+                    <input
+                    class="homework"
+                    value="${escapeAttr(item.homework)}"
+                    placeholder="مثال: كتاب الطالب ص 15 / حل النشاط / ورقة عمل">
+
+                </td>
+
+            `;
+
+
+            planRows.appendChild(
+                tr
+            );
+
+        }
+    );
 
 }
 
+
+/* =========================
+   SAVE CURRENT DAY MEMORY
+========================= */
 
 function saveCurrentDayToMemory(){
 
@@ -1983,40 +2408,61 @@ function saveCurrentDayToMemory(){
 
 
     rows.forEach(
-    (row,index)=>{
+        (
+            row,
+            index
+        )=>{
 
-        planData[currentDay][index] = {
+            planData[currentDay][index] = {
 
-            period:index+1,
+                period:
+                index+1,
 
-            subject:
-            row
-            .querySelector(".subject")
-            .value
-            .trim(),
+                subject:
+                row
+                .querySelector(
+                    ".subject"
+                )
+                .value
+                .trim(),
 
-            topic:
-            row
-            .querySelector(".topic")
-            .value
-            .trim(),
+                topic:
+                row
+                .querySelector(
+                    ".topic"
+                )
+                .value
+                .trim(),
 
-            homework:
-            row
-            .querySelector(".homework")
-            .value
-            .trim()
+                homework:
+                row
+                .querySelector(
+                    ".homework"
+                )
+                .value
+                .trim()
 
-        };
+            };
 
-    });
+        }
+    );
 
 }
 
 
-weekNumber.onchange=()=>{
+/* =========================
+   WEEK CHANGE
+========================= */
 
-    if(!weekNumber.value){
+weekNumber.onchange =
+async()=>{
+
+    saveCurrentDayToMemory();
+
+
+    if(
+        !weekNumber.value
+    ){
 
         resetPlanForm();
 
@@ -2025,14 +2471,20 @@ weekNumber.onchange=()=>{
     }
 
 
-    loadSelectedWeek(
+    await loadSelectedWeek(
+
         Number(
             weekNumber.value
         )
+
     );
 
 };
 
+
+/* =========================================================
+   LOAD WEEK
+========================================================= */
 
 async function loadSelectedWeek(
     week
@@ -2041,21 +2493,72 @@ async function loadSelectedWeek(
     const existing =
     savedPlans.find(
 
-        p =>
-        Number(p.weekNumber) ===
-        Number(week)
+        plan=>
+        Number(
+            plan.weekNumber
+        ) ===
+        Number(
+            week
+        )
 
     );
 
 
+    /*
+    ---------------------------------
+    الأسبوع محفوظ مسبقًا
+    ---------------------------------
+    */
+
     if(existing){
 
-        openPlan(existing);
+        const normalized =
+        normalizePlan(
+            existing.days
+        );
+
+
+        /*
+        لو توجد خانات مادة فارغة
+        نكملها من الجدول الثابت
+        */
+
+        planData =
+        applyFixedScheduleToPlan(
+            normalized,
+            true
+        );
+
+
+        startDate.value =
+        existing.startDate || "";
+
+
+        endDate.value =
+        existing.endDate || "";
+
+
+        educationalValue.value =
+        existing.educationalValue || "";
+
+
+        weekPersonality.value =
+        existing.weekPersonality || "";
+
+
+        principalName.value =
+        existing.principalName || "";
+
+
+        renderCurrentDay();
 
 
         showMessage(
-            "تم تحميل الخطة المحفوظة لهذا الأسبوع.",
+
+            "تم تحميل الخطة المحفوظة، وتم استكمال جدول المواد الثابت تلقائيًا.",
+
             "success"
+
         );
 
 
@@ -2064,77 +2567,115 @@ async function loadSelectedWeek(
     }
 
 
+    /*
+    ---------------------------------
+    أسبوع جديد
+    ---------------------------------
+    */
+
     planData =
     createEmptyPlan();
 
 
-    const previous =
+    /*
+    أهم تغيير:
+    لا نحتاج الأسبوع السابق.
+    نضع الجدول الثابت مباشرة.
+    */
+
+    applyFixedScheduleToPlan(
+        planData,
+        false
+    );
+
+
+    startDate.value =
+    "";
+
+
+    endDate.value =
+    "";
+
+
+    educationalValue.value =
+    "";
+
+
+    weekPersonality.value =
+    "";
+
+
+    /*
+    اسم المدير فقط يمكن ترحيله
+    من أحدث خطة محفوظة.
+    */
+
+    const latestPlan =
     savedPlans
-
-    .filter(
-
-        p =>
-        Number(p.weekNumber) <
-        Number(week)
-
-    )
-
+    .slice()
     .sort(
-
         (a,b)=>
         Number(b.weekNumber) -
         Number(a.weekNumber)
-
     )[0];
 
 
-    if(previous){
-
-        Object.keys(days)
-        .forEach(day=>{
-
-            for(let i=0;i<8;i++){
-
-                planData[day][i].subject =
-                previous.days?.[day]?.[i]?.subject || "";
-
-            }
-
-        });
-
-
-        principalName.value =
-        previous.principalName || "";
-
-
-        showMessage(
-            "تم نقل جدول المواد من آخر أسبوع محفوظ.",
-            "success"
-        );
-
-    }
-
-
-    startDate.value = "";
-    endDate.value = "";
-    educationalValue.value = "";
-    weekPersonality.value = "";
+    principalName.value =
+    latestPlan?.principalName ||
+    "";
 
 
     renderCurrentDay();
 
+
+    if(
+        scheduleHasSubjects(
+            fixedSchedule
+        )
+    ){
+
+        showMessage(
+
+            "تم تحميل جدول المواد الثابت للفصل. اكتب موضوعات الدروس والواجبات فقط ✅",
+
+            "success"
+
+        );
+
+    }
+
+    else{
+
+        showMessage(
+
+            "هذا أول جدول للفصل. أدخل المواد مرة واحدة، وبعد الحفظ ستظهر تلقائيًا في جميع الأسابيع.",
+
+            "success"
+
+        );
+
+    }
+
 }
 
 
+/* =========================
+   SAVE PLAN
+========================= */
+
 document
-.getElementById("saveBtn")
+.getElementById(
+    "saveBtn"
+)
 .onclick =
 async()=>{
 
     saveCurrentDayToMemory();
 
 
-    if(!weekNumber.value){
+    if(
+        !weekNumber.value
+    ){
 
         showMessage(
             "اختر رقم الأسبوع.",
@@ -2162,6 +2703,25 @@ async()=>{
 
 
     try{
+
+        /*
+        قبل حفظ الخطة:
+        نحدّث جدول المواد الثابت.
+        */
+
+        await syncFixedScheduleFromPlan();
+
+
+        /*
+        ثم نكمل أي خانات مواد فارغة
+        من الجدول الثابت.
+        */
+
+        applyFixedScheduleToPlan(
+            planData,
+            true
+        );
+
 
         const id =
         currentUser.uid +
@@ -2238,9 +2798,15 @@ async()=>{
         await loadPlanHistory();
 
 
+        renderCurrentDay();
+
+
         showMessage(
-            "تم حفظ الخطة الأسبوعية بنجاح ✅",
+
+            "تم حفظ الخطة وجدول المواد الثابت بنجاح ✅",
+
             "success"
+
         );
 
     }
@@ -2251,14 +2817,21 @@ async()=>{
 
 
         showMessage(
+
             "حدث خطأ أثناء حفظ الخطة.",
+
             "error"
+
         );
 
     }
 
 };
 
+
+/* =========================
+   LOAD HISTORY
+========================= */
 
 async function loadPlanHistory(){
 
@@ -2273,7 +2846,8 @@ async function loadPlanHistory(){
     );
 
 
-    savedPlans = [];
+    savedPlans =
+    [];
 
 
     snapshot.forEach(
@@ -2290,7 +2864,8 @@ async function loadPlanHistory(){
 
                 savedPlans.push({
 
-                    id:item.id,
+                    id:
+                    item.id,
 
                     ...data
 
@@ -2315,6 +2890,10 @@ async function loadPlanHistory(){
 
 }
 
+
+/* =========================
+   HISTORY
+========================= */
 
 function renderHistory(){
 
@@ -2344,7 +2923,8 @@ function renderHistory(){
     }
 
 
-    historyTable.innerHTML = "";
+    historyTable.innerHTML =
+    "";
 
 
     savedPlans.forEach(
@@ -2440,279 +3020,343 @@ function renderHistory(){
 }
 
 
+/* =========================
+   HISTORY BUTTONS
+========================= */
+
 function bindHistoryButtons(){
 
 
     document
-    .querySelectorAll("[data-open]")
-    .forEach(btn=>{
+    .querySelectorAll(
+        "[data-open]"
+    )
+    .forEach(
+        button=>{
 
-        btn.onclick=()=>{
+            button.onclick =
+            ()=>{
 
-            const plan =
-            savedPlans.find(
-                p =>
-                p.id ===
-                btn.dataset.open
-            );
-
-
-            if(plan){
-
-                openPlan(plan);
-
-                window.scrollTo({
-
-                    top:0,
-                    behavior:"smooth"
-
-                });
-
-            }
-
-        };
-
-    });
+                const plan =
+                findPlan(
+                    button.dataset.open
+                );
 
 
-    document
-    .querySelectorAll("[data-view]")
-    .forEach(btn=>{
+                if(plan){
 
-        btn.onclick=()=>{
-
-            const plan =
-            savedPlans.find(
-                p =>
-                p.id ===
-                btn.dataset.view
-            );
+                    weekNumber.value =
+                    plan.weekNumber;
 
 
-            if(plan){
-
-                showPreview(
-                    normalizeSavedPlan(
+                    openPlan(
                         plan
-                    )
-                );
+                    );
 
-            }
+                }
 
-        };
+            };
 
-    });
-
-
-    document
-    .querySelectorAll("[data-download]")
-    .forEach(btn=>{
-
-        btn.onclick =
-        async()=>{
-
-            const plan =
-            savedPlans.find(
-                p =>
-                p.id ===
-                btn.dataset.download
-            );
-
-
-            if(plan){
-
-                await downloadPlanImage(
-                    normalizeSavedPlan(
-                        plan
-                    )
-                );
-
-            }
-
-        };
-
-    });
+        }
+    );
 
 
     document
-    .querySelectorAll("[data-pdf]")
-    .forEach(btn=>{
+    .querySelectorAll(
+        "[data-view]"
+    )
+    .forEach(
+        button=>{
 
-        btn.onclick =
-        async()=>{
+            button.onclick =
+            ()=>{
 
-            const plan =
-            savedPlans.find(
-                p =>
-                p.id ===
-                btn.dataset.pdf
-            );
-
-
-            if(plan){
-
-                await exportPlanPDF(
-                    normalizeSavedPlan(
-                        plan
-                    )
+                const plan =
+                findPlan(
+                    button.dataset.view
                 );
 
-            }
 
-        };
+                if(plan){
 
-    });
+                    openPreview(
+                        normalizeSavedPlan(
+                            plan
+                        )
+                    );
+
+                }
+
+            };
+
+        }
+    );
 
 
     document
-    .querySelectorAll("[data-share]")
-    .forEach(btn=>{
+    .querySelectorAll(
+        "[data-download]"
+    )
+    .forEach(
+        button=>{
 
-        btn.onclick =
-        async()=>{
+            button.onclick =
+            async()=>{
 
-            const plan =
-            savedPlans.find(
-                p =>
-                p.id ===
-                btn.dataset.share
-            );
-
-
-            if(plan){
-
-                await sharePlanImage(
-                    normalizeSavedPlan(
-                        plan
-                    )
+                const plan =
+                findPlan(
+                    button.dataset.download
                 );
 
-            }
 
-        };
+                if(plan){
 
-    });
+                    await downloadPlanImage(
+
+                        normalizeSavedPlan(
+                            plan
+                        )
+
+                    );
+
+                }
+
+            };
+
+        }
+    );
 
 
     document
-    .querySelectorAll("[data-delete]")
-    .forEach(btn=>{
+    .querySelectorAll(
+        "[data-pdf]"
+    )
+    .forEach(
+        button=>{
 
-        btn.onclick =
-        async()=>{
+            button.onclick =
+            ()=>{
 
-            const plan =
-            savedPlans.find(
-                p =>
-                p.id ===
-                btn.dataset.delete
-            );
-
-
-            if(!plan){
-                return;
-            }
-
-
-            if(
-                !confirm(
-                    `هل تريد حذف خطة الأسبوع ${plan.weekNumber}؟`
-                )
-            ){
-                return;
-            }
-
-
-            if(
-                !confirm(
-                    "سيتم حذف الخطة نهائيًا من سجل الخطط. هل أنت متأكد؟"
-                )
-            ){
-                return;
-            }
-
-
-            try{
-
-                await deleteDoc(
-
-                    doc(
-                        db,
-                        "weeklyPlans",
-                        plan.id
-                    )
-
+                const plan =
+                findPlan(
+                    button.dataset.pdf
                 );
 
 
-                await loadPlanHistory();
+                if(plan){
+
+                    exportPlanPDF(
+
+                        normalizeSavedPlan(
+                            plan
+                        )
+
+                    );
+
+                }
+
+            };
+
+        }
+    );
+
+
+    document
+    .querySelectorAll(
+        "[data-share]"
+    )
+    .forEach(
+        button=>{
+
+            button.onclick =
+            async()=>{
+
+                const plan =
+                findPlan(
+                    button.dataset.share
+                );
+
+
+                if(plan){
+
+                    await sharePlanImage(
+
+                        normalizeSavedPlan(
+                            plan
+                        )
+
+                    );
+
+                }
+
+            };
+
+        }
+    );
+
+
+    document
+    .querySelectorAll(
+        "[data-delete]"
+    )
+    .forEach(
+        button=>{
+
+            button.onclick =
+            async()=>{
+
+                const plan =
+                findPlan(
+                    button.dataset.delete
+                );
+
+
+                if(!plan){
+                    return;
+                }
 
 
                 if(
-                    Number(
-                        weekNumber.value
-                    ) ===
-                    Number(
-                        plan.weekNumber
+                    !confirm(
+                        `هل تريد حذف خطة الأسبوع ${plan.weekNumber}؟`
                     )
                 ){
 
-                    weekNumber.value = "";
-
-                    resetPlanForm();
+                    return;
 
                 }
 
 
-                alert(
-                    "تم حذف الخطة بنجاح."
-                );
+                try{
 
-            }
+                    await deleteDoc(
 
-            catch(error){
+                        doc(
+                            db,
+                            "weeklyPlans",
+                            plan.id
+                        )
 
-                console.error(error);
+                    );
 
-                alert(
-                    "تعذر حذف الخطة."
-                );
 
-            }
+                    await loadPlanHistory();
 
-        };
 
-    });
+                    if(
+                        Number(
+                            weekNumber.value
+                        ) ===
+                        Number(
+                            plan.weekNumber
+                        )
+                    ){
+
+                        weekNumber.value =
+                        "";
+
+                        resetPlanForm();
+
+                    }
+
+
+                    showMessage(
+
+                        "تم حذف الخطة. جدول المواد الثابت لم يتم حذفه.",
+
+                        "success"
+
+                    );
+
+                }
+
+                catch(error){
+
+                    console.error(error);
+
+
+                    showMessage(
+
+                        "تعذر حذف الخطة.",
+
+                        "error"
+
+                    );
+
+                }
+
+            };
+
+        }
+    );
 
 }
 
 
-function normalizePlan(source){
+/* =========================
+   FIND PLAN
+========================= */
+
+function findPlan(
+    id
+){
+
+    return savedPlans.find(
+        item=>
+        item.id === id
+    );
+
+}
+
+
+/* =========================
+   NORMALIZE PLAN
+========================= */
+
+function normalizePlan(
+    source
+){
 
     const result =
     createEmptyPlan();
 
 
-    Object.keys(days)
-    .forEach(day=>{
+    dayKeys.forEach(
+        day=>{
 
-        for(let i=0;i<8;i++){
+            const sourceRows =
+            Array.isArray(
+                source?.[day]
+            )
+            ?
+            source[day]
+            :
+            [];
 
-            const row =
-            source?.[day]?.[i];
 
+            for(
+                let i=0;
+                i<8;
+                i++
+            ){
 
-            if(row){
+                const row =
+                sourceRows[i] ||
+                {};
+
 
                 result[day][i] = {
 
-                    period:i+1,
+                    period:
+                    i+1,
 
                     subject:
-                    row.subject || "",
+                    row.subject ||
+                    "",
 
                     topic:
-                    row.topic || "",
+                    row.topic ||
+                    "",
 
                     homework:
                     oldHomeworkToText(
@@ -2724,8 +3368,7 @@ function normalizePlan(source){
             }
 
         }
-
-    });
+    );
 
 
     return result;
@@ -2733,140 +3376,173 @@ function normalizePlan(source){
 }
 
 
-function normalizeSavedPlan(plan){
+/* =========================
+   NORMALIZE SAVED PLAN
+========================= */
+
+function normalizeSavedPlan(
+    plan
+){
+
+    const normalizedDays =
+    normalizePlan(
+        plan.days
+    );
+
+
+    applyFixedScheduleToPlan(
+        normalizedDays,
+        true
+    );
+
 
     return {
 
         ...plan,
 
         days:
-        normalizePlan(
-            plan.days
-        )
+        normalizedDays
 
     };
 
 }
 
 
+/* =========================
+   OPEN PLAN
+========================= */
+
 function openPlan(
-    originalPlan
+    plan
 ){
 
-    const plan =
+    const normalized =
     normalizeSavedPlan(
-        originalPlan
+        plan
     );
-
-
-    weekNumber.value =
-    String(
-        plan.weekNumber || ""
-    );
-
-
-    startDate.value =
-    plan.startDate || "";
-
-
-    endDate.value =
-    plan.endDate || "";
-
-
-    educationalValue.value =
-    plan.educationalValue || "";
-
-
-    weekPersonality.value =
-    plan.weekPersonality || "";
-
-
-    principalName.value =
-    plan.principalName || "";
 
 
     planData =
-    plan.days;
+    normalized.days;
 
 
-    currentDay =
-    "sunday";
+    startDate.value =
+    normalized.startDate ||
+    "";
 
 
-    document
-    .querySelectorAll(".day-btn")
-    .forEach(btn=>{
-
-        btn.classList.toggle(
-
-            "active",
-
-            btn.dataset.day ===
-            "sunday"
-
-        );
-
-    });
+    endDate.value =
+    normalized.endDate ||
+    "";
 
 
-    currentDayLabel.textContent =
-    "الأحد";
+    educationalValue.value =
+    normalized.educationalValue ||
+    "";
+
+
+    weekPersonality.value =
+    normalized.weekPersonality ||
+    "";
+
+
+    principalName.value =
+    normalized.principalName ||
+    "";
 
 
     renderCurrentDay();
+
+
+    showMessage(
+
+        "تم فتح الخطة المحفوظة.",
+
+        "success"
+
+    );
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
 
 }
 
 
+/* =========================
+   CLEAR CURRENT DAY
+========================= */
+
 document
-.getElementById("clearDayBtn")
-.onclick=()=>{
-
-    if(
-        !confirm(
-            "هل تريد مسح موضوعات الدروس والواجبات لهذا اليوم مع الاحتفاظ بالمواد؟"
-        )
-    ){
-        return;
-    }
-
+.getElementById(
+    "clearDayBtn"
+)
+.onclick =
+()=>{
 
     saveCurrentDayToMemory();
 
 
-    const subjects =
-    planData[currentDay]
-    .map(
-        row =>
-        row.subject
-    );
+    if(
+        !confirm(
+            `هل تريد مسح موضوعات الدروس والواجبات ليوم ${days[currentDay]}؟`
+        )
+    ){
+
+        return;
+
+    }
 
 
-    planData[currentDay] =
-    createEmptyDay();
-
+    /*
+    لا نمسح المادة.
+    */
 
     planData[currentDay]
     .forEach(
-    (row,index)=>{
+        row=>{
 
-        row.subject =
-        subjects[index] || "";
+            row.topic =
+            "";
 
-    });
+            row.homework =
+            "";
+
+        }
+    );
 
 
     renderCurrentDay();
 
+
+    showMessage(
+
+        "تم مسح موضوعات الدروس والواجبات مع الاحتفاظ بالمواد.",
+
+        "success"
+
+    );
+
 };
 
+
+/* =========================
+   CURRENT PLAN OBJECT
+========================= */
 
 function getCurrentPlan(){
 
     saveCurrentDayToMemory();
 
 
-    if(!weekNumber.value){
+    if(
+        !weekNumber.value
+    ){
 
         alert(
             "اختر رقم الأسبوع أولًا."
@@ -2877,36 +3553,28 @@ function getCurrentPlan(){
     }
 
 
-    if(
-        !startDate.value ||
-        !endDate.value
-    ){
-
-        alert(
-            "حدد تاريخ بداية ونهاية الأسبوع."
-        );
-
-        return null;
-
-    }
+    applyFixedScheduleToPlan(
+        planData,
+        true
+    );
 
 
     return {
 
         leaderUid:
-        currentUser.uid,
+        currentUser?.uid || "",
 
         leaderName:
-        currentUserData.name,
+        currentUserData?.name || "",
 
         stage:
-        currentUserData.stage,
+        currentUserData?.stage || "",
 
         grade:
-        currentUserData.grade,
+        currentUserData?.grade || "",
 
         section:
-        currentUserData.section,
+        currentUserData?.section || "",
 
         weekNumber:
         Number(
@@ -2942,78 +3610,185 @@ function getCurrentPlan(){
 }
 
 
+/* =========================
+   PREVIEW BUTTON
+========================= */
+
 document
-.getElementById("previewBtn")
-.onclick=()=>{
+.getElementById(
+    "previewBtn"
+)
+.onclick =
+()=>{
 
     const plan =
     getCurrentPlan();
 
+
     if(plan){
-        showPreview(plan);
+
+        openPreview(
+            plan
+        );
+
     }
 
 };
 
 
+/* =========================
+   DOWNLOAD CURRENT
+========================= */
+
 document
-.getElementById("downloadCurrentBtn")
+.getElementById(
+    "downloadCurrentBtn"
+)
 .onclick =
 async()=>{
 
     const plan =
     getCurrentPlan();
 
+
     if(plan){
-        await downloadPlanImage(plan);
+
+        await downloadPlanImage(
+            plan
+        );
+
     }
 
 };
 
 
+/* =========================
+   PDF CURRENT
+========================= */
+
 document
-.getElementById("pdfCurrentBtn")
+.getElementById(
+    "pdfCurrentBtn"
+)
+.onclick =
+()=>{
+
+    const plan =
+    getCurrentPlan();
+
+
+    if(plan){
+
+        exportPlanPDF(
+            plan
+        );
+
+    }
+
+};
+
+
+/* =========================
+   SHARE CURRENT
+========================= */
+
+document
+.getElementById(
+    "shareCurrentBtn"
+)
 .onclick =
 async()=>{
 
     const plan =
     getCurrentPlan();
 
+
     if(plan){
-        await exportPlanPDF(plan);
+
+        await sharePlanImage(
+            plan
+        );
+
     }
 
 };
 
 
-document
-.getElementById("shareCurrentBtn")
-.onclick =
-async()=>{
+/* =========================
+   OPEN PREVIEW
+========================= */
 
-    const plan =
-    getCurrentPlan();
+function openPreview(
+    plan
+){
 
-    if(plan){
-        await sharePlanImage(plan);
-    }
-
-};
+    previewPlan =
+    plan;
 
 
-document
-.getElementById("closePreview")
-.onclick=()=>{
+    buildPoster(
+        plan
+    );
+
 
     previewModal
     .classList
-    .remove("show");
+    .add(
+        "show"
+    );
+
+}
+
+
+/* =========================
+   CLOSE PREVIEW
+========================= */
+
+document
+.getElementById(
+    "closePreview"
+)
+.onclick =
+()=>{
+
+    previewModal
+    .classList
+    .remove(
+        "show"
+    );
 
 };
 
 
+previewModal.addEventListener(
+    "click",
+    event=>{
+
+        if(
+            event.target ===
+            previewModal
+        ){
+
+            previewModal
+            .classList
+            .remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   MODAL BUTTONS
+========================= */
+
 document
-.getElementById("modalDownload")
+.getElementById(
+    "modalDownload"
+)
 .onclick =
 async()=>{
 
@@ -3029,13 +3804,15 @@ async()=>{
 
 
 document
-.getElementById("modalPDF")
+.getElementById(
+    "modalPDF"
+)
 .onclick =
-async()=>{
+()=>{
 
     if(previewPlan){
 
-        await exportPlanPDF(
+        exportPlanPDF(
             previewPlan
         );
 
@@ -3045,7 +3822,9 @@ async()=>{
 
 
 document
-.getElementById("modalShare")
+.getElementById(
+    "modalShare"
+)
 .onclick =
 async()=>{
 
@@ -3060,55 +3839,44 @@ async()=>{
 };
 
 
-function showPreview(plan){
-
-    previewPlan =
-    plan;
-
-
-    buildPoster(plan);
-
-
-    previewModal
-    .classList
-    .add("show");
-
-}
-
-
 /* =========================
-   BUILD POSTER
+   POSTER
 ========================= */
 
-function buildPoster(plan){
+function buildPoster(
+    plan
+){
 
-    let rowsHTML = "";
-
-
-    Object.keys(days)
-    .forEach(day=>{
-
-        const rows =
-        plan.days?.[day] ||
-        createEmptyDay();
+    let rowsHTML =
+    "";
 
 
-        rows.forEach(
-        (row,index)=>{
+    dayKeys.forEach(
+        day=>{
 
-            const first =
-            index === 0;
+            const rows =
+            plan.days?.[day] ||
+            createEmptyDay();
 
 
-            rowsHTML += `
+            rows.forEach(
+                (
+                    row,
+                    index
+                )=>{
 
-                <tr
-                class="${first ? "day-start" : ""}">
+                    const first =
+                    index === 0;
 
-                    ${
-                        first
-                        ? `
 
+                    rowsHTML += `
+
+                    <tr class="${first ? "day-start" : ""}">
+
+                        ${
+                            first
+                            ?
+                            `
                             <td
                             rowspan="8"
                             class="day-cell">
@@ -3118,57 +3886,41 @@ function buildPoster(plan){
                                 </span>
 
                             </td>
+                            `
+                            :
+                            ""
+                        }
 
-                        `
-                        : ""
-                    }
+                        <td class="period-cell">
+                            ${index+1}
+                        </td>
 
+                        <td class="subject-cell">
+                            ${safeDisplay(row.subject)}
+                        </td>
 
-                    <td class="period-cell">
-                        ${index+1}
-                    </td>
+                        <td class="topic-cell">
+                            ${safeDisplay(row.topic)}
+                        </td>
 
+                        <td class="homework-cell">
+                            ${safeDisplay(row.homework)}
+                        </td>
 
-                    <td class="subject-cell">
+                    </tr>
 
-                        ${safeDisplay(
-                            row.subject
-                        )}
+                    `;
 
-                    </td>
+                }
+            );
 
-
-                    <td class="topic-cell">
-
-                        ${safeDisplay(
-                            row.topic
-                        )}
-
-                    </td>
-
-
-                    <td class="homework-cell">
-
-                        ${safeDisplay(
-                            row.homework
-                        )}
-
-                    </td>
-
-                </tr>
-
-            `;
-
-        });
-
-    });
+        }
+    );
 
 
     poster.innerHTML = `
 
-
         <div class="poster-header">
-
 
             <div class="school-logo">
 
@@ -3205,7 +3957,6 @@ function buildPoster(plan){
             aria-hidden="true">
             </div>
 
-
         </div>
 
 
@@ -3225,7 +3976,6 @@ function buildPoster(plan){
 
 
         <div class="vision-message">
-
 
             <div class="vm-box">
 
@@ -3259,44 +4009,30 @@ function buildPoster(plan){
 
             </div>
 
-
         </div>
 
 
         <div class="poster-weekline">
 
             <span>
-
                 الأسبوع:
-                ${escapeHTML(
-                    plan.weekNumber
-                )}
-
+                ${escapeHTML(plan.weekNumber)}
             </span>
 
             <span>
-
                 من تاريخ:
-                ${formatDate(
-                    plan.startDate
-                )}
-
+                ${formatDate(plan.startDate)}
             </span>
 
             <span>
-
                 إلى تاريخ:
-                ${formatDate(
-                    plan.endDate
-                )}
-
+                ${formatDate(plan.endDate)}
             </span>
 
         </div>
 
 
         <div class="poster-special">
-
 
             <div class="special-box">
 
@@ -3323,46 +4059,34 @@ function buildPoster(plan){
 
             </div>
 
-
         </div>
 
 
         <table class="poster-table">
 
-
             <colgroup>
 
                 <col style="width:5%">
-
                 <col style="width:6%">
-
                 <col style="width:10%">
-
                 <col style="width:53%">
-
                 <col style="width:25%">
 
             </colgroup>
-
 
             <thead>
 
                 <tr>
 
                     <th>اليوم</th>
-
                     <th>الحصة</th>
-
                     <th>المادة</th>
-
                     <th>موضوع الدرس</th>
-
                     <th>الواجب</th>
 
                 </tr>
 
             </thead>
-
 
             <tbody>
 
@@ -3370,12 +4094,10 @@ function buildPoster(plan){
 
             </tbody>
 
-
         </table>
 
 
         <div class="poster-signatures">
-
 
             <div class="signature">
 
@@ -3384,11 +4106,9 @@ function buildPoster(plan){
                 </div>
 
                 <div class="signature-name">
-
                     ${escapeHTML(
                         plan.leaderName || ""
                     )}
-
                 </div>
 
                 <div class="signature-line">
@@ -3404,18 +4124,15 @@ function buildPoster(plan){
                 </div>
 
                 <div class="signature-name">
-
                     ${escapeHTML(
                         plan.principalName || ""
                     )}
-
                 </div>
 
                 <div class="signature-line">
                 </div>
 
             </div>
-
 
         </div>
 
@@ -3432,16 +4149,36 @@ function buildPoster(plan){
 
 
 /* =========================
-   PNG
+   PREPARE POSTER
 ========================= */
 
-async function posterToBlob(plan){
+async function preparePoster(
+    plan
+){
 
-    previewPlan =
-    plan;
+    buildPoster(
+        plan
+    );
 
 
-    buildPoster(plan);
+    if(
+        !previewModal
+        .classList
+        .contains(
+            "show"
+        )
+    ){
+
+        previewModal.style.display =
+        "flex";
+
+        previewModal.style.position =
+        "fixed";
+
+        previewModal.style.left =
+        "-10000px";
+
+    }
 
 
     if(
@@ -3454,33 +4191,57 @@ async function posterToBlob(plan){
     }
 
 
-    try{
+    await waitForImages(
+        poster
+    );
 
-        await document.fonts.load(
-            '500 16px "Tajawal"'
-        );
 
-        await document.fonts.load(
-            '700 16px "Tajawal"'
-        );
+    await new Promise(
+        resolve=>
+        requestAnimationFrame(
+            ()=>
+            requestAnimationFrame(
+                resolve
+            )
+        )
+    );
 
-        await document.fonts.load(
-            '800 16px "Tajawal"'
-        );
+}
 
-    }
 
-    catch(error){
+/* =========================
+   POSTER TO BLOB
+========================= */
 
-        console.warn(error);
-
-    }
-
+async function posterToBlob(
+    plan
+){
 
     const modalWasOpen =
     previewModal
     .classList
-    .contains("show");
+    .contains(
+        "show"
+    );
+
+
+    const oldDisplay =
+    previewModal.style.display;
+
+    const oldPosition =
+    previewModal.style.position;
+
+    const oldLeft =
+    previewModal.style.left;
+
+
+    previewPlan =
+    plan;
+
+
+    buildPoster(
+        plan
+    );
 
 
     if(!modalWasOpen){
@@ -3494,113 +4255,106 @@ async function posterToBlob(plan){
         previewModal.style.left =
         "-10000px";
 
-        previewModal.style.top =
-        "0";
+    }
 
-        previewModal.style.right =
-        "auto";
 
-        previewModal.style.bottom =
-        "auto";
+    if(
+        document.fonts &&
+        document.fonts.ready
+    ){
+
+        await document.fonts.ready;
 
     }
 
 
-    try{
-
-        await waitForImages(
-            poster
-        );
+    await waitForImages(
+        poster
+    );
 
 
-        await new Promise(
-            resolve=>
-
-                requestAnimationFrame(
-                    ()=>
-
-                        requestAnimationFrame(
-                            resolve
-                        )
-
-                )
-        );
+    await new Promise(
+        resolve=>
+        requestAnimationFrame(
+            ()=>
+            requestAnimationFrame(
+                resolve
+            )
+        )
+    );
 
 
-        const canvas =
-        await html2canvas(
+    const canvas =
+    await html2canvas(
 
-            poster,
+        poster,
 
-            {
+        {
 
-                scale:3,
+            scale:3,
 
-                backgroundColor:
-                "#fffefb",
+            backgroundColor:
+            "#fffefb",
 
-                useCORS:true,
+            useCORS:true,
 
-                allowTaint:false,
+            allowTaint:false,
 
-                logging:false,
-
-                imageTimeout:15000,
-
-                removeContainer:true
-
-            }
-
-        );
-
-
-        return await new Promise(
-            resolve=>{
-
-                canvas.toBlob(
-
-                    blob =>
-                    resolve(blob),
-
-                    "image/png",
-
-                    1
-
-                );
-
-            }
-        );
-
-    }
-
-    finally{
-
-        if(!modalWasOpen){
-
-            previewModal.style.display = "";
-            previewModal.style.position = "";
-            previewModal.style.left = "";
-            previewModal.style.top = "";
-            previewModal.style.right = "";
-            previewModal.style.bottom = "";
+            logging:false
 
         }
 
+    );
+
+
+    if(!modalWasOpen){
+
+        previewModal.style.display =
+        oldDisplay;
+
+        previewModal.style.position =
+        oldPosition;
+
+        previewModal.style.left =
+        oldLeft;
+
     }
+
+
+    return new Promise(
+        resolve=>{
+
+            canvas.toBlob(
+
+                blob=>
+                resolve(blob),
+
+                "image/png",
+
+                1
+
+            );
+
+        }
+    );
 
 }
 
 
 /* =========================
-   DOWNLOAD
+   DOWNLOAD IMAGE
 ========================= */
 
-async function downloadPlanImage(plan){
+async function downloadPlanImage(
+    plan
+){
 
     try{
 
         const blob =
-        await posterToBlob(plan);
+        await posterToBlob(
+            plan
+        );
 
 
         if(!blob){
@@ -3613,11 +4367,15 @@ async function downloadPlanImage(plan){
 
 
         const url =
-        URL.createObjectURL(blob);
+        URL.createObjectURL(
+            blob
+        );
 
 
         const a =
-        document.createElement("a");
+        document.createElement(
+            "a"
+        );
 
 
         a.href =
@@ -3629,7 +4387,9 @@ async function downloadPlanImage(plan){
 
 
         document.body
-        .appendChild(a);
+        .appendChild(
+            a
+        );
 
 
         a.click();
@@ -3655,6 +4415,7 @@ async function downloadPlanImage(plan){
 
         console.error(error);
 
+
         alert(
             "حدث خطأ أثناء إنشاء الصورة."
         );
@@ -3668,25 +4429,9 @@ async function downloadPlanImage(plan){
    PDF
 ========================= */
 
-async function exportPlanPDF(plan){
-
-    buildPoster(plan);
-
-
-    if(
-        document.fonts &&
-        document.fonts.ready
-    ){
-
-        await document.fonts.ready;
-
-    }
-
-
-    await waitForImages(
-        poster
-    );
-
+async function exportPlanPDF(
+    plan
+){
 
     const printWindow =
     window.open(
@@ -3698,7 +4443,7 @@ async function exportPlanPDF(plan){
     if(!printWindow){
 
         alert(
-            "المتصفح منع نافذة الطباعة. اسمح بالنوافذ المنبثقة ثم حاول مرة أخرى."
+            "المتصفح منع نافذة PDF. اسمح بالنوافذ المنبثقة وحاول مرة أخرى."
         );
 
         return;
@@ -3706,241 +4451,194 @@ async function exportPlanPDF(plan){
     }
 
 
-    const posterClone =
-    poster.cloneNode(true);
+    try{
+
+        buildPoster(
+            plan
+        );
 
 
-    posterClone
-    .querySelectorAll("img")
-    .forEach(img=>{
+        if(
+            document.fonts &&
+            document.fonts.ready
+        ){
 
-        const src =
-        img.getAttribute("src");
-
-
-        if(src){
-
-            img.src =
-            new URL(
-                src,
-                window.location.href
-            ).href;
+            await document.fonts.ready;
 
         }
 
-    });
+
+        await waitForImages(
+            poster
+        );
 
 
-    const pageStyles =
+        const clone =
+        poster.cloneNode(
+            true
+        );
 
-    Array.from(
-        document.querySelectorAll(
-            "style"
+
+        clone
+        .querySelectorAll(
+            "img"
         )
-    )
+        .forEach(
+            img=>{
 
-    .map(
-        style =>
-        style.outerHTML
-    )
-
-    .join("\n");
+                const src =
+                img.getAttribute(
+                    "src"
+                );
 
 
-    printWindow.document.write(`
+                if(src){
+
+                    img.src =
+                    new URL(
+                        src,
+                        window.location.href
+                    ).href;
+
+                }
+
+            }
+        );
+
+
+        const styles =
+        Array.from(
+            document.querySelectorAll(
+                "style"
+            )
+        )
+        .map(
+            style=>
+            style.innerHTML
+        )
+        .join(
+            "\n"
+        );
+
+
+        printWindow.document.write(`
 
         <!DOCTYPE html>
 
-        <html lang="ar" dir="rtl">
+        <html
+        lang="ar"
+        dir="rtl">
 
         <head>
 
-            <meta charset="UTF-8">
+        <meta charset="UTF-8">
 
-            <title>
-                الخطة الأسبوعية - الأسبوع ${plan.weekNumber}
-            </title>
+        <title>
+        الخطة الأسبوعية
+        </title>
 
+        <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-            <link
-            rel="preconnect"
-            href="https://fonts.googleapis.com">
+        <style>
 
+        ${styles}
 
-            <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin>
+        @page{
+            size:A4 portrait;
+            margin:0;
+        }
 
+        html,
+        body{
+            margin:0 !important;
+            padding:0 !important;
+            background:white !important;
+            width:210mm;
+            height:297mm;
+            overflow:hidden;
+        }
 
-            <link
-            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
+        body{
+            display:block !important;
+        }
 
+        .print-page{
+            width:210mm;
+            height:297mm;
+            position:relative;
+            overflow:hidden;
+            background:white;
+        }
 
-            ${pageStyles}
+        #poster{
+            display:block !important;
+            position:absolute !important;
+            top:0 !important;
+            left:0 !important;
+            transform:scale(.64);
+            transform-origin:top left;
+            box-shadow:none !important;
+        }
 
+        @media print{
 
-            <style>
+            body,
+            .print-page,
+            #poster{
+                display:block !important;
+                visibility:visible !important;
+            }
 
-                @page{
+            #poster{
+                -webkit-print-color-adjust:exact;
+                print-color-adjust:exact;
+            }
 
-                    size:A4 portrait;
+        }
 
-                    margin:0;
-
-                }
-
-
-                html,
-                body{
-
-                    margin:0 !important;
-
-                    padding:0 !important;
-
-                    width:210mm;
-
-                    height:297mm;
-
-                    background:white !important;
-
-                    overflow:hidden;
-
-                    font-family:
-                    "Tajawal",
-                    Tahoma,
-                    Arial,
-                    sans-serif !important;
-
-                }
-
-
-                .pdf-page{
-
-                    position:relative;
-
-                    width:210mm;
-
-                    height:297mm;
-
-                    overflow:hidden;
-
-                    background:white;
-
-                }
-
-
-                #poster{
-
-                    position:absolute;
-
-                    top:0;
-
-                    left:0;
-
-                    width:1240px !important;
-
-                    min-height:1754px !important;
-
-                    transform:scale(0.64);
-
-                    transform-origin:top left;
-
-                    margin:0 !important;
-
-                    box-shadow:none !important;
-
-                }
-
-
-                #poster *{
-
-                    font-family:
-                    "Tajawal",
-                    Tahoma,
-                    Arial,
-                    sans-serif !important;
-
-                }
-
-
-                @media print{
-
-                    html,
-                    body{
-
-                        margin:0 !important;
-
-                        padding:0 !important;
-
-                    }
-
-
-                    #poster{
-
-                        -webkit-print-color-adjust:
-                        exact !important;
-
-                        print-color-adjust:
-                        exact !important;
-
-                    }
-
-                }
-
-            </style>
+        </style>
 
         </head>
 
-
         <body>
 
-            <div class="pdf-page">
+        <div class="print-page">
 
-                ${posterClone.outerHTML}
+        ${clone.outerHTML}
 
-            </div>
+        </div>
 
         </body>
 
         </html>
 
-    `);
+        `);
 
 
-    printWindow.document.close();
-
-
-    printWindow.onload =
-    async()=>{
-
-
-        try{
-
-            if(
-                printWindow.document.fonts &&
-                printWindow.document.fonts.ready
-            ){
-
-                await printWindow
-                .document
-                .fonts
-                .ready;
-
-            }
-
-        }
-
-        catch(error){
-
-            console.warn(error);
-
-        }
+        printWindow.document.close();
 
 
         setTimeout(
-            ()=>{
+            async()=>{
+
+                try{
+
+                    if(
+                        printWindow.document.fonts
+                    ){
+
+                        await printWindow
+                        .document
+                        .fonts
+                        .ready;
+
+                    }
+
+                }
+                catch{}
+
 
                 printWindow.focus();
 
@@ -3950,21 +4648,38 @@ async function exportPlanPDF(plan){
             700
         );
 
-    };
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        printWindow.close();
+
+
+        alert(
+            "تعذر تجهيز ملف PDF."
+        );
+
+    }
 
 }
 
 
 /* =========================
-   SHARE
+   SHARE IMAGE
 ========================= */
 
-async function sharePlanImage(plan){
+async function sharePlanImage(
+    plan
+){
 
     try{
 
         const blob =
-        await posterToBlob(plan);
+        await posterToBlob(
+            plan
+        );
 
 
         if(!blob){
@@ -3991,15 +4706,11 @@ async function sharePlanImage(plan){
 
 
         if(
-
             navigator.share &&
-
             navigator.canShare &&
-
             navigator.canShare({
                 files:[file]
             })
-
         ){
 
             await navigator.share({
@@ -4021,7 +4732,7 @@ async function sharePlanImage(plan){
 
 
             alert(
-                "تم تحميل صورة الخطة على الجهاز ويمكن إرسالها عبر واتساب."
+                "تم تحميل صورة الخطة ويمكن إرسالها عبر واتساب."
             );
 
         }
@@ -4037,6 +4748,7 @@ async function sharePlanImage(plan){
 
             console.error(error);
 
+
             alert(
                 "تعذر إرسال الصورة."
             );
@@ -4049,45 +4761,49 @@ async function sharePlanImage(plan){
 
 
 /* =========================
-   IMAGES
+   WAIT IMAGES
 ========================= */
 
-function waitForImages(element){
+function waitForImages(
+    element
+){
 
-    const images =
-    [
-        ...element
-        .querySelectorAll("img")
+    const images = [
+        ...element.querySelectorAll(
+            "img"
+        )
     ];
 
 
     return Promise.all(
 
-        images.map(img=>{
+        images.map(
+            img=>{
 
-            if(
-                img.complete &&
-                img.naturalWidth > 0
-            ){
+                if(
+                    img.complete &&
+                    img.naturalWidth > 0
+                ){
 
-                return Promise.resolve();
-
-            }
-
-
-            return new Promise(
-                resolve=>{
-
-                    img.onload =
-                    resolve;
-
-                    img.onerror =
-                    resolve;
+                    return Promise.resolve();
 
                 }
-            );
 
-        })
+
+                return new Promise(
+                    resolve=>{
+
+                        img.onload =
+                        resolve;
+
+                        img.onerror =
+                        resolve;
+
+                    }
+                );
+
+            }
+        )
 
     );
 
@@ -4104,11 +4820,37 @@ function resetPlanForm(){
     createEmptyPlan();
 
 
-    startDate.value = "";
-    endDate.value = "";
-    educationalValue.value = "";
-    weekPersonality.value = "";
-    principalName.value = "";
+    /*
+    عند العودة للنموذج الفارغ
+    نضع الجدول الثابت كذلك.
+    */
+
+    applyFixedScheduleToPlan(
+        planData,
+        false
+    );
+
+
+    startDate.value =
+    "";
+
+    endDate.value =
+    "";
+
+    educationalValue.value =
+    "";
+
+    weekPersonality.value =
+    "";
+
+
+    const latest =
+    savedPlans[0];
+
+
+    principalName.value =
+    latest?.principalName ||
+    "";
 
 
     renderCurrentDay();
@@ -4120,7 +4862,9 @@ function resetPlanForm(){
    HELPERS
 ========================= */
 
-function safeDisplay(value){
+function safeDisplay(
+    value
+){
 
     if(
         value === null ||
@@ -4133,12 +4877,16 @@ function safeDisplay(value){
     }
 
 
-    return escapeHTML(value);
+    return escapeHTML(
+        value
+    );
 
 }
 
 
-function formatDate(value){
+function formatDate(
+    value
+){
 
     if(!value){
 
@@ -4150,10 +4898,13 @@ function formatDate(value){
     try{
 
         const parts =
-        value.split("-");
+        String(value)
+        .split("-");
 
 
-        if(parts.length === 3){
+        if(
+            parts.length === 3
+        ){
 
             return (
 
@@ -4181,7 +4932,9 @@ function formatDate(value){
 }
 
 
-function escapeHTML(value){
+function escapeHTML(
+    value
+){
 
     return String(
         value ?? ""
@@ -4215,7 +4968,9 @@ function escapeHTML(value){
 }
 
 
-function escapeAttr(value){
+function escapeAttr(
+    value
+){
 
     return escapeHTML(
         value || ""
@@ -4241,11 +4996,18 @@ function showMessage(
     setTimeout(
         ()=>{
 
-            message.className =
-            "message";
+            if(
+                message.textContent ===
+                text
+            ){
+
+                message.className =
+                "message";
+
+            }
 
         },
-        4000
+        5000
     );
 
 }
@@ -4253,4 +5015,5 @@ function showMessage(
 </script>
 
 </body>
+
 </html>
