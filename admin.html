@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>لوحة الإدارة | نظام الخطة الأسبوعية</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -334,6 +336,135 @@ tr:hover td{
   text-align:center;
 }
 
+
+/* =========================================
+   متابعة الخطط الأسبوعية
+========================================= */
+
+.monitor-card{
+  margin-bottom:22px;
+}
+
+.monitor-toolbar{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.monitor-select-box{
+  width:260px;
+}
+
+.monitor-select-box label{
+  margin-bottom:7px;
+}
+
+.monitor-actions{
+  display:flex;
+  gap:9px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.refresh-monitor-btn{
+  border:none;
+  background:#0b4b3e;
+  color:white;
+  padding:11px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.refresh-monitor-btn:hover{
+  background:#126653;
+}
+
+.monitor-summary{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.monitor-box{
+  border-radius:12px;
+  padding:15px;
+  text-align:center;
+  border:1px solid #e6e6e6;
+}
+
+.monitor-box span{
+  display:block;
+  font-size:12px;
+  margin-bottom:5px;
+  color:#666;
+}
+
+.monitor-box strong{
+  font-size:24px;
+}
+
+.monitor-total{
+  background:#f4f1e6;
+}
+
+.monitor-total strong{
+  color:#0b4b3e;
+}
+
+.monitor-done{
+  background:#e9f7ed;
+}
+
+.monitor-done strong{
+  color:#17813a;
+}
+
+.monitor-pending{
+  background:#fff0f0;
+}
+
+.monitor-pending strong{
+  color:#ba3030;
+}
+
+.plan-monitor-table{
+  min-width:800px;
+}
+
+.plan-status{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:105px;
+  padding:7px 10px;
+  border-radius:20px;
+  font-weight:bold;
+  font-size:12px;
+}
+
+.plan-saved{
+  background:#dcf4e3;
+  color:#12672d;
+}
+
+.plan-missing{
+  background:#fde5e5;
+  color:#a92525;
+}
+
+.monitor-muted{
+  color:#999;
+}
+
+
+/* ========================================= */
+
 .modal{
   position:fixed;
   inset:0;
@@ -407,12 +538,29 @@ footer strong{
 }
 
 @media(max-width:900px){
+
   .layout{
     grid-template-columns:1fr;
   }
 
   .stats{
     grid-template-columns:1fr;
+  }
+
+  .monitor-summary{
+    grid-template-columns:1fr;
+  }
+
+  .monitor-toolbar{
+    align-items:stretch;
+  }
+
+  .monitor-select-box{
+    width:100%;
+  }
+
+  .refresh-monitor-btn{
+    width:100%;
   }
 
   .topbar{
@@ -432,6 +580,7 @@ footer strong{
     height:50px;
   }
 }
+
 </style>
 </head>
 
@@ -440,33 +589,57 @@ footer strong{
 <header class="topbar">
 
 <div class="brand">
-  <img src="logo.jpeg" alt="شعار مدارس الفلاح">
+
+  <img
+  src="logo.jpeg"
+  alt="شعار مدارس الفلاح">
 
   <div>
-    <h1>مدارس الفلاح الأهلية</h1>
-    <p>نظام الخطة الأسبوعية</p>
+
+    <h1>
+      مدارس الفلاح الأهلية
+    </h1>
+
+    <p>
+      نظام الخطة الأسبوعية
+    </p>
+
   </div>
+
 </div>
+
 
 <div class="admin-info">
 
-  <div class="admin-name" id="adminName">
+  <div
+  class="admin-name"
+  id="adminName">
+
     لوحة الإدارة
+
   </div>
 
-  <button class="logout-btn" id="logoutBtn">
+  <button
+  class="logout-btn"
+  id="logoutBtn">
+
     تسجيل الخروج
+
   </button>
 
 </div>
 
 </header>
 
+
 <main class="container">
+
 
 <div class="welcome">
 
-  <h2>لوحة إدارة النظام</h2>
+  <h2>
+    لوحة إدارة النظام
+  </h2>
 
   <p>
     إدارة حسابات رواد الفصول وربط كل رائد بالفصل الخاص به.
@@ -474,40 +647,259 @@ footer strong{
 
 </div>
 
+
 <div class="stats">
 
   <div class="stat-card">
-    <span>إجمالي رواد الفصول</span>
-    <strong id="totalCount">0</strong>
+
+    <span>
+      إجمالي رواد الفصول
+    </span>
+
+    <strong id="totalCount">
+      0
+    </strong>
+
   </div>
 
-  <div class="stat-card">
-    <span>الحسابات المفعلة</span>
-    <strong id="activeCount">0</strong>
-  </div>
 
   <div class="stat-card">
-    <span>الحسابات غير المفعلة</span>
-    <strong id="inactiveCount">0</strong>
+
+    <span>
+      الحسابات المفعلة
+    </span>
+
+    <strong id="activeCount">
+      0
+    </strong>
+
+  </div>
+
+
+  <div class="stat-card">
+
+    <span>
+      الحسابات غير المفعلة
+    </span>
+
+    <strong id="inactiveCount">
+      0
+    </strong>
+
   </div>
 
 </div>
 
+
+<!-- ======================================
+     متابعة الخطط الأسبوعية
+====================================== -->
+
+<section class="card monitor-card">
+
+<div class="card-header">
+
+  <h3>
+    متابعة الخطط الأسبوعية
+  </h3>
+
+</div>
+
+
+<div class="card-body">
+
+
+<div class="monitor-toolbar">
+
+
+  <div class="monitor-select-box">
+
+    <label>
+      اختر الأسبوع للمتابعة
+    </label>
+
+    <select id="monitorWeek">
+
+      <option value="1">الأسبوع الأول</option>
+      <option value="2">الأسبوع الثاني</option>
+      <option value="3">الأسبوع الثالث</option>
+      <option value="4">الأسبوع الرابع</option>
+      <option value="5">الأسبوع الخامس</option>
+      <option value="6">الأسبوع السادس</option>
+      <option value="7">الأسبوع السابع</option>
+      <option value="8">الأسبوع الثامن</option>
+      <option value="9">الأسبوع التاسع</option>
+      <option value="10">الأسبوع العاشر</option>
+      <option value="11">الأسبوع الحادي عشر</option>
+      <option value="12">الأسبوع الثاني عشر</option>
+      <option value="13">الأسبوع الثالث عشر</option>
+      <option value="14">الأسبوع الرابع عشر</option>
+      <option value="15">الأسبوع الخامس عشر</option>
+      <option value="16">الأسبوع السادس عشر</option>
+      <option value="17">الأسبوع السابع عشر</option>
+      <option value="18">الأسبوع الثامن عشر</option>
+
+    </select>
+
+  </div>
+
+
+  <div class="monitor-actions">
+
+    <button
+    class="refresh-monitor-btn"
+    id="refreshMonitorBtn">
+
+      تحديث المتابعة
+
+    </button>
+
+  </div>
+
+
+</div>
+
+
+<div class="monitor-summary">
+
+
+  <div class="monitor-box monitor-total">
+
+    <span>
+      رواد الفصول المطلوب منهم الخطة
+    </span>
+
+    <strong id="monitorTotal">
+      0
+    </strong>
+
+  </div>
+
+
+  <div class="monitor-box monitor-done">
+
+    <span>
+      تم حفظ الخطة
+    </span>
+
+    <strong id="monitorSaved">
+      0
+    </strong>
+
+  </div>
+
+
+  <div class="monitor-box monitor-pending">
+
+    <span>
+      لم يحفظوا الخطة
+    </span>
+
+    <strong id="monitorMissing">
+      0
+    </strong>
+
+  </div>
+
+
+</div>
+
+
+<div class="table-wrap">
+
+<table class="plan-monitor-table">
+
+<thead>
+
+<tr>
+
+  <th>
+    م
+  </th>
+
+  <th>
+    رائد الفصل
+  </th>
+
+  <th>
+    المرحلة
+  </th>
+
+  <th>
+    الصف
+  </th>
+
+  <th>
+    الشعبة
+  </th>
+
+  <th>
+    حالة الخطة
+  </th>
+
+  <th>
+    آخر حفظ
+  </th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="planStatusTable">
+
+<tr>
+
+<td
+colspan="7"
+class="empty">
+
+  جاري تحميل متابعة الخطط...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ====================================== -->
+
+
 <div class="layout">
+
 
 <section class="card">
 
 <div class="card-header">
-  <h3>إضافة رائد فصل</h3>
+
+  <h3>
+    إضافة رائد فصل
+  </h3>
+
 </div>
+
 
 <div class="card-body">
 
+
 <form id="leaderForm">
+
 
 <div class="form-group">
 
-  <label>اسم رائد الفصل</label>
+  <label>
+    اسم رائد الفصل
+  </label>
 
   <input
     id="name"
@@ -518,9 +910,12 @@ footer strong{
 
 </div>
 
+
 <div class="form-group">
 
-  <label>رقم الجوال</label>
+  <label>
+    رقم الجوال
+  </label>
 
   <input
     id="phone"
@@ -532,14 +927,19 @@ footer strong{
   >
 
   <div class="password-note">
+
     يستخدم الرقم لإرسال بيانات الحساب لرائد الفصل عبر واتساب.
+
   </div>
 
 </div>
 
+
 <div class="form-group">
 
-  <label>اسم المستخدم</label>
+  <label>
+    اسم المستخدم
+  </label>
 
   <input
     id="username"
@@ -551,9 +951,12 @@ footer strong{
 
 </div>
 
+
 <div class="form-group">
 
-  <label>كلمة المرور</label>
+  <label>
+    كلمة المرور
+  </label>
 
   <input
     id="password"
@@ -565,57 +968,114 @@ footer strong{
   >
 
   <div class="password-note">
+
     أعطِ اسم المستخدم وكلمة المرور لرائد الفصل.
+
   </div>
 
 </div>
 
+
 <div class="form-group">
 
-  <label>المرحلة</label>
+  <label>
+    المرحلة
+  </label>
 
-  <select id="stage" required>
-    <option value="">اختر المرحلة</option>
-    <option value="الابتدائية">الابتدائية</option>
-    <option value="المتوسطة">المتوسطة</option>
-    <option value="الثانوية">الثانوية</option>
+  <select
+  id="stage"
+  required>
+
+    <option value="">
+      اختر المرحلة
+    </option>
+
+    <option value="الابتدائية">
+      الابتدائية
+    </option>
+
+    <option value="المتوسطة">
+      المتوسطة
+    </option>
+
+    <option value="الثانوية">
+      الثانوية
+    </option>
+
   </select>
 
 </div>
 
+
 <div class="form-group">
 
-  <label>الصف</label>
+  <label>
+    الصف
+  </label>
 
-  <select id="grade" required>
-    <option value="">اختر الصف</option>
+  <select
+  id="grade"
+  required>
+
+    <option value="">
+      اختر الصف
+    </option>
+
   </select>
 
 </div>
 
+
 <div class="form-group">
 
-  <label>الشعبة</label>
+  <label>
+    الشعبة
+  </label>
 
-  <select id="section" required>
-    <option value="">اختر الشعبة</option>
-    <option value="أ">أ</option>
-    <option value="ب">ب</option>
-    <option value="ج">ج</option>
-    <option value="د">د</option>
+  <select
+  id="section"
+  required>
+
+    <option value="">
+      اختر الشعبة
+    </option>
+
+    <option value="أ">
+      أ
+    </option>
+
+    <option value="ب">
+      ب
+    </option>
+
+    <option value="ج">
+      ج
+    </option>
+
+    <option value="د">
+      د
+    </option>
+
   </select>
 
 </div>
+
 
 <button
-  type="submit"
-  class="save-btn"
-  id="saveBtn"
->
+type="submit"
+class="save-btn"
+id="saveBtn">
+
   إنشاء حساب رائد الفصل
+
 </button>
 
-<div id="message" class="message"></div>
+
+<div
+id="message"
+class="message">
+</div>
+
 
 </form>
 
@@ -626,11 +1086,18 @@ footer strong{
 
 <section class="card">
 
+
 <div class="card-header">
-  <h3>رواد الفصول المسجلون</h3>
+
+  <h3>
+    رواد الفصول المسجلون
+  </h3>
+
 </div>
 
+
 <div class="card-body">
+
 
 <div class="table-tools">
 
@@ -643,6 +1110,7 @@ footer strong{
 
 </div>
 
+
 <div class="table-wrap">
 
 <table>
@@ -650,25 +1118,58 @@ footer strong{
 <thead>
 
 <tr>
-  <th>م</th>
-  <th>رائد الفصل</th>
-  <th>الجوال</th>
-  <th>اسم المستخدم</th>
-  <th>المرحلة</th>
-  <th>الصف</th>
-  <th>الشعبة</th>
-  <th>الحالة</th>
-  <th>إجراء</th>
+
+  <th>
+    م
+  </th>
+
+  <th>
+    رائد الفصل
+  </th>
+
+  <th>
+    الجوال
+  </th>
+
+  <th>
+    اسم المستخدم
+  </th>
+
+  <th>
+    المرحلة
+  </th>
+
+  <th>
+    الصف
+  </th>
+
+  <th>
+    الشعبة
+  </th>
+
+  <th>
+    الحالة
+  </th>
+
+  <th>
+    إجراء
+  </th>
+
 </tr>
 
 </thead>
+
 
 <tbody id="leadersTable">
 
 <tr>
 
-<td colspan="9" class="empty">
+<td
+colspan="9"
+class="empty">
+
   جاري تحميل البيانات...
+
 </td>
 
 </tr>
@@ -688,31 +1189,48 @@ footer strong{
 </main>
 
 
-<!-- تعديل رائد الفصل -->
+<!-- ======================================
+     تعديل رائد الفصل
+====================================== -->
 
-<div class="modal" id="editModal">
+<div
+class="modal"
+id="editModal">
 
 <div class="modal-box">
 
+
 <div class="modal-title">
+
   تعديل بيانات رائد الفصل
+
 </div>
+
 
 <div class="modal-content">
 
-<input type="hidden" id="editId">
+
+<input
+type="hidden"
+id="editId">
+
 
 <div class="form-group">
 
-  <label>الاسم</label>
+  <label>
+    الاسم
+  </label>
 
   <input id="editName">
 
 </div>
 
+
 <div class="form-group">
 
-  <label>رقم الجوال</label>
+  <label>
+    رقم الجوال
+  </label>
 
   <input
     id="editPhone"
@@ -724,9 +1242,12 @@ footer strong{
 
 </div>
 
+
 <div class="form-group">
 
-  <label>المرحلة</label>
+  <label>
+    المرحلة
+  </label>
 
   <select id="editStage">
 
@@ -746,44 +1267,68 @@ footer strong{
 
 </div>
 
+
 <div class="form-group">
 
-  <label>الصف</label>
+  <label>
+    الصف
+  </label>
 
-  <select id="editGrade"></select>
+  <select id="editGrade">
+  </select>
 
 </div>
 
+
 <div class="form-group">
 
-  <label>الشعبة</label>
+  <label>
+    الشعبة
+  </label>
 
   <select id="editSection">
 
-    <option value="أ">أ</option>
-    <option value="ب">ب</option>
-    <option value="ج">ج</option>
-    <option value="د">د</option>
+    <option value="أ">
+      أ
+    </option>
+
+    <option value="ب">
+      ب
+    </option>
+
+    <option value="ج">
+      ج
+    </option>
+
+    <option value="د">
+      د
+    </option>
 
   </select>
 
 </div>
 
+
 <div class="modal-actions">
 
-<button
-  class="update-btn"
-  id="updateBtn"
->
-  حفظ التعديل
-</button>
 
 <button
-  class="cancel-btn"
-  id="cancelEdit"
->
-  إلغاء
+class="update-btn"
+id="updateBtn">
+
+  حفظ التعديل
+
 </button>
+
+
+<button
+class="cancel-btn"
+id="cancelEdit">
+
+  إلغاء
+
+</button>
+
 
 </div>
 
@@ -809,10 +1354,12 @@ footer strong{
 
 <script type="module">
 
+
 import {
   initializeApp
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
 
 import {
   getAuth,
@@ -821,6 +1368,7 @@ import {
   signOut
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
 
 import {
   getFirestore,
@@ -859,10 +1407,14 @@ const firebaseConfig = {
 
 
 const app =
-initializeApp(firebaseConfig);
+initializeApp(
+  firebaseConfig
+);
+
 
 const auth =
 getAuth(app);
+
 
 const db =
 getFirestore(app);
@@ -874,54 +1426,138 @@ initializeApp(
   "SecondaryApp"
 );
 
+
 const secondaryAuth =
-getAuth(secondaryApp);
+getAuth(
+  secondaryApp
+);
 
 
 const leaderForm =
-document.getElementById("leaderForm");
+document.getElementById(
+  "leaderForm"
+);
+
 
 const stage =
-document.getElementById("stage");
+document.getElementById(
+  "stage"
+);
+
 
 const grade =
-document.getElementById("grade");
+document.getElementById(
+  "grade"
+);
+
 
 const section =
-document.getElementById("section");
+document.getElementById(
+  "section"
+);
+
 
 const phone =
-document.getElementById("phone");
+document.getElementById(
+  "phone"
+);
+
 
 const saveBtn =
-document.getElementById("saveBtn");
+document.getElementById(
+  "saveBtn"
+);
+
 
 const message =
-document.getElementById("message");
+document.getElementById(
+  "message"
+);
+
 
 const leadersTable =
-document.getElementById("leadersTable");
+document.getElementById(
+  "leadersTable"
+);
+
 
 const totalCount =
-document.getElementById("totalCount");
+document.getElementById(
+  "totalCount"
+);
+
 
 const activeCount =
-document.getElementById("activeCount");
+document.getElementById(
+  "activeCount"
+);
+
 
 const inactiveCount =
-document.getElementById("inactiveCount");
+document.getElementById(
+  "inactiveCount"
+);
+
 
 const adminName =
-document.getElementById("adminName");
+document.getElementById(
+  "adminName"
+);
+
 
 const logoutBtn =
-document.getElementById("logoutBtn");
+document.getElementById(
+  "logoutBtn"
+);
+
 
 const searchInput =
-document.getElementById("searchInput");
+document.getElementById(
+  "searchInput"
+);
+
+
+/* متابعة الخطط */
+
+const monitorWeek =
+document.getElementById(
+  "monitorWeek"
+);
+
+
+const refreshMonitorBtn =
+document.getElementById(
+  "refreshMonitorBtn"
+);
+
+
+const planStatusTable =
+document.getElementById(
+  "planStatusTable"
+);
+
+
+const monitorTotal =
+document.getElementById(
+  "monitorTotal"
+);
+
+
+const monitorSaved =
+document.getElementById(
+  "monitorSaved"
+);
+
+
+const monitorMissing =
+document.getElementById(
+  "monitorMissing"
+);
 
 
 let leaders = [];
+
+let weeklyPlans = [];
 
 
 /* ======================================
@@ -931,24 +1567,41 @@ let leaders = [];
 const gradesByStage = {
 
   "الابتدائية":[
+
     "الأول الابتدائي",
+
     "الثاني الابتدائي",
+
     "الثالث الابتدائي",
+
     "الرابع الابتدائي",
+
     "الخامس الابتدائي",
+
     "السادس الابتدائي"
+
   ],
+
 
   "المتوسطة":[
+
     "الأول المتوسط",
+
     "الثاني المتوسط",
+
     "الثالث المتوسط"
+
   ],
 
+
   "الثانوية":[
+
     "الأول الثانوي",
+
     "الثاني الثانوي",
+
     "الثالث الثانوي"
+
   ]
 
 };
@@ -962,24 +1615,38 @@ function fillGrades(
   target.innerHTML =
   `<option value="">اختر الصف</option>`;
 
+
   if(!stageValue){
+
     return;
+
   }
 
 
-  gradesByStage[stageValue]
+  gradesByStage[
+    stageValue
+  ]
   .forEach(item=>{
 
+
     const option =
-    document.createElement("option");
+    document.createElement(
+      "option"
+    );
+
 
     option.value =
     item;
 
+
     option.textContent =
     item;
 
-    target.appendChild(option);
+
+    target.appendChild(
+      option
+    );
+
 
   });
 
@@ -990,10 +1657,12 @@ stage.addEventListener(
   "change",
   ()=>{
 
+
     fillGrades(
       stage.value,
       grade
     );
+
 
   }
 );
@@ -1007,6 +1676,7 @@ onAuthStateChanged(
   auth,
   async user=>{
 
+
     if(!user){
 
       window.location.href =
@@ -1018,6 +1688,7 @@ onAuthStateChanged(
 
 
     try{
+
 
       const userSnap =
       await getDoc(
@@ -1031,9 +1702,14 @@ onAuthStateChanged(
       );
 
 
-      if(!userSnap.exists()){
+      if(
+        !userSnap.exists()
+      ){
 
-        await signOut(auth);
+        await signOut(
+          auth
+        );
+
 
         window.location.href =
         "index.html";
@@ -1048,11 +1724,17 @@ onAuthStateChanged(
 
 
       if(
-        data.role !== "admin" ||
-        data.active === false
+        data.role !==
+        "admin" ||
+
+        data.active ===
+        false
       ){
 
-        await signOut(auth);
+        await signOut(
+          auth
+        );
+
 
         window.location.href =
         "index.html";
@@ -1067,17 +1749,38 @@ onAuthStateChanged(
       "مدير النظام";
 
 
+      /*
+        الحسابات تُحمّل بنفس
+        الطريقة القديمة تمامًا.
+      */
+
       await loadLeaders();
+
+
+      /*
+        الجديد فقط:
+        قراءة الخطط الأسبوعية.
+      */
+
+      await loadWeeklyPlans(
+        true
+      );
+
 
     }
 
     catch(error){
 
-      console.error(error);
+
+      console.error(
+        error
+      );
+
 
       alert(
         "تعذر التحقق من صلاحية الحساب."
       );
+
 
     }
 
@@ -1085,14 +1788,23 @@ onAuthStateChanged(
 );
 
 
+/* ======================================
+   LOGOUT
+====================================== */
+
 logoutBtn.addEventListener(
   "click",
   async()=>{
 
-    await signOut(auth);
+
+    await signOut(
+      auth
+    );
+
 
     window.location.href =
     "index.html";
+
 
   }
 );
@@ -1110,8 +1822,10 @@ function showMessage(
   message.textContent =
   text;
 
+
   message.className =
-  "message " + type;
+  "message " +
+  type;
 
 
   setTimeout(
@@ -1131,22 +1845,27 @@ function showMessage(
    PHONE
 ====================================== */
 
-function normalizePhone(value){
+function normalizePhone(
+  value
+){
 
   let number =
-  String(value || "")
-  .replace(/\D/g,"");
+  String(
+    value || ""
+  )
+  .replace(
+    /\D/g,
+    ""
+  );
 
-
-  /*
-    0591234567
-    يتحول إلى:
-    966591234567
-  */
 
   if(
-    number.startsWith("05") &&
-    number.length === 10
+    number.startsWith(
+      "05"
+    ) &&
+
+    number.length ===
+    10
   ){
 
     number =
@@ -1156,14 +1875,13 @@ function normalizePhone(value){
   }
 
 
-  /*
-    لو المستخدم كتب:
-    591234567
-  */
-
   else if(
-    number.startsWith("5") &&
-    number.length === 9
+    number.startsWith(
+      "5"
+    ) &&
+
+    number.length ===
+    9
   ){
 
     number =
@@ -1173,13 +1891,10 @@ function normalizePhone(value){
   }
 
 
-  /*
-    لو كتب:
-    00966591234567
-  */
-
   else if(
-    number.startsWith("00966")
+    number.startsWith(
+      "00966"
+    )
   ){
 
     number =
@@ -1193,12 +1908,18 @@ function normalizePhone(value){
 }
 
 
-function validSaudiPhone(value){
+function validSaudiPhone(
+  value
+){
 
   const number =
-  normalizePhone(value);
+  normalizePhone(
+    value
+  );
 
-  return /^9665\d{8}$/.test(
+
+  return /^9665\d{8}$/
+  .test(
     number
   );
 
@@ -1207,18 +1928,22 @@ function validSaudiPhone(value){
 
 /* ======================================
    CREATE ACCOUNT
+   نفس الكود القديم
 ====================================== */
 
 leaderForm.addEventListener(
   "submit",
   async event=>{
 
+
     event.preventDefault();
 
 
     const name =
     document
-    .getElementById("name")
+    .getElementById(
+      "name"
+    )
     .value
     .trim();
 
@@ -1231,16 +1956,23 @@ leaderForm.addEventListener(
 
     const username =
     document
-    .getElementById("username")
+    .getElementById(
+      "username"
+    )
     .value
     .trim()
     .toLowerCase()
-    .replace(/\s+/g,"");
+    .replace(
+      /\s+/g,
+      ""
+    );
 
 
     const password =
     document
-    .getElementById("password")
+    .getElementById(
+      "password"
+    )
     .value;
 
 
@@ -1293,7 +2025,8 @@ leaderForm.addEventListener(
 
 
     if(
-      password.length < 6
+      password.length <
+      6
     ){
 
       showMessage(
@@ -1308,7 +2041,9 @@ leaderForm.addEventListener(
 
     if(
       !/^[a-zA-Z0-9._-]+$/
-      .test(username)
+      .test(
+        username
+      )
     ){
 
       showMessage(
@@ -1323,8 +2058,10 @@ leaderForm.addEventListener(
 
     try{
 
+
       saveBtn.disabled =
       true;
+
 
       saveBtn.textContent =
       "جاري إنشاء الحساب...";
@@ -1332,22 +2069,27 @@ leaderForm.addEventListener(
 
       const existingUsers =
       await getDocs(
+
         collection(
           db,
           "users"
         )
+
       );
 
 
       let usernameExists =
       false;
 
+
       let classExists =
       false;
 
 
-      existingUsers.forEach(
+      existingUsers
+      .forEach(
         item=>{
+
 
           const data =
           item.data();
@@ -1355,10 +2097,13 @@ leaderForm.addEventListener(
 
           if(
             data.username &&
+
             data.username
             .toLowerCase() ===
             username &&
-            data.deleted !== true
+
+            data.deleted !==
+            true
           ){
 
             usernameExists =
@@ -1371,9 +2116,11 @@ leaderForm.addEventListener(
             data.role ===
             "classLeader" &&
 
-            data.deleted !== true &&
+            data.deleted !==
+            true &&
 
-            data.active !== false &&
+            data.active !==
+            false &&
 
             data.stage ===
             stageValue &&
@@ -1390,11 +2137,14 @@ leaderForm.addEventListener(
 
           }
 
+
         }
       );
 
 
-      if(usernameExists){
+      if(
+        usernameExists
+      ){
 
         showMessage(
           "اسم المستخدم مستخدم بالفعل.",
@@ -1406,7 +2156,9 @@ leaderForm.addEventListener(
       }
 
 
-      if(classExists){
+      if(
+        classExists
+      ){
 
         showMessage(
           "هذا الفصل مرتبط برائد فصل آخر بالفعل.",
@@ -1437,7 +2189,9 @@ leaderForm.addEventListener(
 
 
       const uid =
-      credential.user.uid;
+      credential
+      .user
+      .uid;
 
 
       await setDoc(
@@ -1450,46 +2204,55 @@ leaderForm.addEventListener(
 
         {
 
-          name:name,
+          name:
+          name,
+
 
           phone:
           normalizePhone(
             phoneValue
           ),
 
-          username:username,
 
-          /*
-            نحفظ كلمة المرور
-            لاستخدامها في إرسال
-            بيانات الدخول عبر واتساب.
-          */
+          username:
+          username,
+
+
           loginPassword:
           password,
+
 
           role:
           "classLeader",
 
+
           stage:
           stageValue,
+
 
           grade:
           gradeValue,
 
+
           section:
           sectionValue,
+
 
           active:
           true,
 
+
           deleted:
           false,
+
 
           email:
           internalEmail,
 
+
           createdAt:
           serverTimestamp(),
+
 
           createdBy:
           auth.currentUser.uid
@@ -1519,11 +2282,23 @@ leaderForm.addEventListener(
 
       await loadLeaders();
 
+
+      /*
+        تحديث جدول المتابعة فقط
+        بعد إضافة رائد جديد.
+      */
+
+      renderPlanMonitoring();
+
+
     }
 
     catch(error){
 
-      console.error(error);
+
+      console.error(
+        error
+      );
 
 
       let text =
@@ -1540,6 +2315,7 @@ leaderForm.addEventListener(
 
       }
 
+
       else if(
         error.code ===
         "auth/weak-password"
@@ -1550,6 +2326,7 @@ leaderForm.addEventListener(
 
       }
 
+
       else if(
         error.code ===
         "auth/invalid-email"
@@ -1559,6 +2336,7 @@ leaderForm.addEventListener(
         "اسم المستخدم غير صالح.";
 
       }
+
 
       else if(
         error.code ===
@@ -1576,15 +2354,19 @@ leaderForm.addEventListener(
         "error"
       );
 
+
     }
 
     finally{
 
+
       saveBtn.disabled =
       false;
 
+
       saveBtn.textContent =
       "إنشاء حساب رائد الفصل";
+
 
     }
 
@@ -1594,11 +2376,13 @@ leaderForm.addEventListener(
 
 /* ======================================
    LOAD LEADERS
+   نفس طريقة العمل الأصلية
 ====================================== */
 
 async function loadLeaders(){
 
   try{
+
 
     leadersTable.innerHTML = `
 
@@ -1628,11 +2412,13 @@ async function loadLeaders(){
     );
 
 
-    leaders = [];
+    leaders =
+    [];
 
 
     snapshot.forEach(
       item=>{
+
 
         const data =
         item.data();
@@ -1641,7 +2427,9 @@ async function loadLeaders(){
         if(
           data.role ===
           "classLeader" &&
-          data.deleted !== true
+
+          data.deleted !==
+          true
         ){
 
           leaders.push({
@@ -1654,6 +2442,7 @@ async function loadLeaders(){
           });
 
         }
+
 
       }
     );
@@ -1672,15 +2461,28 @@ async function loadLeaders(){
 
     updateStats();
 
+
     renderLeaders(
       leaders
     );
+
+
+    /*
+      لا يغير أي بيانات.
+      يعيد فقط رسم المتابعة.
+    */
+
+    renderPlanMonitoring();
+
 
   }
 
   catch(error){
 
-    console.error(error);
+
+    console.error(
+      error
+    );
 
 
     leadersTable.innerHTML = `
@@ -1698,6 +2500,7 @@ async function loadLeaders(){
       </tr>
 
     `;
+
 
   }
 
@@ -1733,13 +2536,16 @@ function updateStats(){
 
 
 /* ======================================
-   RENDER TABLE
+   RENDER LEADERS
 ====================================== */
 
-function renderLeaders(items){
+function renderLeaders(
+  items
+){
 
   if(
-    items.length === 0
+    items.length ===
+    0
   ){
 
     leadersTable.innerHTML = `
@@ -1758,6 +2564,7 @@ function renderLeaders(items){
 
     `;
 
+
     return;
 
   }
@@ -1770,6 +2577,7 @@ function renderLeaders(items){
   items.forEach(
     (item,index)=>{
 
+
       const tr =
       document.createElement(
         "tr"
@@ -1777,7 +2585,8 @@ function renderLeaders(items){
 
 
       const isActive =
-      item.active !== false;
+      item.active !==
+      false;
 
 
       const hasPhone =
@@ -1786,15 +2595,20 @@ function renderLeaders(items){
 
       tr.innerHTML = `
 
+
         <td>
+
           ${index + 1}
+
         </td>
 
 
         <td>
+
           ${escapeHTML(
             item.name || ""
           )}
+
         </td>
 
 
@@ -1802,10 +2616,12 @@ function renderLeaders(items){
 
           ${
             item.phone
-            ? formatPhone(
-                item.phone
-              )
-            : "-"
+            ?
+            formatPhone(
+              item.phone
+            )
+            :
+            "-"
           }
 
         </td>
@@ -1852,14 +2668,18 @@ function renderLeaders(items){
           <span
           class="badge ${
             isActive
-            ? "active"
-            : "inactive"
+            ?
+            "active"
+            :
+            "inactive"
           }">
 
             ${
               isActive
-              ? "مفعل"
-              : "موقوف"
+              ?
+              "مفعل"
+              :
+              "موقوف"
             }
 
           </span>
@@ -1895,8 +2715,10 @@ function renderLeaders(items){
 
             ${
               isActive
-              ? "إيقاف"
-              : "تفعيل"
+              ?
+              "إيقاف"
+              :
+              "تفعيل"
             }
 
           </button>
@@ -1913,12 +2735,14 @@ function renderLeaders(items){
 
         </td>
 
+
       `;
 
 
       leadersTable.appendChild(
         tr
       );
+
 
     }
   );
@@ -1937,6 +2761,7 @@ searchInput.addEventListener(
   "input",
   ()=>{
 
+
     const text =
     searchInput.value
     .trim()
@@ -1947,17 +2772,22 @@ searchInput.addEventListener(
     leaders.filter(
       item=>{
 
+
         return (
 
           (item.name || "")
           .toLowerCase()
-          .includes(text)
+          .includes(
+            text
+          )
 
           ||
 
           (item.username || "")
           .toLowerCase()
-          .includes(text)
+          .includes(
+            text
+          )
 
           ||
 
@@ -1972,9 +2802,12 @@ searchInput.addEventListener(
           ||
 
           (item.grade || "")
-          .includes(text)
+          .includes(
+            text
+          )
 
         );
+
 
       }
     );
@@ -1983,6 +2816,7 @@ searchInput.addEventListener(
     renderLeaders(
       filtered
     );
+
 
   }
 );
@@ -1996,14 +2830,18 @@ function sendWhatsApp(
   leader
 ){
 
-  if(!leader){
+  if(
+    !leader
+  ){
 
     return;
 
   }
 
 
-  if(!leader.phone){
+  if(
+    !leader.phone
+  ){
 
     alert(
       "لا يوجد رقم جوال مسجل لرائد الفصل."
@@ -2035,12 +2873,6 @@ function sendWhatsApp(
 
   }
 
-
-  /*
-    الحسابات القديمة التي تم إنشاؤها
-    قبل إضافة خاصية واتساب لن يكون
-    لها loginPassword محفوظ.
-  */
 
   const passwordText =
   leader.loginPassword
@@ -2107,8 +2939,6 @@ https://muhammadamer1618-dev.github.io/Weekly-Plan/
 function bindTableButtons(){
 
 
-  /* واتساب */
-
   document
   .querySelectorAll(
     "[data-whatsapp]"
@@ -2116,9 +2946,11 @@ function bindTableButtons(){
   .forEach(
     button=>{
 
+
       button.addEventListener(
         "click",
         ()=>{
+
 
           const leader =
           leaders.find(
@@ -2132,14 +2964,14 @@ function bindTableButtons(){
             leader
           );
 
+
         }
       );
+
 
     }
   );
 
-
-  /* تفعيل / إيقاف */
 
   document
   .querySelectorAll(
@@ -2148,9 +2980,11 @@ function bindTableButtons(){
   .forEach(
     button=>{
 
+
       button.addEventListener(
         "click",
         async()=>{
+
 
           const id =
           button.dataset.toggle;
@@ -2159,17 +2993,23 @@ function bindTableButtons(){
           const leader =
           leaders.find(
             item =>
-            item.id === id
+            item.id ===
+            id
           );
 
 
-          if(!leader){
+          if(
+            !leader
+          ){
+
             return;
+
           }
 
 
           const newStatus =
-          leader.active === false;
+          leader.active ===
+          false;
 
 
           const text =
@@ -2181,13 +3021,18 @@ function bindTableButtons(){
 
 
           if(
-            !confirm(text)
+            !confirm(
+              text
+            )
           ){
+
             return;
+
           }
 
 
           try{
+
 
             await updateDoc(
 
@@ -2198,8 +3043,10 @@ function bindTableButtons(){
               ),
 
               {
+
                 active:
                 newStatus
+
               }
 
             );
@@ -2207,26 +3054,32 @@ function bindTableButtons(){
 
             await loadLeaders();
 
+
           }
 
           catch(error){
 
-            console.error(error);
+
+            console.error(
+              error
+            );
+
 
             alert(
               "حدث خطأ أثناء تغيير حالة الحساب."
             );
 
+
           }
+
 
         }
       );
 
+
     }
   );
 
-
-  /* تعديل */
 
   document
   .querySelectorAll(
@@ -2235,22 +3088,24 @@ function bindTableButtons(){
   .forEach(
     button=>{
 
+
       button.addEventListener(
         "click",
         ()=>{
+
 
           openEditModal(
             button.dataset.edit
           );
 
+
         }
       );
+
 
     }
   );
 
-
-  /* حذف */
 
   document
   .querySelectorAll(
@@ -2259,9 +3114,11 @@ function bindTableButtons(){
   .forEach(
     button=>{
 
+
       button.addEventListener(
         "click",
         async()=>{
+
 
           const id =
           button.dataset.delete;
@@ -2270,12 +3127,17 @@ function bindTableButtons(){
           const leader =
           leaders.find(
             item =>
-            item.id === id
+            item.id ===
+            id
           );
 
 
-          if(!leader){
+          if(
+            !leader
+          ){
+
             return;
+
           }
 
 
@@ -2288,7 +3150,9 @@ function bindTableButtons(){
           if(
             !confirmDelete
           ){
+
             return;
+
           }
 
 
@@ -2301,11 +3165,14 @@ function bindTableButtons(){
           if(
             !confirmAgain
           ){
+
             return;
+
           }
 
 
           try{
+
 
             await updateDoc(
 
@@ -2317,9 +3184,13 @@ function bindTableButtons(){
 
               {
 
-                active:false,
+                active:
+                false,
 
-                deleted:true,
+
+                deleted:
+                true,
+
 
                 deletedAt:
                 serverTimestamp()
@@ -2336,20 +3207,28 @@ function bindTableButtons(){
               "تم حذف رائد الفصل من النظام."
             );
 
+
           }
 
           catch(error){
 
-            console.error(error);
+
+            console.error(
+              error
+            );
+
 
             alert(
               "حدث خطأ أثناء الحذف."
             );
 
+
           }
+
 
         }
       );
+
 
     }
   );
@@ -2366,30 +3245,36 @@ document.getElementById(
   "editModal"
 );
 
+
 const editId =
 document.getElementById(
   "editId"
 );
+
 
 const editName =
 document.getElementById(
   "editName"
 );
 
+
 const editPhone =
 document.getElementById(
   "editPhone"
 );
+
 
 const editStage =
 document.getElementById(
   "editStage"
 );
 
+
 const editGrade =
 document.getElementById(
   "editGrade"
 );
+
 
 const editSection =
 document.getElementById(
@@ -2397,17 +3282,24 @@ document.getElementById(
 );
 
 
-function openEditModal(id){
+function openEditModal(
+  id
+){
 
   const leader =
   leaders.find(
     item =>
-    item.id === id
+    item.id ===
+    id
   );
 
 
-  if(!leader){
+  if(
+    !leader
+  ){
+
     return;
+
   }
 
 
@@ -2454,10 +3346,12 @@ editStage.addEventListener(
   "change",
   ()=>{
 
+
     fillGrades(
       editStage.value,
       editGrade
     );
+
 
   }
 );
@@ -2471,9 +3365,11 @@ document
   "click",
   ()=>{
 
+
     editModal.classList.remove(
       "show"
     );
+
 
   }
 );
@@ -2491,12 +3387,14 @@ document
   "click",
   async()=>{
 
+
     const id =
     editId.value;
 
 
     const newPhone =
-    editPhone.value.trim();
+    editPhone.value
+    .trim();
 
 
     if(
@@ -2536,11 +3434,14 @@ document
     leaders.some(
       item=>{
 
+
         return (
 
-          item.id !== id &&
+          item.id !==
+          id &&
 
-          item.active !== false &&
+          item.active !==
+          false &&
 
           item.stage ===
           editStage.value &&
@@ -2552,6 +3453,7 @@ document
           editSection.value
 
         );
+
 
       }
     );
@@ -2572,6 +3474,7 @@ document
 
     try{
 
+
       await updateDoc(
 
         doc(
@@ -2583,21 +3486,27 @@ document
         {
 
           name:
-          editName.value.trim(),
+          editName.value
+          .trim(),
+
 
           phone:
           normalizePhone(
             newPhone
           ),
 
+
           stage:
           editStage.value,
+
 
           grade:
           editGrade.value,
 
+
           section:
           editSection.value,
+
 
           updatedAt:
           serverTimestamp()
@@ -2619,17 +3528,24 @@ document
         "تم تحديث بيانات رائد الفصل بنجاح."
       );
 
+
     }
 
     catch(error){
 
-      console.error(error);
+
+      console.error(
+        error
+      );
+
 
       alert(
         "حدث خطأ أثناء حفظ التعديل."
       );
 
+
     }
+
 
   }
 );
@@ -2643,6 +3559,7 @@ editModal.addEventListener(
   "click",
   event=>{
 
+
     if(
       event.target ===
       editModal
@@ -2654,15 +3571,730 @@ editModal.addEventListener(
 
     }
 
+
   }
 );
+
+
+/* ======================================
+   متابعة الخطط الأسبوعية
+====================================== */
+
+
+/*
+  هذه الدالة تقرأ collection
+  weeklyPlans فقط.
+
+  لا تقوم بأي تعديل أو حذف
+  أو إضافة في الحسابات.
+*/
+
+async function loadWeeklyPlans(
+  chooseLatestWeek = false
+){
+
+  try{
+
+
+    refreshMonitorBtn.disabled =
+    true;
+
+
+    refreshMonitorBtn.textContent =
+    "جاري التحديث...";
+
+
+    planStatusTable.innerHTML = `
+
+      <tr>
+
+        <td
+        colspan="7"
+        class="empty">
+
+          جاري تحميل متابعة الخطط...
+
+        </td>
+
+      </tr>
+
+    `;
+
+
+    const snapshot =
+    await getDocs(
+
+      collection(
+        db,
+        "weeklyPlans"
+      )
+
+    );
+
+
+    weeklyPlans =
+    [];
+
+
+    snapshot.forEach(
+      item=>{
+
+
+        weeklyPlans.push({
+
+          id:
+          item.id,
+
+          ...item.data()
+
+        });
+
+
+      }
+    );
+
+
+    /*
+      في أول مرة فقط:
+      نعرض آخر أسبوع توجد له
+      خطة محفوظة تلقائيًا.
+    */
+
+    if(
+      chooseLatestWeek &&
+      weeklyPlans.length >
+      0
+    ){
+
+      const weekNumbers =
+      weeklyPlans
+
+      .map(
+        item =>
+        Number(
+          item.weekNumber
+        )
+      )
+
+      .filter(
+        item =>
+        Number.isFinite(
+          item
+        ) &&
+        item >= 1 &&
+        item <= 18
+      );
+
+
+      if(
+        weekNumbers.length >
+        0
+      ){
+
+        const latestWeek =
+        Math.max(
+          ...weekNumbers
+        );
+
+
+        monitorWeek.value =
+        String(
+          latestWeek
+        );
+
+      }
+
+    }
+
+
+    renderPlanMonitoring();
+
+
+  }
+
+  catch(error){
+
+
+    console.error(
+      "خطأ تحميل الخطط:",
+      error
+    );
+
+
+    planStatusTable.innerHTML = `
+
+      <tr>
+
+        <td
+        colspan="7"
+        class="empty">
+
+          تعذر تحميل متابعة الخطط الأسبوعية.
+
+        </td>
+
+      </tr>
+
+    `;
+
+
+  }
+
+  finally{
+
+
+    refreshMonitorBtn.disabled =
+    false;
+
+
+    refreshMonitorBtn.textContent =
+    "تحديث المتابعة";
+
+
+  }
+
+}
+
+
+/* ======================================
+   رسم حالة الحفظ
+====================================== */
+
+function renderPlanMonitoring(){
+
+  if(
+    !planStatusTable ||
+    !monitorWeek
+  ){
+
+    return;
+
+  }
+
+
+  const week =
+  Number(
+    monitorWeek.value
+  );
+
+
+  /*
+    الحسابات الموقوفة لا نحسبها
+    ضمن المطلوب منهم تسليم الخطة.
+  */
+
+  const activeLeaders =
+  leaders.filter(
+    leader =>
+    leader.active !== false
+  );
+
+
+  monitorTotal.textContent =
+  activeLeaders.length;
+
+
+  if(
+    activeLeaders.length ===
+    0
+  ){
+
+    monitorSaved.textContent =
+    "0";
+
+
+    monitorMissing.textContent =
+    "0";
+
+
+    planStatusTable.innerHTML = `
+
+      <tr>
+
+        <td
+        colspan="7"
+        class="empty">
+
+          لا توجد حسابات مفعلة حاليًا.
+
+        </td>
+
+      </tr>
+
+    `;
+
+
+    return;
+
+  }
+
+
+  let savedCount =
+  0;
+
+
+  const result =
+  activeLeaders
+  .map(
+    leader=>{
+
+
+      /*
+        نبحث عن خطة لهذا الرائد
+        ولهذا الأسبوع.
+      */
+
+      const matchingPlans =
+      weeklyPlans
+
+      .filter(
+        plan =>
+
+          plan.leaderUid ===
+          leader.id &&
+
+          Number(
+            plan.weekNumber
+          ) ===
+          week
+      )
+
+      .sort(
+        (
+          a,
+          b
+        ) =>
+
+        getPlanTime(
+          b
+        ) -
+
+        getPlanTime(
+          a
+        )
+      );
+
+
+      const plan =
+      matchingPlans[0] ||
+      null;
+
+
+      if(
+        plan
+      ){
+
+        savedCount++;
+
+      }
+
+
+      return {
+
+        leader,
+        plan
+
+      };
+
+
+    }
+  );
+
+
+  monitorSaved.textContent =
+  savedCount;
+
+
+  monitorMissing.textContent =
+  activeLeaders.length -
+  savedCount;
+
+
+  /*
+    نظهر من لم يحفظ أولًا
+    ثم من حفظ.
+  */
+
+  result.sort(
+    (a,b)=>{
+
+
+      if(
+        !a.plan &&
+        b.plan
+      ){
+
+        return -1;
+
+      }
+
+
+      if(
+        a.plan &&
+        !b.plan
+      ){
+
+        return 1;
+
+      }
+
+
+      return (
+        a.leader.name ||
+        ""
+      )
+      .localeCompare(
+        b.leader.name ||
+        "",
+        "ar"
+      );
+
+    }
+  );
+
+
+  planStatusTable.innerHTML =
+  "";
+
+
+  result.forEach(
+    (
+      item,
+      index
+    )=>{
+
+
+      const leader =
+      item.leader;
+
+
+      const plan =
+      item.plan;
+
+
+      const tr =
+      document.createElement(
+        "tr"
+      );
+
+
+      tr.innerHTML = `
+
+
+        <td>
+
+          ${index + 1}
+
+        </td>
+
+
+        <td>
+
+          ${escapeHTML(
+            leader.name ||
+            ""
+          )}
+
+        </td>
+
+
+        <td>
+
+          ${escapeHTML(
+            leader.stage ||
+            ""
+          )}
+
+        </td>
+
+
+        <td>
+
+          ${escapeHTML(
+            leader.grade ||
+            ""
+          )}
+
+        </td>
+
+
+        <td>
+
+          ${escapeHTML(
+            leader.section ||
+            ""
+          )}
+
+        </td>
+
+
+        <td>
+
+          ${
+            plan
+            ?
+
+            `
+
+              <span
+              class="plan-status plan-saved">
+
+                ✓ تم الحفظ
+
+              </span>
+
+            `
+
+            :
+
+            `
+
+              <span
+              class="plan-status plan-missing">
+
+                ✕ لم يحفظ
+
+              </span>
+
+            `
+          }
+
+        </td>
+
+
+        <td>
+
+          ${
+            plan
+            ?
+            formatPlanTimestamp(
+              plan.updatedAt ||
+              plan.createdAt
+            )
+            :
+            `<span class="monitor-muted">-</span>`
+          }
+
+        </td>
+
+
+      `;
+
+
+      planStatusTable.appendChild(
+        tr
+      );
+
+
+    }
+  );
+
+}
+
+
+/* ======================================
+   تغيير الأسبوع
+====================================== */
+
+monitorWeek.addEventListener(
+  "change",
+  ()=>{
+
+
+    renderPlanMonitoring();
+
+
+  }
+);
+
+
+/* ======================================
+   زر تحديث المتابعة
+====================================== */
+
+refreshMonitorBtn.addEventListener(
+  "click",
+  async()=>{
+
+
+    await loadWeeklyPlans(
+      false
+    );
+
+
+  }
+);
+
+
+/* ======================================
+   وقت الخطة للمقارنة
+====================================== */
+
+function getPlanTime(
+  plan
+){
+
+  const value =
+  plan.updatedAt ||
+  plan.createdAt;
+
+
+  if(
+    !value
+  ){
+
+    return 0;
+
+  }
+
+
+  try{
+
+
+    if(
+      typeof value.toDate ===
+      "function"
+    ){
+
+      return value
+      .toDate()
+      .getTime();
+
+    }
+
+
+    if(
+      typeof value.seconds ===
+      "number"
+    ){
+
+      return value.seconds *
+      1000;
+
+    }
+
+
+    return 0;
+
+
+  }
+
+  catch{
+
+    return 0;
+
+  }
+
+}
+
+
+/* ======================================
+   عرض آخر حفظ
+====================================== */
+
+function formatPlanTimestamp(
+  value
+){
+
+  if(
+    !value
+  ){
+
+    return "-";
+
+  }
+
+
+  try{
+
+
+    let date;
+
+
+    if(
+      typeof value.toDate ===
+      "function"
+    ){
+
+      date =
+      value.toDate();
+
+    }
+
+
+    else if(
+      typeof value.seconds ===
+      "number"
+    ){
+
+      date =
+      new Date(
+        value.seconds *
+        1000
+      );
+
+    }
+
+
+    else{
+
+      return "-";
+
+    }
+
+
+    return new Intl.DateTimeFormat(
+      "ar-SA",
+      {
+
+        year:
+        "numeric",
+
+        month:
+        "2-digit",
+
+        day:
+        "2-digit",
+
+        hour:
+        "2-digit",
+
+        minute:
+        "2-digit"
+
+      }
+
+    )
+    .format(
+      date
+    );
+
+
+  }
+
+  catch(error){
+
+
+    console.error(
+      error
+    );
+
+
+    return "-";
+
+
+  }
+
+}
 
 
 /* ======================================
    HELPERS
 ====================================== */
 
-function formatPhone(value){
+function formatPhone(
+  value
+){
 
   const number =
   normalizePhone(
@@ -2693,8 +4325,12 @@ function displayPhoneForEdit(
   value
 ){
 
-  if(!value){
+  if(
+    !value
+  ){
+
     return "";
+
   }
 
 
@@ -2705,10 +4341,13 @@ function displayPhoneForEdit(
 }
 
 
-function escapeHTML(value){
+function escapeHTML(
+  value
+){
 
   return String(
-    value || ""
+    value ||
+    ""
   )
 
   .replaceAll(
