@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>دخول الإدارة | الخطة الأسبوعية</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+}
+
+:root{
+    --green:#0b4b3e;
+    --green-dark:#073f34;
+    --gold:#c9a548;
+    --gold-soft:#f8f1de;
+    --text:#252525;
+    --muted:#737373;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #073f34,
+        #0b4b3e
+    );
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--text);
+}
+
+
+.wrapper{
+    width:min(570px,100%);
+
+    background:white;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.28);
+}
+
+
+.hero{
+    text-align:center;
+
+    color:white;
+
+    padding:32px 24px 28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b4b3e,
+        #416f5c
+    );
+
+    border-bottom:
+    5px solid var(--gold);
+}
+
+
+.hero img{
+    width:120px;
+    height:120px;
+
+    object-fit:contain;
+
+    background:white;
+
+    padding:7px;
+
+    border-radius:20px;
+
+    margin-bottom:14px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.18);
+}
+
+
+.hero h1{
+    font-size:27px;
+
+    font-weight:800;
+
+    margin-bottom:5px;
+}
+
+
+.hero .english{
+    color:#e6cc82;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:1.2px;
+}
+
+
+.admin-title{
+    margin-top:17px;
+
+    font-size:23px;
+
+    font-weight:800;
+}
+
+
+.admin-subtitle{
+    margin-top:5px;
+
+    color:#e8e8e8;
+
+    font-size:14px;
+}
+
+
+.content{
+    padding:28px;
+}
+
+
+.admin-icon{
+    width:72px;
+    height:72px;
+
+    margin:
+    0 auto 14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--gold-soft);
+
+    font-size:34px;
+
+    border:
+    1px solid #e5d4a5;
+}
+
+
+.description{
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    margin-bottom:24px;
+}
+
+
+.form-group{
+    margin-bottom:17px;
+}
+
+
+label{
+    display:block;
+
+    color:var(--green);
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+}
+
+
+input{
+    width:100%;
+
+    padding:13px;
+
+    border:
+    1px solid #d4d4d4;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+
+input:focus{
+    border-color:var(--gold);
+
+    box-shadow:
+    0 0 0 3px rgba(201,165,72,.14);
+}
+
+
+.login-btn{
+    width:100%;
+
+    border:none;
+
+    border-radius:11px;
+
+    background:var(--green);
+
+    color:white;
+
+    padding:13px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    margin-top:5px;
+}
+
+
+.login-btn:hover{
+    background:var(--green-dark);
+}
+
+
+.login-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+
+.message{
+    display:none;
+
+    margin-top:15px;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+
+.message.error{
+    display:block;
+
+    background:#fdeaea;
+
+    color:#9d2020;
+}
+
+
+.message.success{
+    display:block;
+
+    background:#e9f7ed;
+
+    color:#17652c;
+}
+
+
+.footer{
+    background:#f6f4ee;
+
+    text-align:center;
+
+    border-top:
+    1px solid #e4dfd2;
+
+    padding:16px;
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+.designer{
+    color:var(--green);
+
+    font-weight:800;
+}
+
+
+@media(max-width:600px){
+
+    body{
+        padding:10px;
+    }
+
+    .hero{
+        padding:26px 15px;
+    }
+
+    .hero img{
+        width:100px;
+        height:100px;
+    }
+
+    .hero h1{
+        font-size:23px;
+    }
+
+    .admin-title{
+        font-size:20px;
+    }
+
+    .content{
+        padding:22px 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+
+<section class="hero">
+
+<img
+src="logo.jpeg"
+alt="شعار مدارس الفلاح الأهلية">
+
+<h1>
+مدارس الفلاح الأهلية
+</h1>
+
+<div class="english">
+ALFALAH SCHOOLS
+</div>
+
+<div class="admin-title">
+إدارة الخطة الأسبوعية
+</div>
+
+<div class="admin-subtitle">
+بوابة الإدارة
+</div>
+
+</section>
+
+
+
+<div class="content">
+
+
+<div class="admin-icon">
+🏫
+</div>
+
+
+<div class="description">
+
+هذه الصفحة مخصصة للإدارة فقط.
+أدخل بيانات حساب الإدارة للوصول إلى لوحة التحكم.
+
+</div>
+
+
+
+<form id="loginForm">
+
+
+<div class="form-group">
+
+<label for="username">
+اسم المستخدم
+</label>
+
+<input
+type="text"
+id="username"
+placeholder="اسم المستخدم"
+autocomplete="username"
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label for="password">
+كلمة المرور
+</label>
+
+<input
+type="password"
+id="password"
+placeholder="كلمة المرور"
+autocomplete="current-password"
+required>
+
+</div>
+
+
+
+<button
+type="submit"
+id="loginBtn"
+class="login-btn">
+
+دخول الإدارة
+
+</button>
+
+
+<div
+id="message"
+class="message">
+</div>
+
+
+</form>
+
+
+</div>
+
+
+
+<div class="footer">
+
+<div>
+مدارس الفلاح الأهلية
+</div>
+
+<div class="designer">
+تصميم محمد عامر أحمد
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<script type="module">
+
+
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
+
+    authDomain:
+    "weekly-plan-3a743.firebaseapp.com",
+
+    projectId:
+    "weekly-plan-3a743",
+
+    storageBucket:
+    "weekly-plan-3a743.firebasestorage.app",
+
+    messagingSenderId:
+    "575884603803",
+
+    appId:
+    "1:575884603803:web:e8c4d82c69fd545bed313e"
+
+};
+
+
+
+const app =
+initializeApp(
+    firebaseConfig
+);
+
+
+const auth =
+getAuth(
+    app
+);
+
+
+const db =
+getFirestore(
+    app
+);
+
+
+
+const loginForm =
+document.getElementById(
+    "loginForm"
+);
+
+
+const loginBtn =
+document.getElementById(
+    "loginBtn"
+);
+
+
+const message =
+document.getElementById(
+    "message"
+);
+
+
+
+function showMessage(
+    text,
+    type
+){
+
+    message.textContent =
+    text;
+
+    message.className =
+    "message " + type;
+
+}
+
+
+
+loginForm.addEventListener(
+    "submit",
+    async event=>{
+
+
+        event.preventDefault();
+
+
+        const username =
+        document
+        .getElementById(
+            "username"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+        const password =
+        document
+        .getElementById(
+            "password"
+        )
+        .value;
+
+
+        if(
+            !username ||
+            !password
+        ){
+
+            showMessage(
+                "أدخل اسم المستخدم وكلمة المرور",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+
+        if(
+            username !==
+            "admin"
+        ){
+
+            showMessage(
+                "هذه الصفحة مخصصة لحساب الإدارة فقط",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+
+        loginBtn.disabled =
+        true;
+
+
+        loginBtn.textContent =
+        "جاري تسجيل الدخول...";
+
+
+
+        try{
+
+
+            const email =
+            "muhammadamer1618@gmail.com";
+
+
+            const credential =
+            await signInWithEmailAndPassword(
+
+                auth,
+
+                email,
+
+                password
+
+            );
+
+
+            const uid =
+            credential.user.uid;
+
+
+
+            const userSnapshot =
+            await getDoc(
+
+                doc(
+                    db,
+                    "users",
+                    uid
+                )
+
+            );
+
+
+
+            if(
+                !userSnapshot.exists()
+            ){
+
+                await signOut(auth);
+
+                showMessage(
+                    "حساب الإدارة غير مسجل داخل النظام",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+
+            const userData =
+            userSnapshot.data();
+
+
+
+            if(
+                userData.active ===
+                false
+            ){
+
+                await signOut(auth);
+
+                showMessage(
+                    "حساب الإدارة غير مفعل",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+
+            if(
+                userData.role !==
+                "admin"
+            ){
+
+                await signOut(auth);
+
+                showMessage(
+                    "هذا الحساب لا يملك صلاحية الإدارة",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+
+            sessionStorage.setItem(
+                "weeklyPlanUserName",
+                userData.name || ""
+            );
+
+
+            sessionStorage.setItem(
+                "weeklyPlanUserRole",
+                "admin"
+            );
+
+
+            sessionStorage.setItem(
+                "weeklyPlanUserId",
+                uid
+            );
+
+
+
+            showMessage(
+                "تم تسجيل الدخول بنجاح",
+                "success"
+            );
+
+
+
+            setTimeout(
+                ()=>{
+
+                    window.location.href =
+                    "admin.html";
+
+                },
+                350
+            );
+
+
+        }
+
+
+        catch(error){
+
+
+            console.error(error);
+
+
+            let text =
+            "اسم المستخدم أو كلمة المرور غير صحيحة";
+
+
+            if(
+                error.code ===
+                "auth/too-many-requests"
+            ){
+
+                text =
+                "تم إجراء محاولات كثيرة، حاول بعد قليل";
+
+            }
+
+
+            if(
+                error.code ===
+                "auth/network-request-failed"
+            ){
+
+                text =
+                "تعذر الاتصال بالإنترنت";
+
+            }
+
+
+            showMessage(
+                text,
+                "error"
+            );
+
+
+        }
+
+
+        finally{
+
+
+            loginBtn.disabled =
+            false;
+
+
+            loginBtn.textContent =
+            "دخول الإدارة";
+
+
+        }
+
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
