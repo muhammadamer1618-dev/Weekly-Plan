@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>مدارس الفلاح الأهلية</title>
+<title>الخطة الأسبوعية | رائد الصف</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@ body{
 ========================= */
 
 .wrapper{
-    width:min(1180px,100%);
+    width:min(900px,100%);
 
     background:#fff;
 
@@ -126,6 +126,22 @@ body{
     letter-spacing:1.3px;
 }
 
+.system-name{
+    margin-top:18px;
+
+    font-size:24px;
+
+    font-weight:800;
+}
+
+.system-subtitle{
+    margin-top:5px;
+
+    color:#e9e9e9;
+
+    font-size:14px;
+}
+
 
 /* =========================
    CONTENT
@@ -187,58 +203,20 @@ body{
 
 
 /* =========================
-   PORTAL BUTTONS
+   LEADER AREA
 ========================= */
 
-.portal-title{
-    text-align:center;
+.leader-area{
+    max-width:570px;
 
-    color:var(--green);
-
-    font-size:23px;
-
-    font-weight:800;
-
-    margin-bottom:18px;
-}
-
-.portal-grid{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:18px;
-
-    margin-bottom:28px;
-}
-
-.portal-card{
-    border:1px solid #dedbd2;
-
-    border-radius:18px;
-
-    padding:26px 20px;
+    margin:0 auto 28px;
 
     text-align:center;
-
-    background:white;
-
-    box-shadow:
-    0 6px 20px rgba(0,0,0,.06);
-
-    transition:.2s;
 }
 
-.portal-card:hover{
-    transform:translateY(-3px);
-
-    box-shadow:
-    0 10px 28px rgba(0,0,0,.09);
-}
-
-.portal-icon{
-    width:62px;
-    height:62px;
+.leader-icon{
+    width:72px;
+    height:72px;
 
     margin:0 auto 13px;
 
@@ -250,65 +228,31 @@ body{
 
     justify-content:center;
 
-    font-size:30px;
+    font-size:34px;
 
     background:var(--green-soft);
+
+    border:1px solid #dce8e2;
 }
 
-.portal-card h3{
+.leader-title{
     color:var(--green);
 
-    font-size:20px;
+    font-size:24px;
 
     font-weight:800;
 
     margin-bottom:7px;
 }
 
-.portal-card p{
+.leader-description{
     color:#737373;
 
-    font-size:13px;
+    font-size:14px;
 
-    line-height:1.7;
+    line-height:1.8;
 
-    margin-bottom:17px;
-}
-
-.portal-btn{
-    width:100%;
-
-    border:none;
-
-    border-radius:11px;
-
-    padding:13px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    font-weight:800;
-
-    transition:.2s;
-}
-
-.parent-btn{
-    background:var(--gold);
-    color:#173d32;
-}
-
-.parent-btn:hover{
-    background:#b8943e;
-}
-
-.leader-btn{
-    background:var(--green);
-    color:white;
-}
-
-.leader-btn:hover{
-    background:var(--green-dark);
+    margin-bottom:20px;
 }
 
 
@@ -317,8 +261,6 @@ body{
 ========================= */
 
 .login-panel{
-    display:none;
-
     max-width:570px;
 
     margin:0 auto 30px;
@@ -335,10 +277,6 @@ body{
     0 5px 18px rgba(0,0,0,.055);
 }
 
-.login-panel.show{
-    display:block;
-}
-
 .login-header{
     background:#789685;
 
@@ -348,35 +286,12 @@ body{
 
     padding:15px 20px;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
+    text-align:center;
 }
 
 .login-header h2{
     font-size:19px;
     font-weight:800;
-}
-
-.close-login{
-    border:none;
-
-    background:rgba(255,255,255,.15);
-
-    color:white;
-
-    width:33px;
-    height:33px;
-
-    border-radius:50%;
-
-    font-size:17px;
-
-    cursor:pointer;
 }
 
 .login-body{
@@ -450,6 +365,8 @@ input:focus{
     cursor:pointer;
 
     margin-top:5px;
+
+    transition:.2s;
 }
 
 .login-btn:hover{
@@ -619,15 +536,15 @@ input:focus{
         font-size:23px;
     }
 
+    .system-name{
+        font-size:21px;
+    }
+
     .content{
         padding:20px 16px;
     }
 
     .identity-grid{
-        grid-template-columns:1fr;
-    }
-
-    .portal-grid{
         grid-template-columns:1fr;
     }
 
@@ -670,7 +587,18 @@ ALFALAH SCHOOLS
 </div>
 
 
+<div class="system-name">
+نظام الخطة الأسبوعية
+</div>
+
+
+<div class="system-subtitle">
+بوابة رائد الصف
+</div>
+
+
 </section>
+
 
 
 <div class="content">
@@ -718,93 +646,33 @@ ALFALAH SCHOOLS
 </div>
 
 
+
 <!-- =========================
-     PORTALS
+     CLASS LEADER
 ========================= -->
 
-<div class="portal-title">
-
-اختر بوابة الدخول
-
-</div>
+<div class="leader-area">
 
 
-<div class="portal-grid">
-
-
-<!-- PARENT -->
-
-<div class="portal-card">
-
-
-<div class="portal-icon">
-👨‍👩‍👦
-</div>
-
-
-<h3>
-دخول ولي الأمر
-</h3>
-
-
-<p>
-
-استعراض الخطة الأسبوعية للفصل
-ومتابعة موضوعات الدروس والواجبات.
-
-</p>
-
-
-<button
-type="button"
-class="portal-btn parent-btn"
-id="parentPortalBtn">
-
-دخول بوابة ولي الأمر
-
-</button>
-
-
-</div>
-
-
-<!-- CLASS LEADER -->
-
-<div class="portal-card">
-
-
-<div class="portal-icon">
+<div class="leader-icon">
 👨‍🏫
 </div>
 
 
-<h3>
-دخول رائد الصف
-</h3>
+<div class="leader-title">
+بوابة رائد الصف
+</div>
 
 
-<p>
+<div class="leader-description">
 
-إعداد وتحديث وحفظ الخطة الأسبوعية
-الخاصة بالفصل.
-
-</p>
-
-
-<button
-type="button"
-class="portal-btn leader-btn"
-id="showLoginBtn">
-
-تسجيل دخول رائد الصف
-
-</button>
-
+إعداد وتحديث وحفظ الخطة الأسبوعية الخاصة بالفصل.
 
 </div>
 
 
 </div>
+
 
 
 <!-- =========================
@@ -819,18 +687,8 @@ class="login-panel">
 <div class="login-header">
 
 <h2>
-تسجيل الدخول
+تسجيل دخول رائد الصف
 </h2>
-
-
-<button
-type="button"
-id="closeLoginBtn"
-class="close-login">
-
-×
-
-</button>
 
 </div>
 
@@ -851,9 +709,7 @@ class="close-login">
 <div class="form-group">
 
 <label for="username">
-
 اسم المستخدم
-
 </label>
 
 
@@ -870,9 +726,7 @@ required>
 <div class="form-group">
 
 <label for="password">
-
 كلمة المرور
-
 </label>
 
 
@@ -911,6 +765,7 @@ class="message">
 </section>
 
 
+
 <!-- =========================
      MANAGEMENT
 ========================= -->
@@ -919,9 +774,7 @@ class="message">
 
 
 <div class="management-title">
-
 الإشراف والإدارة
-
 </div>
 
 
@@ -963,6 +816,7 @@ class="message">
 </div>
 
 
+
 <!-- =========================
      FOOTER
 ========================= -->
@@ -974,15 +828,14 @@ class="message">
 </div>
 
 <div class="designer">
-
 تصميم محمد عامر أحمد
-
 </div>
 
 </div>
 
 
 </div>
+
 
 
 <script type="module">
@@ -1010,6 +863,7 @@ import {
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
+
 const firebaseConfig = {
 
     apiKey:
@@ -1033,10 +887,12 @@ const firebaseConfig = {
 };
 
 
+
 const app =
 initializeApp(
     firebaseConfig
 );
+
 
 
 const auth =
@@ -1045,10 +901,12 @@ getAuth(
 );
 
 
+
 const db =
 getFirestore(
     app
 );
+
 
 
 const loginForm =
@@ -1057,10 +915,12 @@ document.getElementById(
 );
 
 
+
 const loginBtn =
 document.getElementById(
     "loginBtn"
 );
+
 
 
 const message =
@@ -1068,105 +928,6 @@ document.getElementById(
     "message"
 );
 
-
-const loginPanel =
-document.getElementById(
-    "loginPanel"
-);
-
-
-const showLoginBtn =
-document.getElementById(
-    "showLoginBtn"
-);
-
-
-const closeLoginBtn =
-document.getElementById(
-    "closeLoginBtn"
-);
-
-
-const parentPortalBtn =
-document.getElementById(
-    "parentPortalBtn"
-);
-
-
-/* =========================
-   PARENT PORTAL
-========================= */
-
-parentPortalBtn.onclick =
-()=>{
-
-    window.location.href =
-    "student.html";
-
-};
-
-
-/* =========================
-   SHOW LOGIN
-========================= */
-
-showLoginBtn.onclick =
-()=>{
-
-    loginPanel
-    .classList
-    .add(
-        "show"
-    );
-
-
-    setTimeout(
-        ()=>{
-
-            loginPanel.scrollIntoView({
-
-                behavior:"smooth",
-
-                block:"center"
-
-            });
-
-
-            document
-            .getElementById(
-                "username"
-            )
-            .focus();
-
-        },
-        100
-    );
-
-};
-
-
-/* =========================
-   CLOSE LOGIN
-========================= */
-
-closeLoginBtn.onclick =
-()=>{
-
-    loginPanel
-    .classList
-    .remove(
-        "show"
-    );
-
-
-    message.className =
-    "message";
-
-
-    message.textContent =
-    "";
-
-};
 
 
 /* =========================
@@ -1187,6 +948,7 @@ function showMessage(
     type;
 
 }
+
 
 
 /* =========================
@@ -1237,6 +999,30 @@ loginForm.addEventListener(
         }
 
 
+
+        /*
+        منع دخول الأدمن من صفحة رائد الصف
+        */
+
+        if(
+            username ===
+            "admin"
+        ){
+
+            showMessage(
+
+                "هذا الدخول مخصص لرائد الصف فقط",
+
+                "error"
+
+            );
+
+            return;
+
+        }
+
+
+
         loginBtn.disabled =
         true;
 
@@ -1245,29 +1031,15 @@ loginForm.addEventListener(
         "جاري تسجيل الدخول...";
 
 
+
         try{
 
 
-            let email;
+            const email =
 
+            username +
+            "@weeklyplan.local";
 
-            if(
-                username ===
-                "admin"
-            ){
-
-                email =
-                "muhammadamer1618@gmail.com";
-
-            }
-
-            else{
-
-                email =
-                username +
-                "@weeklyplan.local";
-
-            }
 
 
             const credential =
@@ -1282,8 +1054,10 @@ loginForm.addEventListener(
             );
 
 
+
             const uid =
             credential.user.uid;
+
 
 
             const userRef =
@@ -1294,10 +1068,12 @@ loginForm.addEventListener(
             );
 
 
+
             const userSnapshot =
             await getDoc(
                 userRef
             );
+
 
 
             if(
@@ -1322,8 +1098,10 @@ loginForm.addEventListener(
             }
 
 
+
             const userData =
             userSnapshot.data();
+
 
 
             if(
@@ -1349,6 +1127,35 @@ loginForm.addEventListener(
             }
 
 
+
+            /*
+            السماح لرائد الصف فقط
+            */
+
+            if(
+                userData.role !==
+                "classLeader"
+            ){
+
+                await signOut(
+                    auth
+                );
+
+
+                showMessage(
+
+                    "هذه الصفحة مخصصة لرائد الصف فقط",
+
+                    "error"
+
+                );
+
+                return;
+
+            }
+
+
+
             sessionStorage.setItem(
 
                 "weeklyPlanUserName",
@@ -1357,6 +1164,7 @@ loginForm.addEventListener(
                 ""
 
             );
+
 
 
             sessionStorage.setItem(
@@ -1369,6 +1177,7 @@ loginForm.addEventListener(
             );
 
 
+
             sessionStorage.setItem(
 
                 "weeklyPlanUserId",
@@ -1378,47 +1187,33 @@ loginForm.addEventListener(
             );
 
 
-            if(
-                userData.role ===
-                "admin"
-            ){
 
-                window.location.href =
-                "admin.html";
+            showMessage(
 
-            }
+                "تم تسجيل الدخول بنجاح",
 
+                "success"
 
-            else if(
-                userData.role ===
-                "classLeader"
-            ){
-
-                window.location.href =
-                "teacher.html";
-
-            }
+            );
 
 
-            else{
 
-                await signOut(
-                    auth
-                );
+            setTimeout(
 
+                ()=>{
 
-                showMessage(
+                    window.location.href =
+                    "teacher.html";
 
-                    "لا توجد صلاحية دخول لهذا الحساب",
+                },
 
-                    "error"
+                350
 
-                );
-
-            }
+            );
 
 
         }
+
 
         catch(error){
 
@@ -1439,7 +1234,6 @@ loginForm.addEventListener(
             ){
 
                 text =
-
                 "تم إجراء محاولات كثيرة، حاول بعد قليل";
 
             }
@@ -1451,7 +1245,6 @@ loginForm.addEventListener(
             ){
 
                 text =
-
                 "تعذر الاتصال بالإنترنت";
 
             }
@@ -1462,7 +1255,9 @@ loginForm.addEventListener(
                 "error"
             );
 
+
         }
+
 
         finally{
 
@@ -1473,6 +1268,7 @@ loginForm.addEventListener(
 
             loginBtn.textContent =
             "دخول";
+
 
         }
 
