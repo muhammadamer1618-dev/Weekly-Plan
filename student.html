@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>بوابة الطالب | الخطة الأسبوعية</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:"Tajawal",Tahoma,Arial,sans-serif
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
 }
 
 :root{
@@ -29,21 +35,36 @@
     --gold-soft:#f5efdf;
     --text:#252525;
     --blue:#477da6;
-    --pdf:#8d4b77
+    --pdf:#8d4b77;
+}
+
+html{
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 }
 
 body{
     background:#f5f4ef;
     color:var(--text);
-    min-height:100vh
+    min-height:100vh;
+    font-weight:500;
 }
+
+
+/* =========================
+   HEADER
+========================= */
 
 .topbar{
     min-height:105px;
     padding:13px 30px;
-    background:linear-gradient(135deg,#769786,#557764);
+    background:linear-gradient(
+        135deg,
+        #769786,
+        #557764
+    );
     border-bottom:4px solid var(--gold);
-    color:white
+    color:white;
 }
 
 .topbar-inner{
@@ -51,7 +72,7 @@ body{
     margin:auto;
     display:grid;
     grid-template-columns:120px 1fr 120px;
-    align-items:center
+    align-items:center;
 }
 
 .brand-logo img{
@@ -60,69 +81,47 @@ body{
     object-fit:contain;
     background:white;
     border-radius:14px;
-    padding:5px
+    padding:5px;
 }
 
 .portal-title{
-    text-align:center
+    text-align:center;
 }
 
 .portal-title h1{
     font-size:27px;
     font-weight:800;
-    margin-bottom:4px
+    margin-bottom:4px;
 }
 
 .portal-title h2{
     color:#f2d77d;
     font-size:22px;
-    font-weight:800
+    font-weight:800;
+    margin-bottom:3px;
 }
 
 .portal-title p{
-    font-size:15px
+    font-size:15px;
+    opacity:.95;
 }
+
+
+/* =========================
+   GENERAL
+========================= */
 
 .container{
     width:min(1250px,95%);
-    margin:24px auto
-}
-
-.school-identity{
-    display:grid;
-    grid-template-columns:.85fr 1.6fr;
-    gap:13px;
-    margin-bottom:20px
-}
-
-.identity-box{
-    background:#fffdf8;
-    border:1.5px solid #ccb168;
-    border-radius:13px;
-    padding:14px 16px
-}
-
-.identity-title{
-    color:#92712d;
-    font-weight:800;
-    text-align:center;
-    font-size:18px;
-    margin-bottom:7px
-}
-
-.identity-text{
-    text-align:center;
-    line-height:1.8;
-    font-size:14px;
-    font-weight:600
+    margin:24px auto;
 }
 
 .card{
     background:white;
     border-radius:17px;
     box-shadow:0 5px 18px rgba(0,0,0,.055);
-    margin-bottom:20px;
-    overflow:hidden
+    margin-bottom:21px;
+    overflow:hidden;
 }
 
 .card-title{
@@ -131,27 +130,55 @@ body{
     border-bottom:4px solid var(--gold);
     padding:15px 20px;
     font-size:19px;
-    font-weight:800
+    font-weight:800;
 }
+
 
 /* =========================
-   هوية الطالب
+   VISION
 ========================= */
 
-.login-card{
-    max-width:700px;
-    margin:0 auto 20px
-}
-
-.login-body{
-    padding:22px
-}
-
-.login-grid{
+.school-identity{
     display:grid;
-    grid-template-columns:1fr 180px;
-    gap:12px;
-    align-items:end
+    grid-template-columns:.85fr 1.6fr;
+    gap:13px;
+    margin-bottom:20px;
+}
+
+.identity-box{
+    background:#fffdf8;
+    border:1.5px solid #ccb168;
+    border-radius:13px;
+    padding:14px 16px;
+    box-shadow:0 4px 14px rgba(0,0,0,.04);
+}
+
+.identity-title{
+    color:#92712d;
+    font-weight:800;
+    text-align:center;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.identity-text{
+    text-align:center;
+    color:#303030;
+    font-size:14px;
+    font-weight:600;
+    line-height:1.8;
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+.filters{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    padding:22px;
 }
 
 .form-group label{
@@ -159,130 +186,7 @@ body{
     color:var(--green-dark);
     font-size:14px;
     font-weight:700;
-    margin-bottom:8px
-}
-
-.identity-input{
-    width:100%;
-    height:52px;
-    border:1px solid #d2d2d2;
-    border-radius:10px;
-    outline:none;
-    padding:10px 15px;
-    text-align:center;
-    direction:ltr;
-    font-size:18px;
-    font-weight:700
-}
-
-.identity-input:focus{
-    border-color:var(--gold);
-    box-shadow:0 0 0 3px rgba(185,150,72,.13)
-}
-
-.search-btn{
-    height:52px;
-    border:0;
-    border-radius:10px;
-    background:var(--green-dark);
-    color:white;
-    font-size:15px;
-    font-weight:800;
-    cursor:pointer
-}
-
-.search-btn:disabled{
-    opacity:.6
-}
-
-.helper{
-    text-align:center;
-    color:#888;
-    font-size:12px;
-    margin-top:11px
-}
-
-.status{
-    display:none;
-    margin-top:15px;
-    padding:13px;
-    border-radius:10px;
-    text-align:center;
-    font-weight:700
-}
-
-.status.show{
-    display:block
-}
-
-.status.info{
-    background:#edf4f0;
-    color:#315b49
-}
-
-.status.error{
-    background:#fdeaea;
-    color:#a11f1f
-}
-
-/* =========================
-   بيانات الطالب
-========================= */
-
-.student-data{
-    display:none;
-    grid-template-columns:2fr 1fr 1fr auto;
-    background:white;
-    border-radius:14px;
-    border:1px solid #d9e1dc;
-    overflow:hidden;
-    margin-bottom:18px
-}
-
-.student-data.show{
-    display:grid
-}
-
-.student-item{
-    padding:14px 16px;
-    border-left:1px solid #e2e7e4
-}
-
-.student-item span{
-    display:block;
-    color:#888;
-    font-size:11px;
-    margin-bottom:4px
-}
-
-.student-item strong{
-    color:var(--green-dark);
-    font-size:15px
-}
-
-.new-search{
-    border:0;
-    background:#f3eee1;
-    color:#6f5724;
-    padding:0 18px;
-    font-weight:800;
-    cursor:pointer
-}
-
-/* =========================
-   الأسبوع
-========================= */
-
-.week-card{
-    display:none
-}
-
-.week-card.show{
-    display:block
-}
-
-.week-body{
-    padding:20px
+    margin-bottom:8px;
 }
 
 select{
@@ -293,50 +197,77 @@ select{
     padding:12px;
     outline:none;
     font-size:15px;
-    font-weight:600
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+    font-weight:500;
 }
 
 select:focus{
-    border-color:var(--gold)
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(185,150,72,.13);
 }
 
+.status{
+    display:none;
+    margin:0 22px 22px;
+    padding:13px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:700;
+}
+
+.status.show{
+    display:block;
+}
+
+.status.info{
+    background:#edf4f0;
+    color:#315b49;
+}
+
+.status.error{
+    background:#fdeaea;
+    color:#a11f1f;
+}
+
+
 /* =========================
-   PLAN
+   SELECTED PLAN
 ========================= */
 
 .plan-area{
-    display:none
+    display:none;
 }
 
 .plan-area.show{
-    display:block
+    display:block;
 }
 
 .plan-summary{
     background:white;
     border-radius:17px;
     padding:20px;
-    margin-bottom:18px
+    box-shadow:0 5px 18px rgba(0,0,0,.055);
+    margin-bottom:18px;
 }
 
 .plan-summary h2{
     text-align:center;
     color:var(--green-dark);
-    font-size:24px;
+    font-size:25px;
     font-weight:800;
-    margin-bottom:7px
+    margin-bottom:6px;
 }
 
-.week-date{
+.plan-summary .week-date{
     text-align:center;
     color:#777;
-    margin-bottom:16px
+    margin-bottom:16px;
 }
 
 .special-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:12px
+    gap:12px;
 }
 
 .special-card{
@@ -344,26 +275,32 @@ select:focus{
     border:1px solid #90a99b;
     border-radius:11px;
     padding:13px;
-    text-align:center
+    text-align:center;
 }
 
 .special-card span{
     display:block;
     color:#777;
     font-size:12px;
-    margin-bottom:5px
+    margin-bottom:5px;
 }
 
 .special-card strong{
     color:#315b49;
-    font-size:16px
+    font-size:16px;
+    font-weight:800;
 }
+
+
+/* =========================
+   VIEW TABS
+========================= */
 
 .view-tabs{
     display:flex;
     flex-wrap:wrap;
     gap:9px;
-    margin-bottom:17px
+    margin-bottom:17px;
 }
 
 .view-btn{
@@ -375,33 +312,36 @@ select:focus{
     background:#e6e5e0;
     color:var(--green-dark);
     cursor:pointer;
-    font-weight:700
+    font-size:14px;
+    font-weight:700;
 }
 
 .view-btn.active{
     background:#708f7e;
-    color:white
+    color:white;
 }
 
+
 /* =========================
-   TABLE
+   WEEK TABLE
 ========================= */
 
 .week-view{
     background:white;
     border-radius:15px;
-    overflow:hidden
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.055);
 }
 
 .table-wrap{
-    overflow:auto
+    overflow:auto;
 }
 
 .plan-table{
     width:100%;
     border-collapse:collapse;
     table-layout:fixed;
-    min-width:900px
+    min-width:900px;
 }
 
 .plan-table th{
@@ -409,16 +349,19 @@ select:focus{
     color:#315b49;
     border:1px solid #bdbdbd;
     padding:11px 5px;
-    font-size:14px
+    font-size:14px;
+    font-weight:800;
 }
 
 .plan-table td{
     border:1px solid #d2d2d2;
     padding:8px;
     height:38px;
+    line-height:1.4;
     text-align:center;
     vertical-align:middle;
-    font-size:14px
+    font-size:14px;
+    overflow-wrap:anywhere;
 }
 
 .plan-table .day-cell{
@@ -426,29 +369,29 @@ select:focus{
     color:white;
     font-weight:800;
     font-size:16px;
-    white-space:nowrap
 }
 
-.period-cell{
+.plan-table .period-cell{
     background:#faf7ed;
-    font-weight:800
+    font-weight:800;
 }
 
-.subject-cell{
+.plan-table .subject-cell{
+    font-weight:700;
     color:#315b49;
-    font-weight:700
 }
+
 
 /* =========================
    DAY VIEW
 ========================= */
 
 .day-view{
-    display:none
+    display:none;
 }
 
 .day-view.show{
-    display:block
+    display:block;
 }
 
 .day-title{
@@ -459,7 +402,7 @@ select:focus{
     font-size:21px;
     font-weight:800;
     border-bottom:4px solid var(--gold);
-    border-radius:14px 14px 0 0
+    border-radius:14px 14px 0 0;
 }
 
 .day-cards{
@@ -467,50 +410,66 @@ select:focus{
     padding:18px;
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:14px
+    gap:14px;
+    border-radius:0 0 14px 14px;
+    box-shadow:0 5px 18px rgba(0,0,0,.055);
 }
 
 .lesson-card{
     border:1px solid #d9d6cc;
     border-radius:13px;
-    overflow:hidden
+    overflow:hidden;
 }
 
 .lesson-head{
     display:flex;
     justify-content:space-between;
+    align-items:center;
+    gap:10px;
     background:#f6f0df;
     padding:12px 14px;
-    border-bottom:2px solid var(--gold)
+    border-bottom:2px solid var(--gold);
 }
 
-.lesson-period,
+.lesson-period{
+    color:#315b49;
+    font-weight:800;
+}
+
 .lesson-subject{
     color:#315b49;
-    font-weight:800
+    font-size:17px;
+    font-weight:800;
 }
 
 .lesson-body{
-    padding:16px
+    padding:16px;
 }
 
 .lesson-part{
-    margin-bottom:14px
+    margin-bottom:14px;
+}
+
+.lesson-part:last-child{
+    margin-bottom:0;
 }
 
 .lesson-part span{
     display:block;
     color:#777;
     font-size:12px;
-    margin-bottom:5px
+    margin-bottom:5px;
 }
 
 .lesson-part strong{
-    line-height:1.7
+    display:block;
+    font-size:15px;
+    line-height:1.7;
 }
 
+
 /* =========================
-   BUTTONS
+   ACTIONS
 ========================= */
 
 .actions{
@@ -518,7 +477,8 @@ select:focus{
     flex-wrap:wrap;
     justify-content:center;
     gap:10px;
-    margin:20px 0 15px
+    margin-top:20px;
+    margin-bottom:15px;
 }
 
 .action-btn{
@@ -527,319 +487,520 @@ select:focus{
     cursor:pointer;
     font-weight:800;
     padding:13px 20px;
-    min-width:180px
+    font-size:14px;
+    min-width:180px;
 }
 
 .print-btn{
     background:var(--green-dark);
-    color:white
-}
-
-.pdf-btn{
-    background:var(--pdf);
-    color:white
+    color:white;
 }
 
 .image-btn{
     background:var(--blue);
-    color:white
+    color:white;
+}
+
+.pdf-btn{
+    background:var(--pdf);
+    color:white;
 }
 
 .action-help{
     text-align:center;
     color:#777;
     font-size:12px;
-    margin-bottom:25px
+    line-height:1.7;
+    margin-bottom:25px;
 }
 
+
 /* =========================
-   POSTER
+   HIDDEN POSTER
 ========================= */
+
 
 .poster-host{
     position:fixed;
     left:-10000px;
     top:0;
-    width:1240px
+    width:1240px;
+    pointer-events:none;
 }
 
 #poster{
     width:1240px;
     min-height:1754px;
     background:#fffefb;
+    color:#171717;
     position:relative;
-    padding:27px 31px 55px;
-    direction:rtl
+    direction:rtl;
+    padding:16px 24px 42px;
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+    font-weight:500;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 }
 
 .poster-header{
     display:grid;
-    grid-template-columns:205px 1fr 205px;
+    grid-template-columns:145px 1fr 145px;
     direction:ltr;
     align-items:center;
+    min-height:92px;
+    padding:0 0 6px;
     border-bottom:4px solid var(--gold);
-    padding-bottom:12px
+}
+
+.school-logo{
+    text-align:left;
 }
 
 .school-logo img{
-    width:175px;
-    height:135px;
-    object-fit:contain
+    width:128px;
+    height:84px;
+    object-fit:contain;
+}
+
+.header-spacer{
+    width:145px;
 }
 
 .poster-government{
     direction:rtl;
     text-align:center;
-    line-height:1.65;
-    font-size:21px;
-    font-weight:800
+    color:#292929;
+    line-height:1.28;
+    font-size:17px;
+    font-weight:800;
+}
+
+.poster-government div{
+    margin:0;
+}
+
+.poster-government div:first-child,
+.poster-government div:nth-child(2),
+.poster-government div:nth-child(3){
+    font-size:15px;
 }
 
 .poster-government div:last-child{
     color:var(--green-dark);
-    font-size:23px
+    font-size:23px;
+    margin-top:2px;
 }
 
 .poster-class-title{
-    margin-top:11px;
+    margin-top:6px;
     text-align:center;
     background:#eef4f0;
     border-right:6px solid #819f8e;
     border-left:6px solid #819f8e;
     color:#294f40;
-    font-size:29px;
+    font-size:28px;
+    line-height:1.25;
     font-weight:800;
-    padding:10px
+    padding:6px 10px;
 }
 
 .poster-student{
-    margin-top:9px;
+    margin-top:5px;
     border:1.5px solid #c7ad67;
     background:#fffdf8;
     text-align:center;
-    padding:8px;
+    padding:5px 10px;
     font-size:17px;
-    font-weight:700
-}
-
-.vision-message{
-    display:grid;
-    grid-template-columns:.85fr 1.6fr;
-    gap:11px;
-    margin-top:11px
-}
-
-.vm-box{
-    border:1.5px solid #ccb168;
-    background:#fffdf8;
-    padding:10px 13px
-}
-
-.vm-title{
-    color:#92712d;
-    text-align:center;
-    font-weight:800;
-    margin-bottom:6px
-}
-
-.vm-text{
-    text-align:center;
-    line-height:1.65;
-    font-weight:600
+    font-weight:700;
 }
 
 .poster-weekline{
-    margin-top:10px;
+    margin-top:5px;
     display:flex;
+    align-items:center;
     justify-content:center;
-    gap:28px;
-    padding:10px;
+    flex-wrap:wrap;
+    gap:32px;
+    padding:6px 10px;
     border:1.5px solid #c7ad67;
     background:#fbf7ea;
-    font-size:18px;
-    font-weight:700
+    font-size:17px;
+    font-weight:800;
 }
 
 .poster-special{
-    margin-top:9px;
+    margin-top:5px;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:9px
+    gap:7px;
 }
 
 .special-box{
     border:1.5px solid #90a99b;
     background:#edf4f0;
-    padding:10px;
+    padding:6px 10px;
+    font-size:17px;
+    font-weight:700;
     text-align:center;
-    font-size:17px
+}
+
+.special-box strong{
+    color:#315b49;
+    font-weight:800;
 }
 
 .poster-table{
     width:100%;
-    margin-top:11px;
+    margin-top:7px;
     border-collapse:collapse;
-    table-layout:fixed
+    table-layout:fixed;
+    direction:rtl;
 }
 
 .poster-table th{
-    background:#eef3ef;
-    color:#315b49;
-    border:1.5px solid #111;
-    padding:9px 4px;
-    font-size:15px
+    background:#e5eee9;
+    color:#234b3b;
+    border:2px solid #171717;
+    padding:8px 5px;
+    font-size:18px;
+    line-height:1.15;
+    font-weight:800;
+    text-align:center;
 }
 
 .poster-table td{
-    border:1px solid #222;
+    border:1.5px solid #222;
     padding:5px 7px;
-    height:31px;
+    height:30px;
+    line-height:1.18;
+    font-size:16px;
     text-align:center;
     vertical-align:middle;
-    font-size:14px
+    font-weight:600;
+    word-break:normal;
+    overflow-wrap:anywhere;
 }
 
 .poster-table .day-cell{
     background:#789685;
-    color:white;
-    font-size:18px;
+    color:#fff;
+    font-size:17px;
     font-weight:800;
-    overflow:visible
+    text-align:center;
+    vertical-align:middle;
+    padding:5px 3px;
+    white-space:normal;
+    word-break:normal;
+    overflow-wrap:normal;
 }
 
 .day-vertical{
-    display:inline-block;
-    white-space:nowrap;
-    transform:rotate(-90deg);
-    transform-origin:center;
-    font-size:19px;
-    font-weight:800
+    display:block;
+    writing-mode:horizontal-tb !important;
+    transform:none !important;
+    white-space:normal;
+    line-height:1.25;
+    letter-spacing:0;
+    font-size:17px;
+    font-weight:800;
 }
 
 .poster-table .period-cell{
-    background:#faf7ed
+    background:#faf7ed;
+    font-size:16px;
+    font-weight:800;
+    text-align:center;
+    padding:4px;
+}
+
+.poster-table .subject-cell{
+    font-size:16px;
+    font-weight:800;
+    color:#244f3e;
+    text-align:center;
+    padding:5px;
+}
+
+.poster-table .topic-cell{
+    font-size:16px;
+    font-weight:700;
+    line-height:1.2;
+    text-align:center;
+    padding:5px 9px;
+}
+
+.poster-table .homework-cell{
+    font-size:16px;
+    font-weight:700;
+    line-height:1.2;
+    text-align:center;
+    padding:5px 8px;
 }
 
 .poster-table tr.day-start td{
-    border-top:5px solid #111!important
+    border-top:4px solid #111 !important;
 }
 
 .poster-signatures{
-    margin-top:21px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:120px
+    margin-top:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:55px;
+    border-top:2px solid #c7ad67;
+    padding-top:7px;
+    font-size:16px;
+    font-weight:700;
 }
 
 .signature{
-    text-align:center
+    text-align:center;
+    white-space:nowrap;
 }
 
 .signature-title{
+    display:inline;
     color:#315b49;
+    font-size:16px;
     font-weight:800;
-    margin-bottom:9px
+    margin:0 4px 0 0;
+}
+
+.signature-name{
+    display:inline;
+    font-size:16px;
+    font-weight:800;
 }
 
 .signature-line{
-    width:185px;
-    border-bottom:1px solid #666;
-    margin:14px auto 0
+    display:none;
 }
 
 .poster-credit{
     position:absolute;
-    bottom:17px;
+    bottom:10px;
     left:0;
     right:0;
     text-align:center;
+    font-size:13px;
+    font-weight:700;
     color:#315b49;
-    font-weight:700
 }
 
 footer{
     text-align:center;
     padding:27px;
-    color:#777
+    color:#777;
+    line-height:1.8;
+    font-size:13px;
 }
 
 footer strong{
-    color:var(--green-dark)
+    color:var(--green-dark);
+    font-weight:800;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:800px){
 
+    .topbar{
+        padding:10px;
+    }
+
     .topbar-inner{
-        grid-template-columns:75px 1fr
+        grid-template-columns:75px 1fr;
     }
 
     .top-spacer{
-        display:none
+        display:none;
     }
 
     .brand-logo img{
         width:64px;
-        height:64px
+        height:64px;
+    }
+
+    .portal-title h1{
+        font-size:18px;
+    }
+
+    .portal-title h2{
+        font-size:17px;
+    }
+
+    .portal-title p{
+        font-size:12px;
     }
 
     .school-identity{
-        grid-template-columns:1fr
+        grid-template-columns:1fr;
     }
 
-    .login-grid{
-        grid-template-columns:1fr
-    }
-
-    .student-data.show{
-        grid-template-columns:1fr 1fr
-    }
-
-    .student-item:first-child{
-        grid-column:1/-1
-    }
-
-    .new-search{
-        grid-column:1/-1;
-        height:44px
+    .filters{
+        grid-template-columns:1fr 1fr;
     }
 
     .special-grid{
-        grid-template-columns:1fr
+        grid-template-columns:1fr;
     }
 
     .day-cards{
-        grid-template-columns:1fr
+        grid-template-columns:1fr;
     }
 
     .action-btn{
-        width:100%
+        width:100%;
     }
 
 }
 
 @media(max-width:500px){
 
-    .student-data.show{
-        grid-template-columns:1fr
+    .filters{
+        grid-template-columns:1fr;
     }
 
-    .student-item{
-        border-left:0;
-        border-bottom:1px solid #ddd
+    .container{
+        width:94%;
+    }
+
+    .portal-title h1{
+        font-size:16px;
+    }
+
+    .portal-title h2{
+        font-size:15px;
     }
 
 }
+
+
+/* =========================
+   STUDENT ID LOOKUP
+========================= */
+.student-login-card{
+    max-width:720px;
+    margin:0 auto 20px;
+}
+.student-login-body{
+    padding:22px;
+}
+.student-login-grid{
+    display:grid;
+    grid-template-columns:1fr 180px;
+    gap:12px;
+    align-items:end;
+}
+.identity-input{
+    width:100%;
+    height:52px;
+    border:1px solid #d2d2d2;
+    background:white;
+    border-radius:10px;
+    padding:10px 14px;
+    outline:none;
+    font-size:17px;
+    font-weight:700;
+    text-align:center;
+    direction:ltr;
+}
+.identity-input:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(185,150,72,.13);
+}
+.identity-btn{
+    height:52px;
+    border:0;
+    border-radius:10px;
+    background:var(--green-dark);
+    color:white;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+}
+.identity-btn:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+}
+.student-data{
+    display:none;
+    grid-template-columns:2fr 1fr 1fr auto;
+    align-items:stretch;
+    background:white;
+    border-radius:14px;
+    border:1px solid #d9e1dc;
+    box-shadow:0 5px 18px rgba(0,0,0,.045);
+    overflow:hidden;
+    margin-bottom:18px;
+}
+.student-data.show{
+    display:grid;
+}
+.student-data-item{
+    padding:13px 16px;
+    border-left:1px solid #e2e7e4;
+}
+.student-data-item span{
+    display:block;
+    color:#888;
+    font-size:11px;
+    margin-bottom:4px;
+}
+.student-data-item strong{
+    color:var(--green-dark);
+    font-size:15px;
+    font-weight:800;
+}
+.new-search-btn{
+    border:0;
+    background:#f3eee1;
+    color:#6f5724;
+    font-weight:800;
+    cursor:pointer;
+    padding:0 18px;
+}
+.week-only-card{
+    display:none;
+}
+.week-only-card.show{
+    display:block;
+}
+.week-only-card .filters{
+    grid-template-columns:1fr;
+}
+@media(max-width:800px){
+    .student-login-grid{grid-template-columns:1fr}
+    .student-data.show{grid-template-columns:1fr 1fr}
+    .student-data-item:first-child{grid-column:1/-1}
+    .new-search-btn{grid-column:1/-1;height:44px}
+}
+@media(max-width:500px){
+    .student-data.show{grid-template-columns:1fr}
+    .student-data-item{border-left:0;border-bottom:1px solid #e2e7e4}
+}
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <header class="topbar">
 
 <div class="topbar-inner">
 
 <div class="brand-logo">
-<img src="logo.jpeg" alt="شعار مدارس الفلاح">
+
+<img
+src="logo.jpeg"
+alt="شعار مدارس الفلاح">
+
 </div>
 
 <div class="portal-title">
@@ -858,7 +1019,8 @@ footer strong{
 
 </div>
 
-<div class="top-spacer"></div>
+<div class="top-spacer">
+</div>
 
 </div>
 
@@ -877,7 +1039,9 @@ footer strong{
 </div>
 
 <div class="identity-text">
+
 الريادة في إعداد المتعلم المتميز المعتز بقيمه والمؤهل لمستقبله.
+
 </div>
 
 </div>
@@ -890,9 +1054,11 @@ footer strong{
 </div>
 
 <div class="identity-text">
+
 نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة،
 ترسخ القيم، وتبني المعرفة، وتطور المهارات،
 وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
+
 </div>
 
 </div>
@@ -900,19 +1066,16 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     إدخال هوية الطالب
-========================= -->
 
-<section class="card login-card">
+<section class="card student-login-card" id="studentLoginCard">
 
 <div class="card-title">
 الدخول إلى الخطة الأسبوعية
 </div>
 
-<div class="login-body">
+<div class="student-login-body">
 
-<div class="login-grid">
+<div class="student-login-grid">
 
 <div class="form-group">
 
@@ -931,23 +1094,14 @@ placeholder="أدخل رقم هوية الطالب">
 
 </div>
 
-
 <button
-id="searchBtn"
-class="search-btn"
+id="identityBtn"
+class="identity-btn"
 type="button">
-
 عرض الخطة
-
 </button>
 
 </div>
-
-
-<div class="helper">
-أدخل رقم الهوية المسجل للطالب في نظام راصد
-</div>
-
 
 <div
 id="identityStatus"
@@ -959,81 +1113,48 @@ class="status">
 </section>
 
 
-<!-- =========================
-     بيانات الطالب
-========================= -->
-
 <section
 id="studentData"
 class="student-data">
 
-<div class="student-item">
-
-<span>
-اسم الطالب
-</span>
-
-<strong id="studentName">
--
-</strong>
-
+<div class="student-data-item">
+<span>اسم الطالب</span>
+<strong id="studentName">-</strong>
 </div>
 
-
-<div class="student-item">
-
-<span>
-الصف
-</span>
-
-<strong id="studentGrade">
--
-</strong>
-
+<div class="student-data-item">
+<span>الصف</span>
+<strong id="studentGrade">-</strong>
 </div>
 
-
-<div class="student-item">
-
-<span>
-الشعبة
-</span>
-
-<strong id="studentSection">
--
-</strong>
-
+<div class="student-data-item">
+<span>الشعبة</span>
+<strong id="studentSection">-</strong>
 </div>
-
 
 <button
 id="newSearchBtn"
-class="new-search">
-
+class="new-search-btn"
+type="button">
 بحث جديد
-
 </button>
 
 </section>
 
 
-<!-- =========================
-     اختيار الأسبوع
-========================= -->
-
 <section
 id="weekCard"
-class="card week-card">
+class="card week-only-card">
 
 <div class="card-title">
 اختر الأسبوع
 </div>
 
-<div class="week-body">
+<div class="filters">
 
 <div class="form-group">
 
-<label for="weekSelect">
+<label>
 الأسبوع
 </label>
 
@@ -1047,23 +1168,20 @@ class="card week-card">
 
 </div>
 
+</div>
+
 <div
 id="status"
 class="status">
 </div>
 
-</div>
-
 </section>
 
-
-<!-- =========================
-     PLAN
-========================= -->
 
 <section
 id="planArea"
 class="plan-area">
+
 
 <div class="plan-summary">
 
@@ -1076,7 +1194,9 @@ id="weekDate"
 class="week-date">
 </div>
 
+
 <div class="special-grid">
+
 
 <div class="special-card">
 
@@ -1113,37 +1233,54 @@ class="week-date">
 <button
 class="view-btn active"
 data-view="week">
+
 الأسبوع كامل
+
 </button>
+
 
 <button
 class="view-btn"
 data-day="sunday">
+
 الأحد
+
 </button>
+
 
 <button
 class="view-btn"
 data-day="monday">
+
 الاثنين
+
 </button>
+
 
 <button
 class="view-btn"
 data-day="tuesday">
+
 الثلاثاء
+
 </button>
+
 
 <button
 class="view-btn"
 data-day="wednesday">
+
 الأربعاء
+
 </button>
+
 
 <button
 class="view-btn"
 data-day="thursday">
+
 الخميس
+
 </button>
 
 </div>
@@ -1153,9 +1290,11 @@ data-day="thursday">
 id="weekView"
 class="week-view">
 
+
 <div class="table-wrap">
 
 <table class="plan-table">
+
 
 <colgroup>
 
@@ -1166,6 +1305,7 @@ class="week-view">
 <col style="width:25%">
 
 </colgroup>
+
 
 <thead>
 
@@ -1181,7 +1321,9 @@ class="week-view">
 
 </thead>
 
-<tbody id="weekRows"></tbody>
+
+<tbody id="weekRows">
+</tbody>
 
 </table>
 
@@ -1210,7 +1352,7 @@ class="day-cards">
 <div class="actions">
 
 <button
-id="printBtn"
+id="printOfficialBtn"
 class="action-btn print-btn">
 
 🖨️ طباعة الخطة الرسمية
@@ -1219,7 +1361,7 @@ class="action-btn print-btn">
 
 
 <button
-id="pdfBtn"
+id="pdfOfficialBtn"
 class="action-btn pdf-btn">
 
 📄 حفظ الخطة PDF
@@ -1228,7 +1370,7 @@ class="action-btn pdf-btn">
 
 
 <button
-id="imageBtn"
+id="downloadOfficialBtn"
 class="action-btn image-btn">
 
 🖼️ تحميل صورة الخطة
@@ -1240,22 +1382,24 @@ class="action-btn image-btn">
 
 <div class="action-help">
 
-عند اختيار حفظ PDF ستظهر نافذة الطباعة،
-اختر
-<strong>
-Save as PDF / حفظ كملف PDF
-</strong>
+عند اختيار حفظ PDF ستظهر نافذة الطباعة، اختر
+<strong>Save as PDF / حفظ كملف PDF</strong>
+من خيارات الطابعة.
 
 </div>
 
 </section>
 
+
 </main>
 
 
-<div class="poster-host">
+<div
+class="poster-host"
+aria-hidden="true">
 
-<div id="poster"></div>
+<div id="poster">
+</div>
 
 </div>
 
@@ -1294,11 +1438,11 @@ import {
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-/* ========================================
+/* =========================
    FIREBASE - WEEKLY PLAN
-======================================== */
+========================= */
 
-const weeklyConfig={
+const weeklyFirebaseConfig = {
 
     apiKey:
     "AIzaSyBYxW_pdFvE1VZyDoTok4-EutPe6oigJhY",
@@ -1321,11 +1465,11 @@ const weeklyConfig={
 };
 
 
-/* ========================================
+/* =========================
    FIREBASE - RASED
-======================================== */
+========================= */
 
-const rasedConfig={
+const rasedFirebaseConfig = {
 
     apiKey:
     "AIzaSyAfgSV-6_IMkXncgPWxY69omKfvFtGakgk",
@@ -1348,259 +1492,299 @@ const rasedConfig={
 };
 
 
-/* ========================================
-   FIREBASE APPS
-======================================== */
-
-const weeklyApp=
+const weeklyApp =
 initializeApp(
-    weeklyConfig,
+    weeklyFirebaseConfig,
     "weeklyPlanApp"
 );
 
 
-const rasedApp=
+const rasedApp =
 initializeApp(
-    rasedConfig,
+    rasedFirebaseConfig,
     "rasedApp"
 );
 
 
-const weeklyDb=
+const db =
 getFirestore(
     weeklyApp
 );
 
 
-const rasedDb=
+const rasedDb =
 getFirestore(
     rasedApp
 );
 
 
-/* ========================================
+/* =========================
    DAYS
-======================================== */
+========================= */
 
-const days={
+const days = {
 
     sunday:"الأحد",
-
     monday:"الاثنين",
-
     tuesday:"الثلاثاء",
-
     wednesday:"الأربعاء",
-
     thursday:"الخميس"
 
 };
 
 
-const dayKeys=
+const dayKeys =
 Object.keys(
     days
 );
 
 
-/* ========================================
+/* =========================
    WEEK NAMES
-======================================== */
+========================= */
 
-const weekNames={
+const weekNames = {
 
     1:"الأول",
-
     2:"الثاني",
-
     3:"الثالث",
-
     4:"الرابع",
-
     5:"الخامس",
-
     6:"السادس",
-
     7:"السابع",
-
     8:"الثامن",
-
     9:"التاسع",
-
     10:"العاشر",
-
     11:"الحادي عشر",
-
     12:"الثاني عشر",
-
     13:"الثالث عشر",
-
     14:"الرابع عشر",
-
     15:"الخامس عشر",
-
     16:"السادس عشر",
-
     17:"السابع عشر",
-
     18:"الثامن عشر"
 
 };
 
 
-/* ========================================
+/* =========================
    ELEMENTS
-======================================== */
+========================= */
 
-const identityInput=
+const identityInput =
 document.getElementById(
     "identityInput"
 );
 
 
-const searchBtn=
+const identityBtn =
 document.getElementById(
-    "searchBtn"
+    "identityBtn"
 );
 
 
-const identityStatus=
+const identityStatus =
 document.getElementById(
     "identityStatus"
 );
 
 
-const studentData=
+const studentData =
 document.getElementById(
     "studentData"
 );
 
 
-const studentName=
+const studentName =
 document.getElementById(
     "studentName"
 );
 
 
-const studentGrade=
+const studentGrade =
 document.getElementById(
     "studentGrade"
 );
 
 
-const studentSection=
+const studentSection =
 document.getElementById(
     "studentSection"
 );
 
 
-const newSearchBtn=
+const newSearchBtn =
 document.getElementById(
     "newSearchBtn"
 );
 
 
-const weekCard=
+const weekCard =
 document.getElementById(
     "weekCard"
 );
 
 
-const weekSelect=
+const weekSelect =
 document.getElementById(
     "weekSelect"
 );
 
 
-const status=
+const status =
 document.getElementById(
     "status"
 );
 
 
-const planArea=
+const planArea =
 document.getElementById(
     "planArea"
 );
 
 
-const planTitle=
+const planTitle =
 document.getElementById(
     "planTitle"
 );
 
 
-const weekDate=
+const weekDate =
 document.getElementById(
     "weekDate"
 );
 
 
-const valueText=
+const valueText =
 document.getElementById(
     "valueText"
 );
 
 
-const personalityText=
+const personalityText =
 document.getElementById(
     "personalityText"
 );
 
 
-const weekRows=
+const weekRows =
 document.getElementById(
     "weekRows"
 );
 
 
-const weekView=
+const weekView =
 document.getElementById(
     "weekView"
 );
 
 
-const dayView=
+const dayView =
 document.getElementById(
     "dayView"
 );
 
 
-const dayTitle=
+const dayTitle =
 document.getElementById(
     "dayTitle"
 );
 
 
-const dayCards=
+const dayCards =
 document.getElementById(
     "dayCards"
 );
 
 
-const poster=
+const poster =
 document.getElementById(
     "poster"
 );
 
 
-let allPlans=[];
-
-let studentPlans=[];
-
-let currentStudent=null;
-
-let currentPlan=null;
+const printOfficialBtn =
+document.getElementById(
+    "printOfficialBtn"
+);
 
 
-/* ========================================
-   CLEAN IDENTITY
-======================================== */
+const pdfOfficialBtn =
+document.getElementById(
+    "pdfOfficialBtn"
+);
 
-function cleanIdentity(value){
+
+const downloadOfficialBtn =
+document.getElementById(
+    "downloadOfficialBtn"
+);
+
+
+let plans = [];
+
+let studentPlans = [];
+
+let currentStudent = null;
+
+let currentPlan = null;
+
+
+/* =========================
+   EMPTY DATA
+========================= */
+
+function createEmptyDay(){
+
+    const result = [];
+
+    for(
+        let i=1;
+        i<=8;
+        i++
+    ){
+
+        result.push({
+
+            period:i,
+            subject:"",
+            topic:"",
+            homework:""
+
+        });
+
+    }
+
+    return result;
+
+}
+
+
+function createEmptyDays(){
+
+    return {
+
+        sunday:createEmptyDay(),
+        monday:createEmptyDay(),
+        tuesday:createEmptyDay(),
+        wednesday:createEmptyDay(),
+        thursday:createEmptyDay()
+
+    };
+
+}
+
+
+/* =========================
+   STUDENT / CLASS HELPERS
+========================= */
+
+function cleanIdentity(
+    value
+){
 
     return String(
-        value||""
+        value || ""
     )
     .replace(
         /[^\d]/g,
@@ -1611,87 +1795,71 @@ function cleanIdentity(value){
 }
 
 
-/* ========================================
-   TEXT NORMALIZATION
-======================================== */
-
-function normalizeArabic(value){
+function normalizeArabic(
+    value
+){
 
     return String(
-        value??""
+        value ?? ""
     )
     .trim()
-
     .replace(
         /[أإآ]/g,
         "ا"
     )
-
     .replace(
         /ة/g,
         "ه"
     )
-
     .replace(
         /ى/g,
         "ي"
     )
-
     .replace(
         /[()\-_/]/g,
         " "
     )
-
     .replace(
         /\s+/g,
         " "
     )
-
     .trim()
-
     .toLowerCase();
 
 }
 
 
-/* ========================================
-   SECTION NORMALIZATION
-======================================== */
-
-function normalizeSection(value){
+function normalizeSection(
+    value
+){
 
     return normalizeArabic(
         value
     )
-
     .replace(
         /^الشعبه\s*/,
         ""
     )
-
     .replace(
         /^فصل\s*/,
         ""
     )
-
     .trim();
 
 }
 
 
-/* ========================================
-   GRADE NUMBER
-======================================== */
+function gradeNumber(
+    value
+){
 
-function gradeNumber(value){
-
-    const text=
+    const text =
     normalizeArabic(
         value
     );
 
 
-    const digit=
+    const digit =
     text.match(
         /\d+/
     );
@@ -1708,30 +1876,19 @@ function gradeNumber(value){
     }
 
 
-    const map=[
+    const names = [
 
         ["الاول",1],
-
         ["الاولى",1],
-
         ["الثاني",2],
-
         ["الثانيه",2],
-
         ["الثالث",3],
-
         ["الثالثه",3],
-
         ["الرابع",4],
-
         ["الرابعه",4],
-
         ["الخامس",5],
-
         ["الخامسه",5],
-
         ["السادس",6],
-
         ["السادسه",6]
 
     ];
@@ -1742,7 +1899,7 @@ function gradeNumber(value){
             word,
             number
         ]
-        of map
+        of names
     ){
 
         if(
@@ -1763,13 +1920,11 @@ function gradeNumber(value){
 }
 
 
-/* ========================================
-   STAGE
-======================================== */
+function stageKey(
+    value
+){
 
-function stageKey(value){
-
-    const text=
+    const text =
     normalizeArabic(
         value
     );
@@ -1801,6 +1956,10 @@ function stageKey(value){
         text.includes(
             "ثانوي"
         )
+        ||
+        text.includes(
+            "ثانويه"
+        )
     ){
 
         return "secondary";
@@ -1813,30 +1972,26 @@ function stageKey(value){
 }
 
 
-/* ========================================
-   MATCH GRADES
-======================================== */
-
 function gradesMatch(
-    studentGradeValue,
+    rasedGrade,
     planGrade,
     planStage
 ){
 
-    const a=
+    const a =
     normalizeArabic(
-        studentGradeValue
+        rasedGrade
     );
 
 
-    const b=
+    const b =
     normalizeArabic(
         planGrade
     );
 
 
     if(
-        a===b
+        a === b
     ){
 
         return true;
@@ -1844,24 +1999,24 @@ function gradesMatch(
     }
 
 
-    const aNumber=
+    const aNumber =
     gradeNumber(
-        studentGradeValue
+        rasedGrade
     );
 
 
-    const bNumber=
+    const bNumber =
     gradeNumber(
         planGrade
     );
 
 
     if(
-        aNumber===null
+        aNumber === null
         ||
-        bNumber===null
+        bNumber === null
         ||
-        aNumber!==bNumber
+        aNumber !== bNumber
     ){
 
         return false;
@@ -1869,27 +2024,25 @@ function gradesMatch(
     }
 
 
-    const aStage=
+    const aStage =
     stageKey(
-        studentGradeValue
+        rasedGrade
     );
 
 
-    const bStage=
+    const bStage =
     stageKey(
-        planStage||
-        planGrade
+        planStage || planGrade
     );
 
 
     if(
-        aStage
-        &&
+        aStage &&
         bStage
     ){
 
         return (
-            aStage===bStage
+            aStage === bStage
         );
 
     }
@@ -1900,11 +2053,10 @@ function gradesMatch(
 }
 
 
-/* ========================================
-   MATCH SECTIONS
-======================================== */
-
-function sectionsMatch(a,b){
+function sectionsMatch(
+    a,
+    b
+){
 
     return (
         normalizeSection(
@@ -1919,85 +2071,48 @@ function sectionsMatch(a,b){
 }
 
 
-/* ========================================
-   STATUS
-======================================== */
-
-function showMessage(
-    element,
-    text,
-    type
-){
-
-    element.textContent=
-    text;
-
-
-    element.className=
-    "status show "+type;
-
-}
-
-
-function hideMessage(
-    element
-){
-
-    element.textContent=
-    "";
-
-
-    element.className=
-    "status";
-
-}
-
-
-/* ========================================
-   LOAD ALL PLANS
-======================================== */
+/* =========================
+   LOAD WEEKLY PLANS
+========================= */
 
 async function loadPlans(){
 
-    const snapshot=
+    const snapshot =
     await getDocs(
 
         collection(
-            weeklyDb,
+            db,
             "weeklyPlans"
         )
 
     );
 
 
-    allPlans=[];
+    plans = [];
 
 
     snapshot.forEach(
-
         item=>{
 
-            const data=
-            item.data()||{};
-
-
-            const week=
-            Number(
-                data.weekNumber
-            );
+            const data =
+            item.data() || {};
 
 
             if(
-                week>=1
+                Number(
+                    data.weekNumber
+                ) >= 1
                 &&
-                week<=18
+                Number(
+                    data.weekNumber
+                ) <= 18
                 &&
                 data.grade
                 &&
                 data.section
             ){
 
-                allPlans.push({
+                plans.push({
 
                     id:item.id,
 
@@ -2008,19 +2123,20 @@ async function loadPlans(){
             }
 
         }
-
     );
 
 }
 
 
-/* ========================================
+/* =========================
    FIND STUDENT IN RASED
-======================================== */
+========================= */
 
-async function findStudent(identity){
+async function findStudent(
+    identity
+){
 
-    let studentDoc=
+    let studentDoc =
     await getDoc(
 
         doc(
@@ -2036,8 +2152,8 @@ async function findStudent(identity){
         studentDoc.exists()
     ){
 
-        const data=
-        studentDoc.data()||{};
+        const data =
+        studentDoc.data() || {};
 
 
         return {
@@ -2045,7 +2161,7 @@ async function findStudent(identity){
             ...data,
 
             code:
-            data.code||
+            data.code ||
             studentDoc.id
 
         };
@@ -2053,7 +2169,7 @@ async function findStudent(identity){
     }
 
 
-    const studentQuery=
+    const studentQuery =
     query(
 
         collection(
@@ -2074,14 +2190,14 @@ async function findStudent(identity){
     );
 
 
-    const snapshot=
+    const querySnapshot =
     await getDocs(
         studentQuery
     );
 
 
     if(
-        snapshot.empty
+        querySnapshot.empty
     ){
 
         return null;
@@ -2089,12 +2205,12 @@ async function findStudent(identity){
     }
 
 
-    const first=
-    snapshot.docs[0];
+    const first =
+    querySnapshot.docs[0];
 
 
-    const data=
-    first.data()||{};
+    const data =
+    first.data() || {};
 
 
     return {
@@ -2102,7 +2218,7 @@ async function findStudent(identity){
         ...data,
 
         code:
-        data.code||
+        data.code ||
         first.id
 
     };
@@ -2110,26 +2226,24 @@ async function findStudent(identity){
 }
 
 
-/* ========================================
-   SEARCH STUDENT
-======================================== */
+/* =========================
+   SEARCH BY STUDENT ID
+========================= */
 
 async function searchStudent(){
 
-    hideMessage(
+    hideStatusBox(
         identityStatus
     );
 
 
-    hideMessage(
-        status
-    );
+    hideStatus();
 
 
     hidePlan();
 
 
-    const identity=
+    const identity =
     cleanIdentity(
         identityInput.value
     );
@@ -2139,7 +2253,7 @@ async function searchStudent(){
         !identity
     ){
 
-        showMessage(
+        showStatusBox(
             identityStatus,
             "فضلاً أدخل رقم هوية الطالب.",
             "error"
@@ -2153,22 +2267,21 @@ async function searchStudent(){
     }
 
 
-    searchBtn.disabled=
+    identityBtn.disabled =
     true;
 
 
-    searchBtn.textContent=
+    identityBtn.textContent =
     "جاري البحث...";
 
 
     try{
 
-
         if(
-            allPlans.length===0
+            plans.length === 0
         ){
 
-            showMessage(
+            showStatusBox(
                 identityStatus,
                 "جاري تحميل الخطط الأسبوعية...",
                 "info"
@@ -2180,7 +2293,7 @@ async function searchStudent(){
         }
 
 
-        const student=
+        const student =
         await findStudent(
             identity
         );
@@ -2190,7 +2303,7 @@ async function searchStudent(){
             !student
         ){
 
-            showMessage(
+            showStatusBox(
                 identityStatus,
                 "لم يتم العثور على طالب بهذا الرقم.",
                 "error"
@@ -2208,9 +2321,9 @@ async function searchStudent(){
             !student.section
         ){
 
-            showMessage(
+            showStatusBox(
                 identityStatus,
-                "بيانات الصف أو الشعبة غير مكتملة للطالب في نظام راصد.",
+                "بيانات الصف أو الشعبة غير مكتملة لهذا الطالب في نظام راصد.",
                 "error"
             );
 
@@ -2220,14 +2333,13 @@ async function searchStudent(){
         }
 
 
-        currentStudent=
+        currentStudent =
         student;
 
 
-        studentPlans=
-        allPlans.filter(
-
-            plan=>
+        studentPlans =
+        plans.filter(
+            plan =>
 
             gradesMatch(
                 student.grade,
@@ -2241,17 +2353,16 @@ async function searchStudent(){
                 student.section,
                 plan.section
             )
-
         );
 
 
         if(
-            studentPlans.length===0
+            studentPlans.length === 0
         ){
 
-            showMessage(
+            showStatusBox(
                 identityStatus,
-                "تم العثور على الطالب، ولكن لا توجد خطة أسبوعية مطابقة لصفه وشعبته.",
+                `تم العثور على الطالب، ولكن لا توجد خطة مطابقة للصف ${student.grade} / ${student.section}.`,
                 "error"
             );
 
@@ -2261,16 +2372,16 @@ async function searchStudent(){
         }
 
 
-        studentName.textContent=
-        student.name||"-";
+        studentName.textContent =
+        student.name || "-";
 
 
-        studentGrade.textContent=
-        student.grade||"-";
+        studentGrade.textContent =
+        student.grade || "-";
 
 
-        studentSection.textContent=
-        student.section||"-";
+        studentSection.textContent =
+        student.section || "-";
 
 
         studentData
@@ -2287,36 +2398,34 @@ async function searchStudent(){
         );
 
 
-        hideMessage(
+        hideStatusBox(
             identityStatus
         );
 
 
-        fillWeeks();
+        fillStudentWeeks();
 
 
-        const weeks=
-        studentPlans
-
-        .map(
-            plan=>
-            Number(
-                plan.weekNumber
-            )
-        )
-
-        .filter(
-            Number.isFinite
-        );
-
-
-        const latestWeek=
+        const latestWeek =
         Math.max(
-            ...weeks
+
+            ...studentPlans
+
+            .map(
+                plan =>
+                Number(
+                    plan.weekNumber
+                )
+            )
+
+            .filter(
+                Number.isFinite
+            )
+
         );
 
 
-        weekSelect.value=
+        weekSelect.value =
         String(
             latestWeek
         );
@@ -2329,11 +2438,9 @@ async function searchStudent(){
         .scrollIntoView({
 
             behavior:"smooth",
-
             block:"start"
 
         });
-
 
     }
 
@@ -2344,9 +2451,9 @@ async function searchStudent(){
         );
 
 
-        showMessage(
+        showStatusBox(
             identityStatus,
-            "تعذر تحميل البيانات حاليًا. حاول مرة أخرى.",
+            "تعذر تحميل بيانات الطالب أو الخطة حاليًا. حاول مرة أخرى.",
             "error"
         );
 
@@ -2354,11 +2461,11 @@ async function searchStudent(){
 
     finally{
 
-        searchBtn.disabled=
+        identityBtn.disabled =
         false;
 
 
-        searchBtn.textContent=
+        identityBtn.textContent =
         "عرض الخطة";
 
     }
@@ -2366,67 +2473,62 @@ async function searchStudent(){
 }
 
 
-/* ========================================
-   FILL WEEKS
-======================================== */
+/* =========================
+   STUDENT WEEKS
+========================= */
 
-function fillWeeks(){
+function fillStudentWeeks(){
 
-    const weeks=[
+    const weeks =
+    unique(
 
-        ...new Set(
+        studentPlans
 
-            studentPlans
-
-            .map(
-                plan=>
-                Number(
-                    plan.weekNumber
-                )
+        .map(
+            plan =>
+            Number(
+                plan.weekNumber
             )
-
-            .filter(
-                week=>
-                Number.isFinite(
-                    week
-                )
-                &&
-                week>=1
-                &&
-                week<=18
-            )
-
         )
 
-    ]
+        .filter(
+            week =>
+            Number.isFinite(
+                week
+            )
+            &&
+            week >= 1
+            &&
+            week <= 18
+        )
+
+    )
     .sort(
         (a,b)=>a-b
     );
 
 
-    weekSelect.innerHTML=
+    weekSelect.innerHTML =
     `<option value="">اختر الأسبوع</option>`;
 
 
     weeks.forEach(
-
         week=>{
 
-            const option=
+            const option =
             document.createElement(
                 "option"
             );
 
 
-            option.value=
+            option.value =
             week;
 
 
-            option.textContent=
-            "الأسبوع "+
+            option.textContent =
+            "الأسبوع " +
             (
-                weekNames[week]
-                ||
+                weekNames[week] ||
                 week
             );
 
@@ -2436,236 +2538,18 @@ function fillWeeks(){
             );
 
         }
-
     );
 
 }
 
 
-/* ========================================
-   EMPTY PLAN
-======================================== */
-
-function createEmptyDay(){
-
-    const result=[];
-
-
-    for(
-        let i=1;
-        i<=8;
-        i++
-    ){
-
-        result.push({
-
-            period:i,
-
-            subject:"",
-
-            topic:"",
-
-            homework:""
-
-        });
-
-    }
-
-
-    return result;
-
-}
-
-
-function createEmptyDays(){
-
-    return {
-
-        sunday:
-        createEmptyDay(),
-
-        monday:
-        createEmptyDay(),
-
-        tuesday:
-        createEmptyDay(),
-
-        wednesday:
-        createEmptyDay(),
-
-        thursday:
-        createEmptyDay()
-
-    };
-
-}
-
-
-/* ========================================
-   OLD HOMEWORK
-======================================== */
-
-function oldHomeworkToText(row){
-
-    if(
-        !row
-    ){
-
-        return "";
-
-    }
-
-
-    if(
-        row.homework!==undefined
-        &&
-        row.homework!==null
-        &&
-        String(
-            row.homework
-        ).trim()!==""
-    ){
-
-        return String(
-            row.homework
-        );
-
-    }
-
-
-    const parts=[];
-
-
-    if(
-        row.book
-    ){
-
-        parts.push(
-            row.book
-        );
-
-    }
-
-
-    if(
-        row.page
-    ){
-
-        parts.push(
-            "ص "+row.page
-        );
-
-    }
-
-
-    if(
-        row.exercise
-    ){
-
-        parts.push(
-            "تمرين "+row.exercise
-        );
-
-    }
-
-
-    if(
-        row.madrasati===true
-    ){
-
-        parts.push(
-            "منصة مدرستي"
-        );
-
-    }
-
-
-    return parts.join(
-        " - "
-    );
-
-}
-
-
-/* ========================================
-   NORMALIZE PLAN
-======================================== */
-
-function normalizePlan(plan){
-
-    const normalized=
-    createEmptyDays();
-
-
-    dayKeys.forEach(
-
-        day=>{
-
-            const rows=
-            Array.isArray(
-                plan.days?.[day]
-            )
-            ?
-            plan.days[day]
-            :
-            [];
-
-
-            for(
-                let i=0;
-                i<8;
-                i++
-            ){
-
-                const row=
-                rows[i]||{};
-
-
-                normalized[day][i]={
-
-                    period:i+1,
-
-                    subject:
-                    row.subject||"",
-
-                    topic:
-                    row.topic||"",
-
-                    homework:
-                    oldHomeworkToText(
-                        row
-                    )
-
-                };
-
-            }
-
-        }
-
-    );
-
-
-    return {
-
-        ...plan,
-
-        days:
-        normalized
-
-    };
-
-}
-
-
-/* ========================================
+/* =========================
    WEEK CHANGE
-======================================== */
+========================= */
 
 function loadSelectedWeek(){
 
-    hideMessage(
-        status
-    );
+    hideStatus();
 
 
     hidePlan();
@@ -2680,21 +2564,16 @@ function loadSelectedWeek(){
     }
 
 
-    const found=
+    const found =
     studentPlans.find(
-
-        plan=>
-
+        plan =>
         Number(
             plan.weekNumber
         )
-
         ===
-
         Number(
             weekSelect.value
         )
-
     );
 
 
@@ -2702,9 +2581,8 @@ function loadSelectedWeek(){
         !found
     ){
 
-        showMessage(
-            status,
-            "لا توجد خطة محفوظة لهذا الأسبوع.",
+        showStatus(
+            "لا توجد خطة محفوظة لهذا الطالب في الأسبوع المختار.",
             "error"
         );
 
@@ -2714,8 +2592,8 @@ function loadSelectedWeek(){
     }
 
 
-    currentPlan=
-    normalizePlan(
+    currentPlan =
+    normalizeSavedPlan(
         found
     );
 
@@ -2733,11 +2611,335 @@ weekSelect.addEventListener(
 );
 
 
-/* ========================================
-   RENDER PLAN
-======================================== */
+/* =========================
+   NEW SEARCH
+========================= */
 
-function renderPlan(plan){
+function newSearch(){
+
+    currentStudent =
+    null;
+
+
+    studentPlans =
+    [];
+
+
+    currentPlan =
+    null;
+
+
+    studentData
+    .classList
+    .remove(
+        "show"
+    );
+
+
+    weekCard
+    .classList
+    .remove(
+        "show"
+    );
+
+
+    hidePlan();
+
+
+    hideStatus();
+
+
+    hideStatusBox(
+        identityStatus
+    );
+
+
+    weekSelect.innerHTML =
+    `<option value="">اختر الأسبوع</option>`;
+
+
+    identityInput.value =
+    "";
+
+
+    identityInput.focus();
+
+}
+
+
+newSearchBtn.addEventListener(
+    "click",
+    newSearch
+);
+
+
+identityBtn.addEventListener(
+    "click",
+    searchStudent
+);
+
+
+identityInput.addEventListener(
+    "keydown",
+    event=>{
+
+        if(
+            event.key === "Enter"
+        ){
+
+            searchStudent();
+
+        }
+
+    }
+);
+
+
+identityInput.addEventListener(
+    "input",
+    function(){
+
+        this.value =
+        this.value.replace(
+            /[^\d]/g,
+            ""
+        );
+
+    }
+);
+
+
+/* =========================
+   STATUS BOX
+========================= */
+
+function showStatusBox(
+    element,
+    text,
+    type
+){
+
+    element.textContent =
+    text;
+
+
+    element.className =
+    "status show " +
+    type;
+
+}
+
+
+function hideStatusBox(
+    element
+){
+
+    element.textContent =
+    "";
+
+
+    element.className =
+    "status";
+
+}
+
+
+function unique(
+    array
+){
+
+    return [
+        ...new Set(
+            array
+        )
+    ];
+
+}
+
+
+/* =========================
+   NORMALIZE PLAN
+========================= */
+
+function normalizeSavedPlan(
+    plan
+){
+
+    const normalized =
+    createEmptyDays();
+
+
+    dayKeys.forEach(
+        day=>{
+
+            const sourceRows =
+            Array.isArray(
+                plan.days?.[day]
+            )
+            ?
+            plan.days[day]
+            :
+            [];
+
+
+            for(
+                let i=0;
+                i<8;
+                i++
+            ){
+
+                const row =
+                sourceRows[i] ||
+                {};
+
+
+                normalized[day][i] = {
+
+                    period:i+1,
+
+                    subject:
+                    row.subject || "",
+
+                    topic:
+                    row.topic || "",
+
+                    homework:
+                    oldHomeworkToText(
+                        row
+                    )
+
+                };
+
+            }
+
+        }
+    );
+
+
+    return {
+
+        ...plan,
+
+        days:normalized
+
+    };
+
+}
+
+
+/* =========================
+   OLD HOMEWORK
+========================= */
+
+function oldHomeworkToText(
+    row
+){
+
+    if(
+        !row
+    ){
+
+        return "";
+
+    }
+
+
+    if(
+        row.homework !== undefined &&
+        row.homework !== null &&
+        String(
+            row.homework
+        ).trim() !== ""
+    ){
+
+        return String(
+            row.homework
+        );
+
+    }
+
+
+    const parts = [];
+
+
+    if(
+        row.book &&
+        String(
+            row.book
+        ).trim()
+    ){
+
+        parts.push(
+            String(
+                row.book
+            ).trim()
+        );
+
+    }
+
+
+    if(
+        row.page &&
+        String(
+            row.page
+        ).trim()
+    ){
+
+        parts.push(
+            "ص " +
+            String(
+                row.page
+            ).trim()
+        );
+
+    }
+
+
+    if(
+        row.exercise &&
+        String(
+            row.exercise
+        ).trim()
+    ){
+
+        parts.push(
+            "تمرين " +
+            String(
+                row.exercise
+            ).trim()
+        );
+
+    }
+
+
+    if(
+        row.madrasati === true
+    ){
+
+        parts.push(
+            "منصة مدرستي"
+        );
+
+    }
+
+
+    return parts.join(
+        " - "
+    );
+
+}
+
+
+/* =========================
+   RENDER PLAN
+========================= */
+
+function renderPlan(
+    plan
+){
+
+    hideStatus();
+
 
     planArea
     .classList
@@ -2746,11 +2948,11 @@ function renderPlan(plan){
     );
 
 
-    planTitle.textContent=
+    planTitle.textContent =
     `الخطة الأسبوعية لصف ${plan.grade} (${plan.section})`;
 
 
-    weekDate.textContent=
+    weekDate.textContent =
     `الأسبوع ${
         weekNames[
             Number(
@@ -2759,24 +2961,16 @@ function renderPlan(plan){
         ]
         ||
         plan.weekNumber
-    } — من ${
-        formatDate(
-            plan.startDate
-        )
-    } إلى ${
-        formatDate(
-            plan.endDate
-        )
-    }`;
+    } — من ${formatDate(plan.startDate)} إلى ${formatDate(plan.endDate)}`;
 
 
-    valueText.textContent=
-    plan.educationalValue||
+    valueText.textContent =
+    plan.educationalValue ||
     "-";
 
 
-    personalityText.textContent=
-    plan.weekPersonality||
+    personalityText.textContent =
+    plan.weekPersonality ||
     "-";
 
 
@@ -2787,74 +2981,93 @@ function renderPlan(plan){
 
     showFullWeek();
 
+
+    planArea.scrollIntoView({
+
+        behavior:"smooth",
+        block:"start"
+
+    });
+
 }
 
 
-/* ========================================
-   TABLE
-======================================== */
+/* =========================
+   WEEK TABLE
+========================= */
 
-function renderWeekTable(plan){
+function renderWeekTable(
+    plan
+){
 
-    weekRows.innerHTML=
+    weekRows.innerHTML =
     "";
 
 
     dayKeys.forEach(
-
         day=>{
 
-            plan.days[day]
-            .forEach(
+            const rows =
+            plan.days[day];
 
+
+            rows.forEach(
                 (
                     row,
                     index
                 )=>{
 
-                    const tr=
+                    const tr =
                     document.createElement(
                         "tr"
                     );
 
 
-                    tr.innerHTML=`
+                    const first =
+                    index === 0;
 
-                    ${
-                        index===0
-                        ?
-                        `
-                        <td
-                        rowspan="8"
-                        class="day-cell">
-                        ${days[day]}
+
+                    tr.innerHTML = `
+
+                        ${
+                            first
+                            ?
+
+                            `<td
+                            rowspan="8"
+                            class="day-cell">
+                                ${days[day]}
+                            </td>`
+
+                            :
+                            ""
+                        }
+
+
+                        <td class="period-cell">
+                            ${index+1}
                         </td>
-                        `
-                        :
-                        ""
-                    }
 
-                    <td class="period-cell">
-                    ${index+1}
-                    </td>
 
-                    <td class="subject-cell">
-                    ${displayText(
-                        row.subject
-                    )}
-                    </td>
+                        <td class="subject-cell">
+                            ${displayText(
+                                row.subject
+                            )}
+                        </td>
 
-                    <td>
-                    ${displayText(
-                        row.topic
-                    )}
-                    </td>
 
-                    <td>
-                    ${displayText(
-                        row.homework
-                    )}
-                    </td>
+                        <td>
+                            ${displayText(
+                                row.topic
+                            )}
+                        </td>
+
+
+                        <td>
+                            ${displayText(
+                                row.homework
+                            )}
+                        </td>
 
                     `;
 
@@ -2864,21 +3077,21 @@ function renderWeekTable(plan){
                     );
 
                 }
-
             );
 
         }
-
     );
 
 }
 
 
-/* ========================================
+/* =========================
    DAY VIEW
-======================================== */
+========================= */
 
-function renderDay(day){
+function renderSingleDay(
+    day
+){
 
     if(
         !currentPlan
@@ -2889,82 +3102,82 @@ function renderDay(day){
     }
 
 
-    dayTitle.textContent=
-    "خطة يوم "+
-    days[day];
+    dayTitle.textContent =
+    `خطة يوم ${days[day]}`;
 
 
-    dayCards.innerHTML=
+    dayCards.innerHTML =
     "";
 
 
     currentPlan.days[day]
     .forEach(
-
         (
             row,
             index
         )=>{
 
-            const card=
+            const card =
             document.createElement(
                 "div"
             );
 
 
-            card.className=
+            card.className =
             "lesson-card";
 
 
-            card.innerHTML=`
+            card.innerHTML = `
 
-            <div class="lesson-head">
+                <div class="lesson-head">
 
-            <div class="lesson-period">
-            الحصة ${index+1}
-            </div>
+                    <div class="lesson-period">
+                        الحصة ${index+1}
+                    </div>
 
-            <div class="lesson-subject">
-            ${displayText(
-                row.subject
-            )}
-            </div>
+                    <div class="lesson-subject">
+                        ${displayText(
+                            row.subject
+                        )}
+                    </div>
 
-            </div>
-
-
-            <div class="lesson-body">
-
-            <div class="lesson-part">
-
-            <span>
-            موضوع الدرس
-            </span>
-
-            <strong>
-            ${displayText(
-                row.topic
-            )}
-            </strong>
-
-            </div>
+                </div>
 
 
-            <div class="lesson-part">
+                <div class="lesson-body">
 
-            <span>
-            الواجب
-            </span>
 
-            <strong>
-            ${displayText(
-                row.homework
-            )}
-            </strong>
+                    <div class="lesson-part">
 
-            </div>
+                        <span>
+                            موضوع الدرس
+                        </span>
 
-            </div>
+                        <strong>
+                            ${displayText(
+                                row.topic
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="lesson-part">
+
+                        <span>
+                            الواجب
+                        </span>
+
+                        <strong>
+                            ${displayText(
+                                row.homework
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                </div>
 
             `;
 
@@ -2974,11 +3187,10 @@ function renderDay(day){
             );
 
         }
-
     );
 
 
-    weekView.style.display=
+    weekView.style.display =
     "none";
 
 
@@ -2991,22 +3203,19 @@ function renderDay(day){
 }
 
 
-/* ========================================
+/* =========================
    VIEW BUTTONS
-======================================== */
+========================= */
 
 document
 .querySelectorAll(
     ".view-btn"
 )
 .forEach(
-
     button=>{
 
         button.addEventListener(
-
             "click",
-
             ()=>{
 
                 document
@@ -3029,7 +3238,7 @@ document
 
 
                 if(
-                    button.dataset.view===
+                    button.dataset.view ===
                     "week"
                 ){
 
@@ -3044,24 +3253,22 @@ document
                     button.dataset.day
                 ){
 
-                    renderDay(
+                    renderSingleDay(
                         button.dataset.day
                     );
 
                 }
 
             }
-
         );
 
     }
-
 );
 
 
 function showFullWeek(){
 
-    weekView.style.display=
+    weekView.style.display =
     "block";
 
 
@@ -3084,373 +3291,369 @@ function showFullWeek(){
     );
 
 
-    document
-    .querySelector(
+    const weekButton =
+    document.querySelector(
         '[data-view="week"]'
-    )
-    ?.classList
-    .add(
-        "active"
     );
+
+
+    if(
+        weekButton
+    ){
+
+        weekButton
+        .classList
+        .add(
+            "active"
+        );
+
+    }
 
 }
 
 
-/* ========================================
-   POSTER
-======================================== */
+/* =========================
+   OFFICIAL POSTER
+========================= */
 
-function buildPoster(plan){
+function buildPoster(
+    plan
+){
 
-    let rowsHTML=
-    "";
-
+    let rowsHTML="";
 
     dayKeys.forEach(
-
         day=>{
 
-            plan.days[day]
-            .forEach(
+            const rows =
+            plan.days?.[day] ||
+            createEmptyDay();
 
+            rows.forEach(
                 (
                     row,
                     index
                 )=>{
 
-                    rowsHTML+=`
+                    rowsHTML += `
+                    <tr class="${index===0?"day-start":""}">
 
-                    <tr
-                    class="${
-                        index===0
-                        ?
-                        "day-start"
-                        :
-                        ""
-                    }">
+                        ${
+                            index===0
+                            ?
+                            `
+                            <td
+                            rowspan="8"
+                            class="day-cell">
+                                <span class="day-vertical">
+                                    ${days[day]}
+                                </span>
+                            </td>
+                            `
+                            :
+                            ""
+                        }
 
-                    ${
-                        index===0
-                        ?
-                        `
-
-                        <td
-                        rowspan="8"
-                        class="day-cell">
-
-                        <span class="day-vertical">
-                        ${days[day]}
-                        </span>
-
+                        <td class="period-cell">
+                            ${index+1}
                         </td>
 
-                        `
-                        :
-                        ""
-                    }
+                        <td class="subject-cell">
+                            ${safeDisplay(
+                                row.subject
+                            )}
+                        </td>
 
-                    <td class="period-cell">
-                    ${index+1}
-                    </td>
+                        <td class="topic-cell">
+                            ${safeDisplay(
+                                row.topic
+                            )}
+                        </td>
 
-                    <td>
-                    ${safeDisplay(
-                        row.subject
-                    )}
-                    </td>
-
-                    <td>
-                    ${safeDisplay(
-                        row.topic
-                    )}
-                    </td>
-
-                    <td>
-                    ${safeDisplay(
-                        row.homework
-                    )}
-                    </td>
+                        <td class="homework-cell">
+                            ${safeDisplay(
+                                row.homework
+                            )}
+                        </td>
 
                     </tr>
-
                     `;
 
                 }
-
             );
 
         }
-
     );
 
 
-    poster.innerHTML=`
+    poster.innerHTML = `
 
     <div class="poster-header">
 
-    <div class="school-logo">
+        <div class="school-logo">
 
-    <img
-    src="logo.jpeg"
-    alt="شعار مدارس الفلاح">
+            <img
+            src="logo.jpeg"
+            alt="شعار مدارس الفلاح">
 
-    </div>
-
-
-    <div class="poster-government">
-
-    <div>
-    المملكة العربية السعودية
-    </div>
-
-    <div>
-    وزارة التعليم
-    </div>
-
-    <div>
-    الإدارة العامة للتعليم بالمنطقة الشرقية
-    </div>
-
-    <div>
-    مدارس الفلاح الأهلية
-    </div>
-
-    </div>
+        </div>
 
 
-    <div></div>
+        <div class="poster-government">
+
+            <div>
+                المملكة العربية السعودية
+            </div>
+
+            <div>
+                وزارة التعليم
+            </div>
+
+            <div>
+                الإدارة العامة للتعليم بالمنطقة الشرقية
+            </div>
+
+            <div>
+                مدارس الفلاح الأهلية
+            </div>
+
+        </div>
+
+
+        <div
+        class="header-spacer"
+        aria-hidden="true">
+        </div>
 
     </div>
 
 
     <div class="poster-class-title">
 
-    الخطة الأسبوعية لصف
+        الخطة الأسبوعية لصف
 
-    ${escapeHTML(
-        plan.grade
-    )}
+        ${escapeHTML(
+            plan.grade || ""
+        )}
 
-    (
+        (
 
-    ${escapeHTML(
-        plan.section
-    )}
+        ${escapeHTML(
+            plan.section || ""
+        )}
 
-    )
+        )
 
     </div>
 
 
-    <div class="poster-student">
+    ${
+        currentStudent?.name
+        ?
+        `
+        <div class="poster-student">
 
-    الطالب:
+            الطالب:
 
-    ${escapeHTML(
-        currentStudent?.name||
+            <strong>
+                ${escapeHTML(
+                    currentStudent.name
+                )}
+            </strong>
+
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+
+            الصف:
+
+            <strong>
+                ${escapeHTML(
+                    currentStudent.grade ||
+                    plan.grade ||
+                    ""
+                )}
+            </strong>
+
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+
+            الشعبة:
+
+            <strong>
+                ${escapeHTML(
+                    currentStudent.section ||
+                    plan.section ||
+                    ""
+                )}
+            </strong>
+
+        </div>
+        `
+        :
         ""
-    )}
-
-    —
-
-    الصف:
-
-    ${escapeHTML(
-        currentStudent?.grade||
-        ""
-    )}
-
-    —
-
-    الشعبة:
-
-    ${escapeHTML(
-        currentStudent?.section||
-        ""
-    )}
-
-    </div>
-
-
-    <div class="vision-message">
-
-    <div class="vm-box">
-
-    <div class="vm-title">
-    الرؤية
-    </div>
-
-    <div class="vm-text">
-    الريادة في إعداد المتعلم المتميز المعتز بقيمه والمؤهل لمستقبله.
-    </div>
-
-    </div>
-
-
-    <div class="vm-box">
-
-    <div class="vm-title">
-    الرسالة
-    </div>
-
-    <div class="vm-text">
-    نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة،
-    ترسخ القيم، وتبني المعرفة، وتطور المهارات،
-    وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
-    </div>
-
-    </div>
-
-    </div>
+    }
 
 
     <div class="poster-weekline">
 
-    <span>
-    الأسبوع:
-    ${plan.weekNumber}
-    </span>
+        <span>
 
-    <span>
-    من تاريخ:
-    ${formatDate(
-        plan.startDate
-    )}
-    </span>
+            الأسبوع:
 
-    <span>
-    إلى تاريخ:
-    ${formatDate(
-        plan.endDate
-    )}
-    </span>
+            ${
+                weekNames[
+                    Number(
+                        plan.weekNumber
+                    )
+                ]
+                ||
+                plan.weekNumber
+            }
+
+        </span>
+
+
+        <span>
+
+            من:
+
+            ${formatDate(
+                plan.startDate
+            )}
+
+        </span>
+
+
+        <span>
+
+            إلى:
+
+            ${formatDate(
+                plan.endDate
+            )}
+
+        </span>
 
     </div>
 
 
     <div class="poster-special">
 
-    <div class="special-box">
+        <div class="special-box">
 
-    <strong>
-    القيمة التربوية:
-    </strong>
+            <strong>
+                القيمة التربوية:
+            </strong>
 
-    ${safeDisplay(
-        plan.educationalValue
-    )}
+            ${safeDisplay(
+                plan.educationalValue
+            )}
 
-    </div>
+        </div>
 
 
-    <div class="special-box">
+        <div class="special-box">
 
-    <strong>
-    شخصية الأسبوع:
-    </strong>
+            <strong>
+                شخصية الأسبوع:
+            </strong>
 
-    ${safeDisplay(
-        plan.weekPersonality
-    )}
+            ${safeDisplay(
+                plan.weekPersonality
+            )}
 
-    </div>
+        </div>
 
     </div>
 
 
     <table class="poster-table">
 
-    <colgroup>
+        <colgroup>
 
-    <col style="width:6%">
-    <col style="width:6%">
-    <col style="width:10%">
-    <col style="width:53%">
-    <col style="width:25%">
+            <col style="width:9%">
 
-    </colgroup>
+            <col style="width:6%">
 
+            <col style="width:12%">
 
-    <thead>
+            <col style="width:47%">
 
-    <tr>
+            <col style="width:26%">
 
-    <th>
-    اليوم
-    </th>
-
-    <th>
-    الحصة
-    </th>
-
-    <th>
-    المادة
-    </th>
-
-    <th>
-    موضوع الدرس
-    </th>
-
-    <th>
-    الواجب
-    </th>
-
-    </tr>
-
-    </thead>
+        </colgroup>
 
 
-    <tbody>
+        <thead>
 
-    ${rowsHTML}
+            <tr>
 
-    </tbody>
+                <th>
+                    اليوم
+                </th>
+
+                <th>
+                    الحصة
+                </th>
+
+                <th>
+                    المادة
+                </th>
+
+                <th>
+                    موضوع الدرس
+                </th>
+
+                <th>
+                    الواجب
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            ${rowsHTML}
+
+        </tbody>
 
     </table>
 
 
     <div class="poster-signatures">
 
-    <div class="signature">
+        <div class="signature">
 
-    <div class="signature-title">
-    رائد الصف
-    </div>
+            <span class="signature-title">
+                المشرف العام:
+            </span>
 
-    <div>
-    ${escapeHTML(
-        plan.leaderName||
-        ""
-    )}
-    </div>
+            <span class="signature-name">
+                أحمد سمير
+            </span>
 
-    <div class="signature-line"></div>
-
-    </div>
+        </div>
 
 
-    <div class="signature">
+        <div class="signature">
 
-    <div class="signature-title">
-    مدير المدرسة
-    </div>
+            <span class="signature-title">
+                مدير المدرسة:
+            </span>
 
-    <div>
-    ${escapeHTML(
-        plan.principalName||
-        ""
-    )}
-    </div>
+            <span class="signature-name">
+                عبد العزيز بن إبراهيم القحطاني
+            </span>
 
-    <div class="signature-line"></div>
-
-    </div>
+        </div>
 
     </div>
 
 
     <div class="poster-credit">
-    تصميم محمد عامر أحمد
+
+        تصميم محمد عامر أحمد
+
     </div>
 
     `;
@@ -3458,19 +3661,18 @@ function buildPoster(plan){
 }
 
 
-/* ========================================
-   PREPARE POSTER
-======================================== */
-
-async function preparePoster(){
+async function preparePoster(
+    plan
+){
 
     buildPoster(
-        currentPlan
+        plan
     );
 
 
     if(
-        document.fonts?.ready
+        document.fonts &&
+        document.fonts.ready
     ){
 
         await document.fonts.ready;
@@ -3478,36 +3680,754 @@ async function preparePoster(){
     }
 
 
-    await waitImages(
+    try{
+
+        await document.fonts.load(
+            '500 16px "Tajawal"'
+        );
+
+
+        await document.fonts.load(
+            '700 16px "Tajawal"'
+        );
+
+
+        await document.fonts.load(
+            '800 16px "Tajawal"'
+        );
+
+    }
+
+    catch(error){
+
+        console.warn(
+            error
+        );
+
+    }
+
+
+    await waitForImages(
         poster
     );
 
 
     await new Promise(
-
         resolve=>
 
         requestAnimationFrame(
+            ()=>
 
-            ()=>requestAnimationFrame(
+            requestAnimationFrame(
                 resolve
             )
-
         )
-
     );
 
 }
 
 
-/* ========================================
+/* =========================
+   PRINT / PDF WINDOW
+========================= */
+
+async function openOfficialPrintWindow(
+    mode
+){
+
+    if(
+        !currentPlan
+    ){
+
+        alert(
+            "اختر الخطة أولًا."
+        );
+
+        return;
+
+    }
+
+
+    /*
+      نفتح النافذة أولًا مباشرة من الضغط
+      حتى لا يمنعها المتصفح
+    */
+
+    const printWindow =
+    window.open(
+        "",
+        "_blank"
+    );
+
+
+    if(
+        !printWindow
+    ){
+
+        alert(
+            "المتصفح منع نافذة الطباعة. اسمح بالنوافذ المنبثقة ثم حاول مرة أخرى."
+        );
+
+        return;
+
+    }
+
+
+    printWindow.document.write(`
+
+        <!DOCTYPE html>
+
+        <html lang="ar" dir="rtl">
+
+        <head>
+
+            <meta charset="UTF-8">
+
+            <title>
+                جاري تجهيز الخطة...
+            </title>
+
+            <style>
+
+                body{
+                    font-family:Tahoma,Arial,sans-serif;
+                    direction:rtl;
+                    text-align:center;
+                    padding:60px 20px;
+                    color:#315b49;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            <h2>
+                جاري تجهيز الخطة الأسبوعية...
+            </h2>
+
+        </body>
+
+        </html>
+
+    `);
+
+
+    printWindow.document.close();
+
+
+    try{
+
+        await preparePoster(
+            currentPlan
+        );
+
+
+        const posterClone =
+        poster.cloneNode(
+            true
+        );
+
+
+        posterClone
+        .querySelectorAll(
+            "img"
+        )
+        .forEach(
+            img=>{
+
+                const src =
+                img.getAttribute(
+                    "src"
+                );
+
+
+                if(
+                    src
+                ){
+
+                    img.src =
+                    new URL(
+                        src,
+                        window.location.href
+                    ).href;
+
+                }
+
+            }
+        );
+
+
+        const pageStyles =
+
+        Array.from(
+            document.querySelectorAll(
+                "style"
+            )
+        )
+
+        .map(
+            style =>
+            style.innerHTML
+        )
+
+        .join(
+            "\n"
+        );
+
+
+        const title =
+        mode === "pdf"
+        ?
+        `حفظ الخطة PDF - الأسبوع ${currentPlan.weekNumber}`
+        :
+        `طباعة الخطة الأسبوعية - الأسبوع ${currentPlan.weekNumber}`;
+
+
+        printWindow.document.open();
+
+
+        printWindow.document.write(`
+
+            <!DOCTYPE html>
+
+            <html lang="ar" dir="rtl">
+
+            <head>
+
+                <meta charset="UTF-8">
+
+                <title>
+                    ${title}
+                </title>
+
+
+                <link
+                rel="preconnect"
+                href="https://fonts.googleapis.com">
+
+
+                <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossorigin>
+
+
+                <link
+                href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+                rel="stylesheet">
+
+
+                <style>
+
+                    ${pageStyles}
+
+
+                    @page{
+
+                        size:A4 portrait;
+
+                        margin:0;
+
+                    }
+
+
+                    html,
+                    body{
+
+                        margin:0 !important;
+
+                        padding:0 !important;
+
+                        width:210mm !important;
+
+                        min-width:210mm !important;
+
+                        height:297mm !important;
+
+                        min-height:297mm !important;
+
+                        background:white !important;
+
+                        overflow:hidden !important;
+
+                        font-family:
+                        "Tajawal",
+                        Tahoma,
+                        Arial,
+                        sans-serif !important;
+
+                    }
+
+
+                    body{
+
+                        display:block !important;
+
+                    }
+
+
+                    .pdf-page{
+
+                        display:block !important;
+
+                        position:relative !important;
+
+                        width:210mm !important;
+
+                        height:297mm !important;
+
+                        overflow:hidden !important;
+
+                        background:white !important;
+
+                        margin:0 !important;
+
+                        padding:0 !important;
+
+                    }
+
+
+                    #poster{
+
+                        display:block !important;
+
+                        position:absolute !important;
+
+                        top:0 !important;
+
+                        left:0 !important;
+
+                        width:1240px !important;
+
+                        min-height:1754px !important;
+
+                        transform:scale(0.64) !important;
+
+                        transform-origin:top left !important;
+
+                        margin:0 !important;
+
+                        box-shadow:none !important;
+
+                        visibility:visible !important;
+
+                        opacity:1 !important;
+
+                    }
+
+
+                    #poster *{
+
+                        font-family:
+                        "Tajawal",
+                        Tahoma,
+                        Arial,
+                        sans-serif !important;
+
+                    }
+
+
+                    @media print{
+
+                        html,
+                        body{
+
+                            display:block !important;
+
+                            visibility:visible !important;
+
+                            margin:0 !important;
+
+                            padding:0 !important;
+
+                            background:white !important;
+
+                        }
+
+
+                        .pdf-page{
+
+                            display:block !important;
+
+                            visibility:visible !important;
+
+                        }
+
+
+                        #poster{
+
+                            display:block !important;
+
+                            visibility:visible !important;
+
+                            opacity:1 !important;
+
+                            -webkit-print-color-adjust:
+                            exact !important;
+
+                            print-color-adjust:
+                            exact !important;
+
+                        }
+
+                    }
+
+                </style>
+
+            </head>
+
+
+            <body>
+
+
+                <div class="pdf-page">
+
+                    ${posterClone.outerHTML}
+
+                </div>
+
+
+            </body>
+
+            </html>
+
+        `);
+
+
+        printWindow.document.close();
+
+
+        const finishPrinting =
+        async()=>{
+
+
+            try{
+
+                if(
+                    printWindow.document.fonts &&
+                    printWindow.document.fonts.ready
+                ){
+
+                    await printWindow
+                    .document
+                    .fonts
+                    .ready;
+
+                }
+
+            }
+
+            catch(error){
+
+                console.warn(
+                    error
+                );
+
+            }
+
+
+            const images =
+            [
+                ...printWindow.document
+                .querySelectorAll(
+                    "img"
+                )
+            ];
+
+
+            await Promise.all(
+
+                images.map(
+                    img=>{
+
+                        if(
+                            img.complete
+                        ){
+
+                            return Promise.resolve();
+
+                        }
+
+
+                        return new Promise(
+                            resolve=>{
+
+                                img.onload =
+                                resolve;
+
+                                img.onerror =
+                                resolve;
+
+                            }
+                        );
+
+                    }
+                )
+
+            );
+
+
+            setTimeout(
+                ()=>{
+
+                    printWindow.focus();
+
+                    printWindow.print();
+
+                },
+                500
+            );
+
+        };
+
+
+        if(
+            printWindow.document.readyState ===
+            "complete"
+        ){
+
+            finishPrinting();
+
+        }
+
+        else{
+
+            printWindow.onload =
+            finishPrinting;
+
+        }
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        printWindow.close();
+
+
+        alert(
+            "تعذر تجهيز الخطة للطباعة."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+async function posterToBlob(
+    plan
+){
+
+    await preparePoster(
+        plan
+    );
+
+
+    const canvas =
+    await html2canvas(
+
+        poster,
+
+        {
+
+            scale:4,
+
+            backgroundColor:
+            "#fffefb",
+
+            useCORS:true,
+
+            allowTaint:false,
+
+            logging:false,
+
+            imageTimeout:15000,
+
+            removeContainer:true
+
+        }
+
+    );
+
+
+    return await new Promise(
+        resolve=>{
+
+            canvas.toBlob(
+
+                blob=>
+                resolve(
+                    blob
+                ),
+
+                "image/png",
+
+                1
+
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   DOWNLOAD IMAGE
+========================= */
+
+async function downloadOfficialImage(){
+
+    if(
+        !currentPlan
+    ){
+
+        alert(
+            "اختر الخطة أولًا."
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        const blob =
+        await posterToBlob(
+            currentPlan
+        );
+
+
+        if(
+            !blob
+        ){
+
+            throw new Error(
+                "تعذر إنشاء الصورة"
+            );
+
+        }
+
+
+        const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+        const link =
+        document.createElement(
+            "a"
+        );
+
+
+        link.href =
+        url;
+
+
+        link.download =
+        `الخطة_الأسبوعية_${currentPlan.grade}_${currentPlan.section}_الأسبوع_${currentPlan.weekNumber}.png`;
+
+
+        document.body
+        .appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        setTimeout(
+            ()=>{
+
+                URL.revokeObjectURL(
+                    url
+                );
+
+            },
+            1500
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "تعذر إنشاء صورة الخطة."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+printOfficialBtn.addEventListener(
+    "click",
+    ()=>{
+
+        openOfficialPrintWindow(
+            "print"
+        );
+
+    }
+);
+
+
+pdfOfficialBtn.addEventListener(
+    "click",
+    ()=>{
+
+        openOfficialPrintWindow(
+            "pdf"
+        );
+
+    }
+);
+
+
+downloadOfficialBtn.addEventListener(
+    "click",
+    downloadOfficialImage
+);
+
+
+/* =========================
    WAIT IMAGES
-======================================== */
+========================= */
 
-function waitImages(element){
+function waitForImages(
+    element
+){
 
-    const images=[
-        ...element.querySelectorAll(
+    const images =
+    [
+        ...element
+        .querySelectorAll(
             "img"
         )
     ];
@@ -3516,13 +4436,11 @@ function waitImages(element){
     return Promise.all(
 
         images.map(
-
             img=>{
 
                 if(
-                    img.complete
-                    &&
-                    img.naturalWidth>0
+                    img.complete &&
+                    img.naturalWidth > 0
                 ){
 
                     return Promise.resolve();
@@ -3531,22 +4449,18 @@ function waitImages(element){
 
 
                 return new Promise(
-
                     resolve=>{
 
-                        img.onload=
+                        img.onload =
                         resolve;
 
-
-                        img.onerror=
+                        img.onerror =
                         resolve;
 
                     }
-
                 );
 
             }
-
         )
 
     );
@@ -3554,349 +4468,20 @@ function waitImages(element){
 }
 
 
-/* ========================================
-   PRINT / PDF
-======================================== */
+/* =========================
+   DISPLAY
+========================= */
 
-async function printPoster(){
-
-    if(
-        !currentPlan
-    ){
-
-        alert(
-            "اختر الخطة أولًا."
-        );
-
-        return;
-
-    }
-
-
-    const win=
-    window.open(
-        "",
-        "_blank"
-    );
-
+function displayText(
+    value
+){
 
     if(
-        !win
-    ){
-
-        alert(
-            "اسمح بالنوافذ المنبثقة أولًا."
-        );
-
-        return;
-
-    }
-
-
-    await preparePoster();
-
-
-    const clone=
-    poster.cloneNode(
-        true
-    );
-
-
-    clone
-    .querySelectorAll(
-        "img"
-    )
-    .forEach(
-
-        img=>{
-
-            img.src=
-            new URL(
-                img.getAttribute(
-                    "src"
-                ),
-                location.href
-            ).href;
-
-        }
-
-    );
-
-
-    const styles=[
-
-        ...document.querySelectorAll(
-            "style"
-        )
-
-    ]
-    .map(
-        style=>style.innerHTML
-    )
-    .join(
-        "\n"
-    );
-
-
-    win.document.write(`
-
-    <!DOCTYPE html>
-
-    <html lang="ar" dir="rtl">
-
-    <head>
-
-    <meta charset="UTF-8">
-
-    <link
-    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-    <style>
-
-    ${styles}
-
-    @page{
-        size:A4 portrait;
-        margin:0
-    }
-
-    html,
-    body{
-        margin:0!important;
-        padding:0!important;
-        width:210mm!important;
-        height:297mm!important;
-        overflow:hidden!important;
-        background:white!important
-    }
-
-    .print-page{
-        width:210mm;
-        height:297mm;
-        overflow:hidden;
-        position:relative
-    }
-
-    #poster{
-        position:absolute!important;
-        top:0!important;
-        left:0!important;
-        width:1240px!important;
-        min-height:1754px!important;
-        transform:scale(.64)!important;
-        transform-origin:top left!important
-    }
-
-    </style>
-
-    </head>
-
-    <body>
-
-    <div class="print-page">
-
-    ${clone.outerHTML}
-
-    </div>
-
-    </body>
-
-    </html>
-
-    `);
-
-
-    win.document.close();
-
-
-    win.onload=
-    async()=>{
-
-        try{
-
-            if(
-                win.document.fonts?.ready
-            ){
-
-                await win.document.fonts.ready;
-
-            }
-
-        }
-
-        catch(error){}
-
-
-        setTimeout(
-
-            ()=>{
-
-                win.focus();
-
-                win.print();
-
-            },
-
-            500
-
-        );
-
-    };
-
-}
-
-
-/* ========================================
-   IMAGE
-======================================== */
-
-async function downloadImage(){
-
-    if(
-        !currentPlan
-    ){
-
-        alert(
-            "اختر الخطة أولًا."
-        );
-
-        return;
-
-    }
-
-
-    await preparePoster();
-
-
-    const canvas=
-    await html2canvas(
-
-        poster,
-
-        {
-
-            scale:3,
-
-            backgroundColor:
-            "#fffefb",
-
-            useCORS:true,
-
-            logging:false
-
-        }
-
-    );
-
-
-    const link=
-    document.createElement(
-        "a"
-    );
-
-
-    link.download=
-    `الخطة_الأسبوعية_${currentPlan.grade}_${currentPlan.section}_الأسبوع_${currentPlan.weekNumber}.png`;
-
-
-    link.href=
-    canvas.toDataURL(
-        "image/png"
-    );
-
-
-    link.click();
-
-}
-
-
-/* ========================================
-   NEW SEARCH
-======================================== */
-
-function resetSearch(){
-
-    currentStudent=
-    null;
-
-
-    studentPlans=[];
-
-
-    currentPlan=
-    null;
-
-
-    studentData
-    .classList
-    .remove(
-        "show"
-    );
-
-
-    weekCard
-    .classList
-    .remove(
-        "show"
-    );
-
-
-    hidePlan();
-
-
-    weekSelect.innerHTML=
-    `<option value="">اختر الأسبوع</option>`;
-
-
-    identityInput.value=
-    "";
-
-
-    hideMessage(
-        identityStatus
-    );
-
-
-    hideMessage(
-        status
-    );
-
-
-    identityInput.focus();
-
-}
-
-
-/* ========================================
-   HELPERS
-======================================== */
-
-function hidePlan(){
-
-    planArea
-    .classList
-    .remove(
-        "show"
-    );
-
-
-    currentPlan=
-    null;
-
-}
-
-
-function displayText(value){
-
-    if(
-        value===null
-        ||
-        value===undefined
-        ||
+        value === null ||
+        value === undefined ||
         String(
             value
-        ).trim()===""
+        ).trim() === ""
     ){
 
         return "-";
@@ -3911,16 +4496,16 @@ function displayText(value){
 }
 
 
-function safeDisplay(value){
+function safeDisplay(
+    value
+){
 
     if(
-        value===null
-        ||
-        value===undefined
-        ||
+        value === null ||
+        value === undefined ||
         String(
             value
-        ).trim()===""
+        ).trim() === ""
     ){
 
         return "";
@@ -3935,10 +4520,135 @@ function safeDisplay(value){
 }
 
 
-function escapeHTML(value){
+/* =========================
+   DATE
+========================= */
+
+function formatDate(
+    value
+){
+
+    if(
+        !value
+    ){
+
+        return "-";
+
+    }
+
+
+    try{
+
+        const parts =
+        String(
+            value
+        ).split(
+            "-"
+        );
+
+
+        if(
+            parts.length === 3
+        ){
+
+            return (
+                parts[2]
+                +
+                "/"
+                +
+                parts[1]
+                +
+                "/"
+                +
+                parts[0]
+            );
+
+        }
+
+
+        return value;
+
+    }
+
+    catch{
+
+        return value;
+
+    }
+
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+function showStatus(
+    text,
+    type
+){
+
+    status.textContent =
+    text;
+
+
+    status.className =
+    "status show " +
+    type;
+
+}
+
+
+function hideStatus(){
+
+    status.textContent =
+    "";
+
+
+    status.className =
+    "status";
+
+}
+
+
+function hidePlan(){
+
+    planArea
+    .classList
+    .remove(
+        "show"
+    );
+
+
+    currentPlan =
+    null;
+
+}
+
+
+/* =========================
+   UTIL
+========================= */
+
+function unique(
+    array
+){
+
+    return [
+        ...new Set(
+            array
+        )
+    ];
+
+}
+
+
+function escapeHTML(
+    value
+){
 
     return String(
-        value??""
+        value ?? ""
     )
 
     .replaceAll(
@@ -3969,142 +4679,19 @@ function escapeHTML(value){
 }
 
 
-function formatDate(value){
-
-    if(
-        !value
-    ){
-
-        return "-";
-
-    }
-
-
-    const parts=
-    String(
-        value
-    )
-    .split(
-        "-"
-    );
-
-
-    if(
-        parts.length===3
-    ){
-
-        return (
-            parts[2]
-            +"/"+
-            parts[1]
-            +"/"+
-            parts[0]
-        );
-
-    }
-
-
-    return value;
-
-}
-
-
-/* ========================================
-   EVENTS
-======================================== */
-
-searchBtn.addEventListener(
-    "click",
-    searchStudent
-);
-
-
-newSearchBtn.addEventListener(
-    "click",
-    resetSearch
-);
-
-
-identityInput.addEventListener(
-
-    "keydown",
-
-    event=>{
-
-        if(
-            event.key==="Enter"
-        ){
-
-            searchStudent();
-
-        }
-
-    }
-
-);
-
-
-identityInput.addEventListener(
-
-    "input",
-
-    function(){
-
-        this.value=
-        this.value.replace(
-            /[^\d]/g,
-            ""
-        );
-
-    }
-
-);
-
-
-document
-.getElementById(
-    "printBtn"
-)
-.addEventListener(
-    "click",
-    printPoster
-);
-
-
-document
-.getElementById(
-    "pdfBtn"
-)
-.addEventListener(
-    "click",
-    printPoster
-);
-
-
-document
-.getElementById(
-    "imageBtn"
-)
-.addEventListener(
-    "click",
-    downloadImage
-);
-
-
-/* ========================================
-   PRELOAD
-======================================== */
+/* =========================
+   START
+========================= */
 
 loadPlans()
 .catch(
-
     error=>
     console.error(
-        "تعذر تحميل الخطط:",
+        "تعذر التحميل المسبق للخطط:",
         error
     )
-
 );
+
 
 </script>
 
