@@ -88,34 +88,6 @@ body{
     margin:24px auto
 }
 
-.school-identity{
-    display:grid;
-    grid-template-columns:.85fr 1.6fr;
-    gap:13px;
-    margin-bottom:20px
-}
-
-.identity-box{
-    background:#fffdf8;
-    border:1.5px solid #ccb168;
-    border-radius:13px;
-    padding:14px 16px
-}
-
-.identity-title{
-    color:#92712d;
-    font-weight:800;
-    text-align:center;
-    font-size:18px;
-    margin-bottom:7px
-}
-
-.identity-text{
-    text-align:center;
-    line-height:1.8;
-    font-size:14px;
-    font-weight:600
-}
 
 .card{
     background:white;
@@ -553,7 +525,7 @@ select:focus{
 }
 
 /* =========================
-   POSTER
+   POSTER - أوضح للطباعة والصورة
 ========================= */
 
 .poster-host{
@@ -568,30 +540,35 @@ select:focus{
     min-height:1754px;
     background:#fffefb;
     position:relative;
-    padding:27px 31px 55px;
-    direction:rtl
+    padding:18px 24px 44px;
+    direction:rtl;
+    font-family:"Tajawal",Tahoma,Arial,sans-serif;
+    font-weight:600;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision
 }
 
 .poster-header{
     display:grid;
-    grid-template-columns:205px 1fr 205px;
+    grid-template-columns:150px 1fr 150px;
     direction:ltr;
     align-items:center;
     border-bottom:4px solid var(--gold);
-    padding-bottom:12px
+    padding-bottom:6px;
+    min-height:96px
 }
 
 .school-logo img{
-    width:175px;
-    height:135px;
+    width:132px;
+    height:92px;
     object-fit:contain
 }
 
 .poster-government{
     direction:rtl;
     text-align:center;
-    line-height:1.65;
-    font-size:21px;
+    line-height:1.32;
+    font-size:17px;
     font-weight:800
 }
 
@@ -601,159 +578,170 @@ select:focus{
 }
 
 .poster-class-title{
-    margin-top:11px;
+    margin-top:6px;
     text-align:center;
     background:#eef4f0;
     border-right:6px solid #819f8e;
     border-left:6px solid #819f8e;
     color:#294f40;
-    font-size:29px;
+    font-size:28px;
+    line-height:1.25;
     font-weight:800;
-    padding:10px
+    padding:7px 10px
 }
 
 .poster-student{
-    margin-top:9px;
+    margin-top:5px;
     border:1.5px solid #c7ad67;
     background:#fffdf8;
     text-align:center;
-    padding:8px;
+    padding:6px 10px;
     font-size:17px;
+    line-height:1.3;
     font-weight:700
-}
-
-.vision-message{
-    display:grid;
-    grid-template-columns:.85fr 1.6fr;
-    gap:11px;
-    margin-top:11px
-}
-
-.vm-box{
-    border:1.5px solid #ccb168;
-    background:#fffdf8;
-    padding:10px 13px
-}
-
-.vm-title{
-    color:#92712d;
-    text-align:center;
-    font-weight:800;
-    margin-bottom:6px
-}
-
-.vm-text{
-    text-align:center;
-    line-height:1.65;
-    font-weight:600
 }
 
 .poster-weekline{
-    margin-top:10px;
+    margin-top:5px;
     display:flex;
     justify-content:center;
-    gap:28px;
-    padding:10px;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:32px;
+    padding:7px 10px;
     border:1.5px solid #c7ad67;
     background:#fbf7ea;
-    font-size:18px;
-    font-weight:700
+    font-size:17px;
+    line-height:1.25;
+    font-weight:800
 }
 
 .poster-special{
-    margin-top:9px;
+    margin-top:5px;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:9px
+    gap:7px
 }
 
 .special-box{
     border:1.5px solid #90a99b;
     background:#edf4f0;
-    padding:10px;
+    padding:7px 10px;
     text-align:center;
-    font-size:17px
+    font-size:17px;
+    line-height:1.25;
+    font-weight:700
+}
+
+.special-box strong{
+    color:#315b49;
+    font-weight:800
 }
 
 .poster-table{
     width:100%;
-    margin-top:11px;
+    margin-top:7px;
     border-collapse:collapse;
     table-layout:fixed
 }
 
 .poster-table th{
-    background:#eef3ef;
-    color:#315b49;
-    border:1.5px solid #111;
-    padding:9px 4px;
-    font-size:15px
+    background:#e4eee8;
+    color:#234b3b;
+    border:2px solid #111;
+    padding:8px 4px;
+    font-size:18px;
+    line-height:1.15;
+    font-weight:800;
+    text-align:center
 }
 
 .poster-table td{
-    border:1px solid #222;
-    padding:5px 7px;
-    height:31px;
+    border:1.5px solid #222;
+    padding:4px 7px;
+    height:30px;
     text-align:center;
     vertical-align:middle;
-    font-size:14px
+    font-size:16px;
+    line-height:1.2;
+    font-weight:600;
+    overflow-wrap:anywhere
 }
 
 .poster-table .day-cell{
     background:#789685;
     color:white;
-    font-size:18px;
+    font-size:17px;
+    line-height:1.3;
     font-weight:800;
-    overflow:visible
+    white-space:nowrap;
+    overflow:hidden;
+    padding:4px 2px
 }
 
+/* أسماء الأيام أفقية دائمًا */
 .day-vertical{
-    display:inline-block;
-    white-space:nowrap;
-    transform:rotate(-90deg);
-    transform-origin:center;
-    font-size:19px;
-    font-weight:800
+    display:block!important;
+    white-space:nowrap!important;
+    writing-mode:horizontal-tb!important;
+    text-orientation:mixed!important;
+    transform:none!important;
+    font-size:17px!important;
+    line-height:1.3!important;
+    font-weight:800!important
 }
 
 .poster-table .period-cell{
-    background:#faf7ed
+    background:#faf7ed;
+    font-size:16px;
+    font-weight:800
+}
+
+.poster-table .subject-cell{
+    color:#315b49;
+    font-size:16px;
+    font-weight:800
 }
 
 .poster-table tr.day-start td{
-    border-top:5px solid #111!important
+    border-top:4px solid #111!important
 }
 
 .poster-signatures{
-    margin-top:21px;
+    margin-top:10px;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:120px
+    gap:50px
 }
 
 .signature{
-    text-align:center
+    text-align:center;
+    font-size:16px;
+    line-height:1.25;
+    font-weight:700
 }
 
 .signature-title{
     color:#315b49;
+    font-size:16px;
     font-weight:800;
-    margin-bottom:9px
+    margin-bottom:3px
 }
 
 .signature-line{
-    width:185px;
+    width:155px;
     border-bottom:1px solid #666;
-    margin:14px auto 0
+    margin:6px auto 0
 }
 
 .poster-credit{
     position:absolute;
-    bottom:17px;
+    bottom:10px;
     left:0;
     right:0;
     text-align:center;
     color:#315b49;
+    font-size:13px;
     font-weight:700
 }
 
@@ -780,10 +768,6 @@ footer strong{
     .brand-logo img{
         width:64px;
         height:64px
-    }
-
-    .school-identity{
-        grid-template-columns:1fr
     }
 
     .login-grid{
@@ -868,36 +852,6 @@ footer strong{
 <main class="container">
 
 
-<section class="school-identity">
-
-<div class="identity-box">
-
-<div class="identity-title">
-الرؤية
-</div>
-
-<div class="identity-text">
-الريادة في إعداد المتعلم المتميز المعتز بقيمه والمؤهل لمستقبله.
-</div>
-
-</div>
-
-
-<div class="identity-box">
-
-<div class="identity-title">
-الرسالة
-</div>
-
-<div class="identity-text">
-نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة،
-ترسخ القيم، وتبني المعرفة، وتطور المهارات،
-وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
-</div>
-
-</div>
-
-</section>
 
 
 <!-- =========================
@@ -3153,7 +3107,7 @@ function buildPoster(plan){
                     ${index+1}
                     </td>
 
-                    <td>
+                    <td class="subject-cell">
                     ${safeDisplay(
                         row.subject
                     )}
@@ -3271,39 +3225,6 @@ function buildPoster(plan){
 
     </div>
 
-
-    <div class="vision-message">
-
-    <div class="vm-box">
-
-    <div class="vm-title">
-    الرؤية
-    </div>
-
-    <div class="vm-text">
-    الريادة في إعداد المتعلم المتميز المعتز بقيمه والمؤهل لمستقبله.
-    </div>
-
-    </div>
-
-
-    <div class="vm-box">
-
-    <div class="vm-title">
-    الرسالة
-    </div>
-
-    <div class="vm-text">
-    نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة،
-    ترسخ القيم، وتبني المعرفة، وتطور المهارات،
-    وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
-    </div>
-
-    </div>
-
-    </div>
-
-
     <div class="poster-weekline">
 
     <span>
@@ -3362,11 +3283,11 @@ function buildPoster(plan){
 
     <colgroup>
 
+    <col style="width:8%">
     <col style="width:6%">
-    <col style="width:6%">
-    <col style="width:10%">
-    <col style="width:53%">
-    <col style="width:25%">
+    <col style="width:14%">
+    <col style="width:46%">
+    <col style="width:26%">
 
     </colgroup>
 
@@ -3776,7 +3697,7 @@ async function downloadImage(){
 
         {
 
-            scale:3,
+            scale:4,
 
             backgroundColor:
             "#fffefb",
