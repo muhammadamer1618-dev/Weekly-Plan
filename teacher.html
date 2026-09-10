@@ -497,36 +497,36 @@ select:focus{
     color:#171717;
     position:relative;
     direction:rtl;
-    padding:27px 31px 55px;
+    padding:16px 24px 42px;
     font-family:"Tajawal",Tahoma,Arial,sans-serif;
-    font-weight:500;
+    font-weight:600;
     -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+    text-rendering:geometricPrecision;
 }
 
 .poster-header{
     display:grid;
-    grid-template-columns:205px 1fr 205px;
+    grid-template-columns:150px 1fr 150px;
     direction:ltr;
     align-items:center;
-    min-height:150px;
-    padding-bottom:12px;
+    min-height:94px;
+    padding-bottom:6px;
     border-bottom:4px solid var(--gold);
 }
 
 .school-logo{
     text-align:left;
-    padding-left:10px;
+    padding-left:4px;
 }
 
 .school-logo img{
-    width:175px;
-    height:135px;
+    width:132px;
+    height:90px;
     object-fit:contain;
 }
 
 .header-spacer{
-    width:205px;
+    width:150px;
     height:1px;
 }
 
@@ -534,90 +534,63 @@ select:focus{
     direction:rtl;
     text-align:center;
     color:#292929;
-    line-height:1.65;
-    font-size:21px;
+    line-height:1.28;
+    font-size:17px;
     font-weight:800;
 }
 
 .poster-government div{
-    margin:1px 0;
+    margin:0;
 }
 
 .poster-government div:last-child{
     color:var(--green-dark);
     font-size:23px;
+    margin-top:2px;
 }
 
 .poster-class-title{
-    margin-top:11px;
+    margin-top:6px;
     text-align:center;
     background:#eef4f0;
     border-right:6px solid #819f8e;
     border-left:6px solid #819f8e;
     color:#294f40;
-    font-size:29px;
-    line-height:1.45;
+    font-size:28px;
+    line-height:1.25;
     font-weight:800;
-    padding:10px 12px;
-}
-
-.vision-message{
-    display:grid;
-    grid-template-columns:.85fr 1.6fr;
-    gap:11px;
-    margin-top:11px;
-}
-
-.vm-box{
-    border:1.5px solid #ccb168;
-    border-radius:8px;
-    background:#fffdf8;
-    padding:10px 13px;
-}
-
-.vm-title{
-    color:#92712d;
-    font-weight:800;
-    text-align:center;
-    font-size:18px;
-    margin-bottom:6px;
-}
-
-.vm-text{
-    text-align:center;
-    color:#303030;
-    font-size:15px;
-    font-weight:600;
-    line-height:1.65;
+    padding:7px 10px;
 }
 
 .poster-weekline{
-    margin-top:10px;
+    margin-top:6px;
     display:flex;
     align-items:center;
     justify-content:center;
     flex-wrap:wrap;
-    gap:28px;
-    padding:10px 12px;
+    gap:32px;
+    padding:7px 10px;
     border:1.5px solid #c7ad67;
     background:#fbf7ea;
-    font-size:18px;
-    font-weight:700;
+    font-size:17px;
+    line-height:1.25;
+    font-weight:800;
 }
 
 .poster-special{
-    margin-top:9px;
+    margin-top:6px;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:9px;
+    gap:7px;
 }
 
 .special-box{
     border:1.5px solid #90a99b;
     background:#edf4f0;
-    padding:10px;
+    padding:7px 10px;
     font-size:17px;
-    font-weight:600;
+    line-height:1.25;
+    font-weight:700;
     text-align:center;
 }
 
@@ -628,31 +601,32 @@ select:focus{
 
 .poster-table{
     width:100%;
-    margin-top:11px;
+    margin-top:7px;
     border-collapse:collapse;
     table-layout:fixed;
     direction:rtl;
 }
 
 .poster-table th{
-    background:#eef3ef;
-    color:#315b49;
-    border:1.5px solid #1b1b1b;
-    padding:9px 4px;
-    font-size:15px;
+    background:#e5eee9;
+    color:#234b3b;
+    border:2px solid #171717;
+    padding:8px 4px;
+    font-size:18px;
+    line-height:1.15;
     font-weight:800;
-    line-height:1.25;
+    text-align:center;
 }
 
 .poster-table td{
-    border:1px solid #222;
-    padding:5px 7px;
-    height:31px;
-    line-height:1.18;
-    font-size:14px;
+    border:1.5px solid #222;
+    padding:4px 7px;
+    height:30px;
+    line-height:1.2;
+    font-size:16px;
     text-align:center;
     vertical-align:middle;
-    font-weight:500;
+    font-weight:600;
     word-break:normal;
     overflow-wrap:anywhere;
 }
@@ -660,27 +634,32 @@ select:focus{
 .poster-table .day-cell{
     background:#789685;
     color:white;
-    font-size:18px;
+    font-size:17px;
+    line-height:1.25;
     font-weight:800;
-    padding:0;
+    padding:4px 2px;
     text-align:center;
     vertical-align:middle;
+    white-space:nowrap;
+    overflow:hidden;
 }
 
+/* الأيام أفقية وواضحة في المعاينة والصورة والطباعة */
 .day-vertical{
-    writing-mode:vertical-rl;
-    transform:rotate(180deg);
-    white-space:nowrap;
-    display:inline-block;
-    letter-spacing:1px;
-    line-height:1;
-    font-size:19px;
-    font-weight:800;
+    display:block !important;
+    writing-mode:horizontal-tb !important;
+    text-orientation:mixed !important;
+    transform:none !important;
+    white-space:nowrap !important;
+    letter-spacing:0 !important;
+    line-height:1.25 !important;
+    font-size:17px !important;
+    font-weight:800 !important;
 }
 
 .poster-table .period-cell{
     background:#faf7ed;
-    font-size:15px;
+    font-size:16px;
     font-weight:800;
     text-align:center;
     padding-left:3px;
@@ -688,40 +667,44 @@ select:focus{
 }
 
 .poster-table .subject-cell{
-    font-size:13px;
-    font-weight:700;
+    color:#315b49;
+    font-size:16px;
+    line-height:1.2;
+    font-weight:800;
     text-align:center;
-    padding:4px;
+    padding:4px 5px;
 }
 
 .poster-table .topic-cell{
-    font-size:14px;
-    line-height:1.18;
+    font-size:16px;
+    line-height:1.2;
+    font-weight:700;
     text-align:center;
-    padding:5px 10px;
+    padding:4px 9px;
     word-break:normal;
     overflow-wrap:anywhere;
 }
 
 .poster-table .homework-cell{
-    font-size:14px;
-    line-height:1.18;
+    font-size:16px;
+    line-height:1.2;
+    font-weight:700;
     text-align:center;
-    padding:5px 8px;
+    padding:4px 8px;
     word-break:normal;
     overflow-wrap:anywhere;
 }
 
 .poster-table tr.day-start td{
-    border-top:5px solid #111 !important;
+    border-top:4px solid #111 !important;
 }
 
 .poster-signatures{
-    margin-top:21px;
+    margin-top:10px;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:120px;
-    font-size:18px;
+    gap:55px;
+    font-size:16px;
     font-weight:700;
 }
 
@@ -731,30 +714,31 @@ select:focus{
 
 .signature-title{
     color:#315b49;
-    margin-bottom:9px;
-    font-size:18px;
+    margin-bottom:3px;
+    font-size:16px;
     font-weight:800;
 }
 
 .signature-name{
-    min-height:30px;
-    font-size:17px;
-    font-weight:600;
+    min-height:23px;
+    font-size:16px;
+    line-height:1.25;
+    font-weight:700;
 }
 
 .signature-line{
-    width:185px;
+    width:155px;
     border-bottom:1px solid #666;
-    margin:14px auto 0;
+    margin:6px auto 0;
 }
 
 .poster-credit{
     position:absolute;
-    bottom:17px;
+    bottom:10px;
     left:0;
     right:0;
     text-align:center;
-    font-size:16px;
+    font-size:13px;
     font-weight:700;
     color:#315b49;
 }
@@ -3065,44 +3049,6 @@ function buildPoster(plan){
 
         </div>
 
-
-        <div class="vision-message">
-
-            <div class="vm-box">
-
-                <div class="vm-title">
-                    الرؤية
-                </div>
-
-                <div class="vm-text">
-
-                    الريادة في إعداد المتعلم المتميز
-                    المعتز بقيمه والمؤهل لمستقبله.
-
-                </div>
-
-            </div>
-
-
-            <div class="vm-box">
-
-                <div class="vm-title">
-                    الرسالة
-                </div>
-
-                <div class="vm-text">
-
-                    نقدم تعليمًا عالي الجودة في بيئة تعليمية آمنة وملهمة،
-                    ترسخ القيم، وتبني المعرفة، وتطور المهارات،
-                    وتمكن المتعلم من الإبداع والابتكار والمسؤولية.
-
-                </div>
-
-            </div>
-
-        </div>
-
-
         <div class="poster-weekline">
 
             <span>
@@ -3157,11 +3103,11 @@ function buildPoster(plan){
 
             <colgroup>
 
-                <col style="width:5%">
+                <col style="width:8%">
                 <col style="width:6%">
-                <col style="width:10%">
-                <col style="width:53%">
-                <col style="width:25%">
+                <col style="width:14%">
+                <col style="width:46%">
+                <col style="width:26%">
 
             </colgroup>
 
@@ -3309,7 +3255,7 @@ async function posterToBlob(plan){
 
         {
 
-            scale:3,
+            scale:4,
 
             backgroundColor:
             "#fffefb",
