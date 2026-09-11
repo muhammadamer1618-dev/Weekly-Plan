@@ -272,15 +272,18 @@ select:focus{
     border-color:var(--gold)
 }
 
-/* إظهار أسماء الأسابيع بوضوح داخل القائمة المنسدلة */
+/* إصلاح موضع قائمة اختيار الأسبوع داخل الشاشة */
 #weekSelect{
-    color:#252525;
-    background-color:#ffffff;
+    direction:rtl;
+    text-align:right;
+    text-align-last:right;
+    max-width:100%;
+    margin:0;
 }
 
 #weekSelect option{
-    color:#252525;
-    background-color:#ffffff;
+    direction:rtl;
+    text-align:right;
 }
 
 /* =========================
