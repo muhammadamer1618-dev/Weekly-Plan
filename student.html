@@ -272,7 +272,15 @@ select:focus{
     border-color:var(--gold)
 }
 
-/* قائمة الأسبوع داخل الصفحة حتى لا تخرج خارج الشاشة */
+/* قائمة اختيار الأسبوع داخل الشاشة */
+#weekCard{
+    overflow:visible;
+}
+
+#weekCard .week-body{
+    overflow:visible;
+}
+
 .week-select-native{
     display:none!important;
 }
@@ -280,6 +288,7 @@ select:focus{
 .week-picker{
     position:relative;
     width:100%;
+    z-index:50;
 }
 
 .week-picker-btn{
@@ -290,7 +299,6 @@ select:focus{
     color:#252525;
     border-radius:10px;
     padding:12px 16px;
-    outline:none;
     font-size:15px;
     font-weight:700;
     font-family:"Tajawal",Tahoma,Arial,sans-serif;
@@ -319,8 +327,8 @@ select:focus{
     background:#fff;
     border:1px solid #d2d2d2;
     border-radius:10px;
-    box-shadow:0 10px 28px rgba(0,0,0,.16);
-    z-index:9999;
+    box-shadow:0 10px 28px rgba(0,0,0,.18);
+    z-index:99999;
 }
 
 .week-picker.open .week-picker-menu{
@@ -328,6 +336,7 @@ select:focus{
 }
 
 .week-picker-option{
+    display:block;
     width:100%;
     border:0;
     border-bottom:1px solid #eee;
@@ -1079,13 +1088,10 @@ class="card week-card">
 </select>
 
 <div id="weekPicker" class="week-picker">
-
 <button id="weekPickerBtn" class="week-picker-btn" type="button">
 <span id="weekPickerText">اختر الأسبوع</span>
 </button>
-
 <div id="weekPickerMenu" class="week-picker-menu"></div>
-
 </div>
 
 </div>
@@ -1554,25 +1560,10 @@ document.getElementById(
     "weekSelect"
 );
 
-const weekPicker=
-document.getElementById(
-    "weekPicker"
-);
-
-const weekPickerBtn=
-document.getElementById(
-    "weekPickerBtn"
-);
-
-const weekPickerText=
-document.getElementById(
-    "weekPickerText"
-);
-
-const weekPickerMenu=
-document.getElementById(
-    "weekPickerMenu"
-);
+const weekPicker=document.getElementById("weekPicker");
+const weekPickerBtn=document.getElementById("weekPickerBtn");
+const weekPickerText=document.getElementById("weekPickerText");
+const weekPickerMenu=document.getElementById("weekPickerMenu");
 
 
 const status=
@@ -2384,14 +2375,8 @@ async function searchStudent(){
             latestWeek
         );
 
-
-        const selectedWeekOption=
-        weekSelect.options[
-            weekSelect.selectedIndex
-        ];
-
         weekPickerText.textContent=
-        selectedWeekOption?.textContent||
+        weekSelect.options[weekSelect.selectedIndex]?.textContent||
         "اختر الأسبوع";
 
 
@@ -2512,72 +2497,43 @@ function fillWeeks(){
 
     );
 
-
     renderWeekPicker();
 
 }
 
 
 /* ========================================
-   WEEK PICKER داخل الشاشة
+   WEEK PICKER
 ======================================== */
 
 function renderWeekPicker(){
-
     weekPickerMenu.innerHTML="";
-
 
     [...weekSelect.options]
     .filter(option=>option.value)
     .forEach(option=>{
-
-        const button=
-        document.createElement("button");
-
+        const button=document.createElement("button");
         button.type="button";
         button.className="week-picker-option";
         button.textContent=option.textContent;
-        button.dataset.value=option.value;
-
         button.addEventListener("click",()=>{
-
             weekSelect.value=option.value;
             weekPickerText.textContent=option.textContent;
-
-            weekPicker
-            .classList
-            .remove("open");
-
+            weekPicker.classList.remove("open");
             loadSelectedWeek();
-
         });
-
         weekPickerMenu.appendChild(button);
-
     });
-
 }
 
-
 weekPickerBtn.addEventListener("click",()=>{
-
-    weekPicker
-    .classList
-    .toggle("open");
-
+    weekPicker.classList.toggle("open");
 });
 
-
 document.addEventListener("click",event=>{
-
     if(!weekPicker.contains(event.target)){
-
-        weekPicker
-        .classList
-        .remove("open");
-
+        weekPicker.classList.remove("open");
     }
-
 });
 
 
@@ -3953,7 +3909,6 @@ function resetSearch(){
 
     weekSelect.innerHTML=
     `<option value="">اختر الأسبوع</option>`;
-
 
     weekPickerMenu.innerHTML="";
     weekPickerText.textContent="اختر الأسبوع";
