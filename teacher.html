@@ -861,7 +861,7 @@ footer strong{
 
 <strong>جدول المواد:</strong>
 
-عند اختيار أسبوع جديد سيقوم النظام تلقائيًا بأخذ أسماء المواد من أقرب أسبوع سابق محفوظ، بينما تبدأ موضوعات الدروس والواجبات فارغة.
+عند اختيار أسبوع جديد سيقوم النظام تلقائيًا بنسخ الخطة كاملة من أقرب أسبوع سابق محفوظ. وإذا أردت بدء محتوى جديد استخدم زر «تفريغ محتوى الخطة» مع الاحتفاظ بجدول المواد.
 
 </div>
 
@@ -1010,6 +1010,10 @@ footer strong{
 
 <button class="action-btn share-btn" id="shareCurrentBtn">
 إرسال الصورة
+</button>
+
+<button class="action-btn clear-btn" id="clearPlanBtn">
+تفريغ محتوى الخطة
 </button>
 
 <button class="action-btn clear-btn" id="clearDayBtn">
@@ -1569,55 +1573,17 @@ function findScheduleSourceForWeek(targetWeek){
 
 
 /* =========================
-   COPY SUBJECTS ONLY
+   COPY PREVIOUS PLAN
 ========================= */
 
-function copySubjectsOnly(sourcePlan){
-
-    const result =
-    createEmptyPlan();
-
+function copyPreviousPlan(sourcePlan){
 
     if(!sourcePlan){
-
-        return result;
-
+        return createEmptyPlan();
     }
 
-
-    const source =
-    normalizePlan(
-        sourcePlan.days
-    );
-
-
-    dayKeys.forEach(
-        day=>{
-
-            for(let i=0;i<8;i++){
-
-                result[day][i].subject =
-                String(
-                    source?.[day]?.[i]?.subject ||
-                    ""
-                );
-
-
-                result[day][i].topic =
-                "";
-
-
-                result[day][i].homework =
-                "";
-
-            }
-
-        }
-    );
-
-
-    return result;
-
+    // نسخة مستقلة من الخطة السابقة: المواد + الدروس + الواجبات
+    return normalizePlan(sourcePlan.days);
 }
 
 
@@ -1848,7 +1814,7 @@ async function loadSelectedWeek(week){
 
     /*
     أسبوع جديد:
-    المواد فقط من أقرب أسبوع سابق.
+    الخطة كاملة من أقرب أسبوع سابق.
     */
 
     const sourcePlan =
@@ -1856,7 +1822,7 @@ async function loadSelectedWeek(week){
 
 
     planData =
-    copySubjectsOnly(
+    copyPreviousPlan(
         sourcePlan
     );
 
@@ -1898,7 +1864,7 @@ async function loadSelectedWeek(week){
     if(sourcePlan){
 
         showMessage(
-            `تم نقل أسماء المواد من الأسبوع ${sourcePlan.weekNumber} فقط. موضوعات الدروس والواجبات فارغة ✅`,
+            `تم نسخ الخطة كاملة من الأسبوع ${sourcePlan.weekNumber} ✅ يمكنك تعديلها أو تفريغ محتواها مع الاحتفاظ بالمواد.`,
             "success"
         );
 
@@ -1907,7 +1873,7 @@ async function loadSelectedWeek(week){
     else{
 
         showMessage(
-            "لا توجد خطة سابقة بها مواد. أدخل المواد ثم احفظ الخطة.",
+            "لا توجد خطة سابقة يمكن نسخها. أدخل الخطة ثم احفظها.",
             "success"
         );
 
@@ -2628,6 +2594,46 @@ function openPlan(plan){
     });
 
 }
+
+
+/* =========================
+   CLEAR FULL PLAN CONTENT
+========================= */
+
+document
+.getElementById("clearPlanBtn")
+.onclick =
+()=>{
+
+    saveCurrentDayToMemory();
+
+    if(
+        !confirm(
+            "هل تريد تفريغ موضوعات الدروس والواجبات من الخطة كاملة مع الاحتفاظ بجدول المواد؟"
+        )
+    ){
+        return;
+    }
+
+    dayKeys.forEach(day=>{
+
+        planData[day].forEach(row=>{
+
+            row.topic = "";
+            row.homework = "";
+
+        });
+
+    });
+
+    renderCurrentDay();
+
+    showMessage(
+        "تم تفريغ موضوعات الدروس والواجبات من الخطة كاملة مع الاحتفاظ بجدول المواد. لن تتغير الخطة المحفوظة إلا بعد الضغط على حفظ الخطة.",
+        "success"
+    );
+
+};
 
 
 /* =========================
