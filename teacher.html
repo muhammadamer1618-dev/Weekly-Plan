@@ -332,8 +332,6 @@ select:focus{
     font-weight:700;
 }
 
-.action-btn:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.25);}
-
 .action-btn{
     padding:12px 19px;
     font-size:14px;
@@ -1201,38 +1199,6 @@ createEmptyPlan();
 
 let savedPlans = [];
 
-let planSaved = false;
-let isHydratingPlan = false;
-
-const SAVE_REQUIRED_MESSAGE = "⚠️ يجب حفظ الخطة أولًا، ثم يمكنك تحميلها أو تصديرها.";
-
-function requireSavedPlan(){
-    if(planSaved) return true;
-    showMessage(SAVE_REQUIRED_MESSAGE, "error");
-    return false;
-}
-
-function updateExportLockUI(){
-    const locked = !planSaved;
-    ["previewBtn","downloadCurrentBtn","pdfCurrentBtn","shareCurrentBtn","modalDownload","modalPDF","modalShare"].forEach(id=>{
-        const el = document.getElementById(id);
-        if(!el) return;
-        el.disabled = locked;
-        el.setAttribute("aria-disabled", String(locked));
-        el.title = locked ? SAVE_REQUIRED_MESSAGE : "";
-    });
-    if(locked && previewModal) previewModal.classList.remove("show");
-}
-
-function markPlanDirty(){
-    if(isHydratingPlan) return;
-    if(planSaved){
-        planSaved = false;
-        updateExportLockUI();
-    }
-}
-
-
 let previewPlan =
 null;
 
@@ -1722,22 +1688,6 @@ function renderCurrentDay(){
 }
 
 
-planRows.addEventListener("input", markPlanDirty);
-planRows.addEventListener("change", markPlanDirty);
-
-[
-    weekNumber,
-    startDate,
-    endDate,
-    educationalValue,
-    weekPersonality,
-    principalName
-].forEach(element=>{
-    element.addEventListener("input", markPlanDirty);
-    element.addEventListener("change", markPlanDirty);
-});
-
-
 function saveCurrentDayToMemory(){
 
     const rows =
@@ -1791,9 +1741,6 @@ async()=>{
     if(!weekNumber.value){
 
         resetPlanForm();
-
-        planSaved = false;
-        updateExportLockUI();
 
         return;
 
@@ -1852,9 +1799,6 @@ async function loadSelectedWeek(week){
 
 
         renderCurrentDay();
-
-        planSaved = true;
-        updateExportLockUI();
 
 
         showMessage(
@@ -1915,9 +1859,6 @@ async function loadSelectedWeek(week){
 
 
     renderCurrentDay();
-
-    planSaved = false;
-    updateExportLockUI();
 
 
     if(sourcePlan){
@@ -2058,9 +1999,6 @@ async()=>{
 
 
         renderCurrentDay();
-
-        planSaved = true;
-        updateExportLockUI();
 
 
         showMessage(
@@ -2334,8 +2272,7 @@ function bindHistoryButtons(){
                 if(plan){
 
                     openPreview(
-                        normalizeSavedPlan(plan),
-                        true
+                        normalizeSavedPlan(plan)
                     );
 
                 }
@@ -2363,8 +2300,7 @@ function bindHistoryButtons(){
                 if(plan){
 
                     await downloadPlanImage(
-                        normalizeSavedPlan(plan),
-                        true
+                        normalizeSavedPlan(plan)
                     );
 
                 }
@@ -2391,8 +2327,7 @@ function bindHistoryButtons(){
                 if(plan){
 
                     exportPlanPDF(
-                        normalizeSavedPlan(plan),
-                        true
+                        normalizeSavedPlan(plan)
                     );
 
                 }
@@ -2420,8 +2355,7 @@ function bindHistoryButtons(){
                 if(plan){
 
                     await sharePlanImage(
-                        normalizeSavedPlan(plan),
-                        true
+                        normalizeSavedPlan(plan)
                     );
 
                 }
@@ -2642,13 +2576,7 @@ function openPlan(plan){
     "";
 
 
-    isHydratingPlan = true;
-
     renderCurrentDay();
-
-    isHydratingPlan = false;
-    planSaved = true;
-    updateExportLockUI();
 
 
     showMessage(
@@ -2700,9 +2628,6 @@ document
 
     renderCurrentDay();
 
-    planSaved = false;
-    updateExportLockUI();
-
     showMessage(
         "تم تفريغ موضوعات الدروس والواجبات من الخطة كاملة مع الاحتفاظ بجدول المواد. لن تتغير الخطة المحفوظة إلا بعد الضغط على حفظ الخطة.",
         "success"
@@ -2749,9 +2674,6 @@ document
 
 
     renderCurrentDay();
-
-    planSaved = false;
-    updateExportLockUI();
 
 
     showMessage(
@@ -2842,15 +2764,14 @@ document
 .onclick =
 ()=>{
 
-    if(!requireSavedPlan()){
-        return;
-    }
-
     const plan =
     getCurrentPlan();
 
+
     if(plan){
+
         openPreview(plan);
+
     }
 
 };
@@ -2861,15 +2782,14 @@ document
 .onclick =
 async()=>{
 
-    if(!requireSavedPlan()){
-        return;
-    }
-
     const plan =
     getCurrentPlan();
 
+
     if(plan){
+
         await downloadPlanImage(plan);
+
     }
 
 };
@@ -2880,15 +2800,14 @@ document
 .onclick =
 ()=>{
 
-    if(!requireSavedPlan()){
-        return;
-    }
-
     const plan =
     getCurrentPlan();
 
+
     if(plan){
+
         exportPlanPDF(plan);
+
     }
 
 };
@@ -2899,127 +2818,13 @@ document
 .onclick =
 async()=>{
 
-    if(!requireSavedPlan()){
-        return;
-    }
-
     const plan =
     getCurrentPlan();
 
+
     if(plan){
+
         await sharePlanImage(plan);
-    }
-
-};
-
-
-/* =========================
-   PREVIEW MODAL
-========================= */
-
-function openPreview(plan, allowHistory = false){
-
-    if(!allowHistory && !requireSavedPlan()){
-        return;
-    }
-
-    previewPlan =
-    plan;
-
-    buildPoster(plan);
-
-    previewModal
-    .classList
-    .add("show");
-
-}
-
-
-document
-.getElementById("closePreview")
-.onclick =
-()=>{
-
-    previewModal
-    .classList
-    .remove("show");
-
-};
-
-
-previewModal.addEventListener(
-    "click",
-    event=>{
-
-        if(
-            event.target ===
-            previewModal
-        ){
-
-            previewModal
-            .classList
-            .remove("show");
-
-        }
-
-    }
-);
-
-
-document
-.getElementById("modalDownload")
-.onclick =
-async()=>{
-
-    if(!requireSavedPlan()){
-        return;
-    }
-
-    if(previewPlan){
-
-        await downloadPlanImage(
-            previewPlan
-        );
-
-    }
-
-};
-
-
-document
-.getElementById("modalPDF")
-.onclick =
-()=>{
-
-    if(!requireSavedPlan()){
-        return;
-    }
-
-    if(previewPlan){
-
-        exportPlanPDF(
-            previewPlan
-        );
-
-    }
-
-};
-
-
-document
-.getElementById("modalShare")
-.onclick =
-async()=>{
-
-    if(!requireSavedPlan()){
-        return;
-    }
-
-    if(previewPlan){
-
-        await sharePlanImage(
-            previewPlan
-        );
 
     }
 
@@ -3517,11 +3322,7 @@ async function posterToBlob(plan){
    DOWNLOAD IMAGE
 ========================= */
 
-async function downloadPlanImage(plan, allowHistory = false){
-
-    if(!allowHistory && !requireSavedPlan()){
-        return;
-    }
+async function downloadPlanImage(plan){
 
     try{
 
@@ -3593,11 +3394,7 @@ async function downloadPlanImage(plan, allowHistory = false){
    PDF
 ========================= */
 
-async function exportPlanPDF(plan, allowHistory = false){
-
-    if(!allowHistory && !requireSavedPlan()){
-        return;
-    }
+async function exportPlanPDF(plan){
 
     const printWindow =
     window.open(
@@ -3834,11 +3631,7 @@ async function exportPlanPDF(plan, allowHistory = false){
    SHARE
 ========================= */
 
-async function sharePlanImage(plan, allowHistory = false){
-
-    if(!allowHistory && !requireSavedPlan()){
-        return;
-    }
+async function sharePlanImage(plan){
 
     try{
 
