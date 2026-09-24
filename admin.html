@@ -6896,6 +6896,63 @@ function normalizeScheduleMatchValue(value){
 }
 
 
+function scheduleComparableGrade(value){
+
+  const normalized = normalizeScheduleMatchValue(value)
+    .replace(/المتوسط/g, "متوسط")
+    .replace(/الابتدائي/g, "ابتدائي")
+    .replace(/الثانوي/g, "ثانوي");
+  const ordinalMap = {
+    "الاول": "1",
+    "الثاني": "2",
+    "الثالث": "3",
+    "الرابع": "4",
+    "الخامس": "5",
+    "السادس": "6"
+  };
+
+  for(const [word, number] of Object.entries(ordinalMap)){
+    if(normalized.startsWith(word)){
+      return number + normalized.slice(word.length);
+    }
+  }
+
+  return normalized;
+
+}
+
+
+function scheduleSubjectVariants(value){
+
+  const normalized = normalizeScheduleMatchValue(value);
+  const aliases = {
+    "اجتماعيات": ["الدراساتالاجتماعية"],
+    "لغتي": ["اللغةالعربية"],
+    "رقمية": ["المهاراتالرقمية"],
+    "حياتية": ["المهاراتالحياتية"],
+    "فنية": ["التربيةالفنية"],
+    "بدنية": ["التربيةالبدنية"],
+    "قران": ["القرانالكريم"],
+    "قراءة": ["القرانالكريم"],
+    "علوم": ["العلوم", "science"],
+    "تفسير": ["الدراساتالاسلامية"],
+    "توحيد": ["الدراساتالاسلامية"],
+    "حديث": ["الدراساتالاسلامية"],
+    "فقه": ["الدراساتالاسلامية"],
+    "اسلاميات": ["الدراساتالاسلامية"],
+    "e": ["اللغةالانجليزية", "لغةانجليزية", "انجليزي", "english"],
+    "روبوت": ["robot"],
+    "robot": ["روبوت"]
+  };
+
+  return new Set([
+    normalized,
+    ...(aliases[normalized] || [])
+  ]);
+
+}
+
+
 function scheduleSubjectFromRow(row){
 
   if(!row){
@@ -6942,16 +6999,16 @@ function scheduleTeacherFromRow(row, plan){
   const normalizedSubjectId =
     normalizeScheduleMatchValue(subjectId);
 
-  const normalizedSubjectName =
-    normalizeScheduleMatchValue(subjectName);
+  const subjectVariants =
+    scheduleSubjectVariants(subjectName);
 
   const normalizedGrade =
-    normalizeScheduleMatchValue(grade);
+    scheduleComparableGrade(grade);
 
   const matched = scheduleTeacherAssignments.find(assignment=>{
 
     const sameClass =
-      normalizeScheduleMatchValue(assignment.grade) ===
+      scheduleComparableGrade(assignment.grade) ===
       normalizedGrade &&
       scheduleSectionsMatch(assignment.section, section);
 
@@ -6964,12 +7021,8 @@ function scheduleTeacherFromRow(row, plan){
     const sameSubject =
       (normalizedSubjectId &&
         assignmentSubjectId === normalizedSubjectId) ||
-      (normalizedSubjectName &&
-        assignmentSubjectName === normalizedSubjectName) ||
-      (normalizedSubjectName &&
-        assignmentSubjectId === normalizedSubjectName) ||
-      (normalizedSubjectId &&
-        assignmentSubjectName === normalizedSubjectId);
+      subjectVariants.has(assignmentSubjectName) ||
+      subjectVariants.has(assignmentSubjectId);
 
     return sameClass && sameSubject;
 
