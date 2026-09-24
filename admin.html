@@ -868,7 +868,7 @@ footer strong{
 }
 
 .schedule-table th:first-child{
-  width:150px;
+  width:125px;
 }
 
 .schedule-table td{
@@ -878,6 +878,42 @@ footer strong{
   font-size:15px;
   font-weight:700;
   overflow-wrap:anywhere;
+}
+
+.schedule-table .schedule-cell{
+  padding:0;
+  height:72px;
+  min-height:72px;
+  font-weight:700;
+}
+
+.schedule-cell-subject,
+.schedule-cell-teacher{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:35px;
+  padding:5px 3px;
+  line-height:1.25;
+  overflow-wrap:anywhere;
+}
+
+.schedule-cell-subject{
+  color:#111;
+  background:#fff;
+  border-bottom:1px solid #777;
+}
+
+.schedule-cell-teacher{
+  color:#0b4b3e;
+  background:#f8f5ea;
+  font-size:12px;
+  font-weight:600;
+}
+
+.schedule-cell-empty{
+  color:#999;
+  font-weight:500;
 }
 
 .schedule-table .schedule-day{
@@ -1195,7 +1231,7 @@ id="logoutBtn">
 
             <thead>
               <tr>
-                <th>اليوم/ الحصة</th>
+                <th>اليوم</th>
                 <th>1</th>
                 <th>2</th>
                 <th>3</th>
@@ -6783,6 +6819,25 @@ function scheduleSubjectFromRow(row){
 }
 
 
+function scheduleTeacherFromRow(row){
+
+  if(!row){
+    return "";
+  }
+
+  return String(
+    row.teacherName ??
+    row.teacher ??
+    row.instructorName ??
+    row.instructor ??
+    row["اسم المعلم"] ??
+    row["المعلم"] ??
+    ""
+  ).trim();
+
+}
+
+
 function renderScheduleTable(plan){
 
   if(!scheduleTableBody){
@@ -6848,21 +6903,45 @@ function renderScheduleTable(plan){
         const subject =
           scheduleSubjectFromRow(row);
 
-        if(subject){
+        const teacher =
+          scheduleTeacherFromRow(row);
 
-          td.textContent =
-            subject;
+        td.className =
+          "schedule-cell";
 
+        const subjectDiv =
+          document.createElement("div");
+
+        subjectDiv.className =
+          "schedule-cell-subject";
+
+        subjectDiv.textContent =
+          subject || "—";
+
+        if(!subject){
+          subjectDiv.classList.add(
+            "schedule-cell-empty"
+          );
         }
-        else{
 
-          td.textContent =
-            "—";
+        const teacherDiv =
+          document.createElement("div");
 
-          td.className =
-            "schedule-empty";
+        teacherDiv.className =
+          "schedule-cell-teacher";
 
+        teacherDiv.textContent =
+          teacher || "اسم المعلم";
+
+        if(!teacher){
+          teacherDiv.classList.add(
+            "schedule-cell-empty"
+          );
         }
+
+        td.appendChild(subjectDiv);
+        td.appendChild(teacherDiv);
+
 
         tr.appendChild(td);
 
