@@ -6656,7 +6656,11 @@ function normalizeScheduleSection(value){
     /^(الشعبة|شعبة)\s*/i,
     ""
   )
-  .trim();
+  .trim()
+  .replace(/[أإآٱ]/g, "ا")
+  .replace(/ى/g, "ي")
+  .replace(/\s+/g, "")
+  .toLowerCase();
 
 }
 
@@ -6877,6 +6881,21 @@ function getLatestSchedulePlan(
 }
 
 
+function normalizeScheduleMatchValue(value){
+
+  return String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[أإآٱ]/g, "ا")
+    .replace(/ى/g, "ي")
+    .replace(/ة/g, "ه")
+    .replace(/[ًٌٍَُِّْـ]/g, "")
+    .replace(/\s+/g, "")
+    .replace(/[\u200e\u200f\-_/()\[\]{}،,:;.]/g, "");
+
+}
+
+
 function scheduleSubjectFromRow(row){
 
   if(!row){
@@ -6920,15 +6939,37 @@ function scheduleTeacherFromRow(row, plan){
   const grade = String(plan?.grade || "").trim();
   const section = String(plan?.section || "").trim();
 
+  const normalizedSubjectId =
+    normalizeScheduleMatchValue(subjectId);
+
+  const normalizedSubjectName =
+    normalizeScheduleMatchValue(subjectName);
+
+  const normalizedGrade =
+    normalizeScheduleMatchValue(grade);
+
   const matched = scheduleTeacherAssignments.find(assignment=>{
 
     const sameClass =
-      String(assignment.grade || "").trim() === grade &&
+      normalizeScheduleMatchValue(assignment.grade) ===
+      normalizedGrade &&
       scheduleSectionsMatch(assignment.section, section);
 
-    const sameSubject = subjectId
-      ? String(assignment.subjectId || "").trim() === subjectId
-      : String(assignment.subjectName || "").trim() === subjectName;
+    const assignmentSubjectId =
+      normalizeScheduleMatchValue(assignment.subjectId);
+
+    const assignmentSubjectName =
+      normalizeScheduleMatchValue(assignment.subjectName);
+
+    const sameSubject =
+      (normalizedSubjectId &&
+        assignmentSubjectId === normalizedSubjectId) ||
+      (normalizedSubjectName &&
+        assignmentSubjectName === normalizedSubjectName) ||
+      (normalizedSubjectName &&
+        assignmentSubjectId === normalizedSubjectName) ||
+      (normalizedSubjectId &&
+        assignmentSubjectName === normalizedSubjectId);
 
     return sameClass && sameSubject;
 
