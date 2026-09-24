@@ -6491,6 +6491,48 @@ const printScheduleBtn =
 const clearScheduleBtn =
   document.getElementById("clearScheduleBtn");
 
+let scheduleTeacherAssignments = [];
+let scheduleTeacherAssignmentsLoaded = false;
+
+async function loadScheduleTeacherAssignments(){
+
+  if(scheduleTeacherAssignmentsLoaded){
+    return;
+  }
+
+  const snapshot = await getDocs(
+    collection(db, "teachers")
+  );
+
+  scheduleTeacherAssignments = [];
+
+  snapshot.forEach(teacherDoc=>{
+
+    const teacher = teacherDoc.data() || {};
+    const assignments = Array.isArray(teacher.assignments)
+      ? teacher.assignments
+      : [];
+
+    assignments.forEach(assignment=>{
+
+      scheduleTeacherAssignments.push({
+        teacherName: teacher.name || teacherDoc.id,
+        subjectId: String(assignment.subjectId || "").trim(),
+        subjectName: String(
+          assignment.subjectName || assignment.subject || ""
+        ).trim(),
+        grade: String(assignment.grade || "").trim(),
+        section: String(assignment.section || "").trim()
+      });
+
+    });
+
+  });
+
+  scheduleTeacherAssignmentsLoaded = true;
+
+}
+
 
 function showScheduleStatus(text, type){
 
@@ -6819,13 +6861,13 @@ function scheduleSubjectFromRow(row){
 }
 
 
-function scheduleTeacherFromRow(row){
+function scheduleTeacherFromRow(row, plan){
 
   if(!row){
     return "";
   }
 
-  return String(
+  const directTeacher = String(
     row.teacherName ??
     row.teacher ??
     row.instructorName ??
@@ -6834,6 +6876,34 @@ function scheduleTeacherFromRow(row){
     row["المعلم"] ??
     ""
   ).trim();
+
+  if(directTeacher){
+    return directTeacher;
+  }
+
+  const subjectId = String(
+    row.subjectId ?? row.materialId ?? ""
+  ).trim();
+
+  const subjectName = scheduleSubjectFromRow(row);
+  const grade = String(plan?.grade || "").trim();
+  const section = String(plan?.section || "").trim();
+
+  const matched = scheduleTeacherAssignments.find(assignment=>{
+
+    const sameClass =
+      String(assignment.grade || "").trim() === grade &&
+      scheduleSectionsMatch(assignment.section, section);
+
+    const sameSubject = subjectId
+      ? String(assignment.subjectId || "").trim() === subjectId
+      : String(assignment.subjectName || "").trim() === subjectName;
+
+    return sameClass && sameSubject;
+
+  });
+
+  return matched?.teacherName || "";
 
 }
 
@@ -6904,7 +6974,7 @@ function renderScheduleTable(plan){
           scheduleSubjectFromRow(row);
 
         const teacher =
-          scheduleTeacherFromRow(row);
+          scheduleTeacherFromRow(row, plan);
 
         td.className =
           "schedule-cell";
@@ -7026,7 +7096,7 @@ scheduleSection?.addEventListener(
 
 loadScheduleBtn?.addEventListener(
   "click",
-  ()=>{
+  async()=>{
 
     const gradeValue =
       String(
@@ -7053,6 +7123,24 @@ loadScheduleBtn?.addEventListener(
 
       showScheduleStatus(
         "اختر الشعبة أولًا.",
+        "error"
+      );
+
+      return;
+
+    }
+
+    try{
+
+      await loadScheduleTeacherAssignments();
+
+    }
+    catch(error){
+
+      console.error("تعذر تحميل إسنادات المعلمين:", error);
+
+      showScheduleStatus(
+        "تعذر تحميل إسنادات المعلمين من قاعدة البيانات.",
         "error"
       );
 
