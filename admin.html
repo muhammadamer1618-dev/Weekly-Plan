@@ -893,6 +893,24 @@ footer strong{
   font-weight:500;
 }
 
+.schedule-subject{
+  font-weight:900;
+  line-height:1.35;
+}
+
+.schedule-teacher{
+  margin-top:4px;
+  color:#174f7c;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.35;
+}
+
+.schedule-teacher.missing{
+  color:#999;
+  font-weight:600;
+}
+
 .schedule-signatures{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -1214,7 +1232,7 @@ id="logoutBtn">
           <div class="schedule-signatures">
 
             <div class="schedule-signature">
-              رائد الصف
+              رائد الصف حسب الخطة
               <div id="scheduleLeaderName"></div>
               <div class="schedule-signature-line"></div>
             </div>
@@ -2211,6 +2229,49 @@ getAuth(app);
 
 const db =
 getFirestore(app);
+
+
+/* ======================================
+   قاعدة بيانات نظام راصد
+   نقرأ منها إسنادات المعلمين فقط
+====================================== */
+
+const rasedFirebaseConfig = {
+
+  apiKey:
+  "AIzaSyAfgSV-6IMkXncgPWxY69omKfvFtGakgk",
+
+  authDomain:
+  "results2026-7c0dd.firebaseapp.com",
+
+  projectId:
+  "results2026-7c0dd",
+
+  storageBucket:
+  "results2026-7c0dd.firebasestorage.app",
+
+  messagingSenderId:
+  "241421115694",
+
+  appId:
+  "1:241421115694:web:96f55fd9fd1d5b18b31abf"
+
+};
+
+const rasedApp =
+initializeApp(
+  rasedFirebaseConfig,
+  "RasedAssignmentsApp"
+);
+
+const rasedDb =
+getFirestore(
+  rasedApp
+);
+
+let rasedTeachers = [];
+let rasedAssignmentsLoaded = false;
+let rasedAssignmentsLoadError = "";
 
 
 const secondaryApp =
@@ -6777,8 +6838,259 @@ function scheduleSubjectFromRow(row){
   return String(
     row.subject ??
     row.material ??
+    row.subjectName ??
     ""
   ).trim();
+
+}
+
+
+function normalizeScheduleTeacherKey(value){
+
+  return String(value || "")
+    .trim()
+    .replace(/[أإآ]/g,"ا")
+    .replace(/ة/g,"ه")
+    .replace(/ى/g,"ي")
+    .replace(/[ًٌٍَُِّْـ]/g,"")
+    .replace(/[()\[\]{}\-_\/\\]/g," ")
+    .replace(/\s+/g," ")
+    .toLowerCase();
+
+}
+
+
+function scheduleGradesMatch(a,b){
+
+  return normalizeScheduleTeacherKey(a) ===
+         normalizeScheduleTeacherKey(b);
+
+}
+
+
+function scheduleSectionsMatchForTeacher(a,b){
+
+  const na =
+    normalizeScheduleTeacherKey(a);
+
+  const nb =
+    normalizeScheduleTeacherKey(b);
+
+  if(na === nb){
+    return true;
+  }
+
+  const map = {
+    "a":"ا",
+    "b":"ب",
+    "c":"ج",
+    "d":"د",
+    "ا":"ا",
+    "أ":"ا",
+    "ب":"ب",
+    "ج":"ج",
+    "د":"د"
+  };
+
+  return map[na] === map[nb];
+}
+
+
+async function loadRasedTeacherAssignments(){
+
+  try{
+
+    const snapshot =
+      await getDocs(
+        collection(
+          rasedDb,
+          "teachers"
+        )
+      );
+
+    rasedTeachers = [];
+
+    snapshot.forEach(
+      item=>{
+
+        const data =
+          item.data() || {};
+
+        rasedTeachers.push({
+          id:item.id,
+          ...data
+        });
+
+      }
+    );
+
+    rasedAssignmentsLoaded = true;
+    rasedAssignmentsLoadError = "";
+
+    return true;
+
+  }catch(error){
+
+    console.error(
+      "RASED ASSIGNMENTS LOAD ERROR:",
+      error
+    );
+
+    rasedTeachers = [];
+    rasedAssignmentsLoaded = false;
+    rasedAssignmentsLoadError =
+      error?.message ||
+      "تعذر قراءة إسنادات المعلمين من نظام راصد.";
+
+    return false;
+
+  }
+
+}
+
+
+function getAssignedTeacherName(
+  gradeValue,
+  sectionValue,
+  subjectValue,
+  subjectIdValue = ""
+){
+
+  const subjectId =
+    String(subjectIdValue || "").trim();
+
+  const subjectKey =
+    normalizeScheduleTeacherKey(
+      subjectValue
+    );
+
+  for(
+    const teacher of rasedTeachers
+  ){
+
+    const assignments =
+      Array.isArray(
+        teacher?.assignments
+      )
+      ? teacher.assignments
+      : [];
+
+    for(
+      const assignment of assignments
+    ){
+
+      if(
+        !scheduleGradesMatch(
+          assignment?.grade,
+          gradeValue
+        )
+      ){
+        continue;
+      }
+
+      if(
+        !scheduleSectionsMatchForTeacher(
+          assignment?.section,
+          sectionValue
+        )
+      ){
+        continue;
+      }
+
+      const assignmentSubjectId =
+        String(
+          assignment?.subjectId || ""
+        ).trim();
+
+      const assignmentSubjectName =
+        normalizeScheduleTeacherKey(
+          assignment?.subjectName ??
+          assignment?.subject ??
+          ""
+        );
+
+      const sameSubject =
+        (
+          subjectId &&
+          assignmentSubjectId &&
+          subjectId === assignmentSubjectId
+        )
+        ||
+        (
+          subjectKey &&
+          assignmentSubjectName &&
+          subjectKey === assignmentSubjectName
+        );
+
+      if(
+        sameSubject
+      ){
+
+        return String(
+          teacher?.name ||
+          teacher?.email ||
+          ""
+        ).trim();
+
+      }
+
+    }
+
+  }
+
+  return "";
+
+}
+
+
+function renderScheduleCell(
+  td,
+  subject,
+  teacherName
+){
+
+  td.innerHTML = "";
+
+  if(!subject){
+
+    td.textContent = "—";
+    td.className = "schedule-empty";
+    return;
+
+  }
+
+  const subjectDiv =
+    document.createElement("div");
+
+  subjectDiv.className =
+    "schedule-subject";
+
+  subjectDiv.textContent =
+    subject;
+
+  td.appendChild(
+    subjectDiv
+  );
+
+  const teacherDiv =
+    document.createElement("div");
+
+  teacherDiv.className =
+    "schedule-teacher" +
+    (
+      teacherName
+        ? ""
+        : " missing"
+    );
+
+  teacherDiv.textContent =
+    teacherName
+      ? teacherName
+      : "المعلم: غير مسند";
+
+  td.appendChild(
+    teacherDiv
+  );
 
 }
 
@@ -6848,21 +7160,23 @@ function renderScheduleTable(plan){
         const subject =
           scheduleSubjectFromRow(row);
 
-        if(subject){
+        const teacherName =
+          subject
+            ? getAssignedTeacherName(
+                plan?.grade,
+                plan?.section,
+                subject,
+                row?.subjectId ??
+                row?.subjectID ??
+                ""
+              )
+            : "";
 
-          td.textContent =
-            subject;
-
-        }
-        else{
-
-          td.textContent =
-            "—";
-
-          td.className =
-            "schedule-empty";
-
-        }
+        renderScheduleCell(
+          td,
+          subject,
+          teacherName
+        );
 
         tr.appendChild(td);
 
@@ -7000,12 +7314,31 @@ loadScheduleBtn?.addEventListener(
 
     }
 
+    if(!rasedAssignmentsLoaded){
+
+      await loadRasedTeacherAssignments();
+
+    }
+
     renderSelectedSchedule(plan);
 
-    showScheduleStatus(
-      "تم تحميل جدول الحصص من آخر خطة أسبوعية محفوظة.",
-      "success"
-    );
+    if(rasedAssignmentsLoaded){
+
+      showScheduleStatus(
+        "تم تحميل جدول الحصص من آخر خطة أسبوعية محفوظة، مع أسماء المعلمين من إسنادات راصد.",
+        "success"
+      );
+
+    }
+    else{
+
+      showScheduleStatus(
+        "تم تحميل الجدول، لكن تعذر قراءة إسنادات المعلمين من راصد: " +
+        rasedAssignmentsLoadError,
+        "error"
+      );
+
+    }
 
   }
 );
