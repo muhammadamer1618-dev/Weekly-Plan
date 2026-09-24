@@ -705,7 +705,371 @@ footer strong{
 }
 
 
-.schedule-toolbar{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}.schedule-toolbar .form-group{margin:0}.schedule-btn{border:0;border-radius:9px;padding:12px 22px;background:#0b4b3e;color:#fff;font-weight:bold;cursor:pointer}.schedule-status{margin-top:12px;color:#666;font-size:13px}.schedule-paper{display:none;background:#fff;padding:18px;margin-top:18px;border:1px solid #ddd;direction:rtl}.schedule-paper.show{display:block}.schedule-head{display:grid;grid-template-columns:110px 1fr 110px;align-items:center;text-align:center;margin-bottom:10px}.schedule-head img{width:86px;height:86px;object-fit:contain}.schedule-head .school-meta{line-height:1.65;font-weight:bold;font-size:13px}.schedule-title{font-size:26px;font-weight:bold;text-align:center;margin:12px 0 18px;color:#111}.schedule-grid{width:100%;min-width:0;border-collapse:collapse;table-layout:fixed}.schedule-grid th,.schedule-grid td{border:1.5px solid #333;text-align:center;padding:6px 4px;white-space:normal}.schedule-grid th{background:#e9e3d2;color:#111;font-size:15px}.schedule-grid td{height:62px;font-size:13px;line-height:1.45}.schedule-grid .period{background:#f4f1e8;font-weight:bold;width:7%}.schedule-subject{font-weight:bold;display:block}.schedule-teacher{font-size:11px;color:#555;display:block;margin-top:3px}.schedule-signatures{display:flex;justify-content:space-between;margin:22px 5% 0;font-weight:bold}.schedule-signatures div{min-width:180px;text-align:center}.schedule-signatures span{display:block;margin-top:12px}.schedule-credit{text-align:center;margin-top:18px;font-size:12px}.schedule-empty{color:#999}@media(max-width:800px){.schedule-toolbar{grid-template-columns:1fr}.schedule-btn{width:100%}.schedule-grid{min-width:760px}.schedule-paper{overflow:auto}}@media print{@page{size:A4 landscape;margin:7mm}body *{visibility:hidden!important}#schedulePaper,#schedulePaper *{visibility:visible!important}#schedulePaper{display:block!important;position:absolute!important;inset:0!important;width:100%!important;margin:0!important;padding:0!important;border:0!important;overflow:visible!important}.schedule-head{grid-template-columns:90px 1fr 90px;margin:0 0 5px}.schedule-head img{width:70px;height:70px}.schedule-title{font-size:21px;margin:5px 0 9px}.schedule-grid th{font-size:12px;padding:4px}.schedule-grid td{height:52px;font-size:11px;padding:3px}.schedule-teacher{font-size:9px}.schedule-signatures{margin-top:12px}.schedule-credit{margin-top:9px}}
+/* ======================================
+   جدول الحصص
+====================================== */
+
+.schedule-card{
+  margin-bottom:22px;
+}
+
+.schedule-toolbar{
+  display:grid;
+  grid-template-columns:1fr 1fr auto;
+  gap:14px;
+  align-items:end;
+  margin-bottom:16px;
+}
+
+.schedule-toolbar .form-group{
+  margin-bottom:0;
+}
+
+.schedule-open-btn{
+  border:none;
+  background:#c9a548;
+  color:#073f34;
+  padding:11px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  height:42px;
+}
+
+.schedule-open-btn:hover{
+  background:#d7b75b;
+}
+
+.schedule-status{
+  display:none;
+  margin-top:12px;
+  padding:11px 13px;
+  border-radius:9px;
+  text-align:center;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.schedule-status.show{
+  display:block;
+}
+
+.schedule-status.error{
+  background:#fdeaea;
+  color:#a11e1e;
+}
+
+.schedule-status.success{
+  background:#e8f6ec;
+  color:#17652c;
+}
+
+.schedule-result{
+  display:none;
+  margin-top:20px;
+}
+
+.schedule-result.show{
+  display:block;
+}
+
+.schedule-preview{
+  background:#fff;
+  border:1px solid #e3e3e3;
+  border-radius:14px;
+  padding:20px;
+  overflow:auto;
+}
+
+.schedule-print-sheet{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  background:#fff;
+  color:#111;
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+.schedule-school-head{
+  display:grid;
+  grid-template-columns:130px 1fr 130px;
+  align-items:center;
+  gap:10px;
+  border-bottom:3px solid #c9a548;
+  padding:4px 4px 10px;
+}
+
+.schedule-school-logo{
+  width:105px;
+  height:78px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:8px;
+  padding:2px;
+}
+
+.schedule-school-name{
+  text-align:center;
+  color:#0b4b3e;
+  font-size:22px;
+  font-weight:800;
+  line-height:1.5;
+}
+
+.schedule-school-name small{
+  display:block;
+  color:#666;
+  font-size:13px;
+  font-weight:600;
+}
+
+.schedule-title{
+  margin:12px 0 10px;
+  text-align:center;
+  color:#111;
+  font-size:27px;
+  font-weight:900;
+}
+
+.schedule-week-note{
+  text-align:center;
+  color:#666;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.schedule-table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  direction:rtl;
+  border-right:2px solid #111;
+  box-sizing:border-box;
+}
+
+.schedule-table th:first-child,
+.schedule-table td:first-child{
+  border-right:2px solid #111;
+}
+
+.schedule-table th,
+.schedule-table td{
+  border:1.5px solid #111;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.schedule-table th{
+  background:#f1ebd9;
+  color:#0b4b3e;
+  font-size:15px;
+  font-weight:900;
+  padding:9px 4px;
+}
+
+.schedule-table th:first-child{
+  width:150px;
+}
+
+.schedule-table td{
+  min-height:52px;
+  height:52px;
+  padding:6px 4px;
+  font-size:15px;
+  font-weight:700;
+  overflow-wrap:anywhere;
+}
+
+.schedule-table .schedule-day{
+  background:#789685;
+  color:#fff;
+  font-size:16px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.schedule-table .schedule-empty{
+  color:#999;
+  font-weight:500;
+}
+
+.schedule-signatures{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  margin-top:16px;
+}
+
+.schedule-signature{
+  text-align:center;
+  color:#111;
+  font-size:15px;
+  font-weight:800;
+  line-height:1.8;
+}
+
+.schedule-signature-line{
+  width:180px;
+  max-width:80%;
+  border-bottom:1px solid #777;
+  margin:12px auto 0;
+}
+
+.schedule-credit{
+  text-align:center;
+  margin-top:14px;
+  color:#111;
+  font-size:12px;
+  font-weight:800;
+}
+
+.schedule-print-actions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.schedule-print-btn,
+.schedule-close-btn{
+  border:none;
+  border-radius:8px;
+  padding:11px 20px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.schedule-print-btn{
+  background:#0b4b3e;
+  color:#fff;
+}
+
+.schedule-close-btn{
+  background:#eee;
+  color:#555;
+}
+
+@media(max-width:900px){
+  .schedule-toolbar{
+    grid-template-columns:1fr;
+  }
+
+  .schedule-open-btn{
+    width:100%;
+  }
+
+  .schedule-school-head{
+    grid-template-columns:75px 1fr 20px;
+  }
+
+  .schedule-school-logo{
+    width:65px;
+    height:60px;
+  }
+
+  .schedule-school-name{
+    font-size:17px;
+  }
+
+  .schedule-title{
+    font-size:21px;
+  }
+
+  .schedule-table{
+    min-width:850px;
+  }
+}
+
+@media print{
+  @page{
+    size:A4 landscape;
+    margin:8mm;
+  }
+
+  body.schedule-printing *{
+    visibility:hidden !important;
+  }
+
+  body.schedule-printing #schedulePrintArea,
+  body.schedule-printing #schedulePrintArea *{
+    visibility:visible !important;
+  }
+
+  body.schedule-printing #schedulePrintArea{
+    position:absolute !important;
+    left:0 !important;
+    top:0 !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    background:#fff !important;
+    box-shadow:none !important;
+  }
+
+  body.schedule-printing .schedule-print-sheet{
+    max-width:none !important;
+    width:100% !important;
+  }
+
+  body.schedule-printing .schedule-print-actions,
+  body.schedule-printing .schedule-week-note{
+    display:none !important;
+  }
+
+  body.schedule-printing .schedule-school-head{
+    padding-bottom:6px !important;
+  }
+
+  body.schedule-printing .schedule-school-logo{
+    width:92px !important;
+    height:65px !important;
+  }
+
+  body.schedule-printing .schedule-school-name{
+    font-size:19px !important;
+  }
+
+  body.schedule-printing .schedule-school-name small{
+    font-size:11px !important;
+  }
+
+  body.schedule-printing .schedule-title{
+    font-size:23px !important;
+    margin:7px 0 !important;
+  }
+  body.schedule-printing .schedule-table{
+    width:100% !important;
+    border-right:2px solid #111 !important;
+    box-sizing:border-box !important;
+    overflow:visible !important;
+  }
+
+  body.schedule-printing .schedule-table th:first-child,
+  body.schedule-printing .schedule-table td:first-child{
+    border-right:2px solid #111 !important;
+  }
+
+  body.schedule-printing .schedule-table th{
+    padding:6px 3px !important;
+    font-size:13px !important;
+  }
+
+  body.schedule-printing .schedule-table td{
+    height:47px !important;
+    padding:4px 3px !important;
+    font-size:13px !important;
+  }
+
+  body.schedule-printing .schedule-signatures{
+    margin-top:9px !important;
+  }
+
+  body.schedule-printing .schedule-credit{
+    margin-top:7px !important;
+  }
+}
 
 </style>
 </head>
@@ -757,6 +1121,144 @@ id="logoutBtn">
 
 
 <main class="container">
+
+<!-- ======================================
+     جدول الحصص
+====================================== -->
+
+<section class="card schedule-card">
+
+  <div class="card-header">
+    <h3>جدول الحصص</h3>
+  </div>
+
+  <div class="card-body">
+
+    <div class="schedule-toolbar">
+
+      <div class="form-group">
+        <label for="scheduleGrade">الصف</label>
+        <select id="scheduleGrade">
+          <option value="">اختر الصف</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="scheduleSection">الشعبة</label>
+        <select id="scheduleSection">
+          <option value="">اختر الشعبة</option>
+        </select>
+      </div>
+
+      <button
+        type="button"
+        class="schedule-open-btn"
+        id="loadScheduleBtn">
+        عرض جدول الحصص
+      </button>
+
+    </div>
+
+    <div id="scheduleStatus" class="schedule-status"></div>
+
+    <div id="scheduleResult" class="schedule-result">
+
+      <div id="schedulePrintArea" class="schedule-preview">
+
+        <div class="schedule-print-sheet">
+
+          <div class="schedule-school-head">
+
+            <div>
+              <img
+                src="logo.jpeg"
+                class="schedule-school-logo"
+                alt="شعار مدارس الفلاح">
+            </div>
+
+            <div class="schedule-school-name">
+              مدارس الفلاح الأهلية
+              <small>نظام الخطة الأسبوعية</small>
+            </div>
+
+            <div></div>
+
+          </div>
+
+          <div id="scheduleTitle" class="schedule-title">
+            جدول الحصص
+          </div>
+
+          <div id="scheduleWeekNote" class="schedule-week-note"></div>
+
+          <table class="schedule-table">
+
+            <thead>
+              <tr>
+                <th>اليوم/ الحصة</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+              </tr>
+            </thead>
+
+            <tbody id="scheduleTableBody"></tbody>
+
+          </table>
+
+          <div class="schedule-signatures">
+
+            <div class="schedule-signature">
+              رائد الصف حسب الخطة
+              <div id="scheduleLeaderName"></div>
+              <div class="schedule-signature-line"></div>
+            </div>
+
+            <div class="schedule-signature">
+              مدير المدرسة
+              <div id="schedulePrincipalName"></div>
+              <div class="schedule-signature-line"></div>
+            </div>
+
+          </div>
+
+          <div class="schedule-credit">
+            تصميم وتطوير: محمد عامر أحمد
+          </div>
+
+          <div class="schedule-print-actions">
+
+            <button
+              type="button"
+              class="schedule-print-btn"
+              id="printScheduleBtn">
+              طباعة
+            </button>
+
+            <button
+              type="button"
+              class="schedule-close-btn"
+              id="clearScheduleBtn">
+              إخفاء الجدول
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
 
 <div class="welcome">
@@ -1162,7 +1664,7 @@ class="empty">
 </section>
 
 
-<section class="card" style="margin-bottom:22px"><div class="card-header"><h3>جدول الحصص</h3></div><div class="card-body"><div class="schedule-toolbar"><div class="form-group"><label for="scheduleGrade">الصف</label><select id="scheduleGrade"><option value="">اختر الصف</option></select></div><div class="form-group"><label for="scheduleSection">الشعبة</label><select id="scheduleSection"><option value="">اختر الشعبة</option><option>أ</option><option>ب</option><option>ج</option><option>د</option></select></div><button class="schedule-btn" id="buildScheduleBtn" type="button">إنشاء جدول الحصص</button></div><div id="scheduleStatus" class="schedule-status" aria-live="polite">اختر الصف والشعبة لعرض جدول آخر أسبوع محفوظ.</div><div id="schedulePaper" class="schedule-paper" dir="rtl"></div><button id="printScheduleBtn" class="schedule-btn" type="button" style="display:none;margin-top:12px">طباعة الجدول</button></div></section>
+
 <div class="layout">
 
 
@@ -1709,18 +2211,6 @@ getAuth(app);
 
 const db =
 getFirestore(app);
-
-// قاعدة راصد مستقلة عن قاعدة الخطط الأسبوعية
-const raasedFirebaseConfig = {
-  apiKey: "AIzaSyAfgSV-6_IMkXncgPWxY69omKfvFtGakgk",
-  authDomain: "results2026-7c0dd.firebaseapp.com",
-  projectId: "results2026-7c0dd",
-  storageBucket: "results2026-7c0dd.firebasestorage.app",
-  messagingSenderId: "241421115694",
-  appId: "1:241421115694:web:96f55fd9fd1d5b18b31abf"
-};
-const raasedApp = initializeApp(raasedFirebaseConfig, "RaasedAssignmentsApp");
-const raasedDb = getFirestore(raasedApp);
 
 
 const secondaryApp =
@@ -3973,6 +4463,16 @@ async function loadWeeklyPlans(
     );
 
 
+
+    if(
+      typeof refreshScheduleSelectors ===
+      "function"
+    ){
+
+      refreshScheduleSelectors();
+
+    }
+
     if(
       chooseLatestWeek &&
       weeklyPlans.length >
@@ -5914,16 +6414,651 @@ function escapeHTML(
 
 }
 
-const scheduleGrade=document.getElementById("scheduleGrade"),scheduleSection=document.getElementById("scheduleSection"),schedulePaper=document.getElementById("schedulePaper"),scheduleStatus=document.getElementById("scheduleStatus");
-const scheduleDays=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس"],scheduleArabicKeys={"الأحد":"sunday","الاحد":"sunday","الاثنين":"monday","الثلاثاء":"tuesday","الأربعاء":"wednesday","الاربعاء":"wednesday","الخميس":"thursday"};
-[...new Set(Object.values(gradesByStage).flat())].forEach(g=>{const o=document.createElement("option");o.value=g;o.textContent=g;scheduleGrade.appendChild(o)});
-function scheduleNorm(v){return String(v??"").trim().replace(/[أإآ]/g,"ا").replace(/\s+/g," ").toLowerCase()}
-function scheduleSafe(v){return escapeHTML(String(v??""))}
-function scheduleRows(plan,day){const all=plan.days||{},key=all[day]?day:(scheduleArabicKeys[day]||day);return Array.isArray(all[key])?all[key]:[]}
-async function buildClassSchedule(){const gradeValue=scheduleGrade.value,sectionValue=scheduleSection.value;if(!gradeValue||!sectionValue){scheduleStatus.textContent="اختر الصف والشعبة أولًا.";return}scheduleStatus.textContent="جاري تحميل الخطة والإسنادات...";schedulePaper.classList.remove("show");document.getElementById("printScheduleBtn").style.display="none";try{const [plansSnap,teachersSnap,leadersSnap]=await Promise.all([getDocs(collection(db,"weeklyPlans")),getDocs(collection(raasedDb,"teachers")),getDocs(collection(db,"users"))]);const plans=[];plansSnap.forEach(d=>{const p={id:d.id,...d.data()};if(p.documentType!=="fixedSchedule"&&p.grade===gradeValue&&p.section===sectionValue&&Number.isFinite(Number(p.weekNumber)))plans.push(p)});if(!plans.length){scheduleStatus.textContent="لا توجد خطة أسبوعية محفوظة لهذا الصف والشعبة.";return}plans.sort((a,b)=>Number(b.weekNumber)-Number(a.weekNumber));const plan=plans[0],assignments=[];teachersSnap.forEach(d=>{const t=d.data()||{};(Array.isArray(t.assignments)?t.assignments:[]).forEach(a=>{if(a.section===sectionValue)assignments.push({...a,teacherName:t.name||t.displayName||t.fullName||t.email||d.id})})});let leaderName=plan.leaderName||"";leadersSnap.forEach(d=>{const u=d.data()||{};if(u.uid===plan.leaderUid||d.id===plan.leaderUid)leaderName=leaderName||u.name||""});const raasedGradeMap={"الأول الابتدائي":"1 ابتدائي","الثاني الابتدائي":"2 ابتدائي","الثالث الابتدائي":"3 ابتدائي","الرابع الابتدائي":"4 ابتدائي","الخامس الابتدائي":"5 ابتدائي","السادس الابتدائي":"6 ابتدائي","الأول المتوسط":"1 متوسط","الثاني المتوسط":"2 متوسط","الثالث المتوسط":"3 متوسط","الأول الثانوي":"1 ثانوي","الثاني الثانوي":"2 ثانوي","الثالث الثانوي":"3 ثانوي"};
-  const raasedGrade=raasedGradeMap[gradeValue]||gradeValue;
-  const matchTeacher=subject=>assignments.find(a=>a.grade===raasedGrade&&a.section===sectionValue&&scheduleNorm(a.subjectName||a.subject)===scheduleNorm(subject))?.teacherName||"";let html=`<div class="schedule-head"><img src="logo.jpeg" alt="شعار المدرسة"><div class="school-meta">المملكة العربية السعودية<br>وزارة التعليم<br>الإدارة العامة للتعليم بالمنطقة الشرقية<br>مدارس الفلاح الأهلية</div><div></div></div><div class="schedule-title">جدول الحصص للصف ${scheduleSafe(gradeValue)} ${scheduleSafe(sectionValue)}</div><table class="schedule-grid"><thead><tr><th class="period">الحصة</th>${scheduleDays.map(d=>`<th>${d}</th>`).join("")}</tr></thead><tbody>`;for(let i=0;i<8;i++){html+=`<tr><td class="period">${i+1}</td>`;scheduleDays.forEach(day=>{const row=scheduleRows(plan,day)[i]||{},subject=String(row.subject||"").trim(),teacher=subject?matchTeacher(subject):"";html+=`<td>${subject?`<span class="schedule-subject">${scheduleSafe(subject)}</span>${teacher?`<span class="schedule-teacher">${scheduleSafe(teacher)}</span>`:""}`:"<span class=\"schedule-empty\">—</span>"}</td>`});html+="</tr>"}html+=`</tbody></table><div class="schedule-signatures"><div>رائد الصف<span>${scheduleSafe(leaderName)}</span></div><div>مدير المدرسة<span>${scheduleSafe(plan.principalName||"")}</span></div></div><div class="schedule-credit">تصميم محمد عامر أحمد</div>`;schedulePaper.innerHTML=html;schedulePaper.classList.add("show");document.getElementById("printScheduleBtn").style.display="inline-block";scheduleStatus.textContent=`تم إنشاء الجدول من الأسبوع ${plan.weekNumber}، آخر خطة محفوظة لهذا الفصل.`}catch(error){console.error(error);scheduleStatus.textContent="تعذر تحميل بيانات الجدول. تفاصيل الخطأ: "+(error?.code||error?.message||"خطأ غير معروف")}}
-document.getElementById("buildScheduleBtn").addEventListener("click",buildClassSchedule);document.getElementById("printScheduleBtn").addEventListener("click",()=>window.print());
+
+/* ======================================
+   جدول الحصص - آخر خطة محفوظة للصف والشعبة
+====================================== */
+
+const scheduleGrade =
+  document.getElementById("scheduleGrade");
+
+const scheduleSection =
+  document.getElementById("scheduleSection");
+
+const loadScheduleBtn =
+  document.getElementById("loadScheduleBtn");
+
+const scheduleStatus =
+  document.getElementById("scheduleStatus");
+
+const scheduleResult =
+  document.getElementById("scheduleResult");
+
+const scheduleTitle =
+  document.getElementById("scheduleTitle");
+
+const scheduleWeekNote =
+  document.getElementById("scheduleWeekNote");
+
+const scheduleTableBody =
+  document.getElementById("scheduleTableBody");
+
+const scheduleLeaderName =
+  document.getElementById("scheduleLeaderName");
+
+const schedulePrincipalName =
+  document.getElementById("schedulePrincipalName");
+
+const printScheduleBtn =
+  document.getElementById("printScheduleBtn");
+
+const clearScheduleBtn =
+  document.getElementById("clearScheduleBtn");
+
+
+function showScheduleStatus(text, type){
+
+  if(!scheduleStatus){
+    return;
+  }
+
+  scheduleStatus.textContent = text;
+  scheduleStatus.className =
+    "schedule-status show " + type;
+
+}
+
+
+function hideScheduleStatus(){
+
+  if(!scheduleStatus){
+    return;
+  }
+
+  scheduleStatus.textContent = "";
+  scheduleStatus.className = "schedule-status";
+
+}
+
+
+function getScheduleTime(plan){
+
+  const value =
+    plan?.updatedAt ||
+    plan?.createdAt;
+
+  if(!value){
+    return 0;
+  }
+
+  try{
+
+    if(
+      typeof value.toDate ===
+      "function"
+    ){
+
+      return value.toDate().getTime();
+
+    }
+
+    if(
+      typeof value.seconds ===
+      "number"
+    ){
+
+      return value.seconds * 1000;
+
+    }
+
+    if(
+      typeof value ===
+      "number"
+    ){
+
+      return value;
+
+    }
+
+    const parsed =
+      Date.parse(String(value));
+
+    return Number.isFinite(parsed)
+      ? parsed
+      : 0;
+
+  }
+  catch(error){
+
+    return 0;
+
+  }
+
+}
+
+
+function normalizeScheduleSection(value){
+
+  return String(
+    value ?? ""
+  )
+  .trim()
+  .replace(
+    /^(الشعبة|شعبة)\s*/i,
+    ""
+  )
+  .trim();
+
+}
+
+
+function scheduleSectionsMatch(a,b){
+
+  return (
+    normalizeScheduleSection(a) ===
+    normalizeScheduleSection(b)
+  );
+
+}
+
+
+function populateScheduleGrades(){
+
+  if(!scheduleGrade){
+    return;
+  }
+
+  const grades = [
+    ...new Set(
+      weeklyPlans
+      .filter(
+        plan =>
+          isRealWeeklyPlan(plan) &&
+          String(plan.grade || "").trim()
+      )
+      .map(
+        plan =>
+          String(plan.grade).trim()
+      )
+    )
+  ];
+
+  const current =
+    scheduleGrade.value;
+
+  scheduleGrade.innerHTML =
+    '<option value="">اختر الصف</option>';
+
+  grades
+  .sort(
+    (a,b)=>
+      a.localeCompare(
+        b,
+        "ar"
+      )
+  )
+  .forEach(
+    gradeValue=>{
+
+      const option =
+        document.createElement("option");
+
+      option.value =
+        gradeValue;
+
+      option.textContent =
+        gradeValue;
+
+      scheduleGrade.appendChild(option);
+
+    }
+  );
+
+  if(
+    grades.includes(current)
+  ){
+
+    scheduleGrade.value =
+      current;
+
+  }
+
+}
+
+
+function populateScheduleSections(){
+
+  if(!scheduleSection){
+    return;
+  }
+
+  const gradeValue =
+    String(
+      scheduleGrade?.value || ""
+    ).trim();
+
+  const sections = [
+    ...new Set(
+      weeklyPlans
+      .filter(
+        plan =>
+          isRealWeeklyPlan(plan) &&
+          String(plan.grade || "").trim() ===
+          gradeValue &&
+          String(plan.section || "").trim()
+      )
+      .map(
+        plan =>
+          String(plan.section).trim()
+      )
+    )
+  ];
+
+  const current =
+    scheduleSection.value;
+
+  scheduleSection.innerHTML =
+    '<option value="">اختر الشعبة</option>';
+
+  sections
+  .sort(
+    (a,b)=>
+      normalizeScheduleSection(a)
+      .localeCompare(
+        normalizeScheduleSection(b),
+        "ar"
+      )
+  )
+  .forEach(
+    sectionValue=>{
+
+      const option =
+        document.createElement("option");
+
+      option.value =
+        sectionValue;
+
+      option.textContent =
+        sectionValue;
+
+      scheduleSection.appendChild(option);
+
+    }
+  );
+
+  if(
+    sections.includes(current)
+  ){
+
+    scheduleSection.value =
+      current;
+
+  }
+
+}
+
+
+function getLatestSchedulePlan(
+  gradeValue,
+  sectionValue
+){
+
+  const matching =
+    weeklyPlans
+    .filter(
+      plan =>
+        isRealWeeklyPlan(plan) &&
+        String(plan.grade || "").trim() ===
+        String(gradeValue || "").trim() &&
+        scheduleSectionsMatch(
+          plan.section,
+          sectionValue
+        )
+    );
+
+  if(
+    matching.length === 0
+  ){
+
+    return null;
+
+  }
+
+  matching.sort(
+    (a,b)=>{
+
+      const timeA =
+        getScheduleTime(a);
+
+      const timeB =
+        getScheduleTime(b);
+
+      if(timeA !== timeB){
+
+        return timeB - timeA;
+
+      }
+
+      const weekA =
+        Number(a.weekNumber);
+
+      const weekB =
+        Number(b.weekNumber);
+
+      if(
+        Number.isFinite(weekA) &&
+        Number.isFinite(weekB) &&
+        weekA !== weekB
+      ){
+
+        return weekB - weekA;
+
+      }
+
+      return String(a.id || "")
+        .localeCompare(
+          String(b.id || "")
+        );
+
+    }
+  );
+
+  return matching[0];
+
+}
+
+
+function scheduleSubjectFromRow(row){
+
+  if(!row){
+    return "";
+  }
+
+  return String(
+    row.subject ??
+    row.material ??
+    ""
+  ).trim();
+
+}
+
+
+function renderScheduleTable(plan){
+
+  if(!scheduleTableBody){
+    return;
+  }
+
+  const dayNames = {
+    sunday:"الأحد",
+    monday:"الاثنين",
+    tuesday:"الثلاثاء",
+    wednesday:"الأربعاء",
+    thursday:"الخميس"
+  };
+
+  scheduleTableBody.innerHTML = "";
+
+  Object.keys(dayNames)
+  .forEach(
+    day=>{
+
+      const tr =
+        document.createElement("tr");
+
+      const dayCell =
+        document.createElement("td");
+
+      dayCell.className =
+        "schedule-day";
+
+      dayCell.textContent =
+        dayNames[day];
+
+      tr.appendChild(dayCell);
+
+      const rows =
+        Array.isArray(
+          plan?.days?.[day]
+        )
+        ? plan.days[day]
+        : [];
+
+      for(
+        let period = 1;
+        period <= 8;
+        period++
+      ){
+
+        const td =
+          document.createElement("td");
+
+        const row =
+          rows.find(
+            item =>
+              Number(
+                item?.period
+              ) === period
+          )
+          ||
+          rows[period - 1]
+          ||
+          null;
+
+        const subject =
+          scheduleSubjectFromRow(row);
+
+        if(subject){
+
+          td.textContent =
+            subject;
+
+        }
+        else{
+
+          td.textContent =
+            "—";
+
+          td.className =
+            "schedule-empty";
+
+        }
+
+        tr.appendChild(td);
+
+      }
+
+      scheduleTableBody.appendChild(tr);
+
+    }
+  );
+
+}
+
+
+function renderSelectedSchedule(plan){
+
+  const gradeValue =
+    String(
+      plan?.grade || ""
+    ).trim();
+
+  const sectionValue =
+    String(
+      plan?.section || ""
+    ).trim();
+
+  scheduleTitle.textContent =
+    `جدول الحصص للصف ${gradeValue} ${sectionValue}`;
+
+  const week =
+    Number(plan?.weekNumber);
+
+  scheduleWeekNote.textContent =
+    Number.isFinite(week)
+      ? `معتمد على آخر خطة أسبوعية محفوظة (الأسبوع ${week})`
+      : "معتمد على آخر خطة أسبوعية محفوظة";
+
+  scheduleLeaderName.textContent =
+    plan?.leaderName || "—";
+
+  schedulePrincipalName.textContent =
+    plan?.principalName || "—";
+
+  renderScheduleTable(plan);
+
+  scheduleResult.classList.add("show");
+
+}
+
+
+function refreshScheduleSelectors(){
+
+  populateScheduleGrades();
+  populateScheduleSections();
+
+}
+
+
+scheduleGrade?.addEventListener(
+  "change",
+  ()=>{
+
+    populateScheduleSections();
+
+    scheduleResult?.classList.remove("show");
+
+    hideScheduleStatus();
+
+  }
+);
+
+
+scheduleSection?.addEventListener(
+  "change",
+  ()=>{
+
+    scheduleResult?.classList.remove("show");
+    hideScheduleStatus();
+
+  }
+);
+
+
+loadScheduleBtn?.addEventListener(
+  "click",
+  ()=>{
+
+    const gradeValue =
+      String(
+        scheduleGrade?.value || ""
+      ).trim();
+
+    const sectionValue =
+      String(
+        scheduleSection?.value || ""
+      ).trim();
+
+    if(!gradeValue){
+
+      showScheduleStatus(
+        "اختر الصف أولًا.",
+        "error"
+      );
+
+      return;
+
+    }
+
+    if(!sectionValue){
+
+      showScheduleStatus(
+        "اختر الشعبة أولًا.",
+        "error"
+      );
+
+      return;
+
+    }
+
+    const plan =
+      getLatestSchedulePlan(
+        gradeValue,
+        sectionValue
+      );
+
+    if(!plan){
+
+      scheduleResult.classList.remove("show");
+
+      showScheduleStatus(
+        "لا توجد خطة أسبوعية محفوظة لهذا الصف والشعبة.",
+        "error"
+      );
+
+      return;
+
+    }
+
+    renderSelectedSchedule(plan);
+
+    showScheduleStatus(
+      "تم تحميل جدول الحصص من آخر خطة أسبوعية محفوظة.",
+      "success"
+    );
+
+  }
+);
+
+
+printScheduleBtn?.addEventListener(
+  "click",
+  ()=>{
+
+    if(
+      !scheduleResult?.classList.contains("show")
+    ){
+
+      showScheduleStatus(
+        "اعرض جدول الحصص أولًا ثم اضغط طباعة.",
+        "error"
+      );
+
+      return;
+
+    }
+
+    document.body.classList.add(
+      "schedule-printing"
+    );
+
+    window.print();
+
+  }
+);
+
+
+window.addEventListener(
+  "afterprint",
+  ()=>{
+
+    document.body.classList.remove(
+      "schedule-printing"
+    );
+
+  }
+);
+
+
+clearScheduleBtn?.addEventListener(
+  "click",
+  ()=>{
+
+    scheduleResult?.classList.remove("show");
+    hideScheduleStatus();
+
+  }
+);
 
 </script>
 
