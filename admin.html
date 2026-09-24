@@ -7125,14 +7125,9 @@ function renderScheduleTable(plan){
         teacherDiv.className =
           "schedule-cell-teacher";
 
-        teacherDiv.textContent =
-          teacher || "اسم المعلم";
-
-        if(!teacher){
-          teacherDiv.classList.add(
-            "schedule-cell-empty"
-          );
-        }
+        teacherDiv.textContent = "";
+        teacherDiv.contentEditable = "true";
+        teacherDiv.title = "اكتب اسم المعلم يدويًا";
 
         td.appendChild(subjectDiv);
         td.appendChild(teacherDiv);
