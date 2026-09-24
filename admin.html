@@ -871,6 +871,37 @@ footer strong{
   width:150px;
 }
 
+.schedule-table th.schedule-legend-head,
+.schedule-table .schedule-legend-cell{
+  width:95px;
+  min-width:95px;
+}
+
+.schedule-legend-head{
+  line-height:1.45;
+}
+
+.schedule-legend-head span{
+  display:block;
+  color:#174f7c;
+  font-size:12px;
+  margin-top:2px;
+}
+
+.schedule-legend-cell{
+  background:#789685;
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  line-height:2.3;
+  vertical-align:middle !important;
+}
+
+.schedule-legend-cell div + div{
+  border-top:1px solid rgba(255,255,255,.75);
+  padding-top:4px;
+}
+
 .schedule-table td{
   min-height:52px;
   height:52px;
@@ -1083,6 +1114,21 @@ footer strong{
     border-right:2px solid #111 !important;
   }
 
+  body.schedule-printing .schedule-table th.schedule-legend-head,
+  body.schedule-printing .schedule-table .schedule-legend-cell{
+    width:72px !important;
+    min-width:72px !important;
+  }
+
+  body.schedule-printing .schedule-legend-head span{
+    font-size:10px !important;
+  }
+
+  body.schedule-printing .schedule-legend-cell{
+    font-size:11px !important;
+    line-height:2 !important;
+  }
+
   body.schedule-printing .schedule-table th{
     padding:6px 3px !important;
     font-size:13px !important;
@@ -1228,6 +1274,10 @@ id="logoutBtn">
             <thead>
               <tr>
                 <th>اليوم/ الحصة</th>
+                <th class="schedule-legend-head">
+                  المادة
+                  <span>اسم المعلم</span>
+                </th>
                 <th>1</th>
                 <th>2</th>
                 <th>3</th>
@@ -2253,7 +2303,7 @@ getFirestore(app);
 const rasedFirebaseConfig = {
 
   apiKey:
-  "AIzaSyAfgSV-6IMkXncgPWxY69omKfvFtGakgk",
+  "AIzaSyAfgSV-6_IMkXncgPWxY69omKfvFtGakgk",
 
   authDomain:
   "results2026-7c0dd.firebaseapp.com",
@@ -6877,6 +6927,8 @@ function normalizeScheduleTeacherKey(value){
     .replace(/[ًٌٍَُِّْـ]/g,"")
     .replace(/[()\[\]{}\-_\/\\]/g," ")
     .replace(/\s+/g," ")
+    .replace(/^ماده\s+/,"")
+    .trim()
     .toLowerCase();
 
 }
@@ -7200,22 +7252,11 @@ function renderScheduleCell(
       ? teacherName
       : "غير مسند";
 
-  const subjectLabel = document.createElement("div");
-  subjectLabel.className = "schedule-cell-label";
-  subjectLabel.textContent = "المادة";
-  subjectDiv.prepend(subjectLabel);
-
-  const teacherLabel = document.createElement("div");
-  teacherLabel.className = "schedule-cell-label teacher-label";
-  teacherLabel.textContent = "اسم المعلم";
-  teacherDiv.prepend(teacherLabel);
-
   td.appendChild(
     teacherDiv
   );
 
 }
-
 
 function renderScheduleTable(plan){
 
@@ -7233,9 +7274,10 @@ function renderScheduleTable(plan){
 
   scheduleTableBody.innerHTML = "";
 
-  Object.keys(dayNames)
-  .forEach(
-    day=>{
+  const days = Object.keys(dayNames);
+
+  days.forEach(
+    (day, dayIndex)=>{
 
       const tr =
         document.createElement("tr");
@@ -7250,6 +7292,29 @@ function renderScheduleTable(plan){
         dayNames[day];
 
       tr.appendChild(dayCell);
+
+      /* عمود تعريفي واحد فقط للمادة واسم المعلم */
+      if(dayIndex === 0){
+
+        const legendCell =
+          document.createElement("td");
+
+        legendCell.className =
+          "schedule-legend-cell";
+
+        legendCell.rowSpan =
+          days.length;
+
+        legendCell.innerHTML = `
+          <div>المادة</div>
+          <div>اسم المعلم</div>
+        `;
+
+        tr.appendChild(
+          legendCell
+        );
+
+      }
 
       const rows =
         Array.isArray(
@@ -7310,7 +7375,6 @@ function renderScheduleTable(plan){
   );
 
 }
-
 
 function renderSelectedSchedule(plan){
 
