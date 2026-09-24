@@ -705,6 +705,166 @@ footer strong{
 }
 
 
+
+/* ======================================
+   التخصصات وإسناد المعلمين
+====================================== */
+
+.specialization-card{
+  margin-bottom:22px;
+}
+
+.specialization-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.specialization-panel{
+  border:1px solid #e3e3e3;
+  border-radius:12px;
+  padding:15px;
+  background:#fafaf8;
+}
+
+.specialization-panel.full{
+  grid-column:1 / -1;
+}
+
+.specialization-actions{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.specialization-actions button{
+  border:none;
+  border-radius:8px;
+  padding:10px 15px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.spec-primary{
+  background:#0b4b3e;
+  color:white;
+}
+
+.spec-gold{
+  background:#c9a548;
+  color:#073f34;
+}
+
+.spec-light{
+  background:#eee;
+  color:#444;
+}
+
+.spec-danger{
+  background:#f8e1e1;
+  color:#8b1e1e;
+}
+
+.spec-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.spec-chip{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:white;
+  border:1px solid #ddd;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:13px;
+}
+
+.spec-chip button{
+  border:0;
+  background:transparent;
+  color:#9b2b2b;
+  cursor:pointer;
+  font-weight:bold;
+  padding:0 2px;
+}
+
+.spec-classes-select{
+  min-height:150px;
+}
+
+.spec-hint{
+  color:#777;
+  font-size:12px;
+  line-height:1.7;
+  margin-top:6px;
+}
+
+.spec-status{
+  display:none;
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:9px;
+  font-weight:bold;
+  text-align:center;
+}
+
+.spec-status.show{
+  display:block;
+}
+
+.spec-status.success{
+  background:#e8f6ec;
+  color:#17652c;
+}
+
+.spec-status.error{
+  background:#fdeaea;
+  color:#a11e1e;
+}
+
+.spec-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:14px;
+}
+
+.spec-table th,
+.spec-table td{
+  border:1px solid #ddd;
+  padding:9px;
+  text-align:center;
+  vertical-align:top;
+}
+
+.spec-table th{
+  background:#f3eedc;
+  color:#0b4b3e;
+}
+
+.spec-class-tag{
+  display:inline-block;
+  background:#edf4f1;
+  color:#245648;
+  border-radius:999px;
+  padding:4px 8px;
+  margin:2px;
+  font-size:12px;
+}
+
+@media(max-width:900px){
+  .specialization-grid{
+    grid-template-columns:1fr;
+  }
+  .specialization-panel.full{
+    grid-column:auto;
+  }
+}
+
 /* ======================================
    جدول الحصص
 ====================================== */
@@ -1339,8 +1499,116 @@ id="logoutBtn">
 
   </div>
 
+
 </section>
 
+
+<!-- ======================================
+     التخصصات وإسناد المعلمين
+====================================== -->
+
+<section class="card specialization-card" id="specializationsSection">
+
+  <div class="card-header">
+    <h3>🎓 التخصصات وإسناد المعلمين</h3>
+  </div>
+
+  <div class="card-body">
+
+    <div class="note">
+      هذا القسم مستقل عن نظام راصد. أضف أسماء المعلمين والمواد مرة واحدة،
+      ثم اختر المعلم والمادة والفصول المسندة إليه. جدول الحصص سيأخذ أسماء المعلمين
+      من هذه الإسنادات مباشرة.
+    </div>
+
+    <div class="specialization-grid">
+
+      <div class="specialization-panel">
+        <h4 style="color:#0b4b3e;margin-bottom:10px">👨‍🏫 أسماء المعلمين</h4>
+        <div class="form-group">
+          <label for="specTeacherName">اسم المعلم</label>
+          <input id="specTeacherName" placeholder="مثال: محمد عامر أحمد">
+        </div>
+        <div class="specialization-actions">
+          <button type="button" class="spec-primary" id="addSpecTeacherBtn">إضافة المعلم</button>
+        </div>
+        <div id="specTeacherList" class="spec-list"></div>
+      </div>
+
+      <div class="specialization-panel">
+        <h4 style="color:#0b4b3e;margin-bottom:10px">📚 أسماء المواد</h4>
+        <div class="form-group">
+          <label for="specSubjectName">اسم المادة</label>
+          <input id="specSubjectName" placeholder="مثال: رياضيات">
+        </div>
+        <div class="specialization-actions">
+          <button type="button" class="spec-primary" id="addSpecSubjectBtn">إضافة المادة</button>
+        </div>
+        <div id="specSubjectList" class="spec-list"></div>
+      </div>
+
+      <div class="specialization-panel full">
+        <h4 style="color:#0b4b3e;margin-bottom:12px">🔗 إسناد المادة والفصول للمعلم</h4>
+
+        <div class="specialization-grid">
+
+          <div class="form-group">
+            <label for="specTeacherSelect">اسم المعلم</label>
+            <select id="specTeacherSelect">
+              <option value="">-- اختر اسم المعلم --</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="specSubjectSelect">المادة</label>
+            <select id="specSubjectSelect">
+              <option value="">-- اختر المادة --</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="grid-column:1 / -1">
+            <label for="specClassesSelect">الفصول المسندة إليه</label>
+            <select id="specClassesSelect" class="spec-classes-select" multiple>
+            </select>
+            <div class="spec-hint">
+              اضغط Ctrl أو ⌘ لاختيار أكثر من فصل. في الجوال يمكن اختيار أكثر من عنصر حسب المتصفح.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="specialization-actions">
+          <button type="button" class="spec-gold" id="saveSpecAssignmentBtn">💾 حفظ الإسناد</button>
+          <button type="button" class="spec-light" id="clearSpecAssignmentBtn">تفريغ الاختيار</button>
+        </div>
+
+        <div id="specStatus" class="spec-status"></div>
+      </div>
+
+      <div class="specialization-panel full">
+        <h4 style="color:#0b4b3e;margin-bottom:8px">📋 الإسنادات الحالية</h4>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>المعلم</th>
+                <th>المادة</th>
+                <th>الفصول المسندة</th>
+                <th style="width:90px">الإجراء</th>
+              </tr>
+            </thead>
+            <tbody id="specAssignmentsBody">
+              <tr><td colspan="4" class="empty">جاري تحميل الإسنادات...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <div class="welcome">
@@ -1352,6 +1620,10 @@ id="logoutBtn">
 <p>
 إدارة حسابات رواد الفصول وربط كل رائد بالفصل الخاص به.
 </p>
+
+<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+  <button type="button" class="schedule-open-btn" onclick="document.getElementById('specializationsSection')?.scrollIntoView({behavior:'smooth',block:'start'})">🎓 التخصصات</button>
+</div>
 
 </div>
 
@@ -2295,48 +2567,6 @@ const db =
 getFirestore(app);
 
 
-/* ======================================
-   قاعدة بيانات نظام راصد
-   نقرأ منها إسنادات المعلمين فقط
-====================================== */
-
-const rasedFirebaseConfig = {
-
-  apiKey:
-  "AIzaSyAfgSV-6_IMkXncgPWxY69omKfvFtGakgk",
-
-  authDomain:
-  "results2026-7c0dd.firebaseapp.com",
-
-  projectId:
-  "results2026-7c0dd",
-
-  storageBucket:
-  "results2026-7c0dd.firebasestorage.app",
-
-  messagingSenderId:
-  "241421115694",
-
-  appId:
-  "1:241421115694:web:96f55fd9fd1d5b18b31abf"
-
-};
-
-const rasedApp =
-initializeApp(
-  rasedFirebaseConfig,
-  "RasedAssignmentsApp"
-);
-
-const rasedDb =
-getFirestore(
-  rasedApp
-);
-
-let rasedTeachers = [];
-let rasedAssignmentsLoaded = false;
-let rasedAssignmentsLoadError = "";
-
 
 const secondaryApp =
 initializeApp(
@@ -2533,6 +2763,31 @@ let leaders = [];
 
 let weeklyPlans = [];
 
+/* ======================================
+   التخصصات وإسناد المعلمين
+====================================== */
+
+let specializationTeachers = [];
+let specializationSubjects = [];
+let teacherSpecializationAssignments = [];
+
+const specializationGradeList = [
+  "الأول الابتدائي",
+  "الثاني الابتدائي",
+  "الثالث الابتدائي",
+  "الرابع الابتدائي",
+  "الخامس الابتدائي",
+  "السادس الابتدائي",
+  "الأول المتوسط",
+  "الثاني المتوسط",
+  "الثالث المتوسط",
+  "الأول الثانوي",
+  "الثاني الثانوي",
+  "الثالث الثانوي"
+];
+
+const specializationSectionList = ["أ","ب","ج","د"];
+
 
 /* ======================================
    الصفوف
@@ -2715,6 +2970,9 @@ onAuthStateChanged(
 
 
       await loadLeaders();
+
+
+      await loadSpecializationData();
 
 
       await loadWeeklyPlans(
@@ -6917,6 +7175,436 @@ function scheduleSubjectFromRow(row){
 }
 
 
+
+/* ======================================
+   التخصصات - التخزين والإدارة
+====================================== */
+
+function showSpecStatus(text, type="success"){
+  const el = document.getElementById("specStatus");
+  if(!el) return;
+  el.textContent = text || "";
+  el.className = "spec-status show " + type;
+  clearTimeout(window.__specStatusTimer);
+  window.__specStatusTimer = setTimeout(()=>{
+    el.className = "spec-status";
+  }, 3500);
+}
+
+function specNormalize(value){
+  return String(value ?? "")
+    .trim()
+    .replace(/\s+/g," ")
+    .toLowerCase();
+}
+
+async function loadSpecializationData(){
+
+  try{
+
+    const [teachersSnap, subjectsSnap, assignmentsSnap] =
+      await Promise.all([
+        getDocs(collection(db,"specializationTeachers")),
+        getDocs(collection(db,"specializationSubjects")),
+        getDocs(collection(db,"specializationAssignments"))
+      ]);
+
+    specializationTeachers = teachersSnap.docs.map(d=>({
+      id:d.id,
+      ...d.data()
+    })).sort((a,b)=>
+      String(a.name||"").localeCompare(String(b.name||""),"ar")
+    );
+
+    specializationSubjects = subjectsSnap.docs.map(d=>({
+      id:d.id,
+      ...d.data()
+    })).sort((a,b)=>
+      String(a.name||"").localeCompare(String(b.name||""),"ar")
+    );
+
+    teacherSpecializationAssignments = [];
+
+    assignmentsSnap.forEach(d=>{
+      const data=d.data()||{};
+      const classes=Array.isArray(data.classes)?data.classes:[];
+      classes.forEach(c=>{
+        teacherSpecializationAssignments.push({
+          id:d.id,
+          teacherId:data.teacherId||"",
+          teacherName:data.teacherName||"",
+          subjectId:data.subjectId||"",
+          subjectName:data.subjectName||"",
+          grade:c.grade||"",
+          section:c.section||""
+        });
+      });
+    });
+
+    renderSpecializationLists();
+    populateSpecializationControls();
+    renderSpecializationAssignments();
+
+  }catch(error){
+
+    console.error("SPECIALIZATION LOAD ERROR:",error);
+    showSpecStatus("تعذر تحميل بيانات التخصصات: "+(error?.message||"خطأ غير معروف"),"error");
+
+  }
+
+}
+
+function populateSpecializationControls(){
+
+  const teacherSelect=document.getElementById("specTeacherSelect");
+  const subjectSelect=document.getElementById("specSubjectSelect");
+  const classesSelect=document.getElementById("specClassesSelect");
+
+  if(teacherSelect){
+    teacherSelect.innerHTML =
+      '<option value="">-- اختر اسم المعلم --</option>' +
+      specializationTeachers.map(t=>
+        `<option value="${escapeHTML(t.id)}">${escapeHTML(t.name||"")}</option>`
+      ).join("");
+  }
+
+  if(subjectSelect){
+    subjectSelect.innerHTML =
+      '<option value="">-- اختر المادة --</option>' +
+      specializationSubjects.map(s=>
+        `<option value="${escapeHTML(s.id)}">${escapeHTML(s.name||"")}</option>`
+      ).join("");
+  }
+
+  if(classesSelect){
+    classesSelect.innerHTML =
+      specializationGradeList.flatMap(gradeValue=>
+        specializationSectionList.map(sectionValue=>{
+          const value=gradeValue+"|||"+sectionValue;
+          return `<option value="${escapeHTML(value)}">${escapeHTML(gradeValue+" / "+sectionValue)}</option>`;
+        })
+      ).join("");
+  }
+
+}
+
+function renderSpecializationLists(){
+
+  const teacherList=document.getElementById("specTeacherList");
+  const subjectList=document.getElementById("specSubjectList");
+
+  if(teacherList){
+    teacherList.innerHTML = specializationTeachers.length
+      ? specializationTeachers.map(t=>
+          `<div class="spec-chip">
+             <span>${escapeHTML(t.name||"")}</span>
+             <button type="button" data-delete-spec-teacher="${escapeHTML(t.id)}">×</button>
+           </div>`
+        ).join("")
+      : '<span class="spec-hint">لا يوجد معلمون مضافون.</span>';
+  }
+
+  if(subjectList){
+    subjectList.innerHTML = specializationSubjects.length
+      ? specializationSubjects.map(s=>
+          `<div class="spec-chip">
+             <span>${escapeHTML(s.name||"")}</span>
+             <button type="button" data-delete-spec-subject="${escapeHTML(s.id)}">×</button>
+           </div>`
+        ).join("")
+      : '<span class="spec-hint">لا توجد مواد مضافة.</span>';
+  }
+
+  document.querySelectorAll("[data-delete-spec-teacher]").forEach(btn=>{
+    btn.addEventListener("click",()=>deleteSpecializationTeacher(btn.dataset.deleteSpecTeacher));
+  });
+
+  document.querySelectorAll("[data-delete-spec-subject]").forEach(btn=>{
+    btn.addEventListener("click",()=>deleteSpecializationSubject(btn.dataset.deleteSpecSubject));
+  });
+
+}
+
+async function addSpecializationTeacher(){
+
+  const input=document.getElementById("specTeacherName");
+  const name=String(input?.value||"").trim();
+
+  if(!name){
+    showSpecStatus("اكتب اسم المعلم أولًا.","error");
+    return;
+  }
+
+  if(specializationTeachers.some(t=>specNormalize(t.name)===specNormalize(name))){
+    showSpecStatus("اسم المعلم موجود بالفعل.","error");
+    return;
+  }
+
+  try{
+
+    await setDoc(
+      doc(collection(db,"specializationTeachers")),
+      {name,createdAt:serverTimestamp()}
+    );
+
+    input.value="";
+    await loadSpecializationData();
+    showSpecStatus("تمت إضافة المعلم بنجاح.","success");
+
+  }catch(error){
+    console.error(error);
+    showSpecStatus("تعذر إضافة المعلم: "+error.message,"error");
+  }
+
+}
+
+async function addSpecializationSubject(){
+
+  const input=document.getElementById("specSubjectName");
+  const name=String(input?.value||"").trim();
+
+  if(!name){
+    showSpecStatus("اكتب اسم المادة أولًا.","error");
+    return;
+  }
+
+  if(specializationSubjects.some(s=>specNormalize(s.name)===specNormalize(name))){
+    showSpecStatus("اسم المادة موجود بالفعل.","error");
+    return;
+  }
+
+  try{
+
+    await setDoc(
+      doc(collection(db,"specializationSubjects")),
+      {name,createdAt:serverTimestamp()}
+    );
+
+    input.value="";
+    await loadSpecializationData();
+    showSpecStatus("تمت إضافة المادة بنجاح.","success");
+
+  }catch(error){
+    console.error(error);
+    showSpecStatus("تعذر إضافة المادة: "+error.message,"error");
+  }
+
+}
+
+async function deleteSpecializationTeacher(id){
+
+  const teacher=specializationTeachers.find(t=>t.id===id);
+  if(!teacher) return;
+
+  if(!confirm("هل تريد حذف المعلم:\n"+teacher.name+" ؟")) return;
+
+  try{
+
+    const related =
+      (await getDocs(collection(db,"specializationAssignments"))).docs
+      .filter(d=>d.data()?.teacherId===id);
+
+    for(const d of related){
+      await deleteDoc(d.ref);
+    }
+
+    await deleteDoc(doc(db,"specializationTeachers",id));
+    await loadSpecializationData();
+    showSpecStatus("تم حذف المعلم وإسناداته.","success");
+
+  }catch(error){
+    console.error(error);
+    showSpecStatus("تعذر حذف المعلم: "+error.message,"error");
+  }
+
+}
+
+async function deleteSpecializationSubject(id){
+
+  const subject=specializationSubjects.find(s=>s.id===id);
+  if(!subject) return;
+
+  if(!confirm("هل تريد حذف المادة:\n"+subject.name+" ؟")) return;
+
+  try{
+
+    const related =
+      (await getDocs(collection(db,"specializationAssignments"))).docs
+      .filter(d=>d.data()?.subjectId===id);
+
+    for(const d of related){
+      await deleteDoc(d.ref);
+    }
+
+    await deleteDoc(doc(db,"specializationSubjects",id));
+    await loadSpecializationData();
+    showSpecStatus("تم حذف المادة وإسناداتها.","success");
+
+  }catch(error){
+    console.error(error);
+    showSpecStatus("تعذر حذف المادة: "+error.message,"error");
+  }
+
+}
+
+async function saveSpecializationAssignment(){
+
+  const teacherId=document.getElementById("specTeacherSelect")?.value||"";
+  const subjectId=document.getElementById("specSubjectSelect")?.value||"";
+  const classSelect=document.getElementById("specClassesSelect");
+  const classValues=Array.from(classSelect?.selectedOptions||[]).map(o=>o.value);
+
+  if(!teacherId){
+    showSpecStatus("اختر اسم المعلم.","error");
+    return;
+  }
+
+  if(!subjectId){
+    showSpecStatus("اختر المادة.","error");
+    return;
+  }
+
+  if(!classValues.length){
+    showSpecStatus("اختر فصلًا واحدًا على الأقل.","error");
+    return;
+  }
+
+  const teacher=specializationTeachers.find(t=>t.id===teacherId);
+  const subject=specializationSubjects.find(s=>s.id===subjectId);
+
+  if(!teacher || !subject){
+    showSpecStatus("المعلم أو المادة غير موجودة.","error");
+    return;
+  }
+
+  const classes=classValues.map(value=>{
+    const [gradeValue,sectionValue]=value.split("|||");
+    return {grade:gradeValue,section:sectionValue};
+  });
+
+  try{
+
+    /* مفتاح ثابت يمنع تكرار نفس المادة للمعلم */
+    const assignmentId=teacherId+"__"+subjectId;
+
+    await setDoc(
+      doc(db,"specializationAssignments",assignmentId),
+      {
+        teacherId,
+        teacherName:teacher.name,
+        subjectId,
+        subjectName:subject.name,
+        classes,
+        updatedAt:serverTimestamp()
+      },
+      {merge:true}
+    );
+
+    await loadSpecializationData();
+
+    document.getElementById("specTeacherSelect").value="";
+    document.getElementById("specSubjectSelect").value="";
+    Array.from(classSelect.options).forEach(o=>o.selected=false);
+
+    showSpecStatus("تم حفظ الإسناد بنجاح، وجدول الحصص سيقرأه مباشرة.","success");
+
+  }catch(error){
+
+    console.error(error);
+    showSpecStatus("تعذر حفظ الإسناد: "+error.message,"error");
+
+  }
+
+}
+
+async function deleteSpecializationAssignment(id){
+
+  if(!id) return;
+
+  if(!confirm("هل تريد حذف هذا الإسناد؟")) return;
+
+  try{
+    await deleteDoc(doc(db,"specializationAssignments",id));
+    await loadSpecializationData();
+    showSpecStatus("تم حذف الإسناد.","success");
+  }catch(error){
+    console.error(error);
+    showSpecStatus("تعذر حذف الإسناد: "+error.message,"error");
+  }
+
+}
+
+function renderSpecializationAssignments(){
+
+  const body=document.getElementById("specAssignmentsBody");
+  if(!body) return;
+
+  const grouped={};
+
+  const docsById={};
+
+  teacherSpecializationAssignments.forEach(item=>{
+
+    const id=item.id;
+
+    if(!grouped[id]){
+      grouped[id]={
+        id,
+        teacherName:item.teacherName||"",
+        subjectName:item.subjectName||"",
+        classes:[]
+      };
+    }
+
+    grouped[id].classes.push({
+      grade:item.grade||"",
+      section:item.section||""
+    });
+
+  });
+
+  const rows=Object.values(grouped);
+
+  if(!rows.length){
+    body.innerHTML='<tr><td colspan="4" class="empty">لا توجد إسنادات مضافة.</td></tr>';
+    return;
+  }
+
+  body.innerHTML=rows.map(item=>`
+    <tr>
+      <td>${escapeHTML(item.teacherName)}</td>
+      <td>${escapeHTML(item.subjectName)}</td>
+      <td>
+        ${item.classes.map(c=>
+          `<span class="spec-class-tag">${escapeHTML(c.grade+" / "+c.section)}</span>`
+        ).join("")}
+      </td>
+      <td>
+        <button type="button" class="spec-danger" data-delete-spec-assignment="${escapeHTML(item.id)}">حذف</button>
+      </td>
+    </tr>
+  `).join("");
+
+  document.querySelectorAll("[data-delete-spec-assignment]").forEach(btn=>{
+    btn.addEventListener("click",()=>deleteSpecializationAssignment(btn.dataset.deleteSpecAssignment));
+  });
+
+}
+
+document.getElementById("addSpecTeacherBtn")?.addEventListener("click",addSpecializationTeacher);
+document.getElementById("addSpecSubjectBtn")?.addEventListener("click",addSpecializationSubject);
+document.getElementById("saveSpecAssignmentBtn")?.addEventListener("click",saveSpecializationAssignment);
+document.getElementById("clearSpecAssignmentBtn")?.addEventListener("click",()=>{
+  const t=document.getElementById("specTeacherSelect");
+  const s=document.getElementById("specSubjectSelect");
+  const c=document.getElementById("specClassesSelect");
+  if(t)t.value="";
+  if(s)s.value="";
+  if(c)Array.from(c.options).forEach(o=>o.selected=false);
+  showSpecStatus("تم تفريغ الاختيار.","success");
+});
+
+
 function normalizeScheduleTeacherKey(value){
 
   return String(value || "")
@@ -7060,59 +7748,6 @@ async function loadScheduleWeeklyPlansDirectly(){
 }
 
 
-async function loadRasedTeacherAssignments(){
-
-  try{
-
-    const snapshot =
-      await getDocs(
-        collection(
-          rasedDb,
-          "teachers"
-        )
-      );
-
-    rasedTeachers = [];
-
-    snapshot.forEach(
-      item=>{
-
-        const data =
-          item.data() || {};
-
-        rasedTeachers.push({
-          id:item.id,
-          ...data
-        });
-
-      }
-    );
-
-    rasedAssignmentsLoaded = true;
-    rasedAssignmentsLoadError = "";
-
-    return true;
-
-  }catch(error){
-
-    console.error(
-      "RASED ASSIGNMENTS LOAD ERROR:",
-      error
-    );
-
-    rasedTeachers = [];
-    rasedAssignmentsLoaded = false;
-    rasedAssignmentsLoadError =
-      error?.message ||
-      "تعذر قراءة إسنادات المعلمين من نظام راصد.";
-
-    return false;
-
-  }
-
-}
-
-
 function getAssignedTeacherName(
   gradeValue,
   sectionValue,
@@ -7120,90 +7755,73 @@ function getAssignedTeacherName(
   subjectIdValue = ""
 ){
 
-  const subjectId =
-    String(subjectIdValue || "").trim();
-
   const subjectKey =
     normalizeScheduleTeacherKey(
       subjectValue
     );
 
+  const subjectId =
+    String(
+      subjectIdValue || ""
+    ).trim();
+
   for(
-    const teacher of rasedTeachers
+    const item of teacherSpecializationAssignments
   ){
 
-    const assignments =
-      Array.isArray(
-        teacher?.assignments
+    if(
+      !scheduleGradesMatch(
+        item?.grade,
+        gradeValue
       )
-      ? teacher.assignments
-      : [];
-
-    for(
-      const assignment of assignments
     ){
+      continue;
+    }
 
-      if(
-        !scheduleGradesMatch(
-          assignment?.grade,
-          gradeValue
-        )
-      ){
-        continue;
-      }
+    if(
+      !scheduleSectionsMatchForTeacher(
+        item?.section,
+        sectionValue
+      )
+    ){
+      continue;
+    }
 
-      if(
-        !scheduleSectionsMatchForTeacher(
-          assignment?.section,
-          sectionValue
-        )
-      ){
-        continue;
-      }
+    const assignmentSubjectId =
+      String(
+        item?.subjectId || ""
+      ).trim();
 
-      const assignmentSubjectId =
-        String(
-          assignment?.subjectId || ""
-        ).trim();
+    const assignmentSubjectName =
+      normalizeScheduleTeacherKey(
+        item?.subjectName ||
+        item?.subject ||
+        ""
+      );
 
-      const assignmentSubjectName =
-        normalizeScheduleTeacherKey(
-          assignment?.subjectName ??
-          assignment?.subject ??
-          ""
-        );
+    const sameSubject =
+      (
+        subjectId &&
+        assignmentSubjectId &&
+        subjectId === assignmentSubjectId
+      )
+      ||
+      (
+        subjectKey &&
+        assignmentSubjectName &&
+        subjectKey === assignmentSubjectName
+      );
 
-      const sameSubject =
-        (
-          subjectId &&
-          assignmentSubjectId &&
-          subjectId === assignmentSubjectId
-        )
-        ||
-        (
-          subjectKey &&
-          assignmentSubjectName &&
-          subjectKey === assignmentSubjectName
-        );
-
-      if(
-        sameSubject
-      ){
-
-        return String(
-          teacher?.name ||
-          teacher?.email ||
-          ""
-        ).trim();
-
-      }
-
+    if(sameSubject){
+      return String(
+        item?.teacherName ||
+        ""
+      ).trim();
     }
 
   }
 
   return "";
-
 }
 
 
@@ -7500,18 +8118,18 @@ loadScheduleBtn?.addEventListener(
 
     }
 
-    if(!rasedAssignmentsLoaded){
-
-      await loadRasedTeacherAssignments();
-
-    }
-
     renderSelectedSchedule(plan);
 
-    if(rasedAssignmentsLoaded){
+    const assignmentCount =
+      teacherSpecializationAssignments.filter(item=>
+        scheduleGradesMatch(item.grade, gradeValue) &&
+        scheduleSectionsMatchForTeacher(item.section, sectionValue)
+      ).length;
+
+    if(assignmentCount > 0){
 
       showScheduleStatus(
-        "تم تحميل جدول الحصص من آخر خطة أسبوعية محفوظة، مع أسماء المعلمين من إسنادات راصد.",
+        "تم تحميل جدول الحصص من آخر خطة أسبوعية، وأسماء المعلمين من قسم التخصصات.",
         "success"
       );
 
@@ -7519,8 +8137,7 @@ loadScheduleBtn?.addEventListener(
     else{
 
       showScheduleStatus(
-        "تم تحميل الجدول، لكن تعذر قراءة إسنادات المعلمين من راصد: " +
-        rasedAssignmentsLoadError,
+        "تم تحميل الجدول، لكن لا يوجد إسناد مسجل لهذه المواد في قسم التخصصات.",
         "error"
       );
 
