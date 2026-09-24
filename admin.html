@@ -2248,6 +2248,37 @@ getAuth(app);
 const db =
 getFirestore(app);
 
+const assignmentsFirebaseConfig = {
+
+  apiKey:
+  "AIzaSyAfgSV-6_IMkXncgPWxY69omKfvFtGakgk",
+
+  authDomain:
+  "results2026-7c0dd.firebaseapp.com",
+
+  projectId:
+  "results2026-7c0dd",
+
+  storageBucket:
+  "results2026-7c0dd.firebasestorage.app",
+
+  messagingSenderId:
+  "241421115694",
+
+  appId:
+  "1:241421115694:web:96f55fd9fd1d5b18b31abf"
+
+};
+
+const assignmentsApp = initializeApp(
+  assignmentsFirebaseConfig,
+  "TeacherAssignmentsApp"
+);
+
+const assignmentsDb = getFirestore(
+  assignmentsApp
+);
+
 
 const secondaryApp =
 initializeApp(
@@ -6501,7 +6532,7 @@ async function loadScheduleTeacherAssignments(){
   }
 
   const snapshot = await getDocs(
-    collection(db, "teachers")
+    collection(assignmentsDb, "teachers")
   );
 
   scheduleTeacherAssignments = [];
