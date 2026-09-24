@@ -6483,6 +6483,14 @@ function escapeHTML(
 const scheduleGrade =
   document.getElementById("scheduleGrade");
 
+// تحميل الصفوف والشعب الخاصة بجدول الحصص فور فتح الأدمن.
+setTimeout(
+  ()=>{
+    loadScheduleWeeklyPlansDirectly();
+  },
+  0
+);
+
 const scheduleSection =
   document.getElementById("scheduleSection");
 
@@ -6893,6 +6901,68 @@ function scheduleSectionsMatchForTeacher(a,b){
   };
 
   return map[na] === map[nb];
+}
+
+
+async function loadScheduleWeeklyPlansDirectly(){
+
+  try{
+
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          "weeklyPlans"
+        )
+      );
+
+    weeklyPlans = [];
+
+    snapshot.forEach(
+      item=>{
+
+        weeklyPlans.push({
+          id:item.id,
+          ...item.data()
+        });
+
+      }
+    );
+
+    if(
+      typeof refreshScheduleSelectors ===
+      "function"
+    ){
+
+      refreshScheduleSelectors();
+
+    }
+
+    return true;
+
+  }catch(error){
+
+    console.error(
+      "SCHEDULE WEEKLY PLANS LOAD ERROR:",
+      error
+    );
+
+    if(
+      typeof showScheduleStatus ===
+      "function"
+    ){
+
+      showScheduleStatus(
+        "تعذر تحميل الصفوف والشعب من الخطط الأسبوعية.",
+        "error"
+      );
+
+    }
+
+    return false;
+
+  }
+
 }
 
 
