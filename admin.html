@@ -843,6 +843,13 @@ footer strong{
   border-collapse:collapse;
   table-layout:fixed;
   direction:rtl;
+  border-right:2px solid #111;
+  box-sizing:border-box;
+}
+
+.schedule-table th:first-child,
+.schedule-table td:first-child{
+  border-right:2px solid #111;
 }
 
 .schedule-table th,
@@ -1032,6 +1039,17 @@ footer strong{
     font-size:23px !important;
     margin:7px 0 !important;
   }
+  body.schedule-printing .schedule-table{
+    width:100% !important;
+    border-right:2px solid #111 !important;
+    box-sizing:border-box !important;
+    overflow:visible !important;
+  }
+
+  body.schedule-printing .schedule-table th:first-child,
+  body.schedule-printing .schedule-table td:first-child{
+    border-right:2px solid #111 !important;
+  }
 
   body.schedule-printing .schedule-table th{
     padding:6px 3px !important;
@@ -1103,6 +1121,144 @@ id="logoutBtn">
 
 
 <main class="container">
+
+<!-- ======================================
+     جدول الحصص
+====================================== -->
+
+<section class="card schedule-card">
+
+  <div class="card-header">
+    <h3>جدول الحصص</h3>
+  </div>
+
+  <div class="card-body">
+
+    <div class="schedule-toolbar">
+
+      <div class="form-group">
+        <label for="scheduleGrade">الصف</label>
+        <select id="scheduleGrade">
+          <option value="">اختر الصف</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="scheduleSection">الشعبة</label>
+        <select id="scheduleSection">
+          <option value="">اختر الشعبة</option>
+        </select>
+      </div>
+
+      <button
+        type="button"
+        class="schedule-open-btn"
+        id="loadScheduleBtn">
+        عرض جدول الحصص
+      </button>
+
+    </div>
+
+    <div id="scheduleStatus" class="schedule-status"></div>
+
+    <div id="scheduleResult" class="schedule-result">
+
+      <div id="schedulePrintArea" class="schedule-preview">
+
+        <div class="schedule-print-sheet">
+
+          <div class="schedule-school-head">
+
+            <div>
+              <img
+                src="logo.jpeg"
+                class="schedule-school-logo"
+                alt="شعار مدارس الفلاح">
+            </div>
+
+            <div class="schedule-school-name">
+              مدارس الفلاح الأهلية
+              <small>نظام الخطة الأسبوعية</small>
+            </div>
+
+            <div></div>
+
+          </div>
+
+          <div id="scheduleTitle" class="schedule-title">
+            جدول الحصص
+          </div>
+
+          <div id="scheduleWeekNote" class="schedule-week-note"></div>
+
+          <table class="schedule-table">
+
+            <thead>
+              <tr>
+                <th>اليوم/ الحصة</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+              </tr>
+            </thead>
+
+            <tbody id="scheduleTableBody"></tbody>
+
+          </table>
+
+          <div class="schedule-signatures">
+
+            <div class="schedule-signature">
+              رائد الصف حسب الخطة
+              <div id="scheduleLeaderName"></div>
+              <div class="schedule-signature-line"></div>
+            </div>
+
+            <div class="schedule-signature">
+              مدير المدرسة
+              <div id="schedulePrincipalName"></div>
+              <div class="schedule-signature-line"></div>
+            </div>
+
+          </div>
+
+          <div class="schedule-credit">
+            تصميم وتطوير: محمد عامر أحمد
+          </div>
+
+          <div class="schedule-print-actions">
+
+            <button
+              type="button"
+              class="schedule-print-btn"
+              id="printScheduleBtn">
+              طباعة
+            </button>
+
+            <button
+              type="button"
+              class="schedule-close-btn"
+              id="clearScheduleBtn">
+              إخفاء الجدول
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
 
 <div class="welcome">
@@ -1507,144 +1663,6 @@ class="empty">
 
 </section>
 
-
-
-<!-- ======================================
-     جدول الحصص
-====================================== -->
-
-<section class="card schedule-card">
-
-  <div class="card-header">
-    <h3>جدول الحصص</h3>
-  </div>
-
-  <div class="card-body">
-
-    <div class="schedule-toolbar">
-
-      <div class="form-group">
-        <label for="scheduleGrade">الصف</label>
-        <select id="scheduleGrade">
-          <option value="">اختر الصف</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="scheduleSection">الشعبة</label>
-        <select id="scheduleSection">
-          <option value="">اختر الشعبة</option>
-        </select>
-      </div>
-
-      <button
-        type="button"
-        class="schedule-open-btn"
-        id="loadScheduleBtn">
-        عرض جدول الحصص
-      </button>
-
-    </div>
-
-    <div id="scheduleStatus" class="schedule-status"></div>
-
-    <div id="scheduleResult" class="schedule-result">
-
-      <div id="schedulePrintArea" class="schedule-preview">
-
-        <div class="schedule-print-sheet">
-
-          <div class="schedule-school-head">
-
-            <div>
-              <img
-                src="logo.jpeg"
-                class="schedule-school-logo"
-                alt="شعار مدارس الفلاح">
-            </div>
-
-            <div class="schedule-school-name">
-              مدارس الفلاح الأهلية
-              <small>نظام الخطة الأسبوعية</small>
-            </div>
-
-            <div></div>
-
-          </div>
-
-          <div id="scheduleTitle" class="schedule-title">
-            جدول الحصص
-          </div>
-
-          <div id="scheduleWeekNote" class="schedule-week-note"></div>
-
-          <table class="schedule-table">
-
-            <thead>
-              <tr>
-                <th>اليوم/ الحصة</th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-              </tr>
-            </thead>
-
-            <tbody id="scheduleTableBody"></tbody>
-
-          </table>
-
-          <div class="schedule-signatures">
-
-            <div class="schedule-signature">
-              رائد الصف حسب الخطة
-              <div id="scheduleLeaderName"></div>
-              <div class="schedule-signature-line"></div>
-            </div>
-
-            <div class="schedule-signature">
-              مدير المدرسة
-              <div id="schedulePrincipalName"></div>
-              <div class="schedule-signature-line"></div>
-            </div>
-
-          </div>
-
-          <div class="schedule-credit">
-            تصميم وتطوير: محمد عامر أحمد
-          </div>
-
-          <div class="schedule-print-actions">
-
-            <button
-              type="button"
-              class="schedule-print-btn"
-              id="printScheduleBtn">
-              طباعة
-            </button>
-
-            <button
-              type="button"
-              class="schedule-close-btn"
-              id="clearScheduleBtn">
-              إخفاء الجدول
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
 
 
 <div class="layout">
